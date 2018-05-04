@@ -22,6 +22,8 @@ import javafx.scene.Group;
 public class MainController {
 	private BoardView gameBoard;
 	private Board board;
+	private SystemLogView logView;
+
 
 	//groups set each nodes on board
 	private Group tileGroup;

@@ -19,11 +19,6 @@ import javafx.scene.Group;
  */
 
 
-/**
- * test test test
- * @author Dario
- *
- */
 public class MainController {
 	private BoardView gameBoard;
 	private Board board;

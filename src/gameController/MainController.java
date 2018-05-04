@@ -18,6 +18,12 @@ import javafx.scene.Group;
  * it is in order to make other controllers work together
  */
 
+
+/**
+ * test test test
+ * @author Dario
+ *
+ */
 public class MainController {
 	private BoardView gameBoard;
 	private Board board;
@@ -35,7 +41,7 @@ public class MainController {
 
 	private TileController tileController;
 	private HeroController heroController;
-	
+
 
 	/**
 	 * initial controller
@@ -60,7 +66,7 @@ public class MainController {
 
 		gameBoard = new BoardView(board.getWidth(), board.getHeight(), board.getTileSize(), tileGroup, heroGroup);
 	}
-	
+
 	/**
 	 * return the gameBoard when the parameters changed
 	 * @Ensures ("gameBoard != null")

@@ -3,9 +3,7 @@ package gameController;
 import java.util.ArrayList;
 
 import gameModel.Board;
-import gameView.BoardView;
-import gameView.HeroView;
-import gameView.TileView;
+import gameView.*;
 import javafx.scene.Group;
 
 /**

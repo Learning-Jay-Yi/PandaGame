@@ -23,6 +23,7 @@ public class GameLog {
 		this.role = r;
 		this.coordinate[0] = x;
 		this.coordinate[1] = y;
+		turnID++;
 	}
 
 	public static int getTurnID() {

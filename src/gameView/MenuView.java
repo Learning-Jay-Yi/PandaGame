@@ -11,6 +11,7 @@ package gameView;
  * 1) the control button (such as 'undo', 'save')
  * 2) turns No.
  * 3) who's turn
+ * 4) time limitation for each move
  */
 public class MenuView {
 

@@ -16,6 +16,8 @@ public class GameLog {
 	private RoleType role;
 	private int[] coordinate = new int[2];
 
+	private String action; // action player did, this data type will change later.
+
 	public GameLog(PlayerType p, RoleType r, int x, int y){
 		this.player = p;
 		this.role = r;

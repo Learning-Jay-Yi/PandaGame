@@ -17,6 +17,8 @@ public class ProcessController {
 
 	ArrayList<GameLog> logList = new ArrayList<>();
 	GameLog log;
+
+
 	public ProcessController(){
 
 	}
@@ -29,9 +31,6 @@ public class ProcessController {
 
 	public void updateNewLog(int newX, int newY){
 		log.setNewCoordinate(newX, newY);
-	}
-
-	public void addNewLog(GameLog log){
 		logList.add(log);
 	}
 

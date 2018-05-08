@@ -18,16 +18,19 @@ import javafx.scene.Group;
  * last update date: 11/04/2018
  */
 
-public class HeroController 
+public class HeroController
 {
 	private int width, height, tilesize;
-	public HeroController(int width, int height, int tilesize) 
+	private ProcessController processController;
+
+	public HeroController(int width, int height, int tilesize, ProcessController process)
 	{
 		this.width = width;
 		this.height = height;
 		this.tilesize = tilesize;
+		this.processController = process;
 	}
-	
+
 	/**
 	 * initial hero group
 	 * @Ensures ("Group hero !=null")
@@ -35,10 +38,10 @@ public class HeroController
 	public Group createHeros(ArrayList<HeroView> heroArray,TileView[][] tileArray){
 		Group group = new Group();
 		ArrayList<Hero> r = new ArrayList<Hero>();
-		
+
 		/**
 		 * list add new warrior that with plyaerType
-		 * @Invariant("r.length <= 9") the maximum number of heroes in the hero pool is 9 
+		 * @Invariant("r.length <= 9") the maximum number of heroes in the hero pool is 9
 		 * @Invariant("warrior.length && support.length && ranger.length == 2")
 		 */
 
@@ -62,10 +65,10 @@ public class HeroController
 			heroArray.add(heroView);
 
 			// ******* for future developing ----- maybe there will is some function need this
-			tileArray[a.getStartX()][a.getStartY()].setHero(heroView); 
+			tileArray[a.getStartX()][a.getStartY()].setHero(heroView);
 
 			TurnChecker t = new TurnChecker();
-			
+
 			heroView.setOnMouseClicked(e ->
 			{
 				//************************* for future developing ------ refractory (too many if statements)
@@ -87,7 +90,7 @@ public class HeroController
 						showValidTiles(tileArray, a.getValidX()[i], a.getValidY()[i]);
 					}
 				}
-				
+
 				//move only if the tile selected is valid
 				if(!selected && !t.isTurn() && a.getPlayerType() == PlayerType.BLUE)
 				{
@@ -102,9 +105,12 @@ public class HeroController
 					}
 				}
 
-				if(t.isTurn() && a.getPlayerType() == PlayerType.BLUE 
+				if(t.isTurn() && a.getPlayerType() == PlayerType.BLUE
 						|| !t.isTurn() && a.getPlayerType() == PlayerType.RED)
 					TurnCheckerAlarm.display();
+				else
+					processController.createNewLog(heroView.getPlayerType(), heroView.getRoleType(),
+							heroView.getLocX(), heroView.getLocY());
 			});
 
 			group.getChildren().add(heroView);
@@ -114,9 +120,9 @@ public class HeroController
 
 	/**
 	 * private method to show all the valid tiles in the view
-	 * @Requires ("tile[][] !== null","x,y>=0","x<=13,y<=14") 
-	 * @Requires ("x>=0","x<=13") 
-	 * @Requires ("y>=0","y<=14") 
+	 * @Requires ("tile[][] !== null","x,y>=0","x<=13,y<=14")
+	 * @Requires ("x>=0","x<=13")
+	 * @Requires ("y>=0","y<=14")
 	 */
 	private void showValidTiles(TileView[][] tile, int x, int y){
 		tile[x][y].changeColor(); // call the method that change the special tiles.

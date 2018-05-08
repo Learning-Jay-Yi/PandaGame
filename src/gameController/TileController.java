@@ -21,6 +21,7 @@ public class TileController {
 	private int boardWidth;
 	private int boardHeight;
 	private int tileSize;
+	private ProcessController processController;
 
 	/**
 	 * constructor that to store new object with width, height, size three parameters
@@ -28,10 +29,11 @@ public class TileController {
 	 * @Requires ("height == 14")
 	 * @Requires ("size == 50")
 	 */
-	public TileController(int width, int height, int size){
+	public TileController(int width, int height, int size, ProcessController process){
 		this.boardWidth = width;
 		this.boardHeight = height;
 		this.tileSize = size;
+		this.processController = process;
 	}
 
 	/**
@@ -53,6 +55,7 @@ public class TileController {
 								heroArray.get(i).move(tileView.getLocX(), tileView.getLocY());
 								TurnChecker t = new TurnChecker();
 								t.count();
+								processController.updateNewLog(tileView.getLocX(), tileView.getLocY());
 								// *********for future developing, need set method "set HERO" on tileview.*******
 							}
 						}

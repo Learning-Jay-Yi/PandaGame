@@ -56,8 +56,8 @@ public class MainController {
 
 		processController = new ProcessController();
 
-		tileController = new TileController(WIDTH, HEIGHT, TILE_SIZE);
-		heroController = new HeroController(WIDTH, HEIGHT, TILE_SIZE);
+		tileController = new TileController(WIDTH, HEIGHT, TILE_SIZE, processController);
+		heroController = new HeroController(WIDTH, HEIGHT, TILE_SIZE, processController);
 
 		tileArray = new TileView[WIDTH][HEIGHT];
 		heroArray = new ArrayList<HeroView>();

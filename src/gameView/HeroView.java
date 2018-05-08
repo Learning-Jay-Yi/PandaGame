@@ -21,6 +21,7 @@ public class HeroView extends StackPane{
 	private boolean selected;
 	private int size;
 	private PlayerType p;
+	private RoleType r;
 	/**
 	 * initial hero view with the parameters x, y, p, r, s, size
 	 * @Requires ("x == 13")
@@ -39,6 +40,7 @@ public class HeroView extends StackPane{
 
 		this.alive = true;
 		this.p = p;
+		this.r = r;
 
 		this.getChildren().add(shape);
 	}
@@ -109,5 +111,10 @@ public class HeroView extends StackPane{
 	 */
 	public int getLocY(){
 		return y;
+	}
+
+
+	public RoleType getRoleType(){
+		return r;
 	}
 }

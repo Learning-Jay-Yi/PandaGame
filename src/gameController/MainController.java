@@ -21,7 +21,7 @@ public class MainController {
 	private BoardView gameBoard;
 	private Board board;
 	private SystemLogView logView;
-
+	private FrameView gameFrame;
 
 	//groups set each nodes on board
 	private Group tileGroup;
@@ -60,13 +60,16 @@ public class MainController {
 		heroGroup = heroController.createHeros(heroArray, tileArray);
 
 		gameBoard = new BoardView(board.getWidth(), board.getHeight(), board.getTileSize(), tileGroup, heroGroup);
+
+		gameFrame = new FrameView(gameBoard.displayBoard());
+
 	}
 
 	/**
-	 * return the gameBoard when the parameters changed
-	 * @Ensures ("gameBoard != null")
+	 * return the gameFrame when the parameters changed
+	 * @Ensures ("gameFrame != null")
 	 */
-	public BoardView getGameBoard(){
-		return gameBoard;
+	public FrameView getGameFrame(){
+		return gameFrame;
 	}
 }

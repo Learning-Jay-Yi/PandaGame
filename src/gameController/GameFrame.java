@@ -19,7 +19,7 @@ public class GameFrame extends Application{
 
 		MainController con = new MainController();
 
-		Scene scene = new Scene(con.getGameBoard().displayBoard());
+		Scene scene = new Scene(con.getGameFrame().displayFrame());
 		primaryStage.setTitle("Panda Game");
 		primaryStage.setScene(scene);
 		primaryStage.show();

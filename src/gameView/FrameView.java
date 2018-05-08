@@ -1,0 +1,35 @@
+package gameView;
+
+import javafx.geometry.Pos;
+import javafx.scene.layout.*;
+import javafx.scene.text.Text;
+
+/**
+ *
+ * @author Vincent
+ * @version 1.0
+ * @since 08/05/2018
+ *
+ * place game board and menu on frame view.
+ */
+public class FrameView {
+
+	private BorderPane framePane = new BorderPane();
+
+	public FrameView(Pane gameBoard){
+		this.setFrame(gameBoard);
+	}
+
+	public void setFrame(Pane gameBoard){
+
+		this.framePane.setCenter(gameBoard);
+		this.framePane.setBottom(new Text("hahaha")); // later change to put menu here
+
+	}
+
+	public BorderPane displayFrame(){
+		return framePane;
+	}
+
+
+}

@@ -14,15 +14,18 @@ public class GameLog {
 
 	private PlayerType player;
 	private RoleType role;
-	private int[] coordinate = new int[2];
+	private int[] newCoordinate = new int[2];
+	private int[] oldCoordinate = new int[2];
 
 	private String action; // action player did, this data type will change later.
 
-	public GameLog(PlayerType p, RoleType r, int x, int y){
+	public GameLog(PlayerType p, RoleType r, int oldX, int oldY, int newX, int newY){
 		this.player = p;
 		this.role = r;
-		this.coordinate[0] = x;
-		this.coordinate[1] = y;
+		this.newCoordinate[0] = newX;
+		this.newCoordinate[1] = newY;
+		this.oldCoordinate[0] = oldX;
+		this.oldCoordinate[1] = oldY;
 		turnID++;
 	}
 
@@ -38,9 +41,12 @@ public class GameLog {
 		return role;
 	}
 
-	public int[] getCoordinate() {
-		return coordinate;
+	public int[] getNewCoordinate() {
+		return newCoordinate;
 	}
 
+	public int[] getOldCoordinate() {
+		return oldCoordinate;
+	}
 
 }

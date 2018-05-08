@@ -38,6 +38,8 @@ public class MainController {
 	private HeroController heroController;
 	private ProcessController processController;
 
+	private MenuView menu;
+
 	/**
 	 * initial controller
 	 * @Requires ("board")
@@ -49,6 +51,8 @@ public class MainController {
 		TILE_SIZE = board.getTileSize();
 		WIDTH = board.getWidth();
 		HEIGHT = board.getHeight();
+
+		menu = new MenuView();
 
 		processController = new ProcessController();
 
@@ -63,7 +67,9 @@ public class MainController {
 
 		gameBoard = new BoardView(board.getWidth(), board.getHeight(), board.getTileSize(), tileGroup, heroGroup);
 
-		gameFrame = new FrameView(gameBoard.displayBoard());
+		gameFrame = new FrameView(gameBoard.displayBoard(), menu.getMenuBar());
+
+
 
 	}
 

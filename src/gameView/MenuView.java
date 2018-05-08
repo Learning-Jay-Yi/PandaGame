@@ -1,5 +1,8 @@
 package gameView;
 
+import javafx.scene.control.Button;
+import javafx.scene.layout.HBox;
+
 /**
  *
  * @author Vincent
@@ -14,5 +17,19 @@ package gameView;
  * 4) time limitation for each move
  */
 public class MenuView {
+	Button undoBtn = new Button("Undo");
+	HBox menuBar = new HBox();
+
+	public MenuView(){
+		menuBar.getChildren().add(undoBtn);
+	}
+
+	public Button getUndoBtn(){
+		return undoBtn;
+	}
+
+	public HBox getMenuBar(){
+		return menuBar;
+	}
 
 }

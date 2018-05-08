@@ -23,7 +23,8 @@ public class FrameView {
 	public void setFrame(Pane gameBoard){
 
 		this.framePane.setCenter(gameBoard);
-		this.framePane.setBottom(new Text("hahaha")); // later change to put menu here
+		this.framePane.setTop(new Text("Time Limits and who's turn"));
+		this.framePane.setBottom(new Text("menu section")); // later change to put menu here
 
 	}
 

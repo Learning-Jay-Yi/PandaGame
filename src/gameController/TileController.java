@@ -52,11 +52,15 @@ public class TileController {
 					if(tileView.isReady()){
 						for(int i = 0; i < heroArray.size(); i++){
 							if(heroArray.get(i).isSelected()){
+								int oldX = heroArray.get(i).getLocX();
+								int oldY = heroArray.get(i).getLocY();
 								heroArray.get(i).move(tileView.getLocX(), tileView.getLocY());
 								TurnChecker t = new TurnChecker();
 								t.count();
 								processController.updateNewLog(tileView.getLocX(), tileView.getLocY());
-								// *********for future developing, need set method "set HERO" on tileview.*******
+
+								tileArray[oldX][oldY].setHero(null);
+								tileView.setHero(heroArray.get(i));
 							}
 						}
 					}

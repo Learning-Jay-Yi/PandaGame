@@ -3,7 +3,7 @@ package gameController;
 import java.util.ArrayList;
 
 import gameModel.*;
-import gameView.MenuView;
+import gameView.*;
 
 /**
 *
@@ -24,7 +24,7 @@ public class ProcessController {
 
 	public ProcessController(MenuView menu){
 		this.menu = menu;
-		undo();
+
 	}
 
 
@@ -38,9 +38,24 @@ public class ProcessController {
 		logList.add(log);
 	}
 
-	public void undo(){
+	public void undo(TileView[][] tileArray, ArrayList<HeroView> heroArray){
 		menu.getUndoBtn().setOnAction(e ->{
-			System.out.print("Let me undo");
+			int i = logList.size() - 1;
+			int removeX = logList.get(i).getNewCoordinate()[0];
+			int removeY = logList.get(i).getNewCoordinate()[1];
+
+			int relocateX = logList.get(i).getOldCoordinate()[0];
+			int relocateY = logList.get(i).getOldCoordinate()[1];
+			
+			TileView undoTile = tileArray[removeX][removeY];
+			HeroView hero = undoTile.getHero();
+			
+			hero.move(relocateX, relocateY);
+			tileArray[relocateX][relocateY].setHero(hero);
+			tileArray[removeX][removeY].setHero(null);
+			
+			logList.remove(i);
+
 		});
 	}
 }

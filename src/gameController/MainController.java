@@ -69,7 +69,7 @@ public class MainController {
 
 		gameFrame = new FrameView(gameBoard.displayBoard(), menu.getMenuBar());
 
-
+		processController.undo(tileArray, heroArray);
 
 	}
 

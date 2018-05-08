@@ -12,7 +12,7 @@ package gameController;
 
 public class TurnChecker {
 	private static int count;
-	
+
 	public TurnChecker(){
 
 	}
@@ -20,9 +20,8 @@ public class TurnChecker {
 	 * return the integer when called this method
 	 * @Ensrure ("count >=0")
 	 */
-	public int count(){
+	public void count(){
 		count += 1;
-		return count;
 	}
 	/**
 	 * return the boolean when called this method
@@ -32,5 +31,9 @@ public class TurnChecker {
 		if(count % 2 == 0)
 			return true;
 		return false;
+	}
+
+	public void decount(){
+		count -= 1;
 	}
 }

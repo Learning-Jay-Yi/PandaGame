@@ -40,21 +40,25 @@ public class ProcessController {
 
 	public void undo(TileView[][] tileArray, ArrayList<HeroView> heroArray){
 		menu.getUndoBtn().setOnAction(e ->{
-			int i = logList.size() - 1;
-			int removeX = logList.get(i).getNewCoordinate()[0];
-			int removeY = logList.get(i).getNewCoordinate()[1];
+			if(logList.size() > 0){
+				int i = logList.size() - 1;
+				int removeX = logList.get(i).getNewCoordinate()[0];
+				int removeY = logList.get(i).getNewCoordinate()[1];
 
-			int relocateX = logList.get(i).getOldCoordinate()[0];
-			int relocateY = logList.get(i).getOldCoordinate()[1];
-			
-			TileView undoTile = tileArray[removeX][removeY];
-			HeroView hero = undoTile.getHero();
-			
-			hero.move(relocateX, relocateY);
-			tileArray[relocateX][relocateY].setHero(hero);
-			tileArray[removeX][removeY].setHero(null);
-			
-			logList.remove(i);
+				int relocateX = logList.get(i).getOldCoordinate()[0];
+				int relocateY = logList.get(i).getOldCoordinate()[1];
+
+				TileView undoTile = tileArray[removeX][removeY];
+				HeroView hero = undoTile.getHero();
+
+				hero.move(relocateX, relocateY);
+				tileArray[relocateX][relocateY].setHero(hero);
+				tileArray[removeX][removeY].setHero(null);
+
+				logList.remove(i);
+				new TurnChecker().decount();
+			}
+
 
 		});
 	}

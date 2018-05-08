@@ -16,9 +16,23 @@ import gameModel.*;
 public class ProcessController {
 
 	ArrayList<GameLog> logList = new ArrayList<>();
-
+	GameLog log;
 	public ProcessController(){
 
+	}
+
+
+	public void createNewLog(PlayerType p, RoleType r, int oldX, int oldY){
+		log = new GameLog(p, r);
+		log.setOldCoordinate(oldX, oldY);
+	}
+
+	public void updateNewLog(int newX, int newY){
+		log.setNewCoordinate(newX, newY);
+	}
+
+	public void addNewLog(GameLog log){
+		logList.add(log);
 	}
 
 	public void undo(){

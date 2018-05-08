@@ -36,7 +36,7 @@ public class MainController {
 
 	private TileController tileController;
 	private HeroController heroController;
-
+	private ProcessController processController;
 
 	/**
 	 * initial controller
@@ -49,6 +49,8 @@ public class MainController {
 		TILE_SIZE = board.getTileSize();
 		WIDTH = board.getWidth();
 		HEIGHT = board.getHeight();
+
+		processController = new ProcessController();
 
 		tileController = new TileController(WIDTH, HEIGHT, TILE_SIZE);
 		heroController = new HeroController(WIDTH, HEIGHT, TILE_SIZE);

@@ -19,14 +19,20 @@ public class GameLog {
 
 	private String action; // action player did, this data type will change later.
 
-	public GameLog(PlayerType p, RoleType r, int oldX, int oldY, int newX, int newY){
+	public GameLog(PlayerType p, RoleType r){
 		this.player = p;
 		this.role = r;
-		this.newCoordinate[0] = newX;
-		this.newCoordinate[1] = newY;
+		turnID++;
+	}
+
+	public void setOldCoordinate(int oldX, int oldY){
 		this.oldCoordinate[0] = oldX;
 		this.oldCoordinate[1] = oldY;
-		turnID++;
+	}
+
+	public void setNewCoordinate(int newX, int newY){
+		this.newCoordinate[0] = newX;
+		this.newCoordinate[1] = newY;
 	}
 
 	public static int getTurnID() {

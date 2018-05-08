@@ -54,7 +54,7 @@ public class MainController {
 
 		menu = new MenuView();
 
-		processController = new ProcessController();
+		processController = new ProcessController(menu);
 
 		tileController = new TileController(WIDTH, HEIGHT, TILE_SIZE, processController);
 		heroController = new HeroController(WIDTH, HEIGHT, TILE_SIZE, processController);

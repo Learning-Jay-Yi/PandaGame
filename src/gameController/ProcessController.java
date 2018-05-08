@@ -3,6 +3,7 @@ package gameController;
 import java.util.ArrayList;
 
 import gameModel.*;
+import gameView.MenuView;
 
 /**
 *
@@ -18,9 +19,12 @@ public class ProcessController {
 	ArrayList<GameLog> logList = new ArrayList<>();
 	GameLog log;
 
+	MenuView menu;
 
-	public ProcessController(){
 
+	public ProcessController(MenuView menu){
+		this.menu = menu;
+		undo();
 	}
 
 
@@ -35,6 +39,8 @@ public class ProcessController {
 	}
 
 	public void undo(){
-
+		menu.getUndoBtn().setOnAction(e ->{
+			System.out.print("Let me undo");
+		});
 	}
 }

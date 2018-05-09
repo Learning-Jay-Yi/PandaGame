@@ -18,10 +18,12 @@ import javafx.scene.layout.HBox;
  */
 public class MenuView {
 	Button undoBtn = new Button("Undo");
+	Button saveBtn = new Button("Save");
 	HBox menuBar = new HBox();
 
 	public MenuView(){
 		menuBar.getChildren().add(undoBtn);
+		menuBar.getChildren().add(saveBtn);
 	}
 
 	public Button getUndoBtn(){

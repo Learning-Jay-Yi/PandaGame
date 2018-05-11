@@ -30,12 +30,12 @@ public class TurnChecker {
 	 */
 	public boolean isTurn(){
 		if(turnNum % 2 == 0)
-			return true;
-		return false;
+			return true; // true means red turn
+		return false; // false means blue turn
 	}
 
 	public void decount(){
-		turnNum -= 1;
+		turnNum -= 1; // used in undo function
 	}
 
 	public static synchronized TurnChecker getInstance(){

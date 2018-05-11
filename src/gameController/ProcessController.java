@@ -56,7 +56,7 @@ public class ProcessController {
 				tileArray[removeX][removeY].setHero(null);
 
 				logList.remove(i);
-				new TurnChecker().decount();
+				TurnChecker.getInstance().decount();
 			}
 
 

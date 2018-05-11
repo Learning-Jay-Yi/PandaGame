@@ -67,8 +67,6 @@ public class HeroController
 			// ******* for future developing ----- maybe there will is some function need this
 			tileArray[a.getStartX()][a.getStartY()].setHero(heroView);
 
-			TurnChecker t = new TurnChecker();
-
 			heroView.setOnMouseClicked(e ->
 			{
 				//************************* for future developing ------ refractory (too many if statements)
@@ -80,7 +78,7 @@ public class HeroController
 				}
 
 				//move only if the tile selected is valid
-				if(!selected && t.isTurn() && a.getPlayerType() == PlayerType.RED)
+				if(!selected && TurnChecker.getInstance().isTurn() && a.getPlayerType() == PlayerType.RED)
 				{
 					heroView.selecetedChanges();
 					a.move(heroView.getLocX(), heroView.getLocY());
@@ -92,7 +90,7 @@ public class HeroController
 				}
 
 				//move only if the tile selected is valid
-				if(!selected && !t.isTurn() && a.getPlayerType() == PlayerType.BLUE)
+				if(!selected && !TurnChecker.getInstance().isTurn() && a.getPlayerType() == PlayerType.BLUE)
 				{
 					heroView.selecetedChanges();
 					a.move(heroView.getLocX(), heroView.getLocY());
@@ -105,8 +103,8 @@ public class HeroController
 					}
 				}
 
-				if(t.isTurn() && a.getPlayerType() == PlayerType.BLUE
-						|| !t.isTurn() && a.getPlayerType() == PlayerType.RED)
+				if(TurnChecker.getInstance().isTurn() && a.getPlayerType() == PlayerType.BLUE
+						|| !TurnChecker.getInstance().isTurn() && a.getPlayerType() == PlayerType.RED)
 					TurnCheckerAlarm.display();
 				else
 					processController.createNewLog(heroView.getPlayerType(), heroView.getRoleType(),

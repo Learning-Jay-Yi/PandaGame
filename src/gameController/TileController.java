@@ -55,10 +55,9 @@ public class TileController {
 								// get hero previous x and y in order to make previous tile's setHero to null
 								int oldX = heroArray.get(i).getLocX();
 								int oldY = heroArray.get(i).getLocY();
-								
+
 								heroArray.get(i).move(tileView.getLocX(), tileView.getLocY());
-								TurnChecker t = new TurnChecker();
-								t.count();
+								TurnChecker.getInstance().incount();
 								processController.updateNewLog(tileView.getLocX(), tileView.getLocY());
 
 								tileArray[oldX][oldY].setHero(null);

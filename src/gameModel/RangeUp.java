@@ -11,6 +11,13 @@ package gameModel;
 *	it holds a 'range' buff that makes hero attack longer range
 */
 
-public class RangeUp {
+public class RangeUp extends TileDecorator{
+	public RangeUp(Tile tile) {
+		super(tile);
+	}
 
+	public String getEffect(){
+
+		return null;
+	}
 }

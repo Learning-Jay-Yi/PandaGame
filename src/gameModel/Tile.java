@@ -1,32 +1,15 @@
 package gameModel;
 
-
 /**
  *
- * @author Tengku Ummil Syazwina Zainab Tengku Shamsulbhari
+ * @author Vincent
+ * @version 1.0
+ * @since 12/05/2018
  *
+ *
+ * Tile interface is part of Decorator Pattern
  */
-public class Tile {
 
-	private int sideSize;
-
-	/**
-	 * initial tile with the input size
-	 * @Requires ("size == 50")
-	 */
-	public Tile(int size){
-		this.sideSize = size;
-	}
-	/**
-	 * return the tile size when other needs
-	 * @Ensures ("sideSize == 50")
-	 */
-	public int getSideSize(){
-		return sideSize;
-	}
-
-
-
-
-
+public interface Tile {
+	public String getEffect();
 }

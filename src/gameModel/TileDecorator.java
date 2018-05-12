@@ -12,12 +12,13 @@ package gameModel;
 public class TileDecorator implements Tile{
 	public Tile decoratedTile;
 
-
+	public TileDecorator(Tile tile){
+		this.decoratedTile = tile;
+	}
 
 	@Override
 	public String getEffect() {
-		// TODO Auto-generated method stub
-		return null;
+		return decoratedTile.getEffect();
 	}
 
 }

@@ -11,5 +11,6 @@ package gameModel;
  */
 
 public interface Tile {
+
 	public String getEffect();
 }

@@ -10,13 +10,13 @@ import javafx.scene.shape.*;
  * @author Yu Liu
  *
  */
-public class HeroShape {
+public class HerosssssShape {
 
 	private Shape shape;
 	private RoleType role;
 	private PlayerType player;
 	private int size;
-	public HeroShape(int size, PlayerType p, RoleType r){
+	public HerosssssShape(int size, PlayerType p, RoleType r){
 		this.role = r;
 		this.size = size;
 		this.player = p;

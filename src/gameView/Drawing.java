@@ -1,10 +1,11 @@
 package gameView;
 
 import gameModel.PlayerType;
+import javafx.scene.shape.Shape;
 
 /**
  *
- * @author Vincent
+ * @author Yu Liu
  * @version 1.0
  * @since 14/05/2018
  *
@@ -13,5 +14,5 @@ import gameModel.PlayerType;
  *
  */
 public interface Drawing {
-	public void drawShape(int size, PlayerType p);
+	public Shape drawShape(int size, PlayerType p);
 }

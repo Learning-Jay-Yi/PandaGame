@@ -36,7 +36,7 @@ public class HeroView extends StackPane{
 		this.x = x;
 		this.y = y;
 
-		shape = new HerosssssShape(size, p, r).draw();
+		shape = new ShapeBridge(size, p, r).draw();
 
 		this.alive = true;
 		this.p = p;

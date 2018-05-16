@@ -5,46 +5,28 @@ package gameModel;
  * @version 1.0
  * @since 2018/5/14
  */
-public abstract class NewHero implements HeroFactory{
-    protected Player player;
-    protected HeroType heroType;
+public abstract class NewHero {
 
-    public enum HeroType {
+    public enum HeroType{
         WARRIOR, SUPPORT, RANGER
     }
 
-    protected int startX, startY;
-
-    protected int[] validX, validY;
-
-    public NewHero(){
-    }
-
-    public void spawn(){}
-
-
-    public Player getPlayer() {
-        return player;
-    }
+    HeroType heroType;
 
     public HeroType getHeroType() {
         return heroType;
     }
 
-    public int getStartX() {
-        return startX;
+    public void setHeroType(HeroType heroType) {
+        this.heroType = heroType;
     }
 
-    public int getStartY() {
-        return startY;
-    }
+    // each hero have three parts
+    PartsAttack partsAttack;
+    PartsMove partsMove;
+    PartsSkills partsSkills;
 
-    public int[] getValidX() {
-        return validX;
-    }
+    public abstract void MakeHero();
 
-    public int[] getValidY() {
-        return validY;
-    }
 
 }

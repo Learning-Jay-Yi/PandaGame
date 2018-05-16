@@ -19,11 +19,11 @@ public interface HeroFactory {
 //    }
 
 
-    AbilityAttack abilityAttack();
+    AbilityAttack addAbilityAttack();
 
-    AbilityMove abilityMove();
+    AbilityMove addAbilityMove();
 
-    AbilitySkills abilitySkills();
+    AbilitySkills addAbilitySkills();
 
 
 }

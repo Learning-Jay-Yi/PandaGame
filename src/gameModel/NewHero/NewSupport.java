@@ -11,18 +11,18 @@ import gameModel.Player;
  * @version 1.0
  * @since 2018/5/17
  */
-public class NewWarrior extends NewHero {
+public class NewSupport extends NewHero {
 
 
     private int width;
     private int height;
     Player player;
-    HeroType heroType = HeroType.WARRIOR;
+    HeroType heroType = HeroType.SUPPORT;
 
 //    WarriorsBuilding warriorsBuilding;
 
     // for the new warrior, all of them have the same body
-    public NewWarrior(int width, int height, Player player){
+    public NewSupport(int width, int height, Player player){
         this.height = height;
         this.width = width;
         this.player = player;

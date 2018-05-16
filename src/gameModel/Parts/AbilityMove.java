@@ -1,7 +1,5 @@
 package gameModel.Parts;
 
-import gameModel.Parts.PartsMove;
-
 /**
  * @author Jay
  * @version 1.0
@@ -9,8 +7,9 @@ import gameModel.Parts.PartsMove;
  */
 public interface AbilityMove {
 
-    PartsMove addPartsMove();
+//    PartsMove addPartsMove();
 
+    abstract void move(int x, int y);
 
 
 //    AbilityMove abilityMove;

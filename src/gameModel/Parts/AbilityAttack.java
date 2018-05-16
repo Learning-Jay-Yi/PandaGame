@@ -1,7 +1,5 @@
 package gameModel.Parts;
 
-import gameModel.Parts.PartsAttack;
-
 /**
  * @author Jay
  * @version 1.0

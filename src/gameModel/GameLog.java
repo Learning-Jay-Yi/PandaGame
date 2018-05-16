@@ -8,6 +8,7 @@ package gameModel;
  *
  * Description:
  * GameLog defines a structure that will recording the process of running game.
+ * GameLog is part of memento pattern
  */
 public class GameLog {
 	private static int turnID; //recording turn's number for each move.

@@ -13,6 +13,7 @@ import gameView.*;
 *
 * Description:
 * ProcessController is to manipulate GameLog: create and save new GameLog, undo
+* processController is part of Memento pattern
 */
 public class ProcessController {
 

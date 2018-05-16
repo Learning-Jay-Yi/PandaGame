@@ -3,6 +3,7 @@ package gameController;
 import java.util.ArrayList;
 
 import gameModel.DefaultTie;
+import gameModel.Timer;
 import gameView.HeroView;
 import gameView.TileView;
 import javafx.scene.Group;
@@ -62,6 +63,7 @@ public class TileController {
 
 								tileArray[oldX][oldY].setHero(null);
 								tileView.setHero(heroArray.get(i));
+								
 							}
 						}
 					}

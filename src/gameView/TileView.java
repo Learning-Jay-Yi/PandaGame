@@ -37,6 +37,7 @@ public class TileView extends Rectangle{
 	 */
 	public void setHero(HeroView hero){
 		this.hero = hero;
+
 	}
 
 	public boolean hasHero(){

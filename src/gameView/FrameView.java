@@ -16,14 +16,14 @@ public class FrameView {
 
 	private BorderPane framePane = new BorderPane();
 
-	public FrameView(Pane gameBoard, HBox menu){
-		this.setFrame(gameBoard, menu);
+	public FrameView(Pane gameBoard, HBox menu, HBox timer){
+		this.setFrame(gameBoard, menu, timer);
 	}
 
-	public void setFrame(Pane gameBoard, HBox menu){
+	public void setFrame(Pane gameBoard, HBox menu, HBox timer){
 
 		this.framePane.setCenter(gameBoard);
-		this.framePane.setTop(new Text("Time Limits and who's turn"));
+		this.framePane.setTop(timer);
 		this.framePane.setBottom(menu);
 
 	}

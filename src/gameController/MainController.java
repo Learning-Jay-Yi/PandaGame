@@ -2,7 +2,7 @@ package gameController;
 
 import java.util.ArrayList;
 
-import gameModel.Board;
+import gameModel.*;
 import gameView.*;
 import javafx.scene.Group;
 
@@ -39,6 +39,8 @@ public class MainController {
 	private ProcessController processController;
 
 	private MenuView menu;
+	private TimerView timer;
+	//private Observable time;
 
 	/**
 	 * initial controller
@@ -53,6 +55,8 @@ public class MainController {
 		HEIGHT = board.getHeight();
 
 		menu = new MenuView();
+		//time = new Timer();
+		timer = new TimerView(Timer.getInstance());
 
 		processController = new ProcessController(menu);
 
@@ -67,7 +71,7 @@ public class MainController {
 
 		gameBoard = new BoardView(board.getWidth(), board.getHeight(), board.getTileSize(), tileGroup, heroGroup);
 
-		gameFrame = new FrameView(gameBoard.displayBoard(), menu.getMenuBar());
+		gameFrame = new FrameView(gameBoard.displayBoard(), menu.getMenuBar(), timer.getTimer());
 
 		processController.undo(tileArray, heroArray);
 

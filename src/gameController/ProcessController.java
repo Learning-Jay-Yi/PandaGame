@@ -37,6 +37,7 @@ public class ProcessController {
 	public void updateNewLog(int newX, int newY){
 		log.setNewCoordinate(newX, newY);
 		logList.add(log);
+		//((Timer) Timer.getInstance()).timeCount(60);
 	}
 
 	public void undo(TileView[][] tileArray, ArrayList<HeroView> heroArray){

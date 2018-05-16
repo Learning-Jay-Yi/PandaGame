@@ -1,4 +1,6 @@
-package gameModel;
+package gameModel.Parts;
+
+import gameModel.Parts.PartsMove;
 
 /**
  * @author Jay

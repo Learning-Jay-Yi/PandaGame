@@ -1,4 +1,7 @@
-package gameModel;
+package gameModel.NewHero;
+
+import gameModel.Building.WarriorsBuilding;
+import gameModel.Player;
 
 /**
  * @author Jay
@@ -11,6 +14,8 @@ public class NewWarrior extends NewHero {
     Player player;
     HeroType heroType = HeroType.WARRIOR;
 
+    WarriorsBuilding warriorsBuilding;
+
     // for the new warrior, all of them have the same body
     public NewWarrior(int width, int height, Player player){
         this.height = height;
@@ -22,6 +27,8 @@ public class NewWarrior extends NewHero {
 
     @Override
     public void MakeHero() {
+        // before spawn the hero to the board we need add parts for the hero
+
 
     }
 }

@@ -1,4 +1,8 @@
-package gameModel;
+package gameModel.Factory;
+
+import gameModel.Parts.AbilityAttack;
+import gameModel.Parts.AbilityMove;
+import gameModel.Parts.AbilitySkills;
 
 /**
  * This is the top factory that who will receives the order form main class
@@ -14,7 +18,6 @@ public interface HeroFactory {
 //        System.exit(1);
 //    }
 
-//    HeroAbility addHeroAbility();
 
     AbilityAttack abilityAttack();
 

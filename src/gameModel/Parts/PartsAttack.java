@@ -1,4 +1,4 @@
-package gameModel;
+package gameModel.Parts;
 
 /**
  * @author Jay

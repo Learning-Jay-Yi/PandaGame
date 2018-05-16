@@ -1,11 +1,16 @@
-package gameModel;
+package gameModel.NewHero;
+
+import gameModel.Factory.HeroFactory;
+import gameModel.Parts.PartsAttack;
+import gameModel.Parts.PartsMove;
+import gameModel.Parts.PartsSkills;
 
 /**
  * @author Jay
  * @version 1.0
  * @since 2018/5/14
  */
-public abstract class NewHero {
+public abstract class NewHero implements HeroFactory {
 
     public enum HeroType{
         WARRIOR, SUPPORT, RANGER
@@ -26,6 +31,7 @@ public abstract class NewHero {
     PartsMove partsMove;
     PartsSkills partsSkills;
 
+    // this is to spawn the hero on the board
     public abstract void MakeHero();
 
 

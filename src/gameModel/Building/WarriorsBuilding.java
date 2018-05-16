@@ -1,21 +1,20 @@
-package gameModel;
+package gameModel.Building;
+
+import gameModel.Parts.AbilityAttack;
+import gameModel.Parts.AbilityMove;
+import gameModel.Parts.AbilitySkills;
 
 /**
  * @author Jay
  * @version 1.0
  * @since 2018/5/14
  */
-public class NewWarriors extends NewHero {
+public class WarriorsBuilding extends HeroBuilding {
 
-    private int width;
-    private int height;
-    Player player;
 
-    public NewWarriors(int width, int height, Player player){
-        this.height = height;
-        this.width = width;
-        this.player = player;
-    }
+
+
+    // for the building class, each type of hero need to know what the parts to add.
 
 
 
@@ -26,6 +25,7 @@ public class NewWarriors extends NewHero {
 
     @Override
     public AbilityMove abilityMove() {
+
         return null;
     }
 

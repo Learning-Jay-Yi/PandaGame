@@ -7,20 +7,20 @@ import gameModel.Parts.*;
  * @version 1.0
  * @since 2018/5/17
  */
-public class WarriorFactory implements HeroFactory{
+public class Support3Factory implements HeroFactory{
 
     @Override
     public AbilityAttack addAbilityAttack() {
-        return new WarriorAttack();
+        return new SupportAttack();
     }
 
     @Override
     public AbilityMove addAbilityMove() {
-        return new WarriorMove();
+        return new SupportMove();
     }
 
     @Override
     public AbilitySkills addAbilitySkills() {
-        return new WarriorSkills();
+        return new SkillForDodge();
     }
 }

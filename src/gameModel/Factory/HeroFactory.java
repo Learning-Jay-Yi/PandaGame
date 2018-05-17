@@ -11,13 +11,6 @@ import gameModel.Parts.AbilitySkills;
  * @since 2018/5/13
  */
 public interface HeroFactory {
-    // all types hero will be implemented here
-//    protected final String className = "HeroFactory";
-//    public void Error(String methodName){
-//        System.err.println(className + "'s "+methodName+" may have some problems!!");
-//        System.exit(1);
-//    }
-
 
     AbilityAttack addAbilityAttack();
 

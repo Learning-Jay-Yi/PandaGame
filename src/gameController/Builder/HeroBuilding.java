@@ -1,4 +1,4 @@
-package gameModel.Building;
+package gameController.Builder;
 
 import gameModel.Factory.HeroFactory;
 import gameModel.Player;

@@ -24,18 +24,11 @@ public abstract class NewHero{
         this.heroType = heroType;
     }
 
-    // each hero have three parts
-//    PartsAttack partsAttack;
-//    PartsMove partsMove;
-//    PartsSkills partsSkills;
 
 
-//    public AbilityAttack abilityAttack;
-//    public AbilityMove abilityMove;
-//    public AbilitySkills abilitySkills;
 
     // this is to spawn the hero on the board
-    public abstract void MakeHero(HeroFactory heroFactory);
+    public abstract void MakeHero();
 
 
 }

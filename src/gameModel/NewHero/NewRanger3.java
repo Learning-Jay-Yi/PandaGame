@@ -1,6 +1,7 @@
 package gameModel.NewHero;
 
-import gameModel.Factory.HeroFactory;
+import gameModel.Factory.Ranger1Factory;
+import gameModel.Factory.Ranger3Factory;
 import gameModel.Parts.AbilityAttack;
 import gameModel.Parts.AbilityMove;
 import gameModel.Parts.AbilitySkills;
@@ -11,21 +12,23 @@ import gameModel.Player;
  * @version 1.0
  * @since 2018/5/17
  */
-public class NewSupport extends NewHero {
+public class NewRanger3 extends NewHero {
 
 
     private int width;
     private int height;
     Player player;
-    HeroType heroType = HeroType.SUPPORT;
+    Ranger3Factory ranger3Factory;
+    HeroType heroType = HeroType.RANGER;
 
 //    WarriorsBuilding warriorsBuilding;
 
     // for the new warrior, all of them have the same body
-    public NewSupport(int width, int height, Player player){
+    public NewRanger3(int width, int height, Player player, Ranger3Factory ranger3Factory){
         this.height = height;
         this.width = width;
         this.player = player;
+        this.ranger3Factory = ranger3Factory;
     }
 
 
@@ -35,16 +38,10 @@ public class NewSupport extends NewHero {
 
 
     @Override
-    public void MakeHero(HeroFactory heroFactory) {
-        abilityMove = heroFactory.addAbilityMove();
-        abilityAttack = heroFactory.addAbilityAttack();
-        abilitySkills = heroFactory.addAbilitySkills();
+    public void MakeHero() {
+        abilityMove = ranger3Factory.addAbilityMove();
+        abilityAttack = ranger3Factory.addAbilityAttack();
+        abilitySkills = ranger3Factory.addAbilitySkills();
     }
 
-//    @Override
-//    public void MakeHero(WarriorFactory warriorFactory) {
-//        // before spawn the hero to the board we need add parts for the hero
-//        abilityMove = WarriorFactory
-//
-//    }
 }

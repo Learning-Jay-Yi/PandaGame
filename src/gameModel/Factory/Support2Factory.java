@@ -7,7 +7,7 @@ import gameModel.Parts.*;
  * @version 1.0
  * @since 2018/5/17
  */
-public class SupportFactory implements HeroFactory{
+public class Support2Factory implements HeroFactory{
 
     @Override
     public AbilityAttack addAbilityAttack() {

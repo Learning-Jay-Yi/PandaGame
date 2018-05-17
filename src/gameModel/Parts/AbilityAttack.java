@@ -8,7 +8,7 @@ package gameModel.Parts;
 public interface AbilityAttack {
 //    PartsAttack addPartAttack();
 
-    abstract void attack();
+    void attack();
 
 }
 

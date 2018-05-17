@@ -1,6 +1,7 @@
 package gameView;
 
 import javafx.geometry.Pos;
+import javafx.scene.Group;
 import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 
@@ -16,14 +17,14 @@ public class FrameView {
 
 	private BorderPane framePane = new BorderPane();
 
-	public FrameView(Pane gameBoard, HBox menu, HBox timer){
-		this.setFrame(gameBoard, menu, timer);
+	public FrameView(Pane gameBoard, HBox menu, HBox hBox){
+		this.setFrame(gameBoard, menu, hBox);
 	}
 
-	public void setFrame(Pane gameBoard, HBox menu, HBox timer){
+	public void setFrame(Pane gameBoard, HBox menu, HBox hBox){
 
 		this.framePane.setCenter(gameBoard);
-		this.framePane.setTop(timer);
+		this.framePane.setTop(hBox);
 		this.framePane.setBottom(menu);
 
 	}

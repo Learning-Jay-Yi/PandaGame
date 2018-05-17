@@ -1,6 +1,8 @@
 package gameController;
 
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import gameModel.*;
 import gameView.*;
@@ -37,7 +39,10 @@ public class ProcessController {
 	public void updateNewLog(int newX, int newY){
 		log.setNewCoordinate(newX, newY);
 		logList.add(log);
-		//((Timer) Timer.getInstance()).timeCount(60);
+
+		TimerTask timerTask = (TimerTask)TimerCount.getInstance();
+		Timer timer = new Timer(false);
+		timer.scheduleAtFixedRate(timerTask, 0, 1000);
 	}
 
 	public void undo(TileView[][] tileArray, ArrayList<HeroView> heroArray){

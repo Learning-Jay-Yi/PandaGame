@@ -1,9 +1,15 @@
 package gameView;
 
 import gameModel.Observable;
-import gameModel.Timer;
+import gameModel.TimerCount;
+import javafx.animation.KeyFrame;
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.Group;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
+import javafx.util.Duration;
 
 /**
  *
@@ -21,33 +27,24 @@ public class TimerView implements Observer{
 	private HBox timerPane = new HBox();
 
 
+
 	public TimerView(Observable o){
 		this.timer = o;
 		timer.addObserver(this);
-		setTime();
-		setNode();
-	}
-
-
-	@Override
-	public void update() {
-		setTime();
-
-		System.out.print("lololo");
-	}
-
-	public void setNode(){
-		timerPane.getChildren().addAll(mmLabel,middle,ssLabel);
+		timeSetting();
+		setCountPane();
 	}
 
 	public HBox getTimer(){
 		return timerPane;
 	}
 
-	public void setTime(){
-
-		int mt = ((Timer) timer).getMt();
-		int st = ((Timer) timer).getSt();
+	private void setCountPane(){
+		timerPane.getChildren().addAll(mmLabel, middle, ssLabel);
+	}
+	private void timeSetting(){
+		int mt = ((TimerCount) timer).getMt();
+		int st = ((TimerCount) timer).getSt();
 
 		if(mt > 0 || st > 0){
 			mmLabel.setText(Integer.toString(mt));
@@ -57,8 +54,12 @@ public class TimerView implements Observer{
 			mmLabel.setText("00");
 			ssLabel.setText("00");
 		}
-
 	}
 
-
+	@Override
+	public void update() {
+		Platform.runLater(()->{
+			timeSetting();
+		});
+	}
 }

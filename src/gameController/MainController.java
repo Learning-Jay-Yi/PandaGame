@@ -8,8 +8,8 @@ import javafx.scene.Group;
 
 /**
  * @author 		Dario
- * @version		1.5
- * @since		1.0
+ * @version		1.6
+ * @since		28/04/2018
  *
  * Description:
  * MainController instantiate Board (Model) and BoardView for start the game
@@ -56,7 +56,7 @@ public class MainController {
 
 		menu = new MenuView();
 		//time = new Timer();
-		timer = new TimerView(Timer.getInstance());
+		timer = new TimerView(TimerCount.getInstance());
 
 		processController = new ProcessController(menu);
 

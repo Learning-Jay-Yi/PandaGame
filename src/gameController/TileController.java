@@ -3,7 +3,7 @@ package gameController;
 import java.util.ArrayList;
 
 import gameModel.DefaultTie;
-import gameModel.Timer;
+import gameModel.TimerCount;
 import gameView.HeroView;
 import gameView.TileView;
 import javafx.scene.Group;

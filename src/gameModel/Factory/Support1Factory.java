@@ -21,6 +21,6 @@ public class Support1Factory implements HeroFactory{
 
     @Override
     public AbilitySkills addAbilitySkills() {
-        return new SupportSkills();
+        return new SkillForAttack();
     }
 }

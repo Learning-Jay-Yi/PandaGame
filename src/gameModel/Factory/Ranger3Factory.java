@@ -21,6 +21,6 @@ public class Ranger3Factory implements HeroFactory{
 
     @Override
     public AbilitySkills addAbilitySkills() {
-        return new Ranger1Skills();
+        return new SkillForDodge();
     }
 }

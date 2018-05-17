@@ -21,6 +21,6 @@ public class Warrior1Factory implements HeroFactory{
 
     @Override
     public AbilitySkills addAbilitySkills() {
-        return new Warrior1Skills();
+        return new SkillForAttack();
     }
 }

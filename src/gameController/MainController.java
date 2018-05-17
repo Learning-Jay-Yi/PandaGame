@@ -56,6 +56,7 @@ public class MainController {
 
 		menu = new MenuView();
 		//time = new Timer();
+		//TODO
 		timer = new TimerView(TimerCount.getInstance());
 
 		processController = new ProcessController(menu);

@@ -39,7 +39,7 @@ public class ProcessController {
 	public void updateNewLog(int newX, int newY){
 		log.setNewCoordinate(newX, newY);
 		logList.add(log);
-
+		//TODO
 		TimerTask timerTask = (TimerTask)TimerCount.getInstance();
 		Timer timer = new Timer(false);
 		timer.scheduleAtFixedRate(timerTask, 0, 1000);

@@ -5,7 +5,7 @@ package gameModel.Parts;
  * @version 1.0
  * @since 2018/5/17
  */
-public class RangerSkills implements AbilitySkills {
+public class Support3Skills implements AbilitySkills {
     @Override
     public void skill() {
         // TODO: 2018/5/17 refactor

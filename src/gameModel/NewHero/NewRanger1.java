@@ -16,6 +16,10 @@ public class NewRanger1 extends NewHero {
 
     private int width;
     private int height;
+
+
+
+
     Player player;
     Ranger1Factory ranger1Factory;
     HeroType heroType = HeroType.RANGER;
@@ -34,6 +38,9 @@ public class NewRanger1 extends NewHero {
     private AbilityAttack abilityAttack;
     private AbilityMove abilityMove;
     private AbilitySkills abilitySkills;
+
+
+
 
 
     @Override

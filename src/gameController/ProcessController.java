@@ -40,7 +40,9 @@ public class ProcessController {
 		log.setNewCoordinate(newX, newY);
 		logList.add(log);
 		//TODO
-		TimerTask timerTask = (TimerTask)TimerCount.getInstance();
+
+		TimerTask timerTask = (TimerTask)new TimerCount();
+		((TimerView) TimerView.getInstance()).setObservee((Observable) timerTask);
 		Timer timer = new Timer(false);
 		timer.scheduleAtFixedRate(timerTask, 0, 1000);
 	}

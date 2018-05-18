@@ -20,29 +20,37 @@ public class TimerCount extends TimerTask implements Observable{
 	private Observer timer;
 	private static Observable singleTimer = null;
 
-	int time = 120;
-	int mm;
-	int ss;
-
+	private int time = 60;
+	private int mm = 0;
+	private int ss = 0;
+	//private static boolean running = false;
 	public TimerCount(){
 
 	}
 
-	public static synchronized Observable getInstance(){
-		if(singleTimer == null)
-			singleTimer = new TimerCount();
-		return singleTimer;
-	}
+//	public static synchronized Observable getInstance(){
+//		if(singleTimer == null)
+//			singleTimer = new TimerCount();
+//		return singleTimer;
+//	}
+
+//	public static void setInstance(){
+//		singleTimer = new TimerCount();
+//	}
+
+//	public static boolean isRun(){
+//		return running;
+//	}
 
 	@Override
 	public void run() {
+		//running = true;
 		setTime(time / 60 % 60, time % 60);
 		notifyObserver();
 		time--;
 		if(time == 0){
 			((TimerTask) singleTimer).cancel();
 		}
-
 	}
 
 	private void setTime(int mt, int st){

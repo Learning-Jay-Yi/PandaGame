@@ -39,7 +39,7 @@ public class MainController {
 	private ProcessController processController;
 
 	private MenuView menu;
-	private TimerView timer;
+	//private TimerView timer;
 	//private Observable time;
 
 	/**
@@ -57,7 +57,7 @@ public class MainController {
 		menu = new MenuView();
 		//time = new Timer();
 		//TODO
-		timer = new TimerView(TimerCount.getInstance());
+		//timer = new TimerView();
 
 		processController = new ProcessController(menu);
 
@@ -72,7 +72,7 @@ public class MainController {
 
 		gameBoard = new BoardView(board.getWidth(), board.getHeight(), board.getTileSize(), tileGroup, heroGroup);
 
-		gameFrame = new FrameView(gameBoard.displayBoard(), menu.getMenuBar(), timer.getTimer());
+		gameFrame = new FrameView(gameBoard.displayBoard(), menu.getMenuBar(), ((TimerView) TimerView.getInstance()).getTimer());
 
 		processController.undo(tileArray, heroArray);
 

@@ -26,13 +26,21 @@ public class TimerView implements Observer{
 	private Observable timer;
 	private HBox timerPane = new HBox();
 
+	private static Observer Instance = null;
 
+	public static synchronized Observer getInstance(){
+		if(Instance == null)
+			Instance = new TimerView();
+		return Instance;
+	}
 
-	public TimerView(Observable o){
+	public TimerView(){
+		setCountPane();
+	}
+
+	public void setObservee(Observable o){
 		this.timer = o;
 		timer.addObserver(this);
-		timeSetting();
-		setCountPane();
 	}
 
 	public HBox getTimer(){

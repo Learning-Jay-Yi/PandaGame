@@ -36,6 +36,10 @@ public class NewSupport1 extends NewHero {
     private AbilityMove abilityMove;
     private AbilitySkills abilitySkills;
 
+    public NewSupport1(HeroFactory heroFactory) {
+
+    }
+
 
     @Override
     public void MakeHero() {

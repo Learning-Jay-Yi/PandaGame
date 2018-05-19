@@ -1,6 +1,8 @@
 package gameModel.NewHero;
 
+import gameModel.Factory.HeroFactory;
 import gameModel.Factory.Warrior1Factory;
+import gameModel.Factory.Warrior2Factory;
 import gameModel.Parts.AbilityAttack;
 import gameModel.Parts.AbilityMove;
 import gameModel.Parts.AbilitySkills;
@@ -22,17 +24,26 @@ public class NewWarrior1 extends NewHero {
 
 //    WarriorsBuilding warriorsBuilding;
 
-    // for the new warrior, all of them have the same body
-    public NewWarrior1(int width, int height, Player player, Warrior1Factory warrior1Factory){
-        this.height = height;
-        this.width = width;
-        this.player = player;
+
+    public NewWarrior1(Warrior2Factory warrior1Factory){
+
     }
+
+    // for the new warrior, all of them have the same body
+//    public NewWarrior1(int width, int height, Player player, Warrior1Factory warrior1Factory){
+//        this.height = height;
+//        this.width = width;
+//        this.player = player;
+//    }
 
 
     private AbilityAttack abilityAttack;
     private AbilityMove abilityMove;
     private AbilitySkills abilitySkills;
+
+    public NewWarrior1(HeroFactory heroFactory) {
+
+    }
 
 
     @Override

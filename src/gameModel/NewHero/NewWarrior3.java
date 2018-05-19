@@ -1,5 +1,6 @@
 package gameModel.NewHero;
 
+import gameModel.Factory.HeroFactory;
 import gameModel.Factory.Warrior1Factory;
 import gameModel.Factory.Warrior3Factory;
 import gameModel.Parts.AbilityAttack;
@@ -35,6 +36,10 @@ public class NewWarrior3 extends NewHero {
     private AbilityAttack abilityAttack;
     private AbilityMove abilityMove;
     private AbilitySkills abilitySkills;
+
+    public NewWarrior3(HeroFactory heroFactory) {
+
+    }
 
 
     @Override

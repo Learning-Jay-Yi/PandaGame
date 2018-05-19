@@ -1,53 +1,41 @@
 package gameController.Builder;
 
-import gameModel.Factory.HeroFactory;
-import gameModel.Player;
+import gameModel.Hero;
+import gameModel.NewHero.NewHero;
+
 
 /**
  * @author Jay
  * @version 1.0
  * @since 2018/5/14
  */
-public abstract class HeroBuilding implements HeroFactory {
-    protected Player player;
-//    protected HeroType heroType;
-//
-//    public enum HeroType {
-//        WARRIOR, SUPPORT, RANGER
-//    }
+public abstract class HeroBuilding {
+    Hero hero;
 
-    protected int startX, startY;
+    public HeroBuilding() {
 
-    protected int[] validX, validY;
-
-    public HeroBuilding(){
     }
 
-    public void spawn(){}
+    public NewHero buildHero (String heroDetails){
+        NewHero hero = null;
+        HeroBuilding heroBuilding;
+        String[] fields = heroDetails.split(" ");
+        String heroType = fields[0];
+        String factoryNumber = fields[1];
+        switch (heroType){
+            case "Warrior":
+                heroBuilding= new WarriorBuilding();
+                hero = heroBuilding.buildHero(heroDetails);
+            case "Ranger":
+                heroBuilding = new RangerBuilding();
+                hero = heroBuilding.buildHero(heroDetails);
+            case "Support":
+                heroBuilding = new SupportBuilding();
+                hero = heroBuilding.buildHero(heroDetails);
+            default:
+        }
 
-
-    public Player getPlayer() {
-        return player;
-    }
-
-//    public HeroType getHeroType() {
-//        return heroType;
-//    }
-
-    public int getStartX() {
-        return startX;
-    }
-
-    public int getStartY() {
-        return startY;
-    }
-
-    public int[] getValidX() {
-        return validX;
-    }
-
-    public int[] getValidY() {
-        return validY;
+        return hero;
     }
 
 }

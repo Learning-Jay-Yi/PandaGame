@@ -1,5 +1,6 @@
 package gameModel.NewHero;
 
+import gameModel.Factory.HeroFactory;
 import gameModel.Factory.Ranger1Factory;
 import gameModel.Parts.AbilityAttack;
 import gameModel.Parts.AbilityMove;
@@ -17,7 +18,9 @@ public class NewRanger1 extends NewHero {
     private int width;
     private int height;
 
-
+    private int moveRange;
+    private int attackRange;
+    private int dodgeChance;
 
 
     Player player;
@@ -39,9 +42,24 @@ public class NewRanger1 extends NewHero {
     private AbilityMove abilityMove;
     private AbilitySkills abilitySkills;
 
+    public NewRanger1(HeroFactory heroFactory) {
+
+    }
 
 
+    public int getMoveRange() {
+        return moveRange;
+    }
 
+
+    public int getAttackRange() {
+        return attackRange;
+    }
+
+
+    public int getDodgeChance() {
+        return dodgeChance;
+    }
 
     @Override
     public void MakeHero() {

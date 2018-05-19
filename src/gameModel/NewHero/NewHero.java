@@ -10,14 +10,18 @@ import gameModel.Parts.*;
  */
 public abstract class NewHero{
 
+    public NewHero() {
+
+    }
+
     public enum HeroType{
         WARRIOR, SUPPORT, RANGER
     }
 
 
-    protected int moveRange;
-    protected int attackRange;
-    protected int dodgeChance;
+//    protected int moveRange;
+//    protected int attackRange;
+//    protected int dodgeChance;
 
     HeroType heroType;
 
@@ -27,30 +31,6 @@ public abstract class NewHero{
 
     public void setHeroType(HeroType heroType) {
         this.heroType = heroType;
-    }
-
-    public void setMoveRange(int moveRange) {
-        this.moveRange = moveRange;
-    }
-
-    public int getMoveRange() {
-        return moveRange;
-    }
-
-    public void setAttackRange(int attackRange) {
-        this.attackRange = attackRange;
-    }
-
-    public int getAttackRange() {
-        return attackRange;
-    }
-
-    public void setDodgeChance(int dodgeChance) {
-        this.dodgeChance = dodgeChance;
-    }
-
-    public int getDodgeChance() {
-        return dodgeChance;
     }
 
     // this is to spawn the hero on the board

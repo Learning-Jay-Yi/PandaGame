@@ -18,12 +18,12 @@ import javafx.scene.Group;
  * last update date: 11/04/2018
  */
 
-public class NewHeroController
+public class HeroController
 {
 	private int width, height, tilesize;
 	private ProcessController processController;
 
-	public NewHeroController(int width, int height, int tilesize, ProcessController process)
+	public HeroController(int width, int height, int tilesize, ProcessController process)
 	{
 		this.width = width;
 		this.height = height;

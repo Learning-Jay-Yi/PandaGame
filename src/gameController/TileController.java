@@ -18,7 +18,7 @@ import javafx.scene.Group;
  * Description:
  *
  */
-public class NewTileController {
+public class TileController {
 	private int boardWidth;
 	private int boardHeight;
 	private int tileSize;
@@ -30,7 +30,7 @@ public class NewTileController {
 	 * @Requires ("height == 14")
 	 * @Requires ("size == 50")
 	 */
-	public NewTileController(int width, int height, int size, ProcessController process){
+	public TileController(int width, int height, int size, ProcessController process){
 		this.boardWidth = width;
 		this.boardHeight = height;
 		this.tileSize = size;

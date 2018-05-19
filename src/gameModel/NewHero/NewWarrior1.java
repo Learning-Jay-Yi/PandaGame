@@ -35,6 +35,7 @@ public class NewWarrior1 extends NewHero {
 
     @Override
     public void MakeHero() {
+        System.out.println("Add Hero body: ");
         partsBody = heroFactory.addPartsBody();
         partsMove = heroFactory.addPartsMove();
         partsAttack = heroFactory.addPartsAttack();
@@ -42,15 +43,10 @@ public class NewWarrior1 extends NewHero {
 //        SpawnBody(partsBody);
     }
 
-
-    private void SpawnBody(PartsBody partsBody){
-        int spawnX, spawnY;
-//        int boardW =
-
-
-
-
+    public void showBody(){
+        partsBody.PartsBody(20,15,(new Player(Player.PlayerType.RED,1,"abc")));
     }
+
 
     public PartsBody getPartsBody() {
         return partsBody;

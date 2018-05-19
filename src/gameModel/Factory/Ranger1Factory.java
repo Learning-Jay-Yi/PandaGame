@@ -10,6 +10,12 @@ import gameModel.Parts.*;
 public class Ranger1Factory implements HeroFactory{
 
     @Override
+    public PartsBody addPartsBody() {
+        // TODO: 2018/5/19
+        return null;
+    }
+
+    @Override
     public PartsAttack addPartsAttack() {
         return new RangerAttack();
     }

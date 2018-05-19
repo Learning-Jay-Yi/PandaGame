@@ -22,6 +22,7 @@ public class WarriorBody implements PartsBody {
         this.boardHeight = boardHeight;
         this.player = player;
         Spawn();
+//        testSpawn();
     }
 
 //    @Override
@@ -39,6 +40,18 @@ public class WarriorBody implements PartsBody {
     private void Spawn() {
         spawnX = (player.getPlayerType() == Player.PlayerType.BLUE ? 0 : boardWidth-1);
         spawnY = 3;
+
+        System.out.println("Spawn "+newHeroType+" at "+spawnX+" "+spawnY);
+    }
+
+    private void testSpawn() {
+        boardHeight = 15;
+        boardWidth = 20;
+
+        spawnX = (player.getPlayerType() == Player.PlayerType.BLUE ? 0 : boardWidth-1);
+        spawnY = 3;
+
+        System.out.println("Spawn "+newHeroType+" at "+spawnX+" "+spawnY);
     }
 
     public int getSpawnX() {

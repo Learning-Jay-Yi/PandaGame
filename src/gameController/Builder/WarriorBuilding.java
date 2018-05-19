@@ -32,12 +32,15 @@ public class WarriorBuilding extends HeroBuilding{
             case "1":
                 heroFactory = new Warrior1Factory();
                 hero = new NewWarrior1(heroFactory);
+                break;
             case "2":
                 heroFactory = new Warrior2Factory();
                 hero = new NewWarrior2(heroFactory);
+                break;
             case "3":
                 heroFactory = new Warrior3Factory();
                 hero = new NewWarrior3(heroFactory);
+                break;
             default:
 
         }

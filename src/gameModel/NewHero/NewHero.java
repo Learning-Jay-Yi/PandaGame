@@ -18,5 +18,7 @@ public abstract class NewHero{
     // this is to spawn the hero on the board
     public abstract void MakeHero();
 
+    public abstract void showBody();
+
 
 }

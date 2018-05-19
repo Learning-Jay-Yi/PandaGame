@@ -67,4 +67,9 @@ public class NewRanger1 extends NewHero {
         partsSkills = ranger1Factory.addPartsSkills();
     }
 
+    @Override
+    public void showBody() {
+
+    }
+
 }

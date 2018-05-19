@@ -19,7 +19,6 @@ public class NewWarrior2 extends NewHero {
     private int height;
     Player player;
     Warrior2Factory warrior2Factory;
-    HeroType heroType = HeroType.WARRIOR;
 
 //    WarriorsBuilding warriorsBuilding;
 
@@ -44,6 +43,11 @@ public class NewWarrior2 extends NewHero {
         partsMove = warrior2Factory.addPartsMove();
         partsAttack = warrior2Factory.addPartsAttack();
         partsSkills = warrior2Factory.addPartsSkills();
+    }
+
+    @Override
+    public void showBody() {
+
     }
 
 }

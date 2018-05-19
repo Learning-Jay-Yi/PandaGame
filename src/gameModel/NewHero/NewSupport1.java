@@ -19,7 +19,6 @@ public class NewSupport1 extends NewHero {
     private int height;
     Player player;
     Support1Factory support1Factory;
-    HeroType heroType = HeroType.SUPPORT;
 
 //    WarriorsBuilding warriorsBuilding;
 
@@ -46,6 +45,11 @@ public class NewSupport1 extends NewHero {
         partsMove = support1Factory.addPartsMove();
         partsAttack = support1Factory.addPartsAttack();
         partsSkills = support1Factory.addPartsSkills();
+    }
+
+    @Override
+    public void showBody() {
+
     }
 
 }

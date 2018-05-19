@@ -8,7 +8,7 @@ import gameModel.NewHero.NewHero;
  * @version 1.0
  * @since 2018/5/14
  */
-public abstract class HeroBuilding {
+public class HeroBuilding {
     NewHero hero;
 
     public HeroBuilding() {
@@ -25,12 +25,15 @@ public abstract class HeroBuilding {
             case "Warrior":
                 heroBuilding= new WarriorBuilding();
                 hero = heroBuilding.buildHero(heroDetails);
+                break;
             case "Ranger":
                 heroBuilding = new RangerBuilding();
                 hero = heroBuilding.buildHero(heroDetails);
+                break;
             case "Support":
                 heroBuilding = new SupportBuilding();
                 hero = heroBuilding.buildHero(heroDetails);
+                break;
             default:
         }
 

@@ -3,6 +3,7 @@ package gameController.Builder;
 
 import gameModel.Factory.*;
 import gameModel.NewHero.*;
+import gameModel.PlayerType;
 
 /**
  * @author Jay
@@ -18,22 +19,31 @@ public class SupportBuilding extends HeroBuilding{
 
     public NewHero buildHero(String heroDetails, int width, int height){
         NewHero hero = null;
+        PlayerType playerType;
         String[] fields = heroDetails.split(" ");
 //        String heroType = fields[0];
         String factoryNumber = fields[1];
+        String sPlayerType = fields[2];
+
+        if (sPlayerType.equals(PlayerType.RED.toString()))
+            playerType = PlayerType.RED;
+        else
+            playerType = PlayerType.BLUE;
+
+
         HeroFactory heroFactory;
         switch (factoryNumber){
             case "1":
                 heroFactory = new Support1Factory();
-                hero = new NewSupport(heroFactory);
+                hero = new NewSupport(heroFactory,playerType,width,height);
                 break;
             case "2":
                 heroFactory = new Support2Factory();
-                hero = new NewSupport(heroFactory);
+                hero = new NewSupport(heroFactory,playerType,width,height);
                 break;
             case "3":
                 heroFactory = new Support3Factory();
-                hero = new NewSupport(heroFactory);
+                hero = new NewSupport(heroFactory,playerType,width,height);
                 break;
             default:
         }

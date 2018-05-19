@@ -1,7 +1,7 @@
 package gameModel.NewHero;
 
 import gameModel.Factory.HeroFactory;
-import gameModel.Player;
+import gameModel.PlayerType;
 
 /**
  * @author Jay
@@ -12,10 +12,13 @@ public class NewRanger extends NewHero {
 
     private int width;
     private int height;
-    Player player;
+    PlayerType playerType;
     HeroFactory heroFactory;
 
-    public NewRanger(HeroFactory heroFactory) {
+    public NewRanger(HeroFactory heroFactory, PlayerType playerType, int width, int height) {
+        this.width = width;
+        this.height = height;
+        this.playerType = playerType;
         this.heroFactory = heroFactory;
     }
 
@@ -33,13 +36,13 @@ public class NewRanger extends NewHero {
 
     @Override
     public void SpawnBody(){
-
-        partsBody.PartsBody(20,15,(new Player(Player.PlayerType.RED,1,"abc")));
+        partsBody.PartsBody(width,height,playerType);
     }
 
     @Override
     public void Move() {
-//        partsMove.PartsMove();
+        // need get the current X&Y, board W&H
+        partsMove.PartsMove(width,height);
     }
 
     @Override
@@ -51,5 +54,7 @@ public class NewRanger extends NewHero {
     public void UseSkills() {
 
     }
+
+
 
 }

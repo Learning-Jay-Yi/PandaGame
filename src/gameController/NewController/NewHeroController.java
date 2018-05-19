@@ -66,6 +66,8 @@ public class NewHeroController
 //			hero.setBoardHeight(height);
 
 			hero = heroBuilding.buildHero(testData.get(i),width,height);
+			hero.MakeHero();
+//			hero.Move();
 			heroes.add(hero);
 		}
 
@@ -110,30 +112,30 @@ public class NewHeroController
 				if(!selected && TurnChecker.getInstance().isTurn() && a.getPartsBody().getPlayerType() == PlayerType.RED)
 				{
 					heroView.selecetedChanges();
-					a.Move(heroView.getLocX(), heroView.getLocY());
+					a.getPartsMove().Move(heroView.getLocX(), heroView.getLocY());
 
-					for(int i = 0; i < a.getValidX().length; i++)
+					for(int i = 0; i < a.getPartsMove().getValidX().length; i++)
 					{
-						showValidTiles(tileArray, a.getValidX()[i], a.getValidY()[i]);
+						showValidTiles(tileArray, a.getPartsMove().getValidX()[i], a.getPartsMove().getValidY()[i]);
 					}
 				}
 
 				//move only if the tile selected is valid
-				if(!selected && !TurnChecker.getInstance().isTurn() && a.getPlayerType() == PlayerType.BLUE)
+				if(!selected && !TurnChecker.getInstance().isTurn() && a.getPartsBody().getPlayerType() == PlayerType.BLUE)
 				{
 					heroView.selecetedChanges();
-					a.move(heroView.getLocX(), heroView.getLocY());
+					a.getPartsMove().Move(heroView.getLocX(), heroView.getLocY());
 
 
-					for(int i = 0; i < a.getValidX().length; i++)
+					for(int i = 0; i < a.getPartsMove().getValidX().length; i++)
 					{
 						// find all the valid tiles of the selected piece
-						showValidTiles(tileArray, a.getValidX()[i], a.getValidY()[i]);
+						showValidTiles(tileArray, a.getPartsMove().getValidX()[i], a.getPartsMove().getValidY()[i]);
 					}
 				}
 
-				if(TurnChecker.getInstance().isTurn() && a.getPlayerType() == PlayerType.BLUE
-						|| !TurnChecker.getInstance().isTurn() && a.getPlayerType() == PlayerType.RED)
+				if(TurnChecker.getInstance().isTurn() && a.getPartsBody().getPlayerType() == PlayerType.BLUE
+						|| !TurnChecker.getInstance().isTurn() && a.getPartsBody().getPlayerType() == PlayerType.RED)
 					TurnCheckerAlarm.display();
 				else
 					processController.createNewLog(heroView.getPlayerType(), heroView.getRoleType(),

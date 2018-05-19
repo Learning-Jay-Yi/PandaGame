@@ -15,7 +15,7 @@ public class TestBuilder {
 
         NewHero newHero;
 
-        newHero = heroBuilding.buildHero(heroDetails, width, height);
+        newHero = heroBuilding.buildHero(heroDetails, 20, 30);
 
         newHero.MakeHero();
 

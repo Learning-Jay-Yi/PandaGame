@@ -42,8 +42,7 @@ public class NewWarrior extends NewHero {
     @Override
     public void Move() {
         // need get the current X&Y, board W&H
-
-        partsMove.PartsMove(19,3,20,15);
+        partsMove.PartsMove(width,height);
     }
 
     @Override

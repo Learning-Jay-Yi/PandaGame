@@ -5,7 +5,7 @@ package gameModel.Parts;
  * @version 1.0
  * @since 2018/5/17
  */
-public class SkillForMove implements AbilitySkills {
+public class SkillForMove implements PartsSkills {
     @Override
     public void skill() {
 

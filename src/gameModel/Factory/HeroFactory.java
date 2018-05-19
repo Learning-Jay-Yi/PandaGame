@@ -1,8 +1,9 @@
 package gameModel.Factory;
 
-import gameModel.Parts.AbilityAttack;
-import gameModel.Parts.AbilityMove;
-import gameModel.Parts.AbilitySkills;
+import gameModel.Parts.PartsAttack;
+import gameModel.Parts.PartsBody;
+import gameModel.Parts.PartsMove;
+import gameModel.Parts.PartsSkills;
 
 /**
  * This is the top factory that who will receives the order form main class
@@ -12,11 +13,13 @@ import gameModel.Parts.AbilitySkills;
  */
 public interface HeroFactory {
 
-    AbilityAttack addAbilityAttack();
+    PartsBody addPartsBody();
 
-    AbilityMove addAbilityMove();
+    PartsAttack addPartsAttack();
 
-    AbilitySkills addAbilitySkills();
+    PartsMove addPartsMove();
+
+    PartsSkills addPartsSkills();
 
 
 }

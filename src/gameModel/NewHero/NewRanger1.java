@@ -2,9 +2,9 @@ package gameModel.NewHero;
 
 import gameModel.Factory.HeroFactory;
 import gameModel.Factory.Ranger1Factory;
-import gameModel.Parts.AbilityAttack;
-import gameModel.Parts.AbilityMove;
-import gameModel.Parts.AbilitySkills;
+import gameModel.Parts.PartsAttack;
+import gameModel.Parts.PartsMove;
+import gameModel.Parts.PartsSkills;
 import gameModel.Player;
 
 /**
@@ -25,7 +25,6 @@ public class NewRanger1 extends NewHero {
 
     Player player;
     Ranger1Factory ranger1Factory;
-    HeroType heroType = HeroType.RANGER;
 
 //    WarriorsBuilding warriorsBuilding;
 
@@ -38,9 +37,9 @@ public class NewRanger1 extends NewHero {
     }
 
 
-    private AbilityAttack abilityAttack;
-    private AbilityMove abilityMove;
-    private AbilitySkills abilitySkills;
+    private PartsAttack partsAttack;
+    private PartsMove partsMove;
+    private PartsSkills partsSkills;
 
     public NewRanger1(HeroFactory heroFactory) {
 
@@ -63,9 +62,9 @@ public class NewRanger1 extends NewHero {
 
     @Override
     public void MakeHero() {
-        abilityMove = ranger1Factory.addAbilityMove();
-        abilityAttack = ranger1Factory.addAbilityAttack();
-        abilitySkills = ranger1Factory.addAbilitySkills();
+        partsMove = ranger1Factory.addPartsMove();
+        partsAttack = ranger1Factory.addPartsAttack();
+        partsSkills = ranger1Factory.addPartsSkills();
     }
 
 }

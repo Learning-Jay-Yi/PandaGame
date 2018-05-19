@@ -10,17 +10,22 @@ import gameModel.Parts.*;
 public class Warrior3Factory implements HeroFactory{
 
     @Override
-    public AbilityAttack addAbilityAttack() {
+    public PartsBody addPartsBody() {
+        return new WarriorBody();
+    }
+
+    @Override
+    public PartsAttack addPartsAttack() {
         return new WarriorAttack();
     }
 
     @Override
-    public AbilityMove addAbilityMove() {
+    public PartsMove addPartsMove() {
         return new WarriorMove();
     }
 
     @Override
-    public AbilitySkills addAbilitySkills() {
+    public PartsSkills addPartsSkills() {
         return new SkillForDodge();
     }
 }

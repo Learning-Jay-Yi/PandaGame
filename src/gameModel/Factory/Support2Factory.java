@@ -10,17 +10,17 @@ import gameModel.Parts.*;
 public class Support2Factory implements HeroFactory{
 
     @Override
-    public AbilityAttack addAbilityAttack() {
+    public PartsAttack addPartsAttack() {
         return new SupportAttack();
     }
 
     @Override
-    public AbilityMove addAbilityMove() {
+    public PartsMove addPartsMove() {
         return new SupportMove();
     }
 
     @Override
-    public AbilitySkills addAbilitySkills() {
+    public PartsSkills addPartsSkills() {
         return new SkillForMove();
     }
 }

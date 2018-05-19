@@ -5,9 +5,9 @@ package gameModel.Parts;
  * @version 1.0
  * @since 2018/5/17
  */
-public class SupportMove implements AbilityMove {
+public class SupportMove implements PartsMove {
     @Override
-    public void move(int x, int y) {
+    public void PartsMove(int x, int y) {
         // TODO: 2018/5/17 refactor
     }
 }

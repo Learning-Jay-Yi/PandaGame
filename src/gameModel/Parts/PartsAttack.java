@@ -5,8 +5,11 @@ package gameModel.Parts;
  * @version 1.0
  * @since 2018/5/13
  */
-public interface AbilitySkills {
-//    PartsSkills addPartsSkills();
-    void skill();
+public interface PartsAttack {
+//    PartsAttack addPartAttack();
+
+    void attack();
 
 }
+
+

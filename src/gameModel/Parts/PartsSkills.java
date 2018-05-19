@@ -5,6 +5,8 @@ package gameModel.Parts;
  * @version 1.0
  * @since 2018/5/13
  */
-public interface AbilityMove {
-    void PartsMove(int x, int y);
+public interface PartsSkills {
+//    PartsSkills addPartsSkills();
+    void skill();
+
 }

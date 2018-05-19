@@ -1,11 +1,10 @@
 package gameModel.NewHero;
 
 import gameModel.Factory.HeroFactory;
-import gameModel.Factory.Warrior1Factory;
-import gameModel.Factory.Warrior2Factory;
-import gameModel.Parts.AbilityAttack;
-import gameModel.Parts.AbilityMove;
-import gameModel.Parts.AbilitySkills;
+import gameModel.Parts.PartsAttack;
+import gameModel.Parts.PartsBody;
+import gameModel.Parts.PartsMove;
+import gameModel.Parts.PartsSkills;
 import gameModel.Player;
 
 /**
@@ -20,12 +19,11 @@ public class NewWarrior1 extends NewHero {
     private int height;
     Player player;
     HeroFactory heroFactory;
-    HeroType heroType = HeroType.WARRIOR;
 
-
-    private AbilityAttack abilityAttack;
-    private AbilityMove abilityMove;
-    private AbilitySkills abilitySkills;
+    private PartsAttack partsAttack;
+    private PartsMove partsMove;
+    private PartsSkills partsSkills;
+    private PartsBody partsBody;
 
 
     public NewWarrior1(HeroFactory heroFactory) {
@@ -33,13 +31,40 @@ public class NewWarrior1 extends NewHero {
     }
 
 
-
+    // hero = body + move + attack + skill
 
     @Override
     public void MakeHero() {
-        abilityMove = heroFactory.addAbilityMove();
-        abilityAttack = heroFactory.addAbilityAttack();
-        abilitySkills = heroFactory.addAbilitySkills();
+        partsBody = heroFactory.addPartsBody();
+        partsMove = heroFactory.addPartsMove();
+        partsAttack = heroFactory.addPartsAttack();
+        partsSkills = heroFactory.addPartsSkills();
+//        SpawnBody(partsBody);
     }
 
+
+    private void SpawnBody(PartsBody partsBody){
+        int spawnX, spawnY;
+//        int boardW =
+
+
+
+
+    }
+
+    public PartsBody getPartsBody() {
+        return partsBody;
+    }
+
+    public PartsAttack getPartsAttack() {
+        return partsAttack;
+    }
+
+    public PartsMove getPartsMove() {
+        return partsMove;
+    }
+
+    public PartsSkills getPartsSkills() {
+        return partsSkills;
+    }
 }

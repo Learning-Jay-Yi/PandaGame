@@ -10,17 +10,17 @@ import gameModel.Parts.*;
 public class Ranger3Factory implements HeroFactory{
 
     @Override
-    public AbilityAttack addAbilityAttack() {
+    public PartsAttack addPartsAttack() {
         return new RangerAttack();
     }
 
     @Override
-    public AbilityMove addAbilityMove() {
+    public PartsMove addPartsMove() {
         return new RangerMove();
     }
 
     @Override
-    public AbilitySkills addAbilitySkills() {
+    public PartsSkills addPartsSkills() {
         return new SkillForDodge();
     }
 }

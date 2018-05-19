@@ -2,9 +2,9 @@ package gameModel.NewHero;
 
 import gameModel.Factory.HeroFactory;
 import gameModel.Factory.Support1Factory;
-import gameModel.Parts.AbilityAttack;
-import gameModel.Parts.AbilityMove;
-import gameModel.Parts.AbilitySkills;
+import gameModel.Parts.PartsAttack;
+import gameModel.Parts.PartsMove;
+import gameModel.Parts.PartsSkills;
 import gameModel.Player;
 
 /**
@@ -32,9 +32,9 @@ public class NewSupport1 extends NewHero {
     }
 
 
-    private AbilityAttack abilityAttack;
-    private AbilityMove abilityMove;
-    private AbilitySkills abilitySkills;
+    private PartsAttack partsAttack;
+    private PartsMove partsMove;
+    private PartsSkills partsSkills;
 
     public NewSupport1(HeroFactory heroFactory) {
 
@@ -43,9 +43,9 @@ public class NewSupport1 extends NewHero {
 
     @Override
     public void MakeHero() {
-        abilityMove = support1Factory.addAbilityMove();
-        abilityAttack = support1Factory.addAbilityAttack();
-        abilitySkills = support1Factory.addAbilitySkills();
+        partsMove = support1Factory.addPartsMove();
+        partsAttack = support1Factory.addPartsAttack();
+        partsSkills = support1Factory.addPartsSkills();
     }
 
 }

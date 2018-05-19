@@ -5,7 +5,7 @@ package gameModel.Parts;
  * @version 1.0
  * @since 2018/5/17
  */
-public class WarriorAttack implements AbilityAttack{
+public class WarriorAttack implements PartsAttack {
     @Override
     public void attack() {
 

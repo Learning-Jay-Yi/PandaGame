@@ -41,7 +41,6 @@ public class WarriorBuilding extends HeroBuilding{
             default:
 
         }
-
         return hero;
     }
 }

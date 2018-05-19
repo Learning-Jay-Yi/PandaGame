@@ -10,6 +10,11 @@ import gameModel.Parts.*;
  */
 public abstract class NewHero{
 
+    PartsAttack partsAttack;
+    PartsMove partsMove;
+    PartsSkills partsSkills;
+    PartsBody partsBody;
+
     public NewHero() {
 
     }
@@ -18,7 +23,14 @@ public abstract class NewHero{
     // this is to spawn the hero on the board
     public abstract void MakeHero();
 
-    public abstract void showBody();
+    public abstract void SpawnBody();
+
+    public abstract void Move();
+
+    public abstract void Attack();
+
+    public abstract void UseSkills();
+
 
 
 }

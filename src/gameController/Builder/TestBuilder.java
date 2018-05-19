@@ -19,7 +19,9 @@ public class TestBuilder {
 
         newHero.MakeHero();
 
-        newHero.showBody();
+        newHero.SpawnBody();
+
+        newHero.Move();
 
 
     }

@@ -39,5 +39,13 @@ public class WarriorMove implements PartsMove{
         validX[3] = curX;
         validY[3] = (curY - moveRange >= 0 ? curY - moveRange : curY);
 
+        test();
+    }
+
+    private void test() {
+        for (int i = 0; i < 4; i++) {
+            System.out.println("validX: "+validX[i]+", validY: "+validY[i]);
+        }
+
     }
 }

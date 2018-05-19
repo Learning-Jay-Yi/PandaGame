@@ -46,7 +46,22 @@ public class NewWarrior2 extends NewHero {
     }
 
     @Override
-    public void showBody() {
+    public void SpawnBody() {
+
+    }
+
+    @Override
+    public void Move() {
+
+    }
+
+    @Override
+    public void Attack() {
+
+    }
+
+    @Override
+    public void UseSkills() {
 
     }
 

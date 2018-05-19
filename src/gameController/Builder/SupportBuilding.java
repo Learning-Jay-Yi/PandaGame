@@ -25,13 +25,16 @@ public class SupportBuilding extends HeroBuilding{
         switch (factoryNumber){
             case "1":
                 heroFactory = new Support1Factory();
-                hero = new NewSupport1(heroFactory);
+                hero = new NewSupport(heroFactory);
+                break;
             case "2":
                 heroFactory = new Support2Factory();
-                hero = new NewSupport2(heroFactory);
+                hero = new NewSupport(heroFactory);
+                break;
             case "3":
                 heroFactory = new Support3Factory();
-                hero = new NewSupport3(heroFactory);
+                hero = new NewSupport(heroFactory);
+                break;
             default:
         }
         return hero;

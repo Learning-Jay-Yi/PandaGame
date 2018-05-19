@@ -44,16 +44,6 @@ public class WarriorBody implements PartsBody {
         System.out.println("Spawn "+newHeroType+" at "+spawnX+" "+spawnY);
     }
 
-    private void testSpawn() {
-        boardHeight = 15;
-        boardWidth = 20;
-
-        spawnX = (player.getPlayerType() == Player.PlayerType.BLUE ? 0 : boardWidth-1);
-        spawnY = 3;
-
-        System.out.println("Spawn "+newHeroType+" at "+spawnX+" "+spawnY);
-    }
-
     public int getSpawnX() {
         return spawnX;
     }

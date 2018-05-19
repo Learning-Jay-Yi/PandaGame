@@ -1,10 +1,6 @@
 package gameModel.NewHero;
 
 import gameModel.Factory.HeroFactory;
-import gameModel.Parts.PartsAttack;
-import gameModel.Parts.PartsBody;
-import gameModel.Parts.PartsMove;
-import gameModel.Parts.PartsSkills;
 import gameModel.Player;
 
 /**
@@ -12,21 +8,14 @@ import gameModel.Player;
  * @version 1.0
  * @since 2018/5/17
  */
-public class NewWarrior1 extends NewHero {
-
+public class NewSupport extends NewHero {
 
     private int width;
     private int height;
     Player player;
     HeroFactory heroFactory;
 
-    private PartsAttack partsAttack;
-    private PartsMove partsMove;
-    private PartsSkills partsSkills;
-    private PartsBody partsBody;
-
-
-    public NewWarrior1(HeroFactory heroFactory) {
+    public NewSupport(HeroFactory heroFactory) {
         this.heroFactory = heroFactory;
     }
 
@@ -40,27 +29,27 @@ public class NewWarrior1 extends NewHero {
         partsMove = heroFactory.addPartsMove();
         partsAttack = heroFactory.addPartsAttack();
         partsSkills = heroFactory.addPartsSkills();
-//        SpawnBody(partsBody);
     }
 
-    public void showBody(){
+    @Override
+    public void SpawnBody(){
+
         partsBody.PartsBody(20,15,(new Player(Player.PlayerType.RED,1,"abc")));
     }
 
-
-    public PartsBody getPartsBody() {
-        return partsBody;
+    @Override
+    public void Move() {
+//        partsMove.PartsMove();
     }
 
-    public PartsAttack getPartsAttack() {
-        return partsAttack;
+    @Override
+    public void Attack() {
+
     }
 
-    public PartsMove getPartsMove() {
-        return partsMove;
+    @Override
+    public void UseSkills() {
+
     }
 
-    public PartsSkills getPartsSkills() {
-        return partsSkills;
-    }
 }

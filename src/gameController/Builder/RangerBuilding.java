@@ -25,13 +25,16 @@ public class RangerBuilding extends HeroBuilding{
         switch (factoryNumber){
             case "1":
                 heroFactory = new Ranger1Factory();
-                hero = new NewRanger1(heroFactory);
+                hero = new NewRanger(heroFactory);
+                break;
             case "2":
                 heroFactory = new Ranger2Factory();
-                hero = new NewRanger2(heroFactory);
+                hero = new NewRanger(heroFactory);
+                break;
             case "3":
                 heroFactory = new Ranger3Factory();
-                hero = new NewRanger3(heroFactory);
+                hero = new NewRanger(heroFactory);
+                break;
             default:
 
         }

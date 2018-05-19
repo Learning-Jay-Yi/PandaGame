@@ -6,7 +6,7 @@ import gameModel.Factory.Warrior1Factory;
 import gameModel.Factory.Warrior2Factory;
 import gameModel.Factory.Warrior3Factory;
 import gameModel.NewHero.NewHero;
-import gameModel.NewHero.NewWarrior1;
+import gameModel.NewHero.NewWarrior;
 import gameModel.NewHero.NewWarrior2;
 import gameModel.NewHero.NewWarrior3;
 
@@ -31,15 +31,15 @@ public class WarriorBuilding extends HeroBuilding{
         switch (factoryNumber){
             case "1":
                 heroFactory = new Warrior1Factory();
-                hero = new NewWarrior1(heroFactory);
+                hero = new NewWarrior(heroFactory);
                 break;
             case "2":
                 heroFactory = new Warrior2Factory();
-                hero = new NewWarrior2(heroFactory);
+                hero = new NewWarrior(heroFactory);
                 break;
             case "3":
                 heroFactory = new Warrior3Factory();
-                hero = new NewWarrior3(heroFactory);
+                hero = new NewWarrior(heroFactory);
                 break;
             default:
 

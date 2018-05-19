@@ -4,8 +4,6 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 
-
-
 /**
  *
  * @author Yu Liu
@@ -27,13 +25,29 @@ public class HeroPickView {
 	public GridPane getHeroPick(){
 		GridPane root = new GridPane();
 
+		root.add(label1, 0, 0);
+		root.add(label2, 1, 0);
+		root.add(label3, 2, 0);
+		//TODO
 		return root;
 	}
 
 	public VBox getHeroPool(){
 		VBox pool = new VBox();
-
+		//TODO
 		return pool;
+	}
+
+	public VBox getRedContainer(){
+		VBox container = new VBox();
+		//TODO
+		return container;
+	}
+
+	public VBox getBlueContainer(){
+		VBox container = new VBox();
+		//TODO
+		return container;
 	}
 
 }

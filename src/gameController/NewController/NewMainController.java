@@ -1,5 +1,8 @@
-package gameController;
+package gameController.NewController;
 
+import gameController.HeroController;
+import gameController.ProcessController;
+import gameController.TileController;
 import gameModel.Board;
 import gameView.*;
 import javafx.scene.Group;

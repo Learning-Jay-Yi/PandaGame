@@ -22,17 +22,7 @@ public class WarriorBody implements PartsBody {
         this.boardHeight = boardHeight;
         this.player = player;
         Spawn();
-//        testSpawn();
     }
-
-//    @Override
-//    public void PartsBody(int boardWidth, int boardHeight, NewHeroType newHeroType, Player player) {
-//        this.boardWidth = boardWidth;
-//        this.boardHeight = boardHeight;
-//        this.player = player;
-//        Spawn();
-//    }
-
 
     /**
      * this method use to spawn this hero

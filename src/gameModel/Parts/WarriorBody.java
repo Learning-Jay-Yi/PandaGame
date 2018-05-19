@@ -23,13 +23,16 @@ public class WarriorBody implements PartsBody {
         this.boardWidth = boardWidth;
         this.boardHeight = boardHeight;
         this.playerType= playerType;
-        Spawn();
+        spawnX = (playerType == PlayerType.BLUE ? 0 : boardWidth-1);
+        spawnY = 3;
+//        Spawn();
     }
 
     /**
      * this method use to spawn this hero
      */
-    private void Spawn() {
+    @Override
+    public void Spawn() {
         spawnX = (playerType == PlayerType.BLUE ? 0 : boardWidth-1);
         spawnY = 3;
 

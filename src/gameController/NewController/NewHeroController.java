@@ -67,7 +67,8 @@ public class NewHeroController
 
 			hero = heroBuilding.buildHero(testData.get(i),width,height);
 			hero.MakeHero();
-//			hero.Move();
+			hero.SpawnBody();
+			hero.Move();
 			heroes.add(hero);
 		}
 

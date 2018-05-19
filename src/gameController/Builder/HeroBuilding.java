@@ -1,6 +1,5 @@
 package gameController.Builder;
 
-import gameModel.Hero;
 import gameModel.NewHero.NewHero;
 
 
@@ -10,7 +9,7 @@ import gameModel.NewHero.NewHero;
  * @since 2018/5/14
  */
 public abstract class HeroBuilding {
-    Hero hero;
+    NewHero hero;
 
     public HeroBuilding() {
 

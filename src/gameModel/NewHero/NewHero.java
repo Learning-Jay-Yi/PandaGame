@@ -18,6 +18,8 @@ public abstract class NewHero{
         WARRIOR, SUPPORT, RANGER
     }
 
+    protected int[] validX,validY;
+
 
 //    protected int moveRange;
 //    protected int attackRange;

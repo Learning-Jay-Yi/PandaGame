@@ -19,38 +19,27 @@ public class NewWarrior1 extends NewHero {
     private int width;
     private int height;
     Player player;
-    Warrior1Factory warrior1Factory;
+    HeroFactory heroFactory;
     HeroType heroType = HeroType.WARRIOR;
-
-//    WarriorsBuilding warriorsBuilding;
-
-
-    public NewWarrior1(Warrior2Factory warrior1Factory){
-
-    }
-
-    // for the new warrior, all of them have the same body
-//    public NewWarrior1(int width, int height, Player player, Warrior1Factory warrior1Factory){
-//        this.height = height;
-//        this.width = width;
-//        this.player = player;
-//    }
 
 
     private AbilityAttack abilityAttack;
     private AbilityMove abilityMove;
     private AbilitySkills abilitySkills;
 
-    public NewWarrior1(HeroFactory heroFactory) {
 
+    public NewWarrior1(HeroFactory heroFactory) {
+        this.heroFactory = heroFactory;
     }
+
+
 
 
     @Override
     public void MakeHero() {
-        abilityMove = warrior1Factory.addAbilityMove();
-        abilityAttack = warrior1Factory.addAbilityAttack();
-        abilitySkills = warrior1Factory.addAbilitySkills();
+        abilityMove = heroFactory.addAbilityMove();
+        abilityAttack = heroFactory.addAbilityAttack();
+        abilitySkills = heroFactory.addAbilitySkills();
     }
 
 }

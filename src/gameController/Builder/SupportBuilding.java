@@ -34,7 +34,6 @@ public class SupportBuilding extends HeroBuilding{
                 hero = new NewSupport3(heroFactory);
             default:
         }
-
         return hero;
     }
 }

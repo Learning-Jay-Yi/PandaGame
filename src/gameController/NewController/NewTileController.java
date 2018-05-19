@@ -1,12 +1,13 @@
-package gameController;
+package gameController.NewController;
 
-import java.util.ArrayList;
-
+import gameController.ProcessController;
+import gameController.TurnChecker;
 import gameModel.DefaultTie;
-import gameModel.TimerCount;
 import gameView.HeroView;
 import gameView.TileView;
 import javafx.scene.Group;
+
+import java.util.ArrayList;
 
 
 /**

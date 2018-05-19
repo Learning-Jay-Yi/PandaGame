@@ -1,5 +1,7 @@
-package gameController;
+package gameController.NewController;
 
+import gameController.ProcessController;
+import gameController.TurnChecker;
 import gameModel.*;
 import gameView.HeroView;
 import gameView.TileView;

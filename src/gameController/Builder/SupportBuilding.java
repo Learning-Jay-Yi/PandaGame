@@ -33,7 +33,6 @@ public class SupportBuilding extends HeroBuilding{
                 heroFactory = new Support3Factory();
                 hero = new NewSupport3(heroFactory);
             default:
-
         }
 
         return hero;

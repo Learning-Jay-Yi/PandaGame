@@ -15,7 +15,7 @@ public class HeroBuilding {
 
     }
 
-    public NewHero buildHero (String heroDetails){
+    public NewHero buildHero(String heroDetails, int width, int height){
         NewHero hero = null;
         HeroBuilding heroBuilding;
         String[] fields = heroDetails.split(" ");
@@ -24,15 +24,15 @@ public class HeroBuilding {
         switch (heroType){
             case "Warrior":
                 heroBuilding= new WarriorBuilding();
-                hero = heroBuilding.buildHero(heroDetails);
+                hero = heroBuilding.buildHero(heroDetails, width, height);
                 break;
             case "Ranger":
                 heroBuilding = new RangerBuilding();
-                hero = heroBuilding.buildHero(heroDetails);
+                hero = heroBuilding.buildHero(heroDetails, width, height);
                 break;
             case "Support":
                 heroBuilding = new SupportBuilding();
-                hero = heroBuilding.buildHero(heroDetails);
+                hero = heroBuilding.buildHero(heroDetails, width, height);
                 break;
             default:
         }

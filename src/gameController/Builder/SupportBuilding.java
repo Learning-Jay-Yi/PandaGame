@@ -16,7 +16,7 @@ public class SupportBuilding extends HeroBuilding{
 //        hero = buildHero(heroDetails);
 //    }
 
-    public NewHero buildHero (String heroDetails){
+    public NewHero buildHero(String heroDetails, int width, int height){
         NewHero hero = null;
         String[] fields = heroDetails.split(" ");
 //        String heroType = fields[0];

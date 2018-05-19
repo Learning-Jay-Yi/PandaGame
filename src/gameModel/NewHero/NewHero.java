@@ -1,7 +1,9 @@
 package gameModel.NewHero;
 
+import gameModel.Board;
 import gameModel.Factory.HeroFactory;
 import gameModel.Parts.*;
+import gameModel.PlayerType;
 
 /**
  * @author Jay
@@ -14,6 +16,8 @@ public abstract class NewHero{
     PartsMove partsMove;
     PartsSkills partsSkills;
     PartsBody partsBody;
+
+    private int boardWidth, boardHeight;
 
     public NewHero() {
 
@@ -31,6 +35,19 @@ public abstract class NewHero{
     // use to use hero skill
     public abstract void UseSkills();
 
+    public PartsSkills getPartsSkills() {
+        return partsSkills;
+    }
 
+    public PartsMove getPartsMove() {
+        return partsMove;
+    }
 
+    public PartsAttack getPartsAttack() {
+        return partsAttack;
+    }
+
+    public PartsBody getPartsBody() {
+        return partsBody;
+    }
 }

@@ -1,4 +1,4 @@
-package gameView;
+package gameView.Option;
 
 import javafx.scene.layout.BorderPane;
 

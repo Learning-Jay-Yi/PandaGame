@@ -1,8 +1,9 @@
-package gameView;
+package gameView.Option;
 
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.layout.HBox;
 
 /**
  *
@@ -20,7 +21,15 @@ public class GameTypeOptionView {
 	private ToggleGroup btnGroup = new ToggleGroup();
 	private Label typeLabel = new Label("Game Type");
 
+	public GameTypeOptionView(){
+		btn1.setSelected(true);
+		btn1.setToggleGroup(btnGroup);
+		btn2.setToggleGroup(btnGroup);
+	}
 
-
-
+	public HBox getGameTypeOption(){
+		HBox root = new HBox();
+		root.getChildren().addAll(typeLabel, btn1, btn2);
+		return root;
+	}
 }

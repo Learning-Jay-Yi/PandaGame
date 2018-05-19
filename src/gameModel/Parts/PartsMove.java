@@ -7,4 +7,5 @@ package gameModel.Parts;
  */
 public interface PartsMove {
     void PartsMove(int curX, int curY,int boardW,int boardH);
+    void Move(int curX, int curY);
 }

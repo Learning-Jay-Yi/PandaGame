@@ -1,12 +1,16 @@
 package gameController.NewController;
 
-import gameController.ProcessController;
+import gameController.Builder.HeroBuilding;
 import gameController.TurnChecker;
 import gameModel.*;
+import gameModel.NewHero.NewHero;
+import gameModel.NewHero.NewHeroType;
 import gameView.HeroView;
+import gameView.NewView.NewHeroView;
 import gameView.TileView;
 import gameView.TurnCheckerAlarm;
 import javafx.scene.Group;
+import javafx.scene.input.MouseEvent;
 
 import java.util.ArrayList;
 
@@ -20,14 +24,14 @@ import java.util.ArrayList;
 
 public class NewHeroController
 {
-	private int width, height, tilesize;
-	private ProcessController processController;
+	private int width, height, tileSize;
+	private NewProcessController processController;
 
-	public NewHeroController(int width, int height, int tilesize, ProcessController process)
+	public NewHeroController(int width, int height, int tileSize, NewProcessController process)
 	{
 		this.width = width;
 		this.height = height;
-		this.tilesize = tilesize;
+		this.tileSize = tileSize;
 		this.processController = process;
 	}
 
@@ -36,8 +40,18 @@ public class NewHeroController
 	 * @Ensures ("Group hero !=null")
 	 */
 	public Group createHeros(ArrayList<HeroView> heroArray,TileView[][] tileArray){
+
+		ArrayList<String> testData = new ArrayList<>();
+		String hero1 = "Warrior 1 RED";
+		String hero2 = "Warrior 2 BLUE";
+
+		testData.add(hero1);
+		testData.add(hero2);
+
 		Group group = new Group();
-		ArrayList<Hero> r = new ArrayList<Hero>();
+		ArrayList<NewHero> heroes = new ArrayList<>();
+
+
 
 		/**
 		 * list add new warrior that with plyaerType
@@ -45,29 +59,44 @@ public class NewHeroController
 		 * @Invariant("warrior.length && support.length && ranger.length == 2")
 		 */
 
-		r.add(new Warrior(width, height, PlayerType.BLUE));
-		r.add(new Warrior(width, height, PlayerType.RED));
 
-		r.add(new Support(width, height, PlayerType.BLUE));
-		r.add(new Support(width, height, PlayerType.RED));
+		for (int i = 0; i < testData.size(); i++) {
+			HeroBuilding heroBuilding = new HeroBuilding();
+			NewHero hero;
+//			hero.setBoardHeight(height);
 
-		r.add(new Ranger(width, height, PlayerType.BLUE));
-		r.add(new Ranger(width, height, PlayerType.RED));
+			hero = heroBuilding.buildHero(testData.get(i),width,height);
+			heroes.add(hero);
+		}
+
+//		r.add(new Warrior(width, height, PlayerType.BLUE));
+//		r.add(new Warrior(width, height, PlayerType.RED));
+//
+//		r.add(new Support(width, height, PlayerType.BLUE));
+//		r.add(new Support(width, height, PlayerType.RED));
+//
+//		r.add(new Ranger(width, height, PlayerType.BLUE));
+//		r.add(new Ranger(width, height, PlayerType.RED));
 
 		/**
 		 * Adding Hero View
 		 * @Requires("r.contains(a)")
 		 * @Requires("r.contains(OLD a)")
 		 */
-		for(Hero a : r)
+		for(NewHero a : heroes)
 		{
-			HeroView heroView = new HeroView(a.getStartX(), a.getStartY(),a.getPlayerType(), a.getRoleType(), tilesize);
+
+			int startX = a.getPartsBody().getSpawnX();
+			int startY = a.getPartsBody().getSpawnY();
+			PlayerType playerType = a.getPartsBody().getPlayerType();
+			RoleType roleType = a.getPartsBody().getRoleType();
+			HeroView heroView = new HeroView(startX, startY, playerType, roleType, tileSize);
 			heroArray.add(heroView);
 
 			// ******* for future developing ----- maybe there will is some function need this
-			tileArray[a.getStartX()][a.getStartY()].setHero(heroView);
+			tileArray[startX][startY].setHero(heroView);
 
-			heroView.setOnMouseClicked(e ->
+			heroView.setOnMouseClicked((MouseEvent e) ->
 			{
 				//************************* for future developing ------ refractory (too many if statements)
 				boolean selected = false;
@@ -78,10 +107,10 @@ public class NewHeroController
 				}
 
 				//move only if the tile selected is valid
-				if(!selected && TurnChecker.getInstance().isTurn() && a.getPlayerType() == PlayerType.RED)
+				if(!selected && TurnChecker.getInstance().isTurn() && a.getPartsBody().getPlayerType() == PlayerType.RED)
 				{
 					heroView.selecetedChanges();
-					a.move(heroView.getLocX(), heroView.getLocY());
+					a.Move(heroView.getLocX(), heroView.getLocY());
 
 					for(int i = 0; i < a.getValidX().length; i++)
 					{

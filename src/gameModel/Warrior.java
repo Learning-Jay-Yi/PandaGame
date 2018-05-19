@@ -42,7 +42,5 @@ public class Warrior extends Hero implements Capture{
 
 		validX[3] = curX;
 		validY[3] = (curY - move >= 0 ? curY - move : curY);
-
 	}
-
 }

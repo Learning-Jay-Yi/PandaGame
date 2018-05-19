@@ -42,6 +42,11 @@ public class WarriorMove implements PartsMove{
         test();
     }
 
+    @Override
+    public void Move(int curX, int curY) {
+
+    }
+
     private void test() {
         for (int i = 0; i < 4; i++) {
             System.out.println("validX: "+validX[i]+", validY: "+validY[i]);

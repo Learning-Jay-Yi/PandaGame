@@ -1,9 +1,8 @@
 package gameController.NewController;
 
-import gameController.HeroController;
+
 import gameController.ProcessController;
-import gameController.TileController;
-import gameModel.Board;
+import gameModel.*;
 import gameView.*;
 import javafx.scene.Group;
 
@@ -37,9 +36,9 @@ public class NewMainController {
 	private int WIDTH;
 	private int HEIGHT;
 
-	private TileController tileController;
-	private HeroController heroController;
-	private ProcessController processController;
+	private NewTileController tileController;
+	private NewHeroController heroController;
+	private NewProcessController processController;
 
 	private MenuView menu;
 	//private TimerView timer;
@@ -62,10 +61,10 @@ public class NewMainController {
 		//TODO
 		//timer = new TimerView();
 
-		processController = new ProcessController(menu);
+		processController = new NewProcessController(menu);
 
-		tileController = new TileController(WIDTH, HEIGHT, TILE_SIZE, processController);
-		heroController = new HeroController(WIDTH, HEIGHT, TILE_SIZE, processController);
+		tileController = new NewTileController(WIDTH, HEIGHT, TILE_SIZE,processController);
+		heroController = new NewHeroController(WIDTH, HEIGHT, TILE_SIZE, processController);
 
 		tileArray = new TileView[WIDTH][HEIGHT];
 		heroArray = new ArrayList<HeroView>();

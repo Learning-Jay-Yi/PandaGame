@@ -23,7 +23,7 @@ public class NewTileController {
 	private int boardWidth;
 	private int boardHeight;
 	private int tileSize;
-	private ProcessController processController;
+	private NewProcessController processController;
 
 	/**
 	 * constructor that to store new object with width, height, size three parameters
@@ -31,7 +31,7 @@ public class NewTileController {
 	 * @Requires ("height == 14")
 	 * @Requires ("size == 50")
 	 */
-	public NewTileController(int width, int height, int size, ProcessController process){
+	public NewTileController(int width, int height, int size, NewProcessController process){
 		this.boardWidth = width;
 		this.boardHeight = height;
 		this.tileSize = size;

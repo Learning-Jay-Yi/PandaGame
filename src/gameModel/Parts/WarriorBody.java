@@ -2,6 +2,8 @@ package gameModel.Parts;
 
 import gameModel.NewHero.NewHeroType;
 import gameModel.Player;
+import gameModel.PlayerType;
+import gameModel.RoleType;
 
 /**
  * this class is use to make the hero body and spawn it to tile
@@ -12,15 +14,15 @@ import gameModel.Player;
 public class WarriorBody implements PartsBody {
 
     private int boardWidth, boardHeight;
-    Player player;
+    PlayerType playerType;
     private int spawnX,spawnY;
-    NewHeroType newHeroType = NewHeroType.WARRIOR;
+    RoleType newHeroType = RoleType.WARRIOR;
 
     @Override
-    public void PartsBody(int boardWidth, int boardHeight, Player player) {
+    public void PartsBody(int boardWidth, int boardHeight, PlayerType playerType) {
         this.boardWidth = boardWidth;
         this.boardHeight = boardHeight;
-        this.player = player;
+        this.playerType= playerType;
         Spawn();
     }
 
@@ -28,33 +30,26 @@ public class WarriorBody implements PartsBody {
      * this method use to spawn this hero
      */
     private void Spawn() {
-        spawnX = (player.getPlayerType() == Player.PlayerType.BLUE ? 0 : boardWidth-1);
+        spawnX = (playerType == PlayerType.BLUE ? 0 : boardWidth-1);
         spawnY = 3;
 
-        System.out.println("Spawn "+newHeroType+" at "+spawnX+" "+spawnY);
+//        System.out.println("Spawn "+newHeroType+" at "+spawnX+" "+spawnY);
     }
-
+    @Override
     public int getSpawnX() {
         return spawnX;
     }
-
+    @Override
     public int getSpawnY() {
         return spawnY;
     }
-
-    public int getWidth() {
-        return boardWidth;
+    @Override
+    public PlayerType getPlayerType() {
+        return playerType;
     }
-
-    public int getHeight() {
-        return boardHeight;
-    }
-
-    public Player getPlayer() {
-        return player;
-    }
-
-    public NewHeroType getNewHeroType() {
+    @Override
+    public RoleType getRoleType() {
         return newHeroType;
     }
+
 }

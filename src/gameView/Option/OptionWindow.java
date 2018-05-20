@@ -13,7 +13,8 @@ import javafx.scene.layout.BorderPane;
  */
 public class OptionWindow {
 
-
+	private GameTypeOptionView typeOption = new GameTypeOptionView();
+	private HeroPickView heroPick = new HeroPickView();
 
 	public OptionWindow(){
 
@@ -22,6 +23,8 @@ public class OptionWindow {
 	public BorderPane displayOption(){
 		BorderPane rootPane = new BorderPane();
 
+		rootPane.setTop(typeOption.getGameTypeOption());
+		rootPane.setCenter(heroPick.getHeroPick());
 		return rootPane;
 	}
 

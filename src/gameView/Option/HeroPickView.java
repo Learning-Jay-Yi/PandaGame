@@ -4,12 +4,14 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.util.Callback;
 
@@ -40,8 +42,12 @@ public class HeroPickView {
 			new HeroPool("Ranger", 3)
 			);
 
+	private ObservableList<HeroPool> redData = FXCollections.observableArrayList();
+	private ObservableList<HeroPool> blueData = FXCollections.observableArrayList();
+
 
 	public HeroPickView(){
+
 	}
 
 	public GridPane getHeroPick(){
@@ -67,8 +73,7 @@ public class HeroPickView {
 		typeColumn.setMinWidth(100);
 		typeColumn.setCellValueFactory(new PropertyValueFactory<>("heroType"));
 
-
-	    TableColumn<HeroPool, Integer> abilityColumn = new TableColumn<>("Special Ability");
+		TableColumn<HeroPool, Integer> abilityColumn = new TableColumn<>("Special Ability");
 	    abilityColumn.setMinWidth(100);
 	    abilityColumn.setCellValueFactory(new PropertyValueFactory<>("ability"));
 
@@ -80,6 +85,12 @@ public class HeroPickView {
                     	HeroPool data = arg0.getValue();
                         CheckBox checkBox = new CheckBox();
                         checkBox.selectedProperty().setValue(data.isSelected());
+                        checkBox.selectedProperty().addListener(e->{
+                        	if(checkBox.isSelected())
+                        		data.setSelect(true);
+                        	else
+                        		data.setSelect(false);
+                        });
 
                         return new SimpleObjectProperty<CheckBox>(checkBox);
                     }
@@ -89,15 +100,53 @@ public class HeroPickView {
 
 	    heroPool.setItems(data);
 		pool.getChildren().add(heroPool);
-		//TODO
 		return pool;
 	}
 
 	public VBox getRedContainer(){
 		VBox redContainer = new VBox();
+		TableView<HeroPool> redList = new TableView();
+		ObservableList<TableColumn<HeroPool, ?>> redcolumns = redList.getColumns();
 
+		TableColumn<HeroPool, String> typeColumn = new TableColumn<>("Hero Type");
+		typeColumn.setMinWidth(100);
+		typeColumn.setCellValueFactory(new PropertyValueFactory<>("heroType"));
 
-		//redContainer.getChildren().add(redList);
+		TableColumn<HeroPool, Integer> abilityColumn = new TableColumn<>("Special Ability");
+	    abilityColumn.setMinWidth(100);
+	    abilityColumn.setCellValueFactory(new PropertyValueFactory<>("ability"));
+
+		redcolumns.addAll(typeColumn, abilityColumn);
+
+		Button addBtn = new Button("Add");
+		Button deleteBtn = new Button("Clean");
+		deleteBtn.setVisible(false);
+		HBox btnPane = new HBox();
+		btnPane.getChildren().addAll(addBtn, deleteBtn);
+
+		addBtn.setOnAction(e ->{
+			for(HeroPool a : data){
+				if(a.isSelected() && !a.isRedAdd()){
+					redData.add(a);
+					a.setRedAdd(true);
+				}
+			}
+			redList.setItems(redData);
+			addBtn.setVisible(false);
+			deleteBtn.setVisible(true);
+		});
+
+		deleteBtn.setOnAction(e->{
+			for(HeroPool a : redData){
+				a.setRedAdd(false);
+			}
+			redData = FXCollections.observableArrayList();
+			redList.setItems(redData);
+			addBtn.setVisible(true);
+			deleteBtn.setVisible(false);
+		});
+
+		redContainer.getChildren().addAll(btnPane, redList);
 		//TODO
 		return redContainer;
 	}
@@ -105,10 +154,49 @@ public class HeroPickView {
 	public VBox getBlueContainer(){
 		VBox blueContainer = new VBox();
 
+		TableView<HeroPool> blueList = new TableView();
+		ObservableList<TableColumn<HeroPool, ?>> bluecolumns = blueList.getColumns();
 
+		TableColumn<HeroPool, String> typeColumn = new TableColumn<>("Hero Type");
+		typeColumn.setMinWidth(100);
+		typeColumn.setCellValueFactory(new PropertyValueFactory<>("heroType"));
 
-		//blueContainer.getChildren().add(blueList);
-		//TODO
+		TableColumn<HeroPool, Integer> abilityColumn = new TableColumn<>("Special Ability");
+	    abilityColumn.setMinWidth(100);
+	    abilityColumn.setCellValueFactory(new PropertyValueFactory<>("ability"));
+
+        bluecolumns.addAll(typeColumn, abilityColumn);
+
+		Button addBtn = new Button("Add");
+		Button deleteBtn = new Button("Delete");
+		deleteBtn.setVisible(false);
+		HBox btnPane = new HBox();
+		btnPane.getChildren().addAll(addBtn, deleteBtn);
+
+		addBtn.setOnAction(e ->{
+			for(HeroPool a : data){
+				if(a.isSelected() && !a.isBlueAdd()){
+					blueData.add(a);
+					a.setBlueAdd(true);
+				}
+			}
+			blueList.setItems(blueData);
+			addBtn.setVisible(false);
+			deleteBtn.setVisible(true);
+		});
+
+		deleteBtn.setOnAction(e->{
+			for(HeroPool a : blueData){
+				a.setBlueAdd(false);
+			}
+			blueData = FXCollections.observableArrayList();
+			blueList.setItems(blueData);
+			addBtn.setVisible(true);
+			deleteBtn.setVisible(false);
+		});
+
+		blueContainer.getChildren().addAll(btnPane, blueList);
+
 		return blueContainer;
 	}
 

@@ -1,7 +1,11 @@
 package gameView;
 
+import gameModel.Hero;
+import gameModel.NewHero.NewHero;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
+
+import java.util.ArrayList;
 
 /**
  *
@@ -10,14 +14,22 @@ import javafx.scene.layout.VBox;
  */
 public class ActionSelectWindow {
 
+	private boolean bAction = false;
+
+	private NewHero newHero;
+	private HeroView heroView;
+	private ArrayList<HeroView> heroViews;
 
 	private Button abilityBtn = new Button("Ability");
 	private Button attackBtn = new Button("Attack");
 	private Button moveBtn = new Button("Move");
 
 
-	public ActionSelectWindow(){
+	public ActionSelectWindow(NewHero newHero, HeroView heroView, ArrayList<HeroView> heroViews){
 		// try to figure out useful parameters
+		this.newHero = newHero;
+		this.heroView = heroView;
+		this.heroViews = heroViews;
 		//TODO
 	}
 
@@ -32,6 +44,7 @@ public class ActionSelectWindow {
 		setMoveBtn();
 
 		//TODO
+		return null;
 	}
 
 	/******* at end of button, need to close ActionWindow: see TurnCheckerAlarm***********/
@@ -52,4 +65,6 @@ public class ActionSelectWindow {
 			//TODO
 		});
 	}
+
+
 }

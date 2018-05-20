@@ -4,6 +4,7 @@ import gameController.Builder.HeroBuilding;
 import gameController.TurnChecker;
 import gameModel.*;
 import gameModel.NewHero.NewHero;
+import gameView.ActionSelectWindow;
 import gameView.HeroView;
 import gameView.TileView;
 import gameView.TurnCheckerAlarm;
@@ -100,61 +101,23 @@ public class NewHeroController
 			heroArray.add(heroView);
 
 
-			// only work when one hero be selected
-//			ClickHero(newHero,heroView,heroArray));
-
-//			group.getChildren().add(heroView);
-
-
-
 
 			 //******* for future developing ----- maybe there will is some function need this
 			tileArray[startX][startY].setHero(heroView);
 
 			heroView.setOnMouseClicked((MouseEvent e) ->
 			{
-				//************************* for future developing ------ refractory (too many if statements)
-				boolean selected = false;
-				for(HeroView i : heroArray)
-				{
-					if(i.isSelected())
-						selected = true;
-				}
 
-				//move only if the tile selected is valid
-				if(!selected && TurnChecker.getInstance().isTurn() && newHero.getPartsBody().getPlayerType() == PlayerType.RED)
-				{
-					heroView.selecetedChanges();
-					newHero.getPartsMove().CanMove(heroView.getLocX(), heroView.getLocY());
+				// need to know which hero selected
+				// before the move, attack button need to disable, but skill button can use.
 
-					for(int i = 0; i < newHero.getPartsMove().getValidX().length; i++)
-					{
-						showMoveValidTiles(tileArray, newHero.getPartsMove().getValidX()[i], newHero.getPartsMove().getValidY()[i]);
-					}
-				}
-
-				//move only if the tile selected is valid
-				if(!selected && !TurnChecker.getInstance().isTurn() && newHero.getPartsBody().getPlayerType() == PlayerType.BLUE)
-				{
-					heroView.selecetedChanges();
-					newHero.getPartsMove().CanMove(heroView.getLocX(), heroView.getLocY());
+				ActionSelectWindow actionWindow = new ActionSelectWindow(newHero,heroView,heroArray);
 
 
-					for(int i = 0; i < newHero.getPartsMove().getValidX().length; i++)
-					{
-						// find all the valid tiles of the selected piece
-						showMoveValidTiles(tileArray, newHero.getPartsMove().getValidX()[i], newHero.getPartsMove().getValidY()[i]);
-					}
-				}
 
-				if(TurnChecker.getInstance().isTurn() && newHero.getPartsBody().getPlayerType() == PlayerType.BLUE
-						|| !TurnChecker.getInstance().isTurn() && newHero.getPartsBody().getPlayerType() == PlayerType.RED)
-					TurnCheckerAlarm.display();
-				else
-					processController.createNewLog(heroView.getPlayerType(), heroView.getRoleType(),
-							heroView.getLocX(), heroView.getLocY());
+				actionWindow.display();
+				//TODO
 			});
-
 			group.getChildren().add(heroView);
 		}
 		return group;

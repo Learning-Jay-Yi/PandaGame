@@ -4,10 +4,7 @@ import gameController.Builder.HeroBuilding;
 import gameController.TurnChecker;
 import gameModel.*;
 import gameModel.NewHero.NewHero;
-import gameModel.NewHero.NewHeroType;
-import gameView.ActionSelectWindow;
 import gameView.HeroView;
-import gameView.NewView.NewHeroView;
 import gameView.TileView;
 import gameView.TurnCheckerAlarm;
 import javafx.scene.Group;
@@ -44,10 +41,19 @@ public class NewHeroController
 
 		ArrayList<String> testData = new ArrayList<>();
 		String hero1 = "Warrior 1 RED";
-		String hero2 = "Warrior 2 BLUE";
+		String hero2 = "Warrior 1 BLUE";
+		String hero3 = "Ranger 2 RED";
+		String hero4 = "Ranger 2 BLUE";
+		String hero5 = "Support 3 RED";
+		String hero6 = "Support 3 BLUE";
+
 
 		testData.add(hero1);
 		testData.add(hero2);
+		testData.add(hero3);
+		testData.add(hero4);
+		testData.add(hero5);
+		testData.add(hero6);
 
 		Group group = new Group();
 		ArrayList<NewHero> heroes = new ArrayList<>();
@@ -67,48 +73,107 @@ public class NewHeroController
 //			hero.setBoardHeight(height);
 
 			hero = heroBuilding.buildHero(testData.get(i),width,height);
+
 			hero.MakeHero();
-			hero.SpawnBody();
-			hero.Move();
+//			hero.SpawnBody();
+
+
+//			hero.CanMove();
 			heroes.add(hero);
 		}
-
-//		r.add(new Warrior(width, height, PlayerType.BLUE));
-//		r.add(new Warrior(width, height, PlayerType.RED));
-//
-//		r.add(new Support(width, height, PlayerType.BLUE));
-//		r.add(new Support(width, height, PlayerType.RED));
-//
-//		r.add(new Ranger(width, height, PlayerType.BLUE));
-//		r.add(new Ranger(width, height, PlayerType.RED));
 
 		/**
 		 * Adding Hero View
 		 * @Requires("r.contains(a)")
 		 * @Requires("r.contains(OLD a)")
 		 */
-		for(NewHero a : heroes)
-		{
-
-			int startX = a.getPartsBody().getSpawnX();
-			int startY = a.getPartsBody().getSpawnY();
-			PlayerType playerType = a.getPartsBody().getPlayerType();
-			RoleType roleType = a.getPartsBody().getRoleType();
+		for(NewHero newHero : heroes) {
+			//spawn each hero and put it into heroView
+			newHero.SpawnBody();
+			// initial hero move board
+			newHero.Move();
+			int startX = newHero.getPartsBody().getSpawnX();
+			int startY = newHero.getPartsBody().getSpawnY();
+			PlayerType playerType = newHero.getPartsBody().getPlayerType();
+			RoleType roleType = newHero.getPartsBody().getRoleType();
 			HeroView heroView = new HeroView(startX, startY, playerType, roleType, tileSize);
 			heroArray.add(heroView);
 
+
+			// only work when one hero be selected
+//			ClickHero(newHero,heroView,heroArray));
+
+//			group.getChildren().add(heroView);
+
+
+
+
+			 //******* for future developing ----- maybe there will is some function need this
 			tileArray[startX][startY].setHero(heroView);
 
 			heroView.setOnMouseClicked((MouseEvent e) ->
 			{
-				ActionSelectWindow actionWindow = new ActionSelectWindow();
-				actionWindow.display();
-				//TODO
+				//************************* for future developing ------ refractory (too many if statements)
+				boolean selected = false;
+				for(HeroView i : heroArray)
+				{
+					if(i.isSelected())
+						selected = true;
+				}
+
+				//move only if the tile selected is valid
+				if(!selected && TurnChecker.getInstance().isTurn() && newHero.getPartsBody().getPlayerType() == PlayerType.RED)
+				{
+					heroView.selecetedChanges();
+					newHero.getPartsMove().CanMove(heroView.getLocX(), heroView.getLocY());
+
+					for(int i = 0; i < newHero.getPartsMove().getValidX().length; i++)
+					{
+						showMoveValidTiles(tileArray, newHero.getPartsMove().getValidX()[i], newHero.getPartsMove().getValidY()[i]);
+					}
+				}
+
+				//move only if the tile selected is valid
+				if(!selected && !TurnChecker.getInstance().isTurn() && newHero.getPartsBody().getPlayerType() == PlayerType.BLUE)
+				{
+					heroView.selecetedChanges();
+					newHero.getPartsMove().CanMove(heroView.getLocX(), heroView.getLocY());
+
+
+					for(int i = 0; i < newHero.getPartsMove().getValidX().length; i++)
+					{
+						// find all the valid tiles of the selected piece
+						showMoveValidTiles(tileArray, newHero.getPartsMove().getValidX()[i], newHero.getPartsMove().getValidY()[i]);
+					}
+				}
+
+				if(TurnChecker.getInstance().isTurn() && newHero.getPartsBody().getPlayerType() == PlayerType.BLUE
+						|| !TurnChecker.getInstance().isTurn() && newHero.getPartsBody().getPlayerType() == PlayerType.RED)
+					TurnCheckerAlarm.display();
+				else
+					processController.createNewLog(heroView.getPlayerType(), heroView.getRoleType(),
+							heroView.getLocX(), heroView.getLocY());
 			});
 
 			group.getChildren().add(heroView);
 		}
 		return group;
+	}
+
+
+
+
+
+
+	private void ClickHero(NewHero newHero, HeroView heroView, ArrayList<HeroView> heroArray) {
+		boolean bSelected = false;
+		heroView.selecetedChanges();
+		newHero.getPartsMove().CanMove(heroView.getLocX(),heroView.getLocY());
+
+		if (bSelected){
+			heroView.selecetedChanges();
+		}
+
 	}
 
 	/**
@@ -117,7 +182,7 @@ public class NewHeroController
 	 * @Requires ("x>=0","x<=13")
 	 * @Requires ("y>=0","y<=14")
 	 */
-	private void showValidTiles(TileView[][] tile, int x, int y){
+	private void showMoveValidTiles(TileView[][] tile, int x, int y){
 		tile[x][y].changeColor(); // call the method that change the special tiles.
 	}
 }

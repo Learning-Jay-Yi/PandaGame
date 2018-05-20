@@ -5,6 +5,7 @@ import gameController.TurnChecker;
 import gameModel.*;
 import gameModel.NewHero.NewHero;
 import gameModel.NewHero.NewHeroType;
+import gameView.ActionSelectWindow;
 import gameView.HeroView;
 import gameView.NewView.NewHeroView;
 import gameView.TileView;
@@ -96,51 +97,13 @@ public class NewHeroController
 			HeroView heroView = new HeroView(startX, startY, playerType, roleType, tileSize);
 			heroArray.add(heroView);
 
-			// ******* for future developing ----- maybe there will is some function need this
 			tileArray[startX][startY].setHero(heroView);
 
 			heroView.setOnMouseClicked((MouseEvent e) ->
 			{
-				//************************* for future developing ------ refractory (too many if statements)
-				boolean selected = false;
-				for(HeroView i : heroArray)
-				{
-					if(i.isSelected())
-						selected = true;
-				}
-
-				//move only if the tile selected is valid
-				if(!selected && TurnChecker.getInstance().isTurn() && a.getPartsBody().getPlayerType() == PlayerType.RED)
-				{
-					heroView.selecetedChanges();
-					a.getPartsMove().Move(heroView.getLocX(), heroView.getLocY());
-
-					for(int i = 0; i < a.getPartsMove().getValidX().length; i++)
-					{
-						showValidTiles(tileArray, a.getPartsMove().getValidX()[i], a.getPartsMove().getValidY()[i]);
-					}
-				}
-
-				//move only if the tile selected is valid
-				if(!selected && !TurnChecker.getInstance().isTurn() && a.getPartsBody().getPlayerType() == PlayerType.BLUE)
-				{
-					heroView.selecetedChanges();
-					a.getPartsMove().Move(heroView.getLocX(), heroView.getLocY());
-
-
-					for(int i = 0; i < a.getPartsMove().getValidX().length; i++)
-					{
-						// find all the valid tiles of the selected piece
-						showValidTiles(tileArray, a.getPartsMove().getValidX()[i], a.getPartsMove().getValidY()[i]);
-					}
-				}
-
-				if(TurnChecker.getInstance().isTurn() && a.getPartsBody().getPlayerType() == PlayerType.BLUE
-						|| !TurnChecker.getInstance().isTurn() && a.getPartsBody().getPlayerType() == PlayerType.RED)
-					TurnCheckerAlarm.display();
-				else
-					processController.createNewLog(heroView.getPlayerType(), heroView.getRoleType(),
-							heroView.getLocX(), heroView.getLocY());
+				ActionSelectWindow actionWindow = new ActionSelectWindow();
+				actionWindow.display();
+				//TODO
 			});
 
 			group.getChildren().add(heroView);

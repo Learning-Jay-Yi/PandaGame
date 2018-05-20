@@ -25,7 +25,7 @@ public class WarriorMove implements PartsMove{
     }
 
     @Override
-    public void Move(int curX, int curY) {
+    public void CanMove(int curX, int curY) {
         validX = new int[4];
         validY = new int[4];
 

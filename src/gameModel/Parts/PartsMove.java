@@ -7,7 +7,7 @@ package gameModel.Parts;
  */
 public interface PartsMove {
     void PartsMove(int boardW,int boardH);
-    void Move(int curX, int curY);
+    void CanMove(int curX, int curY);
     int[] getValidX();
     int[] getValidY();
 }

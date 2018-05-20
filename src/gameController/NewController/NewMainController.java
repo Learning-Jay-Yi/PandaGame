@@ -63,11 +63,11 @@ public class NewMainController {
 
 		processController = new NewProcessController(menu);
 
-		tileController = new NewTileController(WIDTH, HEIGHT, TILE_SIZE,processController);
+		tileController = new NewTileController(WIDTH, HEIGHT, TILE_SIZE, processController);
 		heroController = new NewHeroController(WIDTH, HEIGHT, TILE_SIZE, processController);
 
 		tileArray = new TileView[WIDTH][HEIGHT];
-		heroArray = new ArrayList<HeroView>();
+		heroArray = new ArrayList<>();
 
 		tileGroup = tileController.createTiles(heroArray, tileArray);
 		heroGroup = heroController.createHeros(heroArray, tileArray);

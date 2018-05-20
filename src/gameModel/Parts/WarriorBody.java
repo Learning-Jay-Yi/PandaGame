@@ -24,8 +24,7 @@ public class WarriorBody implements PartsBody {
         this.boardHeight = boardHeight;
         this.playerType= playerType;
         spawnX = (playerType == PlayerType.BLUE ? 0 : boardWidth-1);
-        spawnY = 3;
-//        Spawn();
+        spawnY = (playerType == PlayerType.BLUE ? 3 : boardHeight-5);
     }
 
     /**

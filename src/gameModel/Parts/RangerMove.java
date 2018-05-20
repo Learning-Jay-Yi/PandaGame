@@ -21,24 +21,23 @@ public class RangerMove implements PartsMove{
     public void PartsMove(int boardW, int boardH) {
        this.boardW = boardW;
        this.boardH = boardH;
-
     }
 
     @Override
-    public void Move(int curX, int curY) {
+    public void CanMove(int curX, int curY) {
         validX = new int[4];
         validY = new int[4];
 
         validX[0] = (curX + moveRange < boardW ? curX + moveRange : curX);
-        validY[0] = curY;
+        validY[0] = (curY + moveRange < boardH ? curY + moveRange : curY);
 
-        validX[1] = curX;
+        validX[1] = (curX - moveRange >= 0 ? curX - moveRange : curX);
         validY[1] = (curY + moveRange < boardH ? curY + moveRange : curY);
 
         validX[2] = (curX - moveRange >= 0 ? curX - moveRange : curX);
-        validY[2] = curY;
+        validY[2] = (curY - moveRange >= 0 ? curY - moveRange : curY);
 
-        validX[3] = curX;
+        validX[3] = (curX + moveRange < boardW ? curX + moveRange : curX);
         validY[3] = (curY - moveRange >= 0 ? curY - moveRange : curY);
 
     }
@@ -50,12 +49,5 @@ public class RangerMove implements PartsMove{
     @Override
     public int[] getValidY() {
         return validY;
-    }
-
-    private void test() {
-        for (int i = 0; i < 4; i++) {
-            System.out.println("validX: "+validX[i]+", validY: "+validY[i]);
-        }
-
     }
 }

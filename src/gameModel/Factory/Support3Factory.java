@@ -11,8 +11,7 @@ public class Support3Factory implements HeroFactory{
 
     @Override
     public PartsBody addPartsBody() {
-        // TODO: 2018/5/19
-        return null;
+        return new SupportBody();
     }
 
     @Override

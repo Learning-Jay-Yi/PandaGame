@@ -25,21 +25,33 @@ public class SupportMove implements PartsMove{
     }
 
     @Override
-    public void Move(int curX, int curY) {
-        validX = new int[4];
-        validY = new int[4];
+    public void CanMove(int curX, int curY) {
+        validX = new int[8];
+        validY = new int[8];
 
         validX[0] = (curX + moveRange < boardW ? curX + moveRange : curX);
         validY[0] = curY;
 
-        validX[1] = curX;
+        validX[1] = (curX + moveRange < boardW ? curX + moveRange : curX);
         validY[1] = (curY + moveRange < boardH ? curY + moveRange : curY);
 
-        validX[2] = (curX - moveRange >= 0 ? curX - moveRange : curX);
-        validY[2] = curY;
+        validX[2] = curX;
+        validY[2] = (curY + moveRange < boardH ? curY + moveRange : curY);
 
-        validX[3] = curX;
-        validY[3] = (curY - moveRange >= 0 ? curY - moveRange : curY);
+        validX[3] = (curX - moveRange >= 0 ? curX - moveRange : curX);
+        validY[3] = (curY + moveRange < boardH ? curY + moveRange : curY);
+
+        validX[4] = (curX - moveRange >= 0 ? curX - moveRange : curX);
+        validY[4] = curY;
+
+        validX[5] = (curX - moveRange >= 0 ? curX - moveRange : curX);
+        validY[5] = (curY - moveRange >= 0 ? curY - moveRange : curY);
+
+        validX[6] = curX;
+        validY[6] = (curY - moveRange >= 0 ? curY - moveRange : curY);
+
+        validX[7] = (curX + moveRange < boardW ? curX + moveRange : curX);
+        validY[7] = (curY - moveRange >= 0 ? curY - moveRange : curY);
 
     }
 

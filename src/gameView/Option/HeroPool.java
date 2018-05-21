@@ -39,6 +39,7 @@ public class HeroPool {
 
 	public boolean isRedAdd() {
 		return redAdd;
+
 	}
 
 	public void setRedAdd(boolean redAdd) {

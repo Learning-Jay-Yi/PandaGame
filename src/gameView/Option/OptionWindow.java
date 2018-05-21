@@ -1,5 +1,8 @@
 package gameView.Option;
 
+import java.io.IOException;
+
+import gameController.Option.GameStart;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 
@@ -20,7 +23,15 @@ public class OptionWindow {
 	private Button startBtn = new Button("Game Start");
 
 	public OptionWindow(){
-		
+		startBtn.setOnAction(e->{
+			try {
+				GameStart start = new GameStart(heroPick.getRedData(), heroPick.getBlueData());
+				start.heroPoolData();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		});
 	}
 
 	public BorderPane displayOption(){
@@ -33,7 +44,7 @@ public class OptionWindow {
 		return rootPane;
 	}
 
-	
+
 
 
 }

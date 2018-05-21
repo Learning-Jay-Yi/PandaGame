@@ -1,5 +1,6 @@
 package gameView.Option;
 
+import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 
 /**
@@ -16,8 +17,10 @@ public class OptionWindow {
 	private GameTypeOptionView typeOption = new GameTypeOptionView();
 	private HeroPickView heroPick = new HeroPickView();
 
-	public OptionWindow(){
+	private Button startBtn = new Button("Game Start");
 
+	public OptionWindow(){
+		
 	}
 
 	public BorderPane displayOption(){
@@ -25,7 +28,12 @@ public class OptionWindow {
 
 		rootPane.setTop(typeOption.getGameTypeOption());
 		rootPane.setCenter(heroPick.getHeroPick());
+
+		rootPane.setBottom(startBtn);
 		return rootPane;
 	}
+
+	
+
 
 }

@@ -1,4 +1,4 @@
-package gameView.Option;
+package gameModel.Option;
 
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;

@@ -7,6 +7,7 @@ import gameModel.NewHero.NewHero;
 import gameView.ActionSelectWindow;
 import gameView.HeroView;
 import gameView.TileView;
+import gameView.TurnCheckerAlarm;
 import javafx.scene.Group;
 import javafx.scene.input.MouseEvent;
 
@@ -111,12 +112,10 @@ public class NewHeroController
 				// before the move, attack button need to disable, but skill button can use.
 
 				boolean selected = false;
+				boolean bWarning = false;
 				for(HeroView i : heroArray)
-				{
 					if(i.isSelected())
 						selected = true;
-				}
-
 				// need to identify who's turn
 
 				if (!selected){
@@ -125,20 +124,20 @@ public class NewHeroController
 							heroView.selecetedChanges();
 							ActionSelectWindow actionWindow = new ActionSelectWindow(newHero,heroView,heroArray,tileArray,processController);
 							actionWindow.display();
-						}
+						}else
+							bWarning=true;
 					}else{
 						if (!TurnChecker.getInstance().isTurn()){
 							heroView.selecetedChanges();
 							ActionSelectWindow actionWindow = new ActionSelectWindow(newHero,heroView,heroArray,tileArray,processController);
 							actionWindow.display();
-						}
+						}else
+							bWarning = true;
 					}
 				}
 
-//				heroView.selecetedChanges();
-//				ActionSelectWindow actionWindow = new ActionSelectWindow(newHero,heroView,heroArray,tileArray,processController);
-//				actionWindow.display();
-				//TODO
+				if (bWarning)
+					TurnCheckerAlarm.display();
 			});
 			group.getChildren().add(heroView);
 		}

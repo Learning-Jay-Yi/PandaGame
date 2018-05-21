@@ -22,32 +22,35 @@ import java.util.ArrayList;
 public class ActionSelectWindow {
 
 	private boolean bAction = false;
+	private Stage action;
 
 	private NewHero newHero;
 	private HeroView heroView;
 	private ArrayList<HeroView> heroViews;
+	private TileView[][] tileArray;
 
 	private Button abilityBtn = new Button("Ability");
 	private Button attackBtn = new Button("Attack");
 	private Button moveBtn = new Button("Move");
 
 
-	public ActionSelectWindow(NewHero newHero, HeroView heroView, ArrayList<HeroView> heroViews){
+	public ActionSelectWindow(NewHero newHero, HeroView heroView, ArrayList<HeroView> heroViews, TileView[][] tileArray){
 		// try to figure out useful parameters
 		this.newHero = newHero;
 		this.heroView = heroView;
 		this.heroViews = heroViews;
+		this.tileArray = tileArray;
 		//TODO
 	}
 
 	public void display(){
 		//TODO
-		Stage action = new Stage();
 
+		action = new Stage();
 		action.initModality(Modality.APPLICATION_MODAL);
 		action.setTitle("Actions");
 
-		Label label = new Label("which adction do you want choose?");
+		Label label = new Label("which action do you want choose?");
 
 		HBox hBox = getActionWindow();
 
@@ -100,13 +103,30 @@ public class ActionSelectWindow {
 	private void setMoveBtn(){
 		moveBtn.setOnAction(e->{
 
-			heroView.selecetedChanges();
+//			heroView.selecetedChanges();
 			newHero.getPartsMove().CanMove(heroView.getLocX(),heroView.getLocY());
 
 
-			//TODO
+			int[] validX = newHero.getPartsMove().getValidX();
+			int[] validY = newHero.getPartsMove().getValidY();
+			int length = validX.length;
+
+			for (int i = 0; i < length; i++) {
+//				showValidTiles(tileArray,validX[i],validY[i]);
+				int x = validX[i];
+				int y = validY[i];
+				tileArray[x][y].canMove();
+			}
+
+			action.close();
+
+
+
+
+			//TODO after move, program crashed
+
+
 		});
 	}
-
 
 }

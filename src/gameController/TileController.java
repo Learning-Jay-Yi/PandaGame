@@ -3,7 +3,6 @@ package gameController;
 import java.util.ArrayList;
 
 import gameModel.DefaultTie;
-import gameModel.TimerCount;
 import gameView.HeroView;
 import gameView.TileView;
 import javafx.scene.Group;
@@ -50,7 +49,7 @@ public class TileController {
 				TileView tileView = new TileView(x, y, new DefaultTie(tileSize).getSideSize());
 
 				tileView.setOnMouseClicked(e ->{
-					if(tileView.isReady()){
+					if(tileView.isReadyToMove()){
 						for(int i = 0; i < heroArray.size(); i++){
 							if(heroArray.get(i).isSelected()){
 								// get hero previous x and y in order to make previous tile's setHero to null

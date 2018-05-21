@@ -108,8 +108,8 @@ public class NewHeroController
 
 				// need to know which hero selected
 				// before the move, attack button need to disable, but skill button can use.
-
-				ActionSelectWindow actionWindow = new ActionSelectWindow(newHero,heroView,heroArray,tileArray);
+				heroView.selecetedChanges();
+				ActionSelectWindow actionWindow = new ActionSelectWindow(newHero,heroView,heroArray,tileArray,processController);
 
 
 				actionWindow.display();

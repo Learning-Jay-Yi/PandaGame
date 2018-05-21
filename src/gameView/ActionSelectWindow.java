@@ -1,5 +1,7 @@
 package gameView;
 
+import gameController.NewController.NewProcessController;
+import gameController.ProcessController;
 import gameModel.Hero;
 import gameModel.NewHero.NewHero;
 import javafx.scene.Scene;
@@ -22,23 +24,25 @@ import java.util.ArrayList;
 public class ActionSelectWindow {
 
 	private boolean bAction = false;
-	private Stage action
+	private Stage action;
 	private NewHero newHero;
 	private HeroView heroView;
 	private ArrayList<HeroView> heroViews;
 	private TileView[][] tileArray;
+	private NewProcessController processController;
 
 	private Button abilityBtn = new Button("Ability");
 	private Button attackBtn = new Button("Attack");
 	private Button moveBtn = new Button("Move");
 
 
-	public ActionSelectWindow(NewHero newHero, HeroView heroView, ArrayList<HeroView> heroViews, TileView[][] tileArray){
+	public ActionSelectWindow(NewHero newHero, HeroView heroView, ArrayList<HeroView> heroViews, TileView[][] tileArray, NewProcessController processController){
 		// try to figure out useful parameters
 		this.newHero = newHero;
 		this.heroView = heroView;
 		this.heroViews = heroViews;
 		this.tileArray = tileArray;
+		this.processController = processController;
 		//TODO
 	}
 
@@ -101,10 +105,7 @@ public class ActionSelectWindow {
 
 	private void setMoveBtn() {
 		moveBtn.setOnAction(e -> {
-
-			//			heroView.selecetedChanges();
 			newHero.getPartsMove().CanMove(heroView.getLocX(), heroView.getLocY());
-
 
 			int[] validX = newHero.getPartsMove().getValidX();
 			int[] validY = newHero.getPartsMove().getValidY();
@@ -116,6 +117,9 @@ public class ActionSelectWindow {
 				int y = validY[i];
 				tileArray[x][y].canMove();
 			}
+
+			processController.createNewLog(heroView.getPlayerType(),heroView.getRoleType(),
+					heroView.getLocX(),heroView.getLocY());
 
 			action.close();
 

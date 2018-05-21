@@ -1,6 +1,5 @@
 package gameController.NewController;
 
-import gameController.ProcessController;
 import gameController.TurnChecker;
 import gameModel.DefaultTie;
 import gameView.HeroView;
@@ -51,7 +50,7 @@ public class NewTileController {
 				TileView tileView = new TileView(x, y, new DefaultTie(tileSize).getSideSize());
 
 				tileView.setOnMouseClicked(e ->{
-					if(tileView.isReady()){
+					if(tileView.isReadyToMove()){
 						for(int i = 0; i < heroArray.size(); i++){
 							if(heroArray.get(i).isSelected()){
 								// get hero previous x and y in order to make previous tile's setHero to null

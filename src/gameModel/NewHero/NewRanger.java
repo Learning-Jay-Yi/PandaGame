@@ -27,7 +27,6 @@ public class NewRanger extends NewHero {
 
     @Override
     public void MakeHero() {
-        System.out.println("Add Hero body: ");
         partsBody = heroFactory.addPartsBody();
         partsMove = heroFactory.addPartsMove();
         partsAttack = heroFactory.addPartsAttack();

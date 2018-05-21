@@ -2,8 +2,15 @@ package gameView;
 
 import gameModel.Hero;
 import gameModel.NewHero.NewHero;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 import java.util.ArrayList;
 
@@ -35,16 +42,46 @@ public class ActionSelectWindow {
 
 	public void display(){
 		//TODO
+		Stage action = new Stage();
+
+		action.initModality(Modality.APPLICATION_MODAL);
+		action.setTitle("Actions");
+
+		Label label = new Label("which adction do you want choose?");
+
+		HBox hBox = getActionWindow();
+
+		GridPane pane = new GridPane();
+
+		pane.add(label,0,0);
+		pane.add(hBox,0,1);
+		Scene scene = new Scene(pane);
+		action.setScene(scene);
+		action.showAndWait();
+
+
+
+
+
 		//see TurnCheckerAlarm
 	}
 
-	private VBox getActionWindow(){
+
+	private HBox getActionWindow(){
+		HBox buttons = new HBox();
+
 		setAbilityBtn();
 		setAttackBtn();
 		setMoveBtn();
 
+		buttons.getChildren().add(abilityBtn);
+		buttons.getChildren().add(attackBtn);
+		buttons.getChildren().add(moveBtn);
+
+
+
 		//TODO
-		return null;
+		return buttons;
 	}
 
 	/******* at end of button, need to close ActionWindow: see TurnCheckerAlarm***********/
@@ -62,6 +99,11 @@ public class ActionSelectWindow {
 
 	private void setMoveBtn(){
 		moveBtn.setOnAction(e->{
+
+			heroView.selecetedChanges();
+			newHero.getPartsMove().CanMove(heroView.getLocX(),heroView.getLocY());
+
+
 			//TODO
 		});
 	}

@@ -114,7 +114,6 @@ public class NewHeroController
 				ActionSelectWindow actionWindow = new ActionSelectWindow(newHero,heroView,heroArray);
 
 
-
 				actionWindow.display();
 				//TODO
 			});

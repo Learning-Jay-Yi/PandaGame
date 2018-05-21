@@ -1,6 +1,7 @@
 package gameController.NewController;
 
 import gameController.Builder.HeroBuilding;
+import gameController.TurnChecker;
 import gameModel.*;
 import gameModel.NewHero.NewHero;
 import gameView.ActionSelectWindow;
@@ -108,11 +109,35 @@ public class NewHeroController
 
 				// need to know which hero selected
 				// before the move, attack button need to disable, but skill button can use.
-				heroView.selecetedChanges();
-				ActionSelectWindow actionWindow = new ActionSelectWindow(newHero,heroView,heroArray,tileArray,processController);
 
+				boolean selected = false;
+				for(HeroView i : heroArray)
+				{
+					if(i.isSelected())
+						selected = true;
+				}
 
-				actionWindow.display();
+				// need to identify who's turn
+
+				if (!selected){
+					if(newHero.getPartsBody().getPlayerType() == PlayerType.RED){
+						if (TurnChecker.getInstance().isTurn()){
+							heroView.selecetedChanges();
+							ActionSelectWindow actionWindow = new ActionSelectWindow(newHero,heroView,heroArray,tileArray,processController);
+							actionWindow.display();
+						}
+					}else{
+						if (!TurnChecker.getInstance().isTurn()){
+							heroView.selecetedChanges();
+							ActionSelectWindow actionWindow = new ActionSelectWindow(newHero,heroView,heroArray,tileArray,processController);
+							actionWindow.display();
+						}
+					}
+				}
+
+//				heroView.selecetedChanges();
+//				ActionSelectWindow actionWindow = new ActionSelectWindow(newHero,heroView,heroArray,tileArray,processController);
+//				actionWindow.display();
 				//TODO
 			});
 			group.getChildren().add(heroView);

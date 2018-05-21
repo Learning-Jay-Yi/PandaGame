@@ -122,11 +122,6 @@ public class ActionSelectWindow {
 					heroView.getLocX(),heroView.getLocY());
 
 			action.close();
-
-
-			//TODO after move, program crashed
-
-
 		});
 	}
 

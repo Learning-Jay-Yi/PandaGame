@@ -32,7 +32,7 @@ public class ActionSelectWindow {
 	private Button moveBtn = new Button("Move");
 
 
-	public ActionSelectWindow(NewHero newHero, HeroView heroView, ArrayList<HeroView> heroViews){
+	public ActionSelectWindow(NewHero newHero, HeroView heroView, ArrayList<HeroView> heroViews, TileView[][] tileArray){
 		// try to figure out useful parameters
 		this.newHero = newHero;
 		this.heroView = heroView;

@@ -1,5 +1,4 @@
 package gameView;
-import gameModel.DefaultTie;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
@@ -12,7 +11,8 @@ import javafx.scene.shape.Rectangle;
 public class TileView extends Rectangle{
 
 	private HeroView hero;
-	private boolean ready;
+	private boolean readyForMove;
+	private boolean readyForAttack;
 	private int x;
 	private int y;
 	/**
@@ -25,7 +25,7 @@ public class TileView extends Rectangle{
 		super(tileSize, tileSize);
 		this.x = x;
 		this.y = y;
-		this.ready = false;
+		this.readyForMove = false;
 		this.relocate(x * tileSize, y * tileSize);
 		this.setFill(Color.valueOf("#feb"));
 		this.setStroke(Color.BLACK);
@@ -52,17 +52,17 @@ public class TileView extends Rectangle{
 	}
 	/**
 	 * set the tile view to a different color
-	 * @Requires ("ready == true || ready == false")
+	 * @Requires ("readyForMove == true || readyForMove == false")
 	 */
-	public void setReady(boolean ready){
-		this.ready = ready;
+	public void setReadyForMove(boolean readyForMove){
+		this.readyForMove = readyForMove;
 	}
 	/**
-	 * return the tile is ready or not
-	 * @Ensures ("ready == true || ready == false")
+	 * return the tile is readyForMove or not
+	 * @Ensures ("readyForMove == true || readyForMove == false")
 	 */
-	public boolean isReady(){
-		return ready;
+	public boolean isReadyToMove(){
+		return readyForMove;
 	}
 	/**
 	 * return the current location
@@ -83,17 +83,23 @@ public class TileView extends Rectangle{
 	 */
 	public void canMove() {
 		this.setFill(Color.GREEN);
-		this.ready = true;
+		this.readyForMove = true;
 	}
 	/**
 	 * void method to set default color
 	 */
 	public void setDefault(){
 		this.setFill(Color.valueOf("#feb"));
-		this.ready = false;
+		this.readyForMove = false;
+		this.readyForAttack = true;
 	}
 
+	public void canAttack(){
+		this.setFill(Color.YELLOW);
+		this.readyForAttack = true;
+	}
 
-
-
+	public boolean isReadyForAttack() {
+		return readyForAttack;
+	}
 }

@@ -1,13 +1,11 @@
 package gameController.NewController;
 
 import gameController.Builder.HeroBuilding;
-import gameController.TurnChecker;
 import gameModel.*;
 import gameModel.NewHero.NewHero;
 import gameView.ActionSelectWindow;
 import gameView.HeroView;
 import gameView.TileView;
-import gameView.TurnCheckerAlarm;
 import javafx.scene.Group;
 import javafx.scene.input.MouseEvent;
 
@@ -111,7 +109,7 @@ public class NewHeroController
 				// need to know which hero selected
 				// before the move, attack button need to disable, but skill button can use.
 
-				ActionSelectWindow actionWindow = new ActionSelectWindow(newHero,heroView,heroArray);
+				ActionSelectWindow actionWindow = new ActionSelectWindow(newHero,heroView,heroArray,tileArray);
 
 
 				actionWindow.display();
@@ -145,6 +143,6 @@ public class NewHeroController
 	 * @Requires ("y>=0","y<=14")
 	 */
 	private void showMoveValidTiles(TileView[][] tile, int x, int y){
-		tile[x][y].changeColor(); // call the method that change the special tiles.
+		tile[x][y].canMove(); // call the method that change the special tiles.
 	}
 }

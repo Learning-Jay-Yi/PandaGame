@@ -123,6 +123,6 @@ public class HeroController
 	 * @Requires ("y>=0","y<=14")
 	 */
 	private void showValidTiles(TileView[][] tile, int x, int y){
-		tile[x][y].changeColor(); // call the method that change the special tiles.
+		tile[x][y].canMove(); // call the method that change the special tiles.
 	}
 }

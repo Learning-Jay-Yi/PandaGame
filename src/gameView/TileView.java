@@ -81,7 +81,7 @@ public class TileView extends Rectangle{
 	/**
 	 * void method to change the color
 	 */
-	public void changeColor() {
+	public void canMove() {
 		this.setFill(Color.GREEN);
 		this.ready = true;
 	}

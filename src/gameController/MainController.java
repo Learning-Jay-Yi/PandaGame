@@ -72,7 +72,7 @@ public class MainController {
 
 		gameBoard = new BoardView(board.getWidth(), board.getHeight(), board.getTileSize(), tileGroup, heroGroup);
 
-		gameFrame = new FrameView(gameBoard.displayBoard(), menu.getMenuBar());
+		gameFrame = new FrameView(gameBoard.displayBoard(), menu.getMenuBar(), ((TimerView) TimerView.getInstance()).getTimer());
 
 		processController.undo(tileArray, heroArray);
 

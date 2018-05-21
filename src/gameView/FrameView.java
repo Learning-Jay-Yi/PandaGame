@@ -1,9 +1,6 @@
 package gameView;
 
-import javafx.geometry.Pos;
-import javafx.scene.Group;
 import javafx.scene.layout.*;
-import javafx.scene.text.Text;
 
 /**
  *
@@ -18,7 +15,7 @@ public class FrameView {
 	private BorderPane framePane = new BorderPane();
 	private HBox timer1, timer2;
 
-	public FrameView(Pane gameBoard, HBox menu){
+	public FrameView(Pane gameBoard, HBox menu, HBox timer){
 		this.timer1 = ((TimerView) TimerView.getInstance()).getTimer();
 		this.timer2 = ((TimerView2) TimerView2.getInstance()).getTimer();
 		this.setFrame(gameBoard, menu);

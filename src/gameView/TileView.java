@@ -124,4 +124,8 @@ public class TileView extends Rectangle{
 		}
 	}
 
+	public int getEffectValue(){
+		return effect;
+	}
+
 }

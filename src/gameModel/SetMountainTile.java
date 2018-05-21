@@ -17,9 +17,9 @@ public class SetMountainTile extends TileDecorator {
 
 	}
 
-	public String getEffect(){
+	public int getEffect(){
 
-		return null;
+		return 1;
 	}
 
 }

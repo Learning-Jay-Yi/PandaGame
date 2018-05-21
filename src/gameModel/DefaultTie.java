@@ -28,9 +28,8 @@ public class DefaultTie implements Tile{
 
 
 	@Override
-	public String getEffect() {
-		// TODO Auto-generated method stub
-		return null;
+	public int getEffect() {
+		return 0;
 	}
 
 

@@ -15,6 +15,8 @@ public class TileView extends Rectangle{
 	private boolean readyForAttack;
 	private int x;
 	private int y;
+	private int effect;
+
 	/**
 	 * constructor for initial the tile view with 3 parameters x, y, tileSize
 	 * @Requires ("x == 13")
@@ -27,7 +29,7 @@ public class TileView extends Rectangle{
 		this.y = y;
 		this.readyForMove = false;
 		this.relocate(x * tileSize, y * tileSize);
-		this.setFill(Color.valueOf("#feb"));
+		this.setFill(Color.WHITE);
 		this.setStroke(Color.BLACK);
 	}
 
@@ -82,24 +84,44 @@ public class TileView extends Rectangle{
 	 * void method to change the color
 	 */
 	public void canMove() {
-		this.setFill(Color.GREEN);
+		this.setStroke(Color.GREEN);
+		this.setStrokeWidth(5);
 		this.readyForMove = true;
 	}
 	/**
 	 * void method to set default color
 	 */
 	public void setDefault(){
-		this.setFill(Color.valueOf("#feb"));
+		this.setStroke(Color.BLACK);
+		this.setStrokeWidth(1);
 		this.readyForMove = false;
 		this.readyForAttack = true;
 	}
 
 	public void canAttack(){
-		this.setFill(Color.YELLOW);
+		this.setStroke(Color.YELLOW);
+		this.setStrokeWidth(5);
 		this.readyForAttack = true;
 	}
 
 	public boolean isReadyForAttack() {
 		return readyForAttack;
 	}
+
+	public void setEffect(int effect){
+		this.effect = effect;
+
+		switch(effect){
+		case 1:
+			this.setFill(Color.valueOf("#F4D03F"));
+			break;
+		case 2:
+			this.setFill(Color.valueOf("#5DADE2"));
+			break;
+		case 3:
+			this.setFill(Color.valueOf("#F1948A"));
+			break;
+		}
+	}
+
 }

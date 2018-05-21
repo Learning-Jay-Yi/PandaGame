@@ -16,8 +16,8 @@ public class RangeUpTile extends TileDecorator{
 		super(tile);
 	}
 
-	public String getEffect(){
+	public int getEffect(){
 
-		return null;
+		return 3;
 	}
 }

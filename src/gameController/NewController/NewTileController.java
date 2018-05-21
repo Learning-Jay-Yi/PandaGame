@@ -1,7 +1,7 @@
 package gameController.NewController;
 
 import gameController.TurnChecker;
-import gameModel.DefaultTie;
+import gameModel.*;
 import gameView.HeroView;
 import gameView.TileView;
 import javafx.scene.Group;
@@ -47,7 +47,28 @@ public class NewTileController {
 		Group group = new Group();
 		for(int x = 0; x < boardWidth; x++){
 			for(int y = 0; y < boardHeight; y++){
-				TileView tileView = new TileView(x, y, new DefaultTie(tileSize).getSideSize());
+/*****************************************************************************************************************************/
+				Tile tile;
+				boolean specialTile = false;
+
+				if(x == 5 && y == 5){
+					tile = new SetMountainTile(new DefaultTie(tileSize));
+					specialTile = true;
+				}
+				else{
+					tile = new DefaultTie(tileSize);
+				}
+
+
+				TileView tileView = new TileView(x, y, tileSize);
+
+
+				if(specialTile){
+					tileView.setEffect(tile.getEffect());
+				}
+
+
+/******************************************************************************************************************************/
 
 				tileView.setOnMouseClicked(e ->{
 					if(tileView.isReadyToMove()){
@@ -63,7 +84,7 @@ public class NewTileController {
 
 								tileArray[oldX][oldY].setHero(null);
 								tileView.setHero(heroArray.get(i));
-								
+
 							}
 						}
 					}else if(tileView.isReadyForAttack()){

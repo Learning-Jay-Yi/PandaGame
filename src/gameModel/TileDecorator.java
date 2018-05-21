@@ -17,7 +17,7 @@ public class TileDecorator implements Tile{
 	}
 
 	@Override
-	public String getEffect() {
+	public int getEffect() {
 		return decoratedTile.getEffect();
 	}
 

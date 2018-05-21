@@ -16,9 +16,9 @@ public class SpeedUpTile extends TileDecorator{
 		super(tile);
 	}
 
-	public String getEffect(){
+	public int getEffect(){
 
-		return null;
+		return 2;
 	}
 
 }

@@ -1,5 +1,6 @@
 package gameView.Option;
 
+import gameModel.Option.HeroPool;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -45,9 +46,11 @@ public class HeroPickView {
 	private ObservableList<HeroPool> redData = FXCollections.observableArrayList();
 	private ObservableList<HeroPool> blueData = FXCollections.observableArrayList();
 
-
 	public HeroPickView(){
 
+	}
+	public HeroPickView(ObservableList<HeroPool> data){
+		this.data = data;
 	}
 
 	public GridPane getHeroPick(){
@@ -198,6 +201,15 @@ public class HeroPickView {
 		blueContainer.getChildren().addAll(btnPane, blueList);
 
 		return blueContainer;
+	}
+
+
+	public ObservableList<HeroPool> getRedData(){
+		return redData;
+	}
+
+	public ObservableList<HeroPool> getBlueData(){
+		return blueData;
 	}
 
 }

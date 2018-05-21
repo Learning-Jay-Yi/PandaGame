@@ -1,5 +1,6 @@
 package gameModel;
 
+import java.util.ArrayList;
 import java.util.TimerTask;
 
 import gameController.TurnChecker;
@@ -17,7 +18,7 @@ import gameView.TimerView;
  */
 public class TimerCount extends TimerTask implements Observable{
 
-	private Observer timer;
+	private ArrayList<Observer> timer = new ArrayList<>();
 	private static Observable singleTimer = null;
 
 	private int time = 60;
@@ -28,19 +29,6 @@ public class TimerCount extends TimerTask implements Observable{
 
 	}
 
-//	public static synchronized Observable getInstance(){
-//		if(singleTimer == null)
-//			singleTimer = new TimerCount();
-//		return singleTimer;
-//	}
-
-//	public static void setInstance(){
-//		singleTimer = new TimerCount();
-//	}
-
-//	public static boolean isRun(){
-//		return running;
-//	}
 
 	@Override
 	public void run() {
@@ -66,21 +54,26 @@ public class TimerCount extends TimerTask implements Observable{
 		return ss;
 	}
 
+	public int getTime(){
+		return time;
+	}
+
 	@Override
 	public void addObserver(Observer o) {
-		timer = o;
+		timer.add(o);
 
 	}
 
 	@Override
 	public void removeObserver(Observer o) {
-		timer = null;
+		timer.remove(o);
 
 	}
 
 	@Override
 	public void notifyObserver() {
-		timer.update();
+		for(Observer o : timer)
+			o.update();
 	}
 
 

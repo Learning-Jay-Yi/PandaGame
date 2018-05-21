@@ -10,9 +10,9 @@ package gameModel;
  *	SpeedUp is part of Decorator Pattern,
  *	it holds a 'speed' buff that makes hero move faster
  */
-public class SpeedUp extends TileDecorator{
+public class SpeedUpTile extends TileDecorator{
 
-	public SpeedUp(Tile tile) {
+	public SpeedUpTile(Tile tile) {
 		super(tile);
 	}
 

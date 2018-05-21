@@ -10,9 +10,9 @@ package gameModel;
 *	setMountain is part of Decorator Pattern,
 *	it make a mountain on the specific tile that will block hero move through
 */
-public class SetMountain extends TileDecorator {
+public class SetMountainTile extends TileDecorator {
 
-	public SetMountain(Tile tile) {
+	public SetMountainTile(Tile tile) {
 		super(tile);
 
 	}

@@ -2,25 +2,12 @@ package gameView;
 
 import gameModel.Observable;
 import gameModel.TimerCount;
-import javafx.animation.KeyFrame;
 import javafx.application.Platform;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.scene.Group;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
-import javafx.util.Duration;
 
-/**
- *
- * @author Yu Liu
- * @version 1.0
- * @since 16/05/2018
- *
- */
-
-public class TimerView implements Observer{
-	private Label label = new Label("Time Left: ");
+public class TimerView2 implements Observer{
+	private Label label = new Label("Time Spent: ");
 	private Label mmLabel = new Label();
 	private Label middle = new Label(" : ");
 	private Label ssLabel = new Label();
@@ -31,11 +18,11 @@ public class TimerView implements Observer{
 
 	public static synchronized Observer getInstance(){
 		if(Instance == null)
-			Instance = new TimerView();
+			Instance = new TimerView2();
 		return Instance;
 	}
 
-	public TimerView(){
+	public TimerView2(){
 		setCountPane();
 	}
 
@@ -52,9 +39,9 @@ public class TimerView implements Observer{
 		timerPane.getChildren().addAll(label, mmLabel, middle, ssLabel);
 	}
 	private void timeSetting(){
-		int mt = ((TimerCount) timer).getMt();
-		int st = ((TimerCount) timer).getSt();
-
+		int mt = 0;
+		int st = 60 - ((TimerCount) timer).getSt();
+		System.out.println(mt + " "+ st);
 		if(mt > 0 || st > 0){
 			mmLabel.setText(Integer.toString(mt));
 			ssLabel.setText(Integer.toString(st));

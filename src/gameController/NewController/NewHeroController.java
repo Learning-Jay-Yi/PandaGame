@@ -79,7 +79,7 @@ public class NewHeroController
 //			hero.SpawnBody();
 
 
-//			hero.CanMove();
+//			hero.CanAttack();
 			heroes.add(hero);
 		}
 
@@ -93,6 +93,7 @@ public class NewHeroController
 			newHero.SpawnBody();
 			// initial hero move board
 			newHero.Move();
+			newHero.Attack();
 			int startX = newHero.getPartsBody().getSpawnX();
 			int startY = newHero.getPartsBody().getSpawnY();
 			PlayerType playerType = newHero.getPartsBody().getPlayerType();
@@ -136,8 +137,7 @@ public class NewHeroController
 					}
 				}
 
-				if (bWarning)
-					TurnCheckerAlarm.display();
+				if (bWarning)	TurnCheckerAlarm.display();
 			});
 			group.getChildren().add(heroView);
 		}

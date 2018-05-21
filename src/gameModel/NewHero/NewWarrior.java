@@ -46,7 +46,7 @@ public class NewWarrior extends NewHero {
 
     @Override
     public void Attack() {
-
+        partsAttack.PartsAttack(width,height,playerType);
     }
 
     @Override

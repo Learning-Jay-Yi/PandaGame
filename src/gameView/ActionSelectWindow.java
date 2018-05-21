@@ -100,6 +100,22 @@ public class ActionSelectWindow {
 	private void setAttackBtn(){
 		attackBtn.setOnAction(e->{
 			//TODO
+			newHero.getPartsAttack().CanAttack(heroView.getLocX(),heroView.getLocY());
+			int[] validX = newHero.getPartsAttack().getValidX();
+			int[] validY = newHero.getPartsAttack().getValidY();
+			int length = validX.length;
+
+			for (int i = 0; i < length; i++) {
+//				showValidTiles(tileArray,validX[i],validY[i]);
+				int x = validX[i];
+				int y = validY[i];
+				tileArray[x][y].canAttack();
+			}
+
+			processController.createNewLog(heroView.getPlayerType(),heroView.getRoleType(),
+					heroView.getLocX(),heroView.getLocY());
+
+			action.close();
 		});
 	}
 

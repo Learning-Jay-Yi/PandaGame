@@ -66,6 +66,8 @@ public class NewTileController {
 								
 							}
 						}
+					}else if(tileView.isReadyForAttack()){
+						// TODO: 2018/5/21 need to show sth in the view
 					}
 					clean(heroArray, tileArray);
 				});

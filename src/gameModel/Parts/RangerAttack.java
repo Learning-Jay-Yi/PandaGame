@@ -1,6 +1,7 @@
 package gameModel.Parts;
 
 import gameModel.PlayerType;
+import gameModel.RoleType;
 
 /**
  * @author Jay
@@ -14,12 +15,14 @@ public class RangerAttack implements PartsAttack {
 
     private int boardW, boardH;
     private PlayerType playerType;
+    private RoleType roleType;
 
     @Override
-    public void PartsAttack(int boardW, int boardH, PlayerType playerType) {
+    public void PartsAttack(int boardW, int boardH, PlayerType playerType, RoleType roleType) {
         this.boardW = boardW;
         this.boardH = boardH;
         this.playerType = playerType;
+        this.roleType = roleType;
     }
 
     @Override
@@ -29,9 +32,7 @@ public class RangerAttack implements PartsAttack {
 
         /**
          * follow diagram shows Warrior can attack
-         *   *     *
-         *   *  H  *
-         *   *     *
+         *   ***H or H***
          */
         // Blue left, red right
         if (playerType == PlayerType.BLUE){
@@ -71,6 +72,11 @@ public class RangerAttack implements PartsAttack {
     @Override
     public int[] getValidY() {
         return validY;
+    }
+
+    @Override
+    public RoleType getRoleType() {
+        return roleType;
     }
 
     @Override

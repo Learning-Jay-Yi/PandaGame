@@ -2,6 +2,7 @@ package gameModel.NewHero;
 
 import gameModel.Factory.HeroFactory;
 import gameModel.PlayerType;
+import gameModel.RoleType;
 
 /**
  * @author Jay
@@ -14,6 +15,7 @@ public class NewRanger extends NewHero {
     private int height;
     PlayerType playerType;
     HeroFactory heroFactory;
+    RoleType roleType = RoleType.RANGER;
 
     public NewRanger(HeroFactory heroFactory, PlayerType playerType, int width, int height) {
         this.width = width;
@@ -46,7 +48,7 @@ public class NewRanger extends NewHero {
 
     @Override
     public void Attack() {
-        partsAttack.PartsAttack(width,height,playerType);
+        partsAttack.PartsAttack(width,height,playerType,roleType);
     }
 
     @Override

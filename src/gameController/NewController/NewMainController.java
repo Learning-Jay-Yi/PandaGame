@@ -4,6 +4,7 @@ package gameController.NewController;
 import gameController.ProcessController;
 import gameModel.*;
 import gameView.*;
+import gameView.NewView.NewMenuView;
 import javafx.scene.Group;
 
 import java.util.ArrayList;
@@ -40,7 +41,7 @@ public class NewMainController {
 	private NewHeroController heroController;
 	private NewProcessController processController;
 
-	private MenuView menu;
+	private NewMenuView menu;
 	//private TimerView timer;
 	//private Observable time;
 
@@ -56,7 +57,7 @@ public class NewMainController {
 		WIDTH = board.getWidth();
 		HEIGHT = board.getHeight();
 
-		menu = new MenuView();
+		menu = new NewMenuView();
 		//time = new Timer();
 		//TODO
 		//timer = new TimerView();

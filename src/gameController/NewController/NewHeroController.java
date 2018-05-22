@@ -141,21 +141,6 @@ public class NewHeroController
 	}
 
 
-
-
-
-
-	private void ClickHero(NewHero newHero, HeroView heroView, ArrayList<HeroView> heroArray) {
-		boolean bSelected = false;
-		heroView.selecetedChanges();
-		newHero.getPartsMove().CanMove(heroView.getLocX(),heroView.getLocY());
-
-		if (bSelected){
-			heroView.selecetedChanges();
-		}
-
-	}
-
 	/**
 	 * private method to show all the valid tiles in the view
 	 * @Requires ("tile[][] !== null","x,y>=0","x<=13,y<=14")

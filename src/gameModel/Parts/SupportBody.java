@@ -30,9 +30,9 @@ public class SupportBody implements PartsBody {
      * this method use to spawn this hero
      */
     @Override
-    public void Spawn() {
+    public void reSpawn() {
         spawnX = (playerType == PlayerType.BLUE ? 0 : boardWidth-1);
-        spawnY = (playerType == PlayerType.BLUE ? 6 : boardHeight-7);
+        spawnY = 3;
 
 //        System.out.println("Spawn "+newHeroType+" at "+spawnX+" "+spawnY);
     }

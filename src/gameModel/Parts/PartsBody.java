@@ -12,7 +12,7 @@ import gameModel.RoleType;
  */
 public interface PartsBody {
     void PartsBody(int width, int height, PlayerType playerType);
-    void Spawn();
+    void reSpawn();
     int getSpawnX();
     int getSpawnY();
     PlayerType getPlayerType();

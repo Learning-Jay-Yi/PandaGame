@@ -31,7 +31,7 @@ public class WarriorBody implements PartsBody {
      * this method use to spawn this hero
      */
     @Override
-    public void Spawn() {
+    public void reSpawn() {
         spawnX = (playerType == PlayerType.BLUE ? 0 : boardWidth-1);
         spawnY = 3;
 

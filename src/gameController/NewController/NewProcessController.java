@@ -4,6 +4,7 @@ import gameController.TurnChecker;
 import gameModel.*;
 import gameView.HeroView;
 import gameView.MenuView;
+import gameView.NewView.NewMenuView;
 import gameView.TileView;
 import gameView.TimerView;
 
@@ -26,10 +27,10 @@ public class NewProcessController {
 	ArrayList<GameLog> logList = new ArrayList<>();
 	GameLog log;
 
-	MenuView menu;
+	NewMenuView menu;
 
 
-	public NewProcessController(MenuView menu){
+	public NewProcessController(NewMenuView menu){
 		this.menu = menu;
 
 	}

@@ -18,6 +18,6 @@ public class RangeUpTile extends TileDecorator{
 
 	public int getEffect(){
 
-		return 3;
+		return super.getEffect() + 3;
 	}
 }

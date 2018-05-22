@@ -19,7 +19,7 @@ public class SetMountainTile extends TileDecorator {
 
 	public int getEffect(){
 
-		return 1;
+		return super.getEffect() + 1;
 	}
 
 }

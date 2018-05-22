@@ -1,16 +1,12 @@
 package gameView;
 
 import gameController.NewController.NewProcessController;
-import gameController.ProcessController;
-import gameModel.Hero;
 import gameModel.NewHero.NewHero;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -32,8 +28,8 @@ public class ActionSelectWindow {
 	private NewProcessController processController;
 
 	private Button abilityBtn = new Button("Ability");
-	private Button attackBtn = new Button("Attack");
-	private Button moveBtn = new Button("Move");
+	private Button attackBtn = new Button("activityAttack");
+	private Button moveBtn = new Button("activityMove");
 
 
 	public ActionSelectWindow(NewHero newHero, HeroView heroView, ArrayList<HeroView> heroViews, TileView[][] tileArray, NewProcessController processController){
@@ -43,11 +39,10 @@ public class ActionSelectWindow {
 		this.heroViews = heroViews;
 		this.tileArray = tileArray;
 		this.processController = processController;
-		//TODO
+
 	}
 
 	public void display(){
-		//TODO
 		action = new Stage();
 
 		action.initModality(Modality.APPLICATION_MODAL);
@@ -64,42 +59,37 @@ public class ActionSelectWindow {
 		Scene scene = new Scene(pane);
 		action.setScene(scene);
 		action.showAndWait();
-
-
-
-
-
-		//see TurnCheckerAlarm
 	}
 
 
 	private HBox getActionWindow(){
+		boolean useSkill = false;
+
 		HBox buttons = new HBox();
 
-		setAbilityBtn();
 		setAttackBtn();
 		setMoveBtn();
+		setAbilityBtn();
 
 		buttons.getChildren().add(abilityBtn);
 		buttons.getChildren().add(attackBtn);
 		buttons.getChildren().add(moveBtn);
-
-
-
-		//TODO
 		return buttons;
 	}
 
 	/******* at end of button, need to close ActionWindow: see TurnCheckerAlarm***********/
 	private void setAbilityBtn(){
 		abilityBtn.setOnAction(e->{
-			//TODO
+			System.out.println("Skill used");
+			int skillNum = newHero.getPartsSkills().getSkillType();
+
+			newHero.getPartsSkills().useSkill();
 		});
 	}
 
 	private void setAttackBtn(){
 		attackBtn.setOnAction(e->{
-			//TODO
+
 			newHero.getPartsAttack().CanAttack(heroView.getLocX(),heroView.getLocY());
 			int[] validX = newHero.getPartsAttack().getValidX();
 			int[] validY = newHero.getPartsAttack().getValidY();

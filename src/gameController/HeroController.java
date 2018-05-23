@@ -65,7 +65,7 @@ public class HeroController
 			heroArray.add(heroView);
 
 			// ******* for future developing ----- maybe there will is some function need this
-			tileArray[a.getStartX()][a.getStartY()].setHero(heroView);
+			tileArray[a.getStartX()][a.getStartY()].setHeroView(heroView);
 
 			heroView.setOnMouseClicked(e ->
 			{

@@ -1,6 +1,8 @@
 package gameView;
 
+import gameController.NewController.NewTurnChecker;
 import javafx.scene.layout.*;
+import javafx.scene.text.Text;
 
 /**
  *
@@ -19,7 +21,6 @@ public class FrameView {
 		this.timer1 = ((TimerView) TimerView.getInstance()).getTimer();
 		this.timer2 = ((TimerView2) TimerView2.getInstance()).getTimer();
 		this.setFrame(gameBoard, menu);
-
 	}
 
 	public void setFrame(Pane gameBoard, HBox menu){
@@ -32,7 +33,8 @@ public class FrameView {
 
 	public HBox getTimerPane(){
 		HBox h = new HBox();
-		h.getChildren().addAll(timer1, timer2);
+
+		h.getChildren().addAll(timer1, TurnView.getInstance().display() ,timer2);
 		return h;
 	}
 	public BorderPane displayFrame(){

@@ -1,5 +1,7 @@
 package gameController.NewController;
 
+import gameView.TurnView;
+
 /**
  *
  * @author 		Jie Yi
@@ -14,6 +16,7 @@ public class NewTurnChecker {
 
 	private static NewTurnChecker INSTANCE = null;
 	private int turnNum;
+	private String who;
 
 	public NewTurnChecker(){
 	}
@@ -23,6 +26,8 @@ public class NewTurnChecker {
 	 */
 	public void incount(){
 		turnNum += 1;
+		TurnView.getInstance().updateText(isWho());
+
 	}
 	/**
 	 * return the boolean when called this method
@@ -42,5 +47,12 @@ public class NewTurnChecker {
 		if(INSTANCE == null)
 			INSTANCE = new NewTurnChecker();
 		return INSTANCE;
+	}
+
+	public String isWho(){
+		if(isTurn()){
+			return who = "RED";
+		}else
+			return who = "BLUE";
 	}
 }

@@ -1,5 +1,6 @@
 package gameView;
 
+import gameController.NewController.NewTurnChecker;
 import gameModel.Observable;
 import gameModel.TimerCount;
 import javafx.animation.KeyFrame;
@@ -54,6 +55,10 @@ public class TimerView implements Observer{
 	private void timeSetting(){
 		int mt = ((TimerCount) timer).getMt();
 		int st = ((TimerCount) timer).getSt();
+
+		if(((TimerCount) timer).getTime() == 0){
+			NewTurnChecker.getInstance().incount();
+		}
 
 		if(mt > 0 || st > 0){
 			mmLabel.setText(Integer.toString(mt));

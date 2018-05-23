@@ -18,11 +18,13 @@ public class WarriorBody implements PartsBody {
     private int spawnX,spawnY;
     RoleType newHeroType = RoleType.WARRIOR;
 
+
     @Override
-    public void PartsBody(int boardWidth, int boardHeight, PlayerType playerType) {
+    public void spawnBody(int boardWidth, int boardHeight, PlayerType playerType) {
         this.boardWidth = boardWidth;
         this.boardHeight = boardHeight;
         this.playerType= playerType;
+//        newHeroType = RoleType.WARRIOR;
         spawnX = (playerType == PlayerType.BLUE ? 0 : boardWidth-1);
         spawnY = (playerType == PlayerType.BLUE ? 3 : boardHeight-5);
     }
@@ -32,10 +34,8 @@ public class WarriorBody implements PartsBody {
      */
     @Override
     public void reSpawn() {
-        spawnX = (playerType == PlayerType.BLUE ? 0 : boardWidth-1);
-        spawnY = 3;
-
-//        System.out.println("Spawn "+newHeroType+" at "+spawnX+" "+spawnY);
+//        spawnX = (playerType == PlayerType.BLUE ? 0 : boardWidth-1);
+//        spawnY = 3;
     }
     @Override
     public int getSpawnX() {
@@ -53,5 +53,6 @@ public class WarriorBody implements PartsBody {
     public RoleType getRoleType() {
         return newHeroType;
     }
+
 
 }

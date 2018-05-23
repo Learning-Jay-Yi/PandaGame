@@ -17,8 +17,6 @@ public abstract class NewHero{
     PartsSkills partsSkills;
     PartsBody partsBody;
 
-    private int boardWidth, boardHeight;
-
     public NewHero() {
 
     }
@@ -29,11 +27,11 @@ public abstract class NewHero{
     // this is to spawn the hero on the board
     public abstract void SpawnBody();
     // use to move selected hero
-    public abstract void Move();
+    public abstract void activityMove();
     // use to attack a hero
-    public abstract void Attack();
-    // use to use hero skill
-    public abstract void UseSkills();
+    public abstract void activityAttack();
+    // use to use hero activitySkill
+    public abstract void activitySkills();
 
     public PartsSkills getPartsSkills() {
         return partsSkills;

@@ -15,6 +15,7 @@ public class NewSupport extends NewHero {
     private int height;
     PlayerType playerType;
     HeroFactory heroFactory;
+    int fromFactoryNum;
     RoleType roleType = RoleType.SUPPORT;
 
     public NewSupport(HeroFactory heroFactory, PlayerType playerType, int width, int height) {
@@ -25,7 +26,7 @@ public class NewSupport extends NewHero {
     }
 
 
-    // hero = body + move + attack + skill
+    // hero = body + move + attack + activitySkill
 
     @Override
     public void MakeHero() {
@@ -33,27 +34,27 @@ public class NewSupport extends NewHero {
         partsMove = heroFactory.addPartsMove();
         partsAttack = heroFactory.addPartsAttack();
         partsSkills = heroFactory.addPartsSkills();
+//        fromFactoryNum = heroFactory.getFactoryNumber();
     }
 
     @Override
     public void SpawnBody(){
-        partsBody.PartsBody(width,height,playerType);
+        partsBody.spawnBody(width,height,playerType);
     }
 
     @Override
-    public void Move() {
-        // need get the current X&Y, board W&H
-        partsMove.PartsMove(width,height);
+    public void activityMove() {
+        partsMove.activityMove(width,height);
     }
 
     @Override
-    public void Attack() {
-        partsAttack.PartsAttack(width,height,playerType,roleType);
+    public void activityAttack() {
+        partsAttack.activityAttack(width,height,playerType,roleType);
     }
 
     @Override
-    public void UseSkills() {
-
+    public void activitySkills() {
+        partsSkills.activitySkill(width,height,playerType,roleType);
     }
 
 

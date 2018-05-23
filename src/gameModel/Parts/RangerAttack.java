@@ -18,7 +18,7 @@ public class RangerAttack implements PartsAttack {
     private RoleType roleType;
 
     @Override
-    public void PartsAttack(int boardW, int boardH, PlayerType playerType, RoleType roleType) {
+    public void activityAttack(int boardW, int boardH, PlayerType playerType, RoleType roleType) {
         this.boardW = boardW;
         this.boardH = boardH;
         this.playerType = playerType;

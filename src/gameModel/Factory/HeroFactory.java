@@ -21,6 +21,8 @@ public interface HeroFactory {
 
     PartsSkills addPartsSkills();
 
+    int getFactoryNumber();
+
 
 }
 

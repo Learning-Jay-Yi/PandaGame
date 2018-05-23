@@ -15,6 +15,7 @@ public class NewWarrior extends NewHero {
     private int height;
     PlayerType playerType;
     HeroFactory heroFactory;
+    int fromFactoryNum;
     RoleType roleType = RoleType.WARRIOR;
 
     public NewWarrior(HeroFactory heroFactory, PlayerType playerType, int width, int height) {
@@ -25,7 +26,7 @@ public class NewWarrior extends NewHero {
     }
 
 
-    // hero = body + move + attack + skill
+    // hero = body + move + attack + activitySkill
 
     @Override
     public void MakeHero() {
@@ -33,27 +34,41 @@ public class NewWarrior extends NewHero {
         partsMove = heroFactory.addPartsMove();
         partsAttack = heroFactory.addPartsAttack();
         partsSkills = heroFactory.addPartsSkills();
+//        fromFactoryNum = heroFactory.getFactoryNumber();
     }
 
     @Override
     public void SpawnBody(){
-        partsBody.PartsBody(width,height,playerType);
+        partsBody.spawnBody(width,height,playerType);
     }
 
     @Override
-    public void Move() {
-        // need get the current X&Y, board W&H
-        partsMove.PartsMove(width,height);
+    public void activityMove() {
+        // need get the board W&H
+        partsMove.activityMove(width,height);
     }
 
     @Override
-    public void Attack() {
-        partsAttack.PartsAttack(width,height,playerType,roleType);
+    public void activityAttack() {
+        partsAttack.activityAttack(width,height,playerType,roleType);
     }
 
     @Override
-    public void UseSkills() {
+    public void activitySkills() {
 
+        switch (fromFactoryNum){
+            case 1:
+                // call activitySkill for attack
+//                partsSkills.activitySkill();
+                break;
+            case 2:
+                // call activitySkill for move
+                break;
+            case 3:
+                // call activitySkill for dodge
+                break;
+        }
+        partsSkills.activitySkill(width,height,playerType,roleType);
     }
 
 

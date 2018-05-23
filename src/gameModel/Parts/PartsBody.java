@@ -11,11 +11,11 @@ import gameModel.RoleType;
  * @since 2018/5/19
  */
 public interface PartsBody {
-    void PartsBody(int width, int height, PlayerType playerType);
+    void spawnBody(int width, int height, PlayerType playerType);
     void reSpawn();
     int getSpawnX();
     int getSpawnY();
     PlayerType getPlayerType();
     RoleType getRoleType();
-//    void PartsBody(int width, int height, NewHeroType newHeroType, Player player);
+//    void spawnBody(int width, int height, NewHeroType newHeroType, Player player);
 }

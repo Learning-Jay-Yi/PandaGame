@@ -16,12 +16,10 @@ public class WarriorMove implements PartsMove{
         this.moveRange = moveRange;
     }
 
-
     @Override
-    public void PartsMove(int boardW, int boardH) {
+    public void activityMove(int boardW, int boardH) {
        this.boardW = boardW;
        this.boardH = boardH;
-
     }
 
     @Override

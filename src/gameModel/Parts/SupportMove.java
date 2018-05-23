@@ -18,7 +18,7 @@ public class SupportMove implements PartsMove{
 
 
     @Override
-    public void PartsMove(int boardW, int boardH) {
+    public void activityMove(int boardW, int boardH) {
        this.boardW = boardW;
        this.boardH = boardH;
 

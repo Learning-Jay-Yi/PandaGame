@@ -41,6 +41,8 @@ public class NewHeroController
 	public Group createHeros(ArrayList<HeroView> heroArray,TileView[][] tileArray){
 
 		ArrayList<String> testData = new ArrayList<>();
+
+//		testData = receiveOrder();
 		String hero1 = "Warrior 1 RED";
 		String hero2 = "Warrior 1 BLUE";
 		String hero3 = "Ranger 2 RED";
@@ -87,9 +89,9 @@ public class NewHeroController
 		for(NewHero newHero : heroes) {
 			//spawn each hero and put it into heroView
 			newHero.SpawnBody();
-			// initial hero move board
-			newHero.Move();
-			newHero.Attack();
+			newHero.activityMove();
+			newHero.activityAttack();
+			newHero.activitySkills();
 			int startX = newHero.getPartsBody().getSpawnX();
 			int startY = newHero.getPartsBody().getSpawnY();
 			PlayerType playerType = newHero.getPartsBody().getPlayerType();
@@ -106,7 +108,7 @@ public class NewHeroController
 			{
 
 				// need to know which hero selected
-				// before the move, attack button need to disable, but skill button can use.
+				// before the move, attack button need to disable, but activitySkill button can use.
 
 				boolean selected = false;
 				boolean bWarning = false;
@@ -138,6 +140,15 @@ public class NewHeroController
 			group.getChildren().add(heroView);
 		}
 		return group;
+	}
+
+	private ArrayList<String> receiveOrder() {
+		ArrayList<String> order = new ArrayList<>();
+
+		// TODO: 2018/5/22 read files to load the string which to build heros
+
+
+		return order;
 	}
 
 

@@ -17,13 +17,13 @@ public class RangerBody implements PartsBody {
     RoleType newHeroType = RoleType.RANGER;
 
     @Override
-    public void PartsBody(int boardWidth, int boardHeight, PlayerType playerType) {
+    public void spawnBody(int boardWidth, int boardHeight, PlayerType playerType) {
         this.boardWidth = boardWidth;
         this.boardHeight = boardHeight;
         this.playerType= playerType;
+//        newHeroType = RoleType.RANGER;
         spawnX = (playerType == PlayerType.BLUE ? 0 : boardWidth-1);
         spawnY = (playerType == PlayerType.BLUE ? 9 : boardHeight-11);
-//        Spawn();
     }
 
     /**
@@ -31,8 +31,8 @@ public class RangerBody implements PartsBody {
      */
     @Override
     public void reSpawn() {
-        spawnX = (playerType == PlayerType.BLUE ? 0 : boardWidth-1);
-        spawnY = (playerType == PlayerType.BLUE ? 9 : boardHeight-10);
+//        spawnX = (playerType == PlayerType.BLUE ? 0 : boardWidth-1);
+//        spawnY = (playerType == PlayerType.BLUE ? 9 : boardHeight-10);
 
 //        System.out.println("Spawn "+newHeroType+" at "+spawnX+" "+spawnY);
     }

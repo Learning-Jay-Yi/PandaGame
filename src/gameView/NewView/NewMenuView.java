@@ -21,8 +21,8 @@ public class NewMenuView {
 	Button saveBtn = new Button("Save");
 
 	Button bAbility = new Button("Ability");
-	Button bAttack = new Button("Attack");
-	Button bMove = new Button("Move");
+	Button bAttack = new Button("activityAttack");
+	Button bMove = new Button("activityMove");
 	HBox menuBar = new HBox();
 	HBox actionBar = new HBox();
 

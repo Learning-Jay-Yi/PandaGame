@@ -17,13 +17,13 @@ public class SupportBody implements PartsBody {
     RoleType newHeroType = RoleType.SUPPORT;
 
     @Override
-    public void PartsBody(int boardWidth, int boardHeight, PlayerType playerType) {
+    public void spawnBody(int boardWidth, int boardHeight, PlayerType playerType) {
         this.boardWidth = boardWidth;
         this.boardHeight = boardHeight;
         this.playerType= playerType;
+//        newHeroType = RoleType.SUPPORT;
         spawnX = (playerType == PlayerType.BLUE ? 0 : boardWidth-1);
         spawnY = (playerType == PlayerType.BLUE ? 6 : boardHeight-8);
-//        Spawn();
     }
 
     /**
@@ -31,8 +31,8 @@ public class SupportBody implements PartsBody {
      */
     @Override
     public void reSpawn() {
-        spawnX = (playerType == PlayerType.BLUE ? 0 : boardWidth-1);
-        spawnY = 3;
+//        spawnX = (playerType == PlayerType.BLUE ? 0 : boardWidth-1);
+//        spawnY = 3;
 
 //        System.out.println("Spawn "+newHeroType+" at "+spawnX+" "+spawnY);
     }

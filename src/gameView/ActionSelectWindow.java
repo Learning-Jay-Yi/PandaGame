@@ -26,10 +26,11 @@ public class ActionSelectWindow {
 	private ArrayList<HeroView> heroViews;
 	private TileView[][] tileArray;
 	private NewProcessController processController;
+	boolean useSkill;
 
 	private Button abilityBtn = new Button("Ability");
-	private Button attackBtn = new Button("activityAttack");
-	private Button moveBtn = new Button("activityMove");
+	private Button attackBtn = new Button("Attack");
+	private Button moveBtn = new Button("Move");
 
 
 	public ActionSelectWindow(NewHero newHero, HeroView heroView, ArrayList<HeroView> heroViews, TileView[][] tileArray, NewProcessController processController){
@@ -48,7 +49,7 @@ public class ActionSelectWindow {
 		action.initModality(Modality.APPLICATION_MODAL);
 		action.setTitle("Actions");
 
-		Label label = new Label("which adction do you want choose?");
+		Label label = new Label("which action do you want choose?");
 
 		HBox hBox = getActionWindow();
 
@@ -84,42 +85,80 @@ public class ActionSelectWindow {
 		abilityBtn.setOnAction(e->{
 			System.out.println("Skill used");
 			int skillNum = newHero.getPartsSkills().getSkillType();
-
-			newHero.getPartsSkills().useSkill();
+			useSkill = newHero.getPartsSkills().usedSkill();
+			if(skillNum == 3){
+				// invincible
+			}else {
+				if(!useSkill){
+					useSkill = true;
+					System.out.println("now you use the skill");
+					newHero.getPartsSkills().setUsedSkill(useSkill);
+//					abilityBtn.setDisable(true);
+				}else {
+					// may be not need to use here
+					System.out.println("now you use the skill");
+					abilityBtn.setDisable(true);
+				}
+			}
+			abilityBtn.setDisable(true);
 		});
 	}
 
 	private void setAttackBtn(){
 		attackBtn.setOnAction(e->{
 
-			newHero.getPartsAttack().CanAttack(heroView.getLocX(),heroView.getLocY());
-			int[] validX = newHero.getPartsAttack().getValidX();
-			int[] validY = newHero.getPartsAttack().getValidY();
-			int length = validX.length;
+			int[] validX = null ,validY = null ;
+			int length = 0;
 
-
-
-			for (int i = 0; i < length; i++) {
-//				showValidTiles(tileArray,validX[i],validY[i]);
-				int x = validX[i];
-				int y = validY[i];
-				tileArray[x][y].canAttack();
+			if(useSkill){
+				newHero.getPartsSkills().skill(heroView.getLocX(),heroView.getLocY());
+				validX = newHero.getPartsSkills().getValidX();
+				validY = newHero.getPartsSkills().getValidY();
+				length = validX.length;
+			}else{
+				newHero.getPartsAttack().CanAttack(heroView.getLocX(),heroView.getLocY());
+				validX = newHero.getPartsAttack().getValidX();
+				validY = newHero.getPartsAttack().getValidY();
+				length = validX.length;
 			}
 
+			if (length != 0){
+				for (int i = 0; i < length; i++) {
+//				showValidTiles(tileArray,validX[i],validY[i]);
+					int x = validX[i];
+					int y = validY[i];
+					tileArray[x][y].canAttack();
+				}
+			}
 			processController.createNewLog(heroView.getPlayerType(),heroView.getRoleType(),
 					heroView.getLocX(),heroView.getLocY());
-
 			action.close();
+//			abilityBtn.setDisable(true);
 		});
 	}
 
 	private void setMoveBtn() {
 		moveBtn.setOnAction(e -> {
-			newHero.getPartsMove().CanMove(heroView.getLocX(), heroView.getLocY());
 
-			int[] validX = newHero.getPartsMove().getValidX();
-			int[] validY = newHero.getPartsMove().getValidY();
-			int length = validX.length;
+			int[] validX = null ,validY = null ;
+			int length = 0;
+
+			if (useSkill){
+				newHero.getPartsSkills().skill(heroView.getLocX(), heroView.getLocY());
+				validX = newHero.getPartsSkills().getValidX();
+				validY = newHero.getPartsSkills().getValidY();
+				length = validX.length;
+			}else {
+				newHero.getPartsMove().CanMove(heroView.getLocX(), heroView.getLocY());
+				validX = newHero.getPartsMove().getValidX();
+				validY = newHero.getPartsMove().getValidY();
+				length = validX.length;
+			}
+
+
+
+
+
 			int oldX = heroView.getLocX();
 			int oldY = heroView.getLocY();
 

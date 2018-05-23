@@ -8,6 +8,7 @@ import gameModel.Parts.*;
  * @since 2018/5/17
  */
 public class Support2Factory implements HeroFactory{
+    private int factoryNumber =2;
 
     @Override
     public PartsBody addPartsBody() {
@@ -27,5 +28,9 @@ public class Support2Factory implements HeroFactory{
     @Override
     public PartsSkills addPartsSkills() {
         return new SkillForMove();
+    }
+
+    public int getFactoryNumber() {
+        return factoryNumber;
     }
 }

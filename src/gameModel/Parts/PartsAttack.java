@@ -9,9 +9,9 @@ import gameModel.RoleType;
  * @since 2018/5/13
  */
 public interface PartsAttack {
-//    PartsAttack addPartAttack();
+//    activityAttack addPartAttack();
 
-    void PartsAttack(int boardW, int boardH, PlayerType playerType, RoleType roleType);
+    void activityAttack(int boardW, int boardH, PlayerType playerType, RoleType roleType);
     void CanAttack(int curX, int curY);
     int[] getValidX();
     int[] getValidY();

@@ -98,49 +98,6 @@ public class NewTileController {
 							}
 						}
 					}else if(tileView.isReadyForAttack()){
-						// if the tile is ready for attack then check is there any hero
-
-//						RoleType heroType = tileView.getHeroView().getRoleType();
-//						HeroView canAttackView = tileView.getHeroView();
-//
-////						if (tileView.getHeroView() !=null)
-////							heroType = tileView.getHeroView().getRoleType();
-//
-//						int selectedHeroViewX,selectedHeroViewY,canAttackHeroViewX =0 ,canAttackHeroViewY = 0;
-//
-//						// if the tile have a hero view then return the location
-//						if (canAttackView !=null) {
-//							canAttackHeroViewX = canAttackView.getLocX();
-//							canAttackHeroViewY = canAttackView.getLocY();
-//						}
-						// this loop is work for find the selected hero location
-//						for (int i = 0; i < heroViewArrayList.size(); i++) {
-//							HeroView selectedHeroView = heroViewArrayList.get(i);
-//							if (selectedHeroView.isSelected()){
-//								selectedHeroViewX = selectedHeroView.getLocX();
-//								selectedHeroViewY = selectedHeroView.getLocY();
-//
-//								if (heroType == RoleType.SUPPORT){
-//									// support attack
-//									if (canAttackView == null ){
-//										// if tile tile do not have a heroView then can revive
-//									}else {
-//
-//									}
-//								}else {
-//									// other attack
-//									if (canAttackView !=null){
-//										// if tile tile has a heroView then can attack
-//										selectedHeroView.move(canAttackHeroViewX,canAttackHeroViewY);
-//										tileViewsArrayList[selectedHeroViewX][selectedHeroViewY].setHeroView(null);
-//										tileView.setHeroView(selectedHeroView);
-//										//  use move first then need to change to attack
-//									}else {
-//
-//									}
-//								}
-//							}
-//						}
 
 					}
 					clean(heroViewArrayList, tileViewsArrayList);

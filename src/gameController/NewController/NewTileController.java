@@ -7,6 +7,7 @@ import gameView.TileView;
 import javafx.scene.Group;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 
 /**
@@ -24,6 +25,10 @@ public class NewTileController {
 	private int tileSize;
 	private NewProcessController processController;
 
+	private Random random = new Random();
+	private int[] x;
+	private int[] y;
+	private int n; // number of special tile
 	/**
 	 * constructor that to store new object with width, height, size three parameters
 	 * @Requires ("width == 13")
@@ -45,28 +50,25 @@ public class NewTileController {
 	 */
 	public Group createTiles(ArrayList<HeroView> heroViewArrayList, TileView[][] tileViewsArrayList){
 		Group group = new Group();
+		getRandomNumber();
 		for(int x = 0; x < boardWidth; x++){
 			for(int y = 0; y < boardHeight; y++){
 /*****************************************************************************************************************************/
-				Tile tile;
+				Tile tile = new DefaultTile(tileSize);
 				boolean specialTile = false;
 
-				if(x == 5 && y == 5){
-					tile = new SetMountainTile(new DefaultTie(tileSize));
-					specialTile = true;
+				for(int i = 0; i < this.x.length; i++){
+					if(x == this.x[i] && y == this.y[i]){
+						tile = new SetMountainTile(new DefaultTile(tileSize));
+						specialTile = true;
+					}
 				}
-				else{
-					tile = new DefaultTie(tileSize);
-				}
-
 
 				TileView tileView = new TileView(x, y, tileSize);
-
 
 				if(specialTile){
 					tileView.setEffect(tile.getEffect());
 				}
-
 
 /******************************************************************************************************************************/
 
@@ -109,6 +111,42 @@ public class NewTileController {
 			}
 		}
 		return group;
+	}
+
+
+	private void getRandomNumber(){
+		n = random.nextInt(7) + 1;
+
+		x = new int[n];
+		y = new int[n];
+
+		for(int i = 0; i < x.length; i++){
+			int dx = random.nextInt(boardWidth - 2) + 2;
+			boolean flag = true;
+			for(int j = 0; j < x.length; j++){
+				if(dx == x[j]){
+					flag = false;
+					break;
+				}
+			}
+
+			if(flag)
+				x[i] = dx;
+		}
+
+		for(int i = 0; i < y.length; i++){
+			int dy = random.nextInt(boardHeight - 2) + 2;
+			boolean flag = true;
+			for(int j = 0; j < y.length; j++){
+				if(dy == y[j]){
+					flag = false;
+					break;
+				}
+			}
+			if(flag)
+				y[i] = dy;
+		}
+
 	}
 
 	/**

@@ -7,7 +7,7 @@ package gameModel;
  *
  *
  */
-public class DefaultTie implements Tile{
+public class DefaultTile implements Tile{
 
 	private int sideSize;
 
@@ -15,7 +15,7 @@ public class DefaultTie implements Tile{
 	 * initial tile with the input size
 	 * @Requires ("size == 50")
 	 */
-	public DefaultTie(int size){
+	public DefaultTile(int size){
 		this.sideSize = size;
 	}
 	/**

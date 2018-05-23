@@ -113,21 +113,22 @@ public class NewHeroController
 				boolean selected = false;
 				boolean bWarning = false;
 				boolean bAttackStatus = false;
+				HeroView preHero = null;
 				// only can select one hero for each time.
 				// every time click here, to check if there any hero already select
 				for(HeroView i : heroArray){
 					if(i.isSelected())
 						selected = true;
-					if (i.getAttackStatus())
+					if (i.getAttackStatus()){
+						preHero = i;
 						bAttackStatus = true;
-
-
+					}
 				}
 
 
 				// if no hero view not select then go select this hero, else reject
-				if (!selected || !bAttackStatus){
-					// TODO: 2018/5/23 wanna didnt attack own team
+				if (!selected){
+
 					// if this hero belongs to Player red.
 					if(newHero.getPartsBody().getPlayerType() == PlayerType.RED){
 						// if this turn belongs to Player RED
@@ -147,10 +148,30 @@ public class NewHeroController
 						}else
 							bWarning = true;
 					}
+				}else if(bAttackStatus){
+					if(!(heroView.getPlayerType() == preHero.getPlayerType())){
+						heroView.setVisible(false);
+						preHero.setStatus(false);
+						tileArray[heroView.getLocX()][heroView.getLocY()].setHeroView(null);
+
+						for(TileView[] t : tileArray){
+							for(TileView a : t){
+								a.setDefault();
+							}
+						}
+
+						for(int i = 0; i < heroArray.size(); i++)
+							heroArray.get(i).setDefault();
+
+
+					}
+
 				}
 
 
-				if (bWarning)	TurnCheckerAlarm.display();
+				if (bWarning){
+					TurnCheckerAlarm.display();
+				}
 			});
 			group.getChildren().add(heroView);
 		}

@@ -156,23 +156,6 @@ public class NewTileController {
 		return group;
 	}
 
-//	public void specialTileChecker(TileView[][] tileArray, int heroX, int heroY, int tileX, int tileY){
-//
-//		if(heroX == tileX){
-//			if(heroY > tileY){
-//				for(int y = tileY; y < heroY; y++){
-//					if(tileArray[heroX][y].getEffectValue() == 1){
-//
-//					}
-//				}
-//			}
-//		}else if(heroY == tileY){
-//
-//		}else{
-//
-//		}
-//	}
-
 	/**
 	 * private method that clean the highlight tiles when finish hero's action
 	 * @Requires ("heroArray != null")

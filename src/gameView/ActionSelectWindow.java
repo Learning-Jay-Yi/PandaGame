@@ -130,7 +130,7 @@ public class ActionSelectWindow {
 					int y = validY[i];
 					tileArray[x][y].canAttack();
 					//if there have a hero then can attack;
-					heroView.reSetStatus(true);
+					heroView.setStatus(true);
 				}
 			}
 

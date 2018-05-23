@@ -103,6 +103,8 @@ public class NewTileController {
 						RoleType heroType = tileView.getHeroView().getRoleType();
 						HeroView canAttackView = tileView.getHeroView();
 
+//						if (tileView.getHeroView() !=null)
+//							heroType = tileView.getHeroView().getRoleType();
 
 						int selectedHeroViewX,selectedHeroViewY,canAttackHeroViewX =0 ,canAttackHeroViewY = 0;
 

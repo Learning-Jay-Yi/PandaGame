@@ -50,7 +50,19 @@ public class ProcessController {
 
 	public void undo(TileView[][] tileArray, ArrayList<HeroView> heroArray){
 		menu.getUndoBtn().setOnAction(e ->{
+			// TODO: 2018/5/23 undo need work for attack
+			HeroView heroView=null;
+			for (int i = 0; i < heroArray.size(); i++) {
+				heroView = heroArray.get(i);
+			}
+			if (heroView.isVisible()){
+				// undo for attack
+			}
+
+
+
 			if(logList.size() > 0){
+
 				int i = logList.size() - 1;
 				int removeX = logList.get(i).getNewCoordinate()[0];
 				int removeY = logList.get(i).getNewCoordinate()[1];
@@ -67,6 +79,7 @@ public class ProcessController {
 
 				logList.remove(i);
 				TurnChecker.getInstance().decount();
+				// undo times need to increase by 1, and the max is 3;
 			}
 
 

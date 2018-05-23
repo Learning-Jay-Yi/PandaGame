@@ -86,20 +86,28 @@ public class ActionSelectWindow {
 		abilityBtn.setOnAction(e->{
 			System.out.println("Skill used");
 			int skillNum = newHero.getPartsSkills().getSkillType();
+			String skillName = "";
+			switch (skillNum){
+				case 1: skillName = "Skill for move";
+					break;
+				case 2: skillName = "Skill for attack";
+					break;
+				case 3: skillName = "Skill for dodge";
+			}
 			useSkill = newHero.getPartsSkills().usedSkill();
 			if(skillNum == 3){
 				// invincible
 			}else {
 				if(!useSkill){
 					useSkill = true;
-					System.out.println("now you use the skill");
+					System.out.println("now you use "+skillName);
 					newHero.getPartsSkills().setUsedSkill(useSkill);
-//					abilityBtn.setDisable(true);
-				}else {
-					// may be not need to use here
-					System.out.println("now you use the skill");
-					abilityBtn.setDisable(true);
 				}
+//				else {
+//					// may be not need to use here
+//					System.out.println("now you use the skill");
+//					abilityBtn.setDisable(true);
+//				}
 			}
 			abilityBtn.setDisable(true);
 		});
@@ -133,10 +141,6 @@ public class ActionSelectWindow {
 					heroView.setStatus(true);
 				}
 			}
-
-
-
-
 
 			processController.createNewLog(heroView.getPlayerType(),heroView.getRoleType(),
 					heroView.getLocX(),heroView.getLocY());

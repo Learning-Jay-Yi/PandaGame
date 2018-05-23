@@ -55,7 +55,7 @@ public class NewTileController {
 			for(int y = 0; y < boardHeight; y++){
 /*****************************************************************************************************************************/
 				Tile tile = new DefaultTile(tileSize);
-				
+
 				boolean specialTile = false;
 
 				for(int i = 0; i < this.x.length; i++){

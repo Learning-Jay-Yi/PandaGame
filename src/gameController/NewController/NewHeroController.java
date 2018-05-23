@@ -139,6 +139,7 @@ public class NewHeroController
 						}else
 							bWarning=true;
 					}else{
+
 						if (!NewTurnChecker.getInstance().isTurn()){
 							heroView.selecetedChanges();
 							ActionSelectWindow actionWindow = new ActionSelectWindow(newHero,heroView,heroArray,tileArray,processController);
@@ -150,7 +151,7 @@ public class NewHeroController
 
 					
 					// sth to work for revive
-					// TODO: 2018/5/23 revive
+					// TODO: 2018/5/23 attack can attack everyone no matter how far.
 					if (newHero.getPartsBody().getRoleType() == RoleType.SUPPORT){
 						// support attack
 						HeroView canReviveHero = null;
@@ -172,6 +173,8 @@ public class NewHeroController
 						// respawn this hero to support location
 						tileArray[supportCurX][supportCurY].setHeroView(canReviveHero);
 
+						processController.createNewLog(heroView.getPlayerType(),heroView.getRoleType(),
+								heroView.getLocX(),heroView.getLocY());
 
 
 					}else {
@@ -192,6 +195,8 @@ public class NewHeroController
 							for(int i = 0; i < heroArray.size(); i++)
 								heroArray.get(i).setDefault();
 						}
+						processController.createNewLog(heroView.getPlayerType(),heroView.getRoleType(),
+								heroView.getLocX(),heroView.getLocY());
 
 					}
 

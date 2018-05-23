@@ -79,11 +79,9 @@ public class NewTileController {
 								int oldY = heroArray.get(i).getLocY();
 
 
-
-
 								heroArray.get(i).move(tileView.getLocX(), tileView.getLocY());
 
-								TurnChecker.getInstance().incount();
+								NewTurnChecker.getInstance().incount();
 								processController.updateNewLog(tileView.getLocX(), tileView.getLocY());
 
 								tileArray[oldX][oldY].setHero(null);

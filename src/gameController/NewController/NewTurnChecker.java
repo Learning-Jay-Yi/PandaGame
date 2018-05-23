@@ -27,7 +27,7 @@ public class NewTurnChecker {
 	public void incount(){
 		turnNum += 1;
 		TurnView.getInstance().updateText(isWho());
-		System.out.print("update");
+
 	}
 	/**
 	 * return the boolean when called this method

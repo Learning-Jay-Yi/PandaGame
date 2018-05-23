@@ -2,7 +2,7 @@ package gameController;
 
 import java.util.ArrayList;
 
-import gameModel.DefaultTie;
+import gameModel.DefaultTile;
 import gameView.HeroView;
 import gameView.TileView;
 import javafx.scene.Group;
@@ -46,7 +46,7 @@ public class TileController {
 		Group group = new Group();
 		for(int x = 0; x < boardWidth; x++){
 			for(int y = 0; y < boardHeight; y++){
-				TileView tileView = new TileView(x, y, new DefaultTie(tileSize).getSideSize());
+				TileView tileView = new TileView(x, y, new DefaultTile(tileSize).getSideSize());
 
 				tileView.setOnMouseClicked(e ->{
 					if(tileView.isReadyToMove()){

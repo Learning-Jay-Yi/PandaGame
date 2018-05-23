@@ -200,13 +200,13 @@ public class ActionSelectWindow {
 				if(oldY - validY[i] > 0){
 					for(int y = oldY - 1; y > validY[i]; y--){
 						if(tileArray[oldX][y].getEffectValue() == 1){
-							validY[i] = y;
+							validY[i] = y + 1;
 						}
 					}
 				}else{
 					for(int y = oldY + 1; y < validY[i]; y++){
 						if(tileArray[oldX][y].getEffectValue() == 1){
-							validY[i] = y;
+							validY[i] = y - 1;
 						}
 					}
 				}
@@ -214,13 +214,13 @@ public class ActionSelectWindow {
 				if(oldX - validX[i] > 0){
 					for(int x = oldX - 1; x > validX[i]; x--){
 						if(tileArray[x][oldY].getEffectValue() == 1){
-							validX[i] = x;
+							validX[i] = x + 1;
 						}
 					}
 				}else{
 					for(int x = oldX + 1; x < validX[i]; x++){
 						if(tileArray[x][oldY].getEffectValue() == 1){
-							validX[i] = x;
+							validX[i] = x - 1;
 						}
 					}
 				}
@@ -229,15 +229,15 @@ public class ActionSelectWindow {
 					if(oldY - validY[i] > 0){
 						for(int x = oldX - 1, y = oldY - 1; x > validX[i]; x--, y--){
 							if(tileArray[x][y].getEffectValue() == 1){
-								validX[i] = x;
-								validY[i] = y;
+								validX[i] = x + 1;
+								validY[i] = y + 1;
 							}
 						}
 					}else{
 						for(int x = oldX - 1, y = oldY + 1; x > validX[i]; x--, y++){
 							if(tileArray[x][y].getEffectValue() == 1){
-								validX[i] = x;
-								validY[i] = y;
+								validX[i] = x + 1;
+								validY[i] = y - 1;
 							}
 						}
 					}
@@ -246,16 +246,16 @@ public class ActionSelectWindow {
 						if(oldY - validY[i] > 0){
 							for(int x = oldX + 1, y = oldY - 1; x < validX[i]; x++, y--){
 								if(tileArray[x][y].getEffectValue() == 1){
-									validX[i] = x;
-									validY[i] = y;
+									validX[i] = x - 1;
+									validY[i] = y + 1;
 								}
 							}
 						}
 					}else{
 						for(int x = oldX + 1, y = oldY + 1; x < validX[i]; x++, y++){
 							if(tileArray[x][y].getEffectValue() == 1){
-								validX[i] = x;
-								validY[i] = y;
+								validX[i] = x - 1;
+								validY[i] = y - 1;
 							}
 						}
 					}

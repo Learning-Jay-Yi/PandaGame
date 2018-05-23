@@ -53,6 +53,7 @@ public class NewMainController {
 	public NewMainController(){
 		board = new Board(); //instantiate board first in order to get value of tile size, board width and board height
 
+		ChangeBoardView.display(board);
 		TILE_SIZE = board.getTileSize();
 		WIDTH = board.getWidth();
 		HEIGHT = board.getHeight();

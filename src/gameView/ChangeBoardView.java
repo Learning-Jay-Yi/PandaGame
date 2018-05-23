@@ -1,5 +1,6 @@
 package gameView;
 
+import gameModel.Board;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
@@ -13,7 +14,7 @@ import javafx.stage.Stage;
  */
 public class ChangeBoardView {
 
-	public static void display(int h, int w){
+	public static void display(Board board){
 		Stage window = new Stage();
 
 		window.initModality(Modality.APPLICATION_MODAL);
@@ -25,17 +26,17 @@ public class ChangeBoardView {
 		VBox root = new VBox();
 
 		smallBtn.setOnAction(e->{
-			//TODO
+			board.setSmall();
 			window.close();
 		});
 
 		normalBtn.setOnAction(e->{
-			//TODO
+			board.setNormal();
 			window.close();
 		});
 
 		bigBtn.setOnAction(e->{
-			//TODO
+			board.setBig();
 			window.close();
 		});
 

@@ -16,9 +16,6 @@ public class Board {
 	 * initial board with height =14, tileSize = 50, width = 13
 	 */
 	public Board(){
-		this.height = 14;
-		this.tile_size = 50;
-		this.width = 13;
 	}
 	/**
 	 * Return the integer of tile size
@@ -42,4 +39,22 @@ public class Board {
 		return height;
 	}
 
+
+	public void setNormal(){
+		this.height = 14;
+		this.tile_size = 50;
+		this.width = 13;
+	}
+
+	public void setBig(){
+		this.height = 18;
+		this.tile_size = 50;
+		this.width = 18;
+	}
+
+	public void setSmall(){
+		this.height = 12;
+		this.tile_size = 50;
+		this.width = 12;
+	}
 }

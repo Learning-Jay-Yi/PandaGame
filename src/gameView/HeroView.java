@@ -117,7 +117,7 @@ public class HeroView extends StackPane{
 		return attackStatus;
 	}
 
-	public void reSetStatus(boolean attackStatus){
+	public void setStatus(boolean attackStatus){
 		this.attackStatus = attackStatus;
 	}
 

@@ -20,7 +20,7 @@ import javafx.util.Duration;
  */
 
 public class TimerView implements Observer{
-	private Label label = new Label("Time Left: ");
+	private Label label = new Label("Time:\t");
 	private Label mmLabel = new Label();
 	private Label middle = new Label(" : ");
 	private Label ssLabel = new Label();

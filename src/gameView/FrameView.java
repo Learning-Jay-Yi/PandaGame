@@ -26,17 +26,25 @@ public class FrameView {
 	public void setFrame(Pane gameBoard, HBox menu){
 
 		this.framePane.setCenter(gameBoard);
-		this.framePane.setTop(getTimerPane());
+		this.framePane.setTop(getTopPane());
 		this.framePane.setBottom(menu);
 
 	}
 
-	public HBox getTimerPane(){
-		HBox h = new HBox();
-
-		h.getChildren().addAll(timer1, TurnView.getInstance().display() ,timer2);
-		return h;
+	private GridPane getTopPane(){
+		GridPane top = new GridPane();
+		top.add(timer1, 0, 0);
+		top.add(TurnView.getInstance().display(), 1, 0);
+		top.add(timer2, 0, 1 , 1, 1);
+		return top;
 	}
+
+//	public HBox getTimerPane(){
+//		HBox h = new HBox();
+//
+//		h.getChildren().addAll(timer1, TurnView.getInstance().display() ,timer2);
+//		return h;
+//	}
 	public BorderPane displayFrame(){
 		return framePane;
 	}

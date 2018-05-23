@@ -10,7 +10,7 @@ import javafx.scene.shape.Rectangle;
  */
 public class TileView extends Rectangle{
 
-	private HeroView hero;
+	private HeroView heroView;
 	private boolean readyForMove;
 	private boolean readyForAttack;
 	private int x;
@@ -34,23 +34,23 @@ public class TileView extends Rectangle{
 	}
 
 	/**
-	 * set the hero to the view
-	 * @Requires ("hero != null")
+	 * set the heroView to the view
+	 * @Requires ("heroView != null")
 	 */
-	public void setHero(HeroView hero){
-		this.hero = hero;
+	public void setHeroView(HeroView heroView){
+		this.heroView = heroView;
 
 	}
 
-	public boolean hasHero(){
-		return hero != null;
+	public boolean hasHeroView(){
+		return heroView != null;
 	}
 	/**
-	 * return the hero in the view
-	 * @Ensures ("hero ! = null")
+	 * return the heroView in the view
+	 * @Ensures ("heroView ! = null")
 	 */
-	public HeroView getHero(){
-		return hero;
+	public HeroView getHeroView(){
+		return heroView;
 	}
 	/**
 	 * set the tile view to a different color
@@ -99,7 +99,7 @@ public class TileView extends Rectangle{
 	}
 
 	public void canAttack(){
-		this.setStroke(Color.YELLOW);
+		this.setStroke(Color.RED);
 		this.setStrokeWidth(5);
 		this.readyForAttack = true;
 	}

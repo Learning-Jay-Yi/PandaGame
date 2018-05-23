@@ -2,6 +2,7 @@ package gameView;
 
 import gameController.NewController.NewProcessController;
 import gameModel.NewHero.NewHero;
+import gameModel.RoleType;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -128,8 +129,15 @@ public class ActionSelectWindow {
 					int x = validX[i];
 					int y = validY[i];
 					tileArray[x][y].canAttack();
+					//if there have a hero then can attack;
+					heroView.reSetStatus(true);
 				}
 			}
+
+
+
+
+
 			processController.createNewLog(heroView.getPlayerType(),heroView.getRoleType(),
 					heroView.getLocX(),heroView.getLocY());
 			action.close();

@@ -100,7 +100,6 @@ public class SkillForMove implements PartsSkills {
     }
 
     private void warriorMove(int curX, int curY) {
-        // TODO: 2018/5/23 need move
         int moveRange = 3;
         validX = new int[4];
         validY = new int[4];

@@ -102,7 +102,7 @@ public class NewHeroController
 
 
 			 //******* for future developing ----- maybe there will is some function need this
-			tileArray[startX][startY].setHero(heroView);
+			tileArray[startX][startY].setHeroView(heroView);
 
 			heroView.setOnMouseClicked((MouseEvent e) ->
 			{
@@ -112,13 +112,25 @@ public class NewHeroController
 
 				boolean selected = false;
 				boolean bWarning = false;
-				for(HeroView i : heroArray)
+				boolean bAttackStatus = false;
+				// only can select one hero for each time.
+				// every time click here, to check if there any hero already select
+				for(HeroView i : heroArray){
 					if(i.isSelected())
 						selected = true;
-				// need to identify who's turn
+					if (i.getAttackStatus())
+						bAttackStatus = true;
 
-				if (!selected){
+
+				}
+
+
+				// if no hero view not select then go select this hero, else reject
+				if (!selected || !bAttackStatus){
+					// TODO: 2018/5/23 wanna didnt attack own team
+					// if this hero belongs to Player red.
 					if(newHero.getPartsBody().getPlayerType() == PlayerType.RED){
+						// if this turn belongs to Player RED
 						if (TurnChecker.getInstance().isTurn()){
 							heroView.selecetedChanges();
 							ActionSelectWindow actionWindow = new ActionSelectWindow(newHero,heroView,heroArray,tileArray,processController);
@@ -135,6 +147,7 @@ public class NewHeroController
 					}
 				}
 
+
 				if (bWarning)	TurnCheckerAlarm.display();
 			});
 			group.getChildren().add(heroView);
@@ -144,8 +157,7 @@ public class NewHeroController
 
 	private ArrayList<String> receiveOrder() {
 		ArrayList<String> order = new ArrayList<>();
-
-		// TODO: 2018/5/22 read files to load the string which to build heros
+		// TODO: 2018/5/22 read files to load the string which to build heroes
 
 
 		return order;

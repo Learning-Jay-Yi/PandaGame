@@ -128,13 +128,11 @@ public class NewHeroController
 
 				// if no hero view not select then go select this hero, else reject
 				if (!selected){
-
+					// work for move
 					// if this hero belongs to Player red.
 					if(newHero.getPartsBody().getPlayerType() == PlayerType.RED){
 						// if this turn belongs to Player RED
-
 						if (NewTurnChecker.getInstance().isTurn()){
-
 							heroView.selecetedChanges();
 							ActionSelectWindow actionWindow = new ActionSelectWindow(newHero,heroView,heroArray,tileArray,processController);
 							actionWindow.display();
@@ -149,20 +147,51 @@ public class NewHeroController
 							bWarning = true;
 					}
 				}else if(bAttackStatus){
-					if(!(heroView.getPlayerType() == preHero.getPlayerType())){
-						heroView.setVisible(false);
-						preHero.setStatus(false);
-						tileArray[heroView.getLocX()][heroView.getLocY()].setHeroView(null);
 
-						for(TileView[] t : tileArray){
-							for(TileView a : t){
-								a.setDefault();
+					
+					// sth to work for revive
+					// TODO: 2018/5/23 revive
+					if (newHero.getPartsBody().getRoleType() == RoleType.SUPPORT){
+						// support attack
+						HeroView canReviveHero = null;
+						for (int i = 0; i < heroArray.size(); i++) {
+							canReviveHero = heroArray.get(i);
+							// search the same time hero
+							if (!canReviveHero.isVisible()){
+								if (newHero.getPartsBody().getPlayerType() == canReviveHero.getPlayerType()){
+									canReviveHero.setVisible(true);
+									break;
+								}
 							}
 						}
 
-						for(int i = 0; i < heroArray.size(); i++)
-							heroArray.get(i).setDefault();
+						// respawn the hero
+						int supportCurX = heroView.getLocX(), supportCurY = heroView.getLocY();
+						// make the support die
+						heroView.setVisible(false);
+						// respawn this hero to support location
+						tileArray[supportCurX][supportCurY].setHeroView(canReviveHero);
 
+
+
+					}else {
+						// other attack
+						//  work for attack
+						// if the picked hero's team is dif to the target hero
+						if(!(heroView.getPlayerType() == preHero.getPlayerType())){
+							heroView.setVisible(false);
+							preHero.setStatus(false);
+							tileArray[heroView.getLocX()][heroView.getLocY()].setHeroView(null);
+
+							for(TileView[] t : tileArray){
+								for(TileView a : t){
+									a.setDefault();
+								}
+							}
+
+							for(int i = 0; i < heroArray.size(); i++)
+								heroArray.get(i).setDefault();
+						}
 
 					}
 

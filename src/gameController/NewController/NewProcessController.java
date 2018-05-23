@@ -7,6 +7,7 @@ import gameView.MenuView;
 import gameView.NewView.NewMenuView;
 import gameView.TileView;
 import gameView.TimerView;
+import gameView.TimerView2;
 
 import java.util.ArrayList;
 import java.util.Timer;
@@ -46,10 +47,7 @@ public class NewProcessController {
 		logList.add(log);
 		//TODO
 
-		TimerTask timerTask = (TimerTask)new TimerCount();
-		((TimerView) TimerView.getInstance()).setObservee((Observable) timerTask);
-		Timer timer = new Timer(false);
-		timer.scheduleAtFixedRate(timerTask, 0, 1000);
+		
 	}
 
 	public void undo(TileView[][] tileArray, ArrayList<HeroView> heroArray){

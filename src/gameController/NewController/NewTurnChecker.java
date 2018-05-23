@@ -1,5 +1,12 @@
 package gameController.NewController;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
+import gameModel.Observable;
+import gameModel.TimerCount;
+import gameView.TimerView;
+import gameView.TimerView2;
 import gameView.TurnView;
 
 /**
@@ -28,6 +35,11 @@ public class NewTurnChecker {
 		turnNum += 1;
 		TurnView.getInstance().updateText(isWho());
 
+		TimerTask timerTask = (TimerTask)new TimerCount();
+		((TimerView) TimerView.getInstance()).setObservee((Observable) timerTask);
+		((TimerView2) TimerView2.getInstance()).setObservee((Observable) timerTask);
+		Timer timer = new Timer(false);
+		timer.scheduleAtFixedRate(timerTask, 0, 1000);
 	}
 	/**
 	 * return the boolean when called this method

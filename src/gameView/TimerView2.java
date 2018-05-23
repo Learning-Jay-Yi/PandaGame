@@ -1,13 +1,16 @@
 package gameView;
 
+import gameController.NewController.NewTurnChecker;
 import gameModel.Observable;
 import gameModel.TimerCount;
 import javafx.application.Platform;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 
 public class TimerView2 implements Observer{
-	private Label label = new Label("Time Spent: ");
+	private Text text = new Text("Time Remaining:\t");
 	private Label mmLabel = new Label();
 	private Label middle = new Label(" : ");
 	private Label ssLabel = new Label();
@@ -32,24 +35,33 @@ public class TimerView2 implements Observer{
 	}
 
 	public HBox getTimer(){
+		timerPane.setVisible(false);
 		return timerPane;
 	}
 
 	private void setCountPane(){
-		timerPane.getChildren().addAll(label, mmLabel, middle, ssLabel);
+		timerPane.getChildren().addAll(text, mmLabel, middle, ssLabel);
 	}
 	private void timeSetting(){
 		int mt = 0;
-		int st = 60 - ((TimerCount) timer).getSt();
-		System.out.println(mt + " "+ st);
-		if(mt > 0 || st > 0){
+		int st = 0;
+		int time = ((TimerCount) timer).getTime();
+		int count = ((TimerCount) timer).getCount();
+		if(time % 2 == 0)
+			text.setFill(Color.RED);
+		else
+			text.setFill(Color.BLACK);
+		if(count == 30){
+			timerPane.setVisible(true);
+			mt = time / 60 % 60;
+			st = time % 60;
 			mmLabel.setText(Integer.toString(mt));
 			ssLabel.setText(Integer.toString(st));
 		}
-		else {
-			mmLabel.setText("00");
-			ssLabel.setText("00");
+		if(count == 10){
+			text.setVisible(false);
 		}
+
 	}
 
 	@Override

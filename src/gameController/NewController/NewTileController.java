@@ -38,12 +38,12 @@ public class NewTileController {
 	}
 
 	/**
-	 * create the tiles group when receive the heroArray, tileArray two parameters
-	 * @Requires ("heroArray != null")
-	 * @Requires ("tileArray != null")
+	 * create the tiles group when receive the heroViewArrayList, tileViewsArrayList two parameters
+	 * @Requires ("heroViewArrayList != null")
+	 * @Requires ("tileViewsArrayList != null")
 	 * @Ensure ("group !=null")
 	 */
-	public Group createTiles(ArrayList<HeroView> heroArray, TileView[][] tileArray){
+	public Group createTiles(ArrayList<HeroView> heroViewArrayList, TileView[][] tileViewsArrayList){
 		Group group = new Group();
 		for(int x = 0; x < boardWidth; x++){
 			for(int y = 0; y < boardHeight; y++){
@@ -71,31 +71,84 @@ public class NewTileController {
 /******************************************************************************************************************************/
 
 				tileView.setOnMouseClicked(e ->{
+					int oldX ;//= heroViewArrayList.get(i).getLocX();
+					int oldY ;//= heroViewArrayList.get(i).getLocY();
 					if(tileView.isReadyToMove()){
-						for(int i = 0; i < heroArray.size(); i++){
-							if(heroArray.get(i).isSelected()){
-								// get hero previous x and y in order to make previous tile's setHero to null
-								int oldX = heroArray.get(i).getLocX();
-								int oldY = heroArray.get(i).getLocY();
+						for(int i = 0; i < heroViewArrayList.size(); i++){
+							if(heroViewArrayList.get(i).isSelected()){
+								// get hero previous x and y in order to make previous tile's setHeroView to null
+								oldX = heroViewArrayList.get(i).getLocX();
+								oldY = heroViewArrayList.get(i).getLocY();
+
+								if(tileView.getHeroView() == null)
+									System.out.println("no hero here!!");
+								else
+									System.out.println("find a way to do this!!");
 
 
-								heroArray.get(i).move(tileView.getLocX(), tileView.getLocY());
+								heroViewArrayList.get(i).move(tileView.getLocX(), tileView.getLocY());
+
 
 								NewTurnChecker.getInstance().incount();
 								processController.updateNewLog(tileView.getLocX(), tileView.getLocY());
 
-								tileArray[oldX][oldY].setHero(null);
-								tileView.setHero(heroArray.get(i));
+								tileViewsArrayList[oldX][oldY].setHeroView(null);
+								tileView.setHeroView(heroViewArrayList.get(i));
 
 							}
 						}
 					}else if(tileView.isReadyForAttack()){
-						// TODO: 2018/5/21 need to show sth in the view
+						// if the tile is ready for attack then check is there any hero
+
+						RoleType heroType = tileView.getHeroView().getRoleType();
+						HeroView canAttackView = tileView.getHeroView();
+
+
+						int selectedHeroViewX,selectedHeroViewY,canAttackHeroViewX =0 ,canAttackHeroViewY = 0;
+
+						// if the tile have a hero view then return the location
+						if (canAttackView !=null) {
+							canAttackHeroViewX = canAttackView.getLocX();
+							canAttackHeroViewY = canAttackView.getLocY();
+						}
+						// this loop is work for find the selected hero location
+						for (int i = 0; i < heroViewArrayList.size(); i++) {
+							HeroView selectedHeroView = heroViewArrayList.get(i);
+							if (selectedHeroView.isSelected()){
+								selectedHeroViewX = selectedHeroView.getLocX();
+								selectedHeroViewY = selectedHeroView.getLocY();
+
+								if (heroType == RoleType.SUPPORT){
+									// support attack
+									if (canAttackView == null ){
+										// if tile tile do not have a heroView then can revive
+									}else {
+
+									}
+								}else {
+									// other attack
+									if (canAttackView !=null){
+										// if tile tile has a heroView then can attack
+
+										selectedHeroView.move(canAttackHeroViewX,canAttackHeroViewY);
+										tileViewsArrayList[selectedHeroViewX][selectedHeroViewY].setHeroView(null);
+										tileView.setHeroView(selectedHeroView);
+
+										//  use move first then need to change to attack
+
+
+									}else {
+
+									}
+								}
+							}
+						}
+
 					}
-					clean(heroArray, tileArray);
+					clean(heroViewArrayList, tileViewsArrayList);
 				});
 
-				tileArray[x][y] = tileView;
+				tileViewsArrayList[x][y] = tileView;
 
 				group.getChildren().add(tileView);
 			}

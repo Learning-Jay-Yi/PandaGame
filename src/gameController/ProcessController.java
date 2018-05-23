@@ -59,11 +59,11 @@ public class ProcessController {
 				int relocateY = logList.get(i).getOldCoordinate()[1];
 
 				TileView undoTile = tileArray[removeX][removeY];
-				HeroView hero = undoTile.getHero();
+				HeroView hero = undoTile.getHeroView();
 
 				hero.move(relocateX, relocateY);
-				tileArray[relocateX][relocateY].setHero(hero);
-				tileArray[removeX][removeY].setHero(null);
+				tileArray[relocateX][relocateY].setHeroView(hero);
+				tileArray[removeX][removeY].setHeroView(null);
 
 				logList.remove(i);
 				TurnChecker.getInstance().decount();

@@ -19,6 +19,7 @@ public class HeroView extends StackPane{
 	private int y;
 	private boolean alive;
 	private boolean selected;
+	private boolean attackStatus = false;
 	private int size;
 	private PlayerType p;
 	private RoleType r;
@@ -67,7 +68,6 @@ public class HeroView extends StackPane{
 		this.x = x;
 		this.y = y;
 		this.relocate(x * size , y * size );
-
 	}
 	/**
 	 * return the action that if the hero is selected
@@ -111,6 +111,14 @@ public class HeroView extends StackPane{
 	 */
 	public int getLocY(){
 		return y;
+	}
+
+	public boolean getAttackStatus(){
+		return attackStatus;
+	}
+
+	public void reSetStatus(boolean attackStatus){
+		this.attackStatus = attackStatus;
 	}
 
 

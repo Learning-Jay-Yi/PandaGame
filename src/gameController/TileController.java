@@ -52,7 +52,7 @@ public class TileController {
 					if(tileView.isReadyToMove()){
 						for(int i = 0; i < heroArray.size(); i++){
 							if(heroArray.get(i).isSelected()){
-								// get hero previous x and y in order to make previous tile's setHero to null
+								// get hero previous x and y in order to make previous tile's setHeroView to null
 								int oldX = heroArray.get(i).getLocX();
 								int oldY = heroArray.get(i).getLocY();
 
@@ -60,8 +60,8 @@ public class TileController {
 								TurnChecker.getInstance().incount();
 								processController.updateNewLog(tileView.getLocX(), tileView.getLocY());
 
-								tileArray[oldX][oldY].setHero(null);
-								tileView.setHero(heroArray.get(i));
+								tileArray[oldX][oldY].setHeroView(null);
+								tileView.setHeroView(heroArray.get(i));
 								
 							}
 						}

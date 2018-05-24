@@ -15,7 +15,6 @@ public class NewWarrior extends NewHero {
     private int height;
     PlayerType playerType;
     HeroFactory heroFactory;
-    int fromFactoryNum;
     RoleType roleType = RoleType.WARRIOR;
 
     public NewWarrior(HeroFactory heroFactory, PlayerType playerType, int width, int height) {
@@ -34,7 +33,6 @@ public class NewWarrior extends NewHero {
         partsMove = heroFactory.addPartsMove();
         partsAttack = heroFactory.addPartsAttack();
         partsSkills = heroFactory.addPartsSkills();
-//        fromFactoryNum = heroFactory.getFactoryNumber();
     }
 
     @Override
@@ -55,19 +53,6 @@ public class NewWarrior extends NewHero {
 
     @Override
     public void activitySkills() {
-
-        switch (fromFactoryNum){
-            case 1:
-                // call activitySkill for attack
-//                partsSkills.activitySkill();
-                break;
-            case 2:
-                // call activitySkill for move
-                break;
-            case 3:
-                // call activitySkill for dodge
-                break;
-        }
         partsSkills.activitySkill(width,height,playerType,roleType);
     }
 

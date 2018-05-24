@@ -42,7 +42,7 @@ public class SkillForMove implements PartsSkills {
     }
 
     @Override
-    public void skill(int curX, int curY) {
+    public void skill(int curX, int curY,RoleType roleType) {
         if (roleType == RoleType.WARRIOR)
             warriorMove(curX, curY);
         else if(roleType == RoleType.RANGER)

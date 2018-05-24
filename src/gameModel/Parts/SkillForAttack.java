@@ -3,6 +3,8 @@ package gameModel.Parts;
 import gameModel.PlayerType;
 import gameModel.RoleType;
 
+import java.util.Currency;
+
 /**
  * @author Jay
  * @version 1.0
@@ -27,13 +29,21 @@ public class SkillForAttack implements PartsSkills {
 
 
     @Override
-    public void skill(int curX, int curY) {
+    public void skill(int curX, int curY, RoleType roleType) {
         if (roleType == RoleType.WARRIOR)
             warriorAttack(curX, curY);
         else if(roleType == RoleType.RANGER)
             rangerAttack(curX,curY);
+        else
+            supportAttack(curX,curY);
     }
 
+    private void supportAttack(int curX, int curY) {
+        validX = new int[1];
+        validY = new int[1];
+        validX[0] = curX;
+        validY[0] = curY;
+    }
 
 
     private void rangerAttack(int curX, int curY) {

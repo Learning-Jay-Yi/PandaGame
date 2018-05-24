@@ -28,6 +28,7 @@ public class ActionSelectWindow {
 	private TileView[][] tileArray;
 	private NewProcessController processController;
 	boolean useSkill;
+	int skillNum;
 
 	private Button abilityBtn = new Button("Ability");
 	private Button attackBtn = new Button("Attack");
@@ -84,23 +85,25 @@ public class ActionSelectWindow {
 	/******* at end of button, need to close ActionWindow: see TurnCheckerAlarm***********/
 	private void setAbilityBtn(){
 		abilityBtn.setOnAction(e->{
-			System.out.println("Skill used");
-			int skillNum = newHero.getPartsSkills().getSkillType();
+			skillNum = newHero.getPartsSkills().getSkillType();
 			String skillName = "";
 			switch (skillNum){
-				case 1: skillName = "Skill for move";
+				case 1: skillName = "Skill for attack";
 					break;
-				case 2: skillName = "Skill for attack";
+				case 2: skillName = "Skill for move";
 					break;
 				case 3: skillName = "Skill for dodge";
 			}
 			useSkill = newHero.getPartsSkills().usedSkill();
 			if(skillNum == 3){
+				System.out.println(newHero.getPartsBody().getRoleType()+" now you use "+skillName+" did't work.");
+
 				// invincible
 			}else {
 				if(!useSkill){
+					// if never use the skill then can use it
 					useSkill = true;
-					System.out.println("now you use "+skillName);
+					System.out.println(newHero.getPartsBody().getRoleType()+" now you use "+skillName);
 					newHero.getPartsSkills().setUsedSkill(useSkill);
 				}
 //				else {
@@ -120,11 +123,22 @@ public class ActionSelectWindow {
 			int length = 0;
 
 			if(useSkill){
-				newHero.getPartsSkills().skill(heroView.getLocX(),heroView.getLocY());
-				validX = newHero.getPartsSkills().getValidX();
-				validY = newHero.getPartsSkills().getValidY();
-				length = validX.length;
+				if(skillNum == 1){
+					// skill for attack
+					RoleType roleType = newHero.getPartsBody().getRoleType();
+					newHero.getPartsSkills().skill(heroView.getLocX(),heroView.getLocY(),roleType);
+					validX = newHero.getPartsSkills().getValidX();
+					validY = newHero.getPartsSkills().getValidY();
+					length = validX.length;
+				}else {
+					// no use skill
+					newHero.getPartsAttack().CanAttack(heroView.getLocX(),heroView.getLocY());
+					validX = newHero.getPartsAttack().getValidX();
+					validY = newHero.getPartsAttack().getValidY();
+					length = validX.length;
+				}
 			}else{
+				// not use skill
 				newHero.getPartsAttack().CanAttack(heroView.getLocX(),heroView.getLocY());
 				validX = newHero.getPartsAttack().getValidX();
 				validY = newHero.getPartsAttack().getValidY();
@@ -157,10 +171,18 @@ public class ActionSelectWindow {
 			int length = 0;
 
 			if (useSkill){
-				newHero.getPartsSkills().skill(heroView.getLocX(), heroView.getLocY());
-				validX = newHero.getPartsSkills().getValidX();
-				validY = newHero.getPartsSkills().getValidY();
-				length = validX.length;
+				if (skillNum == 2){
+					RoleType roleType = newHero.getPartsBody().getRoleType();
+					newHero.getPartsSkills().skill(heroView.getLocX(), heroView.getLocY(),roleType);
+					validX = newHero.getPartsSkills().getValidX();
+					validY = newHero.getPartsSkills().getValidY();
+					length = validX.length;
+				}else {
+					newHero.getPartsMove().CanMove(heroView.getLocX(), heroView.getLocY());
+					validX = newHero.getPartsMove().getValidX();
+					validY = newHero.getPartsMove().getValidY();
+					length = validX.length;
+				}
 			}else {
 				newHero.getPartsMove().CanMove(heroView.getLocX(), heroView.getLocY());
 				validX = newHero.getPartsMove().getValidX();

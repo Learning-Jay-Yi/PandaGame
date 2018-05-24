@@ -16,7 +16,8 @@ public interface PartsSkills {
     void setUsedSkill(boolean useSkill);
     // 1 == attack, 2 == move, 3 == invincible
     int getSkillType();
-    void skill(int curX, int curY);
+
+    void skill(int curX, int curY,RoleType roleType);
 
     int[] getValidX();
     int[] getValidY();

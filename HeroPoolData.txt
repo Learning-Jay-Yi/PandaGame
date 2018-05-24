@@ -1,6 +1,6 @@
 Warrior 1 RED
-Warrior 3 RED
-Ranger 2 RED
+Support 2 RED
+Ranger 3 RED
 Warrior 1 BLUE
-Warrior 3 BLUE
-Ranger 2 BLUE
+Support 2 BLUE
+Ranger 3 BLUE

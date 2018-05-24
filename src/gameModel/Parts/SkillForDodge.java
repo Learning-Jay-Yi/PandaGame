@@ -33,9 +33,10 @@ public class SkillForDodge implements PartsSkills {
     }
 
     @Override
-    public void skill(int curX, int curY) {
+    public void skill(int curX, int curY, RoleType roleType) {
 
     }
+
 
     @Override
     public int[] getValidX() {

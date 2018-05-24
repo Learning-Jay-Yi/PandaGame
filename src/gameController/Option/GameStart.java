@@ -40,7 +40,7 @@ public class GameStart {
 
 	private void dataFileWrite(File file) throws IOException{
 
-		FileWriter fw = new FileWriter(file, true);
+		FileWriter fw = new FileWriter(file);
 		BufferedWriter bw = new BufferedWriter(fw);
 //		PrintWriter out = new PrintWriter(bw);
 

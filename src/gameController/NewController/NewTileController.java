@@ -50,7 +50,9 @@ public class NewTileController {
 	 */
 	public Group createTiles(ArrayList<HeroView> heroViewArrayList, TileView[][] tileViewsArrayList){
 		Group group = new Group();
+
 		getRandomNumber();
+
 		for(int x = 0; x < boardWidth; x++){
 			for(int y = 0; y < boardHeight; y++){
 /*****************************************************************************************************************************/
@@ -108,7 +110,7 @@ public class NewTileController {
 
 
 	private void getRandomNumber(){
-		n = random.nextInt(7) + 1;
+		n = random.nextInt(7) + 3;
 
 		x = new int[n];
 		y = new int[n];

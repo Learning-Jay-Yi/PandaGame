@@ -20,10 +20,8 @@ public class RangerShape implements Drawing{
 	public Shape drawShape(int size, PlayerType p) {
 
 
-		Image red = new Image("/redRanger.jpg");
-		Image blue = new Image("/blueRanger.jpg");
-
-
+		Image red = new Image("file:redRanger.jpg");
+		Image blue = new Image("file:BlueRanger.jpg");
 
 		Shape shape = new Polygon();
 		((Polygon) shape).getPoints().addAll(0.0, 0.0, 0.0, 30.0, 21.0, 15.0);

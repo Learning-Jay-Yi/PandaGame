@@ -42,13 +42,22 @@ public class NewProcessController {
 
 
 	public void createNewLog(PlayerType p, RoleType r, NewHero hero, int oldX, int oldY){
+
 		log = new GameLog(p, r,hero);
 		log.setOldCoordinate(oldX, oldY);
 	}
 
 	public void updateNewLog(int newX, int newY){
 		log.setNewCoordinate(newX, newY);
-		logList.add(log);
+		boolean flag = true;
+		for(GameLog l: logList){
+			if(l == null){
+				l = log;
+				flag = false;
+			}
+		}
+		if(flag)
+			logList.add(log);
 		//TODO
 		TimerTask timerTask = (TimerTask)new TimerCount();
 		((TimerView) TimerView.getInstance()).setObservee((Observable) timerTask);
@@ -68,7 +77,7 @@ public class NewProcessController {
 				GameLog undoLog = logList.get(i);
 
 				/**
-				 * 1. 如何确定谁undo， 取出第一个log， 如果player是蓝色，那么就是红色在undo
+				 * 1.
 				 * 2.
 				 */
 				// the problem is every time pick a log froms tack, the player type would be changed.

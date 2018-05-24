@@ -21,15 +21,14 @@ public class SupportBody implements PartsBody {
     RoleType newHeroType = RoleType.SUPPORT;
 
     @Override
-    public void spawnBody(int boardWidth, int boardHeight, PlayerType playerType) {
+    public void spawnBody(int boardWidth, int boardHeight, PlayerType playerType, int newSpawnY) {
         this.boardWidth = boardWidth;
         this.boardHeight = boardHeight;
         this.playerType= playerType;
 //        newHeroType = RoleType.SUPPORT;
-        randomSpawnY = randomSpawn.nextInt(spawnRange);
 
         spawnX = (playerType == PlayerType.BLUE ? 0 : boardWidth-1);
-        spawnY = (playerType == PlayerType.BLUE ? (6-randomSpawnY) : boardHeight-(8-randomSpawnY));
+        spawnY = (playerType == PlayerType.BLUE ? (6-newSpawnY) : boardHeight-(8-newSpawnY));
 //        randomSpawnY++;
     }
 

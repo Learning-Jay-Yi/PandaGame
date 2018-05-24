@@ -25,6 +25,7 @@ public class RangerBuilding extends HeroBuilding{
         String factoryNumber = fields[1];
 
         String sPlayerType = fields[2];
+        int spawnY = Integer.valueOf(fields[3]);
 
         if (sPlayerType.equals(PlayerType.RED.toString()))
             playerType = PlayerType.RED;
@@ -34,15 +35,15 @@ public class RangerBuilding extends HeroBuilding{
         switch (factoryNumber){
             case "1":
                 heroFactory = new Ranger1Factory();
-                hero = new NewRanger(heroFactory,playerType,width,height);
+                hero = new NewRanger(heroFactory,playerType,width,height,spawnY);
                 break;
             case "2":
                 heroFactory = new Ranger2Factory();
-                hero = new NewRanger(heroFactory,playerType,width,height);
+                hero = new NewRanger(heroFactory,playerType,width,height,spawnY);
                 break;
             case "3":
                 heroFactory = new Ranger3Factory();
-                hero = new NewRanger(heroFactory,playerType,width,height);
+                hero = new NewRanger(heroFactory,playerType,width,height,spawnY);
                 break;
             default:
 

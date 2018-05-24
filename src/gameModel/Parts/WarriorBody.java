@@ -25,15 +25,13 @@ public class WarriorBody implements PartsBody {
 
 
     @Override
-    public void spawnBody(int boardWidth, int boardHeight, PlayerType playerType) {
+    public void spawnBody(int boardWidth, int boardHeight, PlayerType playerType,int newSpawnY) {
         this.boardWidth = boardWidth;
         this.boardHeight = boardHeight;
         this.playerType= playerType;
 //        newHeroType = RoleType.WARRIOR;
-        // TODO: 2018/5/24 increase hero num, how to control the spawn loction.
-        randomSpawnY = randomSpawn.nextInt(spawnRange);
         spawnX = (playerType == PlayerType.BLUE ? 0 : boardWidth-1);
-        spawnY = (playerType == PlayerType.BLUE ? (3-randomSpawnY) : (boardHeight-5-randomSpawnY));
+        spawnY = (playerType == PlayerType.BLUE ? (3-newSpawnY) : (boardHeight-5-newSpawnY));
 //        randomSpawnY++;
     }
 

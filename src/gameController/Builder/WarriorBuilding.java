@@ -21,12 +21,13 @@ public class WarriorBuilding extends HeroBuilding{
 //        hero = buildHero(heroDetails);
 //    }
 
-    public NewHero buildHero(String heroDetails, int width, int height){
+    public NewHero buildHero(String heroDetails, int width, int height, int spawnY){
         NewHero hero = null;
         PlayerType playerType;
         String[] fields = heroDetails.split(" ");
         String factoryNumber = fields[1];
         String sPlayerType = fields[2];
+        spawnY = Integer.valueOf(fields[3]);
 
         if (sPlayerType.equals(PlayerType.RED.toString()))
             playerType = PlayerType.RED;
@@ -37,15 +38,15 @@ public class WarriorBuilding extends HeroBuilding{
         switch (factoryNumber){
             case "1":
                 heroFactory = new Warrior1Factory();
-                hero = new NewWarrior(heroFactory,playerType,width,height);
+                hero = new NewWarrior(heroFactory,playerType,width,height,spawnY);
                 break;
             case "2":
                 heroFactory = new Warrior2Factory();
-                hero = new NewWarrior(heroFactory, playerType, width, height);
+                hero = new NewWarrior(heroFactory, playerType, width, height,spawnY);
                 break;
             case "3":
                 heroFactory = new Warrior3Factory();
-                hero = new NewWarrior(heroFactory, playerType, width, height);
+                hero = new NewWarrior(heroFactory, playerType, width, height,spawnY);
                 break;
             default:
         }

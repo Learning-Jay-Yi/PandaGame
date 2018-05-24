@@ -24,6 +24,7 @@ public class SupportBuilding extends HeroBuilding{
 //        String heroType = fields[0];
         String factoryNumber = fields[1];
         String sPlayerType = fields[2];
+        int spawnY = Integer.valueOf(fields[3]);
 
         if (sPlayerType.equals(PlayerType.RED.toString()))
             playerType = PlayerType.RED;
@@ -35,15 +36,15 @@ public class SupportBuilding extends HeroBuilding{
         switch (factoryNumber){
             case "1":
                 heroFactory = new Support1Factory();
-                hero = new NewSupport(heroFactory,playerType,width,height);
+                hero = new NewSupport(heroFactory,playerType,width,height,spawnY);
                 break;
             case "2":
                 heroFactory = new Support2Factory();
-                hero = new NewSupport(heroFactory,playerType,width,height);
+                hero = new NewSupport(heroFactory,playerType,width,height,spawnY);
                 break;
             case "3":
                 heroFactory = new Support3Factory();
-                hero = new NewSupport(heroFactory,playerType,width,height);
+                hero = new NewSupport(heroFactory,playerType,width,height,spawnY);
                 break;
             default:
         }

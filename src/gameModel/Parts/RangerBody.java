@@ -22,14 +22,13 @@ public class RangerBody implements PartsBody {
 
 
     @Override
-    public void spawnBody(int boardWidth, int boardHeight, PlayerType playerType) {
+    public void spawnBody(int boardWidth, int boardHeight, PlayerType playerType, int newSpawnY) {
         this.boardWidth = boardWidth;
         this.boardHeight = boardHeight;
         this.playerType= playerType;
 //        newHeroType = RoleType.RANGER;
-        randomSpawnY = randomSpawn.nextInt(spawnRange);
         spawnX = (playerType == PlayerType.BLUE ? 0 : boardWidth-1);
-        spawnY = (playerType == PlayerType.BLUE ? (9-randomSpawnY) : boardHeight-(11-randomSpawnY));
+        spawnY = (playerType == PlayerType.BLUE ? (9-newSpawnY) : boardHeight-(11-newSpawnY));
 //        randomSpawnY++;
     }
 

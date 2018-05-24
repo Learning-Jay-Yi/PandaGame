@@ -21,6 +21,7 @@ public class HeroBuilding {
         String[] fields = heroDetails.split(" ");
         String heroType = fields[0];
         String factoryNumber = fields[1];
+        int spawnY = Integer.valueOf(fields[3]);
         switch (heroType){
             case "Warrior":
                 heroBuilding= new WarriorBuilding();

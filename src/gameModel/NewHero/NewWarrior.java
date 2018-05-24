@@ -16,12 +16,14 @@ public class NewWarrior extends NewHero {
     PlayerType playerType;
     HeroFactory heroFactory;
     RoleType roleType = RoleType.WARRIOR;
+    int spawnY;
 
-    public NewWarrior(HeroFactory heroFactory, PlayerType playerType, int width, int height) {
+    public NewWarrior(HeroFactory heroFactory, PlayerType playerType, int width, int height,int spawnY) {
         this.width = width;
         this.height = height;
         this.playerType = playerType;
         this.heroFactory = heroFactory;
+        this.spawnY = spawnY;
     }
 
 
@@ -37,7 +39,7 @@ public class NewWarrior extends NewHero {
 
     @Override
     public void SpawnBody(){
-        partsBody.spawnBody(width,height,playerType);
+        partsBody.spawnBody(width,height,playerType,spawnY);
     }
 
     @Override

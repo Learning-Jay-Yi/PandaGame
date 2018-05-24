@@ -18,7 +18,7 @@ import javafx.scene.layout.HBox;
  */
 public class NewMenuView {
 	Button undoBtn = new Button("Undo");
-	Button saveBtn = new Button("Save");
+	//Button saveBtn = new Button("Save");
 
 	Button bAbility = new Button("Ability");
 	Button bAttack = new Button("activityAttack");
@@ -28,7 +28,7 @@ public class NewMenuView {
 
 	public NewMenuView(){
 		menuBar.getChildren().add(undoBtn);
-		menuBar.getChildren().add(saveBtn);
+		//menuBar.getChildren().add(saveBtn);
 		actionBar.getChildren().add(bAbility);
 		actionBar.getChildren().add(bAttack);
 		actionBar.getChildren().add(bMove);

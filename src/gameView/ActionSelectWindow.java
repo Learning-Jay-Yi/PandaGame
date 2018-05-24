@@ -31,7 +31,7 @@ public class ActionSelectWindow {
 	int skillNum;
 
 	private Button abilityBtn = new Button("Ability");
-	private Button attackBtn = new Button("Attack");
+	private Button attackBtn = new Button("Action");
 	private Button moveBtn = new Button("Move");
 
 

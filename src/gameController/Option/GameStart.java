@@ -15,6 +15,8 @@ public class GameStart {
 
 	private ObservableList<HeroPool> blueData;
 	private ObservableList<HeroPool> redData;
+	private int redCount = 1;
+	private int blueCount = 1;
 
 	public GameStart(ObservableList<HeroPool> redData, ObservableList<HeroPool> blueData){
 		this.redData = redData;
@@ -45,13 +47,15 @@ public class GameStart {
 //		PrintWriter out = new PrintWriter(bw);
 
 		for(HeroPool a : redData){
-			bw.write(a.getHeroType()+" "+ a.getAbility()+ " " + "RED");
+			bw.write(a.getHeroType()+" "+ a.getAbility()+ " " + "RED" + " "+ redCount);
 			bw.newLine();
+			redCount++;
 		}
 
 		for(HeroPool b : blueData){
-			bw.write(b.getHeroType()+" "+ b.getAbility()+ " " + "BLUE");
+			bw.write(b.getHeroType()+" "+ b.getAbility()+ " " + "BLUE" + " " + blueCount);
 			bw.newLine();
+			blueCount++;
 		}
 		bw.close();
 	}

@@ -11,6 +11,7 @@ import gameView.TurnCheckerAlarm;
 import javafx.scene.Group;
 import javafx.scene.input.MouseEvent;
 
+import java.io.*;
 import java.util.ArrayList;
 
 /**
@@ -42,21 +43,21 @@ public class NewHeroController
 
 		ArrayList<String> testData = new ArrayList<>();
 
-//		testData = receiveOrder();
-		String hero1 = "Warrior 1 RED";
-		String hero2 = "Warrior 1 BLUE";
-		String hero3 = "Ranger 2 RED";
-		String hero4 = "Ranger 2 BLUE";
-		String hero5 = "Support 3 RED";
-		String hero6 = "Support 3 BLUE";
-
-
-		testData.add(hero1);
-		testData.add(hero2);
-		testData.add(hero3);
-		testData.add(hero4);
-		testData.add(hero5);
-		testData.add(hero6);
+		testData = receiveOrder();
+//		String hero1 = "Warrior 1 RED";
+//		String hero2 = "Warrior 1 BLUE";
+//		String hero3 = "Ranger 2 RED";
+//		String hero4 = "Ranger 2 BLUE";
+//		String hero5 = "Support 3 RED";
+//		String hero6 = "Support 3 BLUE";
+//
+//
+//		testData.add(hero1);
+//		testData.add(hero2);
+//		testData.add(hero3);
+//		testData.add(hero4);
+//		testData.add(hero5);
+//		testData.add(hero6);
 
 		Group group = new Group();
 		ArrayList<NewHero> heroes = new ArrayList<>();
@@ -149,7 +150,6 @@ public class NewHeroController
 					}
 				}else if(bAttackStatus){
 
-					
 					// sth to work for revive
 					// TODO: 2018/5/23 attack can attack everyone no matter how far.
 					if (newHero.getPartsBody().getRoleType() == RoleType.SUPPORT){
@@ -173,9 +173,8 @@ public class NewHeroController
 						// respawn this hero to support location
 						tileArray[supportCurX][supportCurY].setHeroView(canReviveHero);
 
-						processController.createNewLog(heroView.getPlayerType(),heroView.getRoleType(),
+						processController.createNewLog(heroView.getPlayerType(),heroView.getRoleType(),newHero,
 								heroView.getLocX(),heroView.getLocY());
-
 
 					}else {
 						// other attack
@@ -195,7 +194,7 @@ public class NewHeroController
 							for(int i = 0; i < heroArray.size(); i++)
 								heroArray.get(i).setDefault();
 						}
-						processController.createNewLog(heroView.getPlayerType(),heroView.getRoleType(),
+						processController.createNewLog(heroView.getPlayerType(),heroView.getRoleType(),newHero,
 								heroView.getLocX(),heroView.getLocY());
 
 					}
@@ -214,20 +213,21 @@ public class NewHeroController
 
 	private ArrayList<String> receiveOrder() {
 		ArrayList<String> order = new ArrayList<>();
-		// TODO: 2018/5/22 read files to load the string which to build heroes
+		try {
+			File file = new File("HeroPoolData.txt");
+			if (file == null)
+				throw new FileNotFoundException("can not find "+file);
+			FileReader fileReader = new FileReader(file);
+			BufferedReader bufferedReader = new BufferedReader(fileReader);
+			String heroDetails = bufferedReader.readLine();
+			while (heroDetails!=null){
+				order.add(heroDetails);
+				heroDetails = bufferedReader.readLine();
+			}
+		}catch (IOException eIO){
+			System.out.println(eIO.toString());
 
-
+		}
 		return order;
-	}
-
-
-	/**
-	 * private method to show all the valid tiles in the view
-	 * @Requires ("tile[][] !== null","x,y>=0","x<=13,y<=14")
-	 * @Requires ("x>=0","x<=13")
-	 * @Requires ("y>=0","y<=14")
-	 */
-	private void showMoveValidTiles(TileView[][] tile, int x, int y){
-		tile[x][y].canMove(); // call the method that change the special tiles.
 	}
 }

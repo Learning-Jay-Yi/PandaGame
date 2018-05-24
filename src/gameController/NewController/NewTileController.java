@@ -83,12 +83,6 @@ public class NewTileController {
 								oldX = heroViewArrayList.get(i).getLocX();
 								oldY = heroViewArrayList.get(i).getLocY();
 
-								if(tileView.getHeroView() == null)
-									System.out.println("no hero here!!");
-								else
-									System.out.println("find a way to do this!!");
-
-
 								heroViewArrayList.get(i).move(tileView.getLocX(), tileView.getLocY());
 
 

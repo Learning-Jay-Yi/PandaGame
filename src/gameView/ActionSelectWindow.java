@@ -142,7 +142,7 @@ public class ActionSelectWindow {
 				}
 			}
 
-			processController.createNewLog(heroView.getPlayerType(),heroView.getRoleType(),
+			processController.createNewLog(heroView.getPlayerType(),heroView.getRoleType(),newHero,
 					heroView.getLocX(),heroView.getLocY());
 			action.close();
 //			abilityBtn.setDisable(true);
@@ -183,7 +183,7 @@ public class ActionSelectWindow {
 				tileArray[x][y].canMove();
 			}
 
-			processController.createNewLog(heroView.getPlayerType(),heroView.getRoleType(),
+			processController.createNewLog(heroView.getPlayerType(),heroView.getRoleType(),newHero,
 					heroView.getLocX(),heroView.getLocY());
 
 			action.close();

@@ -17,7 +17,7 @@ public class RangerBody implements PartsBody {
     PlayerType playerType;
     private int spawnX,spawnY;
     RoleType newHeroType = RoleType.RANGER;
-    private int spawnRange =3,randomSpawnY=0;
+    private int spawnRange =2,randomSpawnY=0;
     Random randomSpawn = new Random();
 
 
@@ -28,7 +28,7 @@ public class RangerBody implements PartsBody {
         this.playerType= playerType;
 //        newHeroType = RoleType.RANGER;
         spawnX = (playerType == PlayerType.BLUE ? 0 : boardWidth-1);
-        spawnY = (playerType == PlayerType.BLUE ? (9-newSpawnY) : boardHeight-(11-newSpawnY));
+        spawnY = (playerType == PlayerType.BLUE ? newSpawnY+spawnRange : boardHeight-(newSpawnY+spawnRange));
 //        randomSpawnY++;
     }
 

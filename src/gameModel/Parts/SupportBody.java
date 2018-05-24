@@ -16,7 +16,7 @@ public class SupportBody implements PartsBody {
     private int boardWidth, boardHeight;
     PlayerType playerType;
     private int spawnX,spawnY;
-    private int spawnRange =3,randomSpawnY=0;
+    private int spawnRange =2,randomSpawnY=0;
     Random randomSpawn = new Random();
     RoleType newHeroType = RoleType.SUPPORT;
 
@@ -28,7 +28,7 @@ public class SupportBody implements PartsBody {
 //        newHeroType = RoleType.SUPPORT;
 
         spawnX = (playerType == PlayerType.BLUE ? 0 : boardWidth-1);
-        spawnY = (playerType == PlayerType.BLUE ? (6-newSpawnY) : boardHeight-(8-newSpawnY));
+        spawnY = (playerType == PlayerType.BLUE ? newSpawnY+spawnRange : boardHeight-(newSpawnY+spawnRange));
 //        randomSpawnY++;
     }
 

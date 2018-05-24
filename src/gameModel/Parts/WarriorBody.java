@@ -19,7 +19,7 @@ public class WarriorBody implements PartsBody {
     PlayerType playerType;
     private int spawnX,spawnY;
     RoleType newHeroType = RoleType.WARRIOR;
-    private int spawnRange =3,randomSpawnY=0;
+    private int spawnRange =2,randomSpawnY=0;
     Random randomSpawn = new Random();
 
 
@@ -31,7 +31,7 @@ public class WarriorBody implements PartsBody {
         this.playerType= playerType;
 //        newHeroType = RoleType.WARRIOR;
         spawnX = (playerType == PlayerType.BLUE ? 0 : boardWidth-1);
-        spawnY = (playerType == PlayerType.BLUE ? (3-newSpawnY) : (boardHeight-5-newSpawnY));
+        spawnY = (playerType == PlayerType.BLUE ? newSpawnY+spawnRange : boardHeight-(newSpawnY+spawnRange));
 //        randomSpawnY++;
     }
 

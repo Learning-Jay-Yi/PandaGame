@@ -18,7 +18,7 @@ public class NewWarrior extends NewHero {
     RoleType roleType = RoleType.WARRIOR;
     int spawnY;
 
-    public NewWarrior(HeroFactory heroFactory, PlayerType playerType, int width, int height,int spawnY) {
+    public NewWarrior(HeroFactory heroFactory, PlayerType playerType, int width, int height, int spawnY) {
         this.width = width;
         this.height = height;
         this.playerType = playerType;

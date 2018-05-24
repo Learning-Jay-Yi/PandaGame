@@ -21,13 +21,13 @@ public class WarriorBuilding extends HeroBuilding{
 //        hero = buildHero(heroDetails);
 //    }
 
-    public NewHero buildHero(String heroDetails, int width, int height, int spawnY){
+    public NewHero buildHero(String heroDetails, int width, int height){
         NewHero hero = null;
         PlayerType playerType;
         String[] fields = heroDetails.split(" ");
         String factoryNumber = fields[1];
         String sPlayerType = fields[2];
-        spawnY = Integer.valueOf(fields[3]);
+        int spawnY = Integer.valueOf(fields[3]);
 
         if (sPlayerType.equals(PlayerType.RED.toString()))
             playerType = PlayerType.RED;

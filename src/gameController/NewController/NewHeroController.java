@@ -153,7 +153,7 @@ public class NewHeroController
 					// sth to work for revive
 					// TODO: 2018/5/23 attack can attack everyone no matter how far.
 					if (newHero.getPartsBody().getRoleType() == RoleType.SUPPORT){
-						// support attack
+						// support be attacked
 						int supportCurX = heroView.getLocX(), supportCurY = heroView.getLocY();
 						HeroView canReviveHero = null;
 						for (int i = 0; i < heroArray.size(); i++) {

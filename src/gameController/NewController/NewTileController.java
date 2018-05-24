@@ -110,7 +110,7 @@ public class NewTileController {
 
 
 	private void getRandomNumber(){
-		n = random.nextInt(7) + 3;
+		n = random.nextInt(12) + 6;
 
 		x = new int[n];
 		y = new int[n];

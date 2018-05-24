@@ -204,6 +204,7 @@ public class NewHeroController
 
 				}
 
+				WinnerChecker.getInstance().checkWinner(heroArray);
 
 				if (bWarning){
 					TurnCheckerAlarm.display();

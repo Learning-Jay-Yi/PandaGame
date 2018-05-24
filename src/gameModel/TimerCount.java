@@ -29,6 +29,7 @@ public class TimerCount extends TimerTask implements Observable{
 	private int count;
 
 	public TimerCount(){
+
 	}
 
 	@Override
@@ -38,7 +39,6 @@ public class TimerCount extends TimerTask implements Observable{
 		time--;
 		count++;
 		if(time == 0 ){
-			NewTurnChecker.getInstance().incount();
 			((TimerTask) singleTimer).cancel();
 		}
 	}

@@ -177,7 +177,7 @@ public class ActionSelectWindow {
 			checkMoveEffect(validX, validY, tileArray, heroView);
 
 			for (int i = 0; i < length; i++) {
-//				showValidTiles(tileArray,validX[i],validY[i]);
+
 				int x = validX[i];
 				int y = validY[i];
 				tileArray[x][y].canMove();
@@ -202,13 +202,13 @@ public class ActionSelectWindow {
 		for(int i = 0; i < validX.length; i++){
 			if(oldX == validX[i]){
 				if(oldY - validY[i] > 0){
-					for(int y = oldY - 1; y > validY[i]; y--){
+					for(int y = oldY - 1; y >= validY[i]; y--){
 						if(tileArray[oldX][y].getEffectValue() == 1){
 							validY[i] = y + 1;
 						}
 					}
 				}else{
-					for(int y = oldY + 1; y < validY[i]; y++){
+					for(int y = oldY + 1; y <= validY[i]; y++){
 						if(tileArray[oldX][y].getEffectValue() == 1){
 							validY[i] = y - 1;
 						}
@@ -216,13 +216,13 @@ public class ActionSelectWindow {
 				}
 			}else if(oldY == validY[i]){
 				if(oldX - validX[i] > 0){
-					for(int x = oldX - 1; x > validX[i]; x--){
+					for(int x = oldX - 1; x >= validX[i]; x--){
 						if(tileArray[x][oldY].getEffectValue() == 1){
 							validX[i] = x + 1;
 						}
 					}
 				}else{
-					for(int x = oldX + 1; x < validX[i]; x++){
+					for(int x = oldX + 1; x <= validX[i]; x++){
 						if(tileArray[x][oldY].getEffectValue() == 1){
 							validX[i] = x - 1;
 						}
@@ -231,14 +231,14 @@ public class ActionSelectWindow {
 			}else{
 				if(oldX - validX[i] > 0){
 					if(oldY - validY[i] > 0){
-						for(int x = oldX - 1, y = oldY - 1; x > validX[i]; x--, y--){
+						for(int x = oldX - 1, y = oldY - 1; x >= validX[i]; x--, y--){
 							if(tileArray[x][y].getEffectValue() == 1){
 								validX[i] = x + 1;
 								validY[i] = y + 1;
 							}
 						}
 					}else{
-						for(int x = oldX - 1, y = oldY + 1; x > validX[i]; x--, y++){
+						for(int x = oldX - 1, y = oldY + 1; x >= validX[i]; x--, y++){
 							if(tileArray[x][y].getEffectValue() == 1){
 								validX[i] = x + 1;
 								validY[i] = y - 1;
@@ -248,7 +248,7 @@ public class ActionSelectWindow {
 				}else{
 					if(oldY - validY[i] > 0){
 						if(oldY - validY[i] > 0){
-							for(int x = oldX + 1, y = oldY - 1; x < validX[i]; x++, y--){
+							for(int x = oldX + 1, y = oldY - 1; x <= validX[i]; x++, y--){
 								if(tileArray[x][y].getEffectValue() == 1){
 									validX[i] = x - 1;
 									validY[i] = y + 1;
@@ -256,7 +256,7 @@ public class ActionSelectWindow {
 							}
 						}
 					}else{
-						for(int x = oldX + 1, y = oldY + 1; x < validX[i]; x++, y++){
+						for(int x = oldX + 1, y = oldY + 1; x <= validX[i]; x++, y++){
 							if(tileArray[x][y].getEffectValue() == 1){
 								validX[i] = x - 1;
 								validY[i] = y - 1;

@@ -55,6 +55,7 @@ public class NewTileController {
 			for(int y = 0; y < boardHeight; y++){
 /*****************************************************************************************************************************/
 				Tile tile = new DefaultTile(tileSize);
+
 				boolean specialTile = false;
 
 				for(int i = 0; i < this.x.length; i++){
@@ -99,8 +100,6 @@ public class NewTileController {
 
 							}
 						}
-					}else if(tileView.isReadyForAttack()){
-
 					}
 					clean(heroViewArrayList, tileViewsArrayList);
 				});
@@ -164,5 +163,7 @@ public class NewTileController {
 		for(int i = 0; i < heroArray.size(); i++){
 			heroArray.get(i).setDefault();
 		}
+
+		WinnerChecker.getInstance().checkWinner(heroArray);
 	}
 }

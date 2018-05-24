@@ -47,6 +47,7 @@ public class TimerView2 implements Observer{
 		int st = 0;
 		int time = ((TimerCount) timer).getTime();
 		int count = ((TimerCount) timer).getCount();
+
 		if(time % 2 == 0)
 			text.setFill(Color.RED);
 		else
@@ -57,9 +58,6 @@ public class TimerView2 implements Observer{
 			st = time % 60;
 			mmLabel.setText(Integer.toString(mt));
 			ssLabel.setText(Integer.toString(st));
-		}
-		if(count == 10){
-			text.setVisible(false);
 		}
 
 	}

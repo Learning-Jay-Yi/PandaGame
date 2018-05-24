@@ -50,8 +50,12 @@ public class NewProcessController {
 		log.setNewCoordinate(newX, newY);
 		logList.add(log);
 		//TODO
+		TimerTask timerTask = (TimerTask)new TimerCount();
+		((TimerView) TimerView.getInstance()).setObservee((Observable) timerTask);
+		((TimerView2) TimerView2.getInstance()).setObservee((Observable) timerTask);
+		Timer timer = new Timer(false);
+		timer.scheduleAtFixedRate(timerTask, 0, 1000);
 
-		
 	}
 
 	public void undo(TileView[][] tileArray, ArrayList<HeroView> heroArray){

@@ -1,5 +1,7 @@
 package gameModel;
 
+import gameModel.NewHero.NewHero;
+
 /**
  *
  * @author Vincent
@@ -15,14 +17,16 @@ public class GameLog {
 
 	private PlayerType player;
 	private RoleType role;
+	NewHero newHero;
 	private int[] newCoordinate = new int[2];
 	private int[] oldCoordinate = new int[2];
 
 	private String action; // action player did, this data type will change later.
 
-	public GameLog(PlayerType p, RoleType r){
+	public GameLog(PlayerType p, RoleType r, NewHero newHero){
 		this.player = p;
 		this.role = r;
+		this.newHero = newHero;
 		turnID++;
 	}
 

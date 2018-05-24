@@ -138,11 +138,12 @@ public class ActionSelectWindow {
 					int y = validY[i];
 					tileArray[x][y].canAttack();
 					//if there have a hero then can attack;
-					heroView.setStatus(true);
+					if (tileArray[x][y].getHeroView() != null)
+						heroView.setStatus(true);
 				}
 			}
 
-			processController.createNewLog(heroView.getPlayerType(),heroView.getRoleType(),
+			processController.createNewLog(heroView.getPlayerType(),heroView.getRoleType(),newHero,
 					heroView.getLocX(),heroView.getLocY());
 			action.close();
 //			abilityBtn.setDisable(true);
@@ -183,7 +184,7 @@ public class ActionSelectWindow {
 				tileArray[x][y].canMove();
 			}
 
-			processController.createNewLog(heroView.getPlayerType(),heroView.getRoleType(),
+			processController.createNewLog(heroView.getPlayerType(),heroView.getRoleType(),newHero,
 					heroView.getLocX(),heroView.getLocY());
 
 			action.close();

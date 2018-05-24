@@ -3,6 +3,8 @@ package gameModel.Parts;
 import gameModel.PlayerType;
 import gameModel.RoleType;
 
+import java.util.Random;
+
 /**
  * this class is use to make the hero body and spawn it to tile
  * @author Jay
@@ -14,6 +16,8 @@ public class SupportBody implements PartsBody {
     private int boardWidth, boardHeight;
     PlayerType playerType;
     private int spawnX,spawnY;
+    private int spawnRange =3,randomSpawnY=0;
+    Random randomSpawn = new Random();
     RoleType newHeroType = RoleType.SUPPORT;
 
     @Override
@@ -22,8 +26,11 @@ public class SupportBody implements PartsBody {
         this.boardHeight = boardHeight;
         this.playerType= playerType;
 //        newHeroType = RoleType.SUPPORT;
+        randomSpawnY = randomSpawn.nextInt(spawnRange);
+
         spawnX = (playerType == PlayerType.BLUE ? 0 : boardWidth-1);
-        spawnY = (playerType == PlayerType.BLUE ? 6 : boardHeight-8);
+        spawnY = (playerType == PlayerType.BLUE ? (6-randomSpawnY) : boardHeight-(8-randomSpawnY));
+//        randomSpawnY++;
     }
 
     /**

@@ -5,6 +5,8 @@ import gameModel.Player;
 import gameModel.PlayerType;
 import gameModel.RoleType;
 
+import java.util.Random;
+
 /**
  * this class is use to make the hero body and spawn it to tile
  * @author Jay
@@ -17,6 +19,9 @@ public class WarriorBody implements PartsBody {
     PlayerType playerType;
     private int spawnX,spawnY;
     RoleType newHeroType = RoleType.WARRIOR;
+    private int spawnRange =3,randomSpawnY=0;
+    Random randomSpawn = new Random();
+
 
 
     @Override
@@ -25,8 +30,11 @@ public class WarriorBody implements PartsBody {
         this.boardHeight = boardHeight;
         this.playerType= playerType;
 //        newHeroType = RoleType.WARRIOR;
+        // TODO: 2018/5/24 increase hero num, how to control the spawn loction.
+        randomSpawnY = randomSpawn.nextInt(spawnRange);
         spawnX = (playerType == PlayerType.BLUE ? 0 : boardWidth-1);
-        spawnY = (playerType == PlayerType.BLUE ? 3 : boardHeight-5);
+        spawnY = (playerType == PlayerType.BLUE ? (3-randomSpawnY) : (boardHeight-5-randomSpawnY));
+//        randomSpawnY++;
     }
 
     /**

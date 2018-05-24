@@ -190,13 +190,6 @@ public class ActionSelectWindow {
 				length = validX.length;
 			}
 
-
-
-
-
-			int oldX = heroView.getLocX();
-			int oldY = heroView.getLocY();
-
 			checkMoveEffect(validX, validY, tileArray, heroView);
 
 			for (int i = 0; i < length; i++) {

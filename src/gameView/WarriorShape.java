@@ -1,7 +1,9 @@
 package gameView;
 
 import gameModel.PlayerType;
+import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.Shape;
 
@@ -17,15 +19,29 @@ public class WarriorShape implements Drawing{
 	@Override
 	public Shape drawShape(int size, PlayerType p) {
 
-		Shape shape = new Ellipse(size * 0.3125, size * 0.26);
 
-		shape.setFill(p == PlayerType.BLUE? Color.BLUE:Color.RED);
+		Image red = new Image("file:redWarrior.jpg");
+		Image blue = new Image("file:BlueWarrior.jpg");
+
+		Shape shape = new Ellipse(size * 0.4, size * 0.4);
+
+		shape.setFill(p == PlayerType.BLUE? new ImagePattern(blue):new ImagePattern(red));
 
 		shape.setStrokeWidth(size * 0.05);
 		shape.setStroke(Color.BLACK);
 
-		shape.setTranslateX((size - size * 0.3125 * 2 ) / 2);
-		shape.setTranslateY((size - size * 0.26 * 2) / 2 + size * 0.07);
+		shape.setTranslateX((size - size * 0.4 * 2 ) / 2);
+		shape.setTranslateY((size - size * 0.4 * 2) / 2 + size * 0.07);
+
+//		Shape shape = new Ellipse(size * 0.3125, size * 0.26);
+//
+//		shape.setFill(p == PlayerType.BLUE? Color.BLUE:Color.RED);
+//
+//		shape.setStrokeWidth(size * 0.05);
+//		shape.setStroke(Color.BLACK);
+//
+//		shape.setTranslateX((size - size * 0.3125 * 2 ) / 2);
+//		shape.setTranslateY((size - size * 0.26 * 2) / 2 + size * 0.07);
 
 		return shape;
 	}

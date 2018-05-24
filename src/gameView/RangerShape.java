@@ -4,6 +4,7 @@ import gameModel.PlayerType;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Shape;
 
@@ -23,14 +24,24 @@ public class RangerShape implements Drawing{
 		Image red = new Image("file:redRanger.jpg");
 		Image blue = new Image("file:BlueRanger.jpg");
 
-		Shape shape = new Polygon();
-		((Polygon) shape).getPoints().addAll(0.0, 0.0, 0.0, 30.0, 21.0, 15.0);
-		shape.setLayoutX(50);
-		shape.setLayoutY(50);
+		Shape shape = new Ellipse(size * 0.4, size * 0.4);
+
 		shape.setFill(p == PlayerType.BLUE? new ImagePattern(blue):new ImagePattern(red));
+
+		shape.setStrokeWidth(size * 0.05);
 		shape.setStroke(Color.BLACK);
-		shape.setTranslateX((size - size * 0.3125 * 2 ) / 2);
-		shape.setTranslateY((size - size * 0.26 * 2) / 2 + size * 0.05);
+
+		shape.setTranslateX((size - size * 0.4 * 2 ) / 2);
+		shape.setTranslateY((size - size * 0.4 * 2) / 2 + size * 0.07);
+
+//		Shape shape = new Polygon();
+//		((Polygon) shape).getPoints().addAll(0.0, 0.0, 0.0, 30.0, 21.0, 15.0);
+//		shape.setLayoutX(50);
+//		shape.setLayoutY(50);
+//		shape.setFill(p == PlayerType.BLUE? new ImagePattern(blue):new ImagePattern(red));
+//		shape.setStroke(Color.BLACK);
+//		shape.setTranslateX((size - size * 0.3125 * 2 ) / 2);
+//		shape.setTranslateY((size - size * 0.26 * 2) / 2 + size * 0.05);
 
 		return shape;
 	}

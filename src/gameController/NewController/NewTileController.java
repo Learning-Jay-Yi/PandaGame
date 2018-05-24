@@ -163,5 +163,7 @@ public class NewTileController {
 		for(int i = 0; i < heroArray.size(); i++){
 			heroArray.get(i).setDefault();
 		}
+
+		WinnerChecker.getInstance().checkWinner(heroArray);
 	}
 }

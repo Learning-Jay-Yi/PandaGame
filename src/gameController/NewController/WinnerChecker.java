@@ -1,5 +1,11 @@
 package gameController.NewController;
 
+import java.util.ArrayList;
+
+import gameModel.PlayerType;
+import gameView.HeroView;
+import gameView.WinerView;
+
 /**
  *
  * @author Dario
@@ -8,6 +14,8 @@ package gameController.NewController;
 public class WinnerChecker {
 
 	private static WinnerChecker Instance;
+
+
 	public WinnerChecker(){
 
 	}
@@ -18,6 +26,25 @@ public class WinnerChecker {
 		return Instance;
 	}
 
+	public void checkWinner(ArrayList<HeroView> heroArray){
+		boolean redWin = true;
+		boolean blueWin = true;
+		for(HeroView hero : heroArray){
+			if(hero.getPlayerType() == PlayerType.BLUE){
+				if(hero.isVisible())
+					redWin = false;
+			}else{
+				if(hero.isVisible())
+					blueWin = false;
+			}
+		}
+
+		if(redWin){
+			WinerView.display(redWin, blueWin);
+		}else if(blueWin){
+			WinerView.display(redWin, blueWin);
+		}
+	}
 
 
 

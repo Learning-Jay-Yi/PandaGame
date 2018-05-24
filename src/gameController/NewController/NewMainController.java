@@ -5,6 +5,7 @@ import gameController.ProcessController;
 import gameModel.*;
 import gameView.*;
 import gameView.NewView.NewMenuView;
+import gameView.Option.OptionWindow;
 import javafx.scene.Group;
 
 import java.util.ArrayList;
@@ -57,6 +58,10 @@ public class NewMainController {
 		TILE_SIZE = board.getTileSize();
 		WIDTH = board.getWidth();
 		HEIGHT = board.getHeight();
+
+
+		OptionWindow game = new OptionWindow();
+		game.displayOption();
 
 		menu = new NewMenuView();
 		//time = new Timer();

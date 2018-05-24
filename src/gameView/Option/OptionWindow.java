@@ -3,8 +3,11 @@ package gameView.Option;
 import java.io.IOException;
 
 import gameController.Option.GameStart;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 /**
  *
@@ -21,12 +24,14 @@ public class OptionWindow {
 	private HeroPickView heroPick = new HeroPickView();
 
 	private Button startBtn = new Button("Game Start");
+	Stage window = new Stage();
 
 	public OptionWindow(){
 		startBtn.setOnAction(e->{
 			try {
 				GameStart start = new GameStart(heroPick.getRedData(), heroPick.getBlueData());
 				start.heroPoolData();
+				window.close();
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
@@ -34,14 +39,22 @@ public class OptionWindow {
 		});
 	}
 
-	public BorderPane displayOption(){
+	public void displayOption(){
+
 		BorderPane rootPane = new BorderPane();
+
+		window.initModality(Modality.APPLICATION_MODAL);
+		window.setTitle("Pick Hero");
 
 		rootPane.setTop(typeOption.getGameTypeOption());
 		rootPane.setCenter(heroPick.getHeroPick());
 
 		rootPane.setBottom(startBtn);
-		return rootPane;
+
+		Scene scene = new Scene(rootPane);
+		window.setScene(scene);
+		window.showAndWait();
+
 	}
 
 

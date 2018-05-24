@@ -40,16 +40,16 @@ public class GameStart {
 
 		FileWriter fw = new FileWriter(file, true);
 		BufferedWriter bw = new BufferedWriter(fw);
-		//PrintWriter out = new PrintWriter(bw);
+		PrintWriter out = new PrintWriter(bw);
 
 		for(HeroPool a : redData){
-			bw.write(a.getHeroType()+" "+ a.getAbility()+ " " + "RED");
-			bw.newLine();
+			out.write(a.getHeroType()+" "+ a.getAbility()+ " " + "RED");
+			out.flush();
 		}
 
 		for(HeroPool b : blueData){
-			bw.write(b.getHeroType()+" "+ b.getAbility()+ " " + "BLUE");
-			bw.newLine();
+			out.write(b.getHeroType()+" "+ b.getAbility()+ " " + "BLUE");
+			out.flush();
 		}
 		bw.close();
 	}

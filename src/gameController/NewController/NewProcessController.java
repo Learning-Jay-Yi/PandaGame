@@ -81,11 +81,11 @@ public class NewProcessController {
 						// if red or blue do undo but not greater than 3
 						if (undoLog.getPlayer() == PlayerType.BLUE){
 							undoAction(i,tileArray);
-							undoAction(i, tileArray);
+//							undoAction(i, tileArray);
 							bUndoNum++;
 						}else {
 							undoAction(i, tileArray);
-							undoAction(i, tileArray);
+//							undoAction(i, tileArray);
 							rUndoNum++;
 						}
 						if(bUndoNum == 2)

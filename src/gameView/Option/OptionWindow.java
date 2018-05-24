@@ -27,16 +27,7 @@ public class OptionWindow {
 	Stage window = new Stage();
 
 	public OptionWindow(){
-		startBtn.setOnAction(e->{
-			try {
-				GameStart start = new GameStart(heroPick.getRedData(), heroPick.getBlueData());
-				start.heroPoolData();
-				window.close();
-			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-		});
+
 	}
 
 	public void displayOption(){
@@ -50,6 +41,17 @@ public class OptionWindow {
 		rootPane.setCenter(heroPick.getHeroPick());
 
 		rootPane.setBottom(startBtn);
+
+		startBtn.setOnAction(e->{
+			try {
+				GameStart start = new GameStart(heroPick.getRedData(), heroPick.getBlueData());
+				start.heroPoolData();
+				window.close();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		});
 
 		Scene scene = new Scene(rootPane);
 		window.setScene(scene);

@@ -5,9 +5,9 @@ import java.util.TimerTask;
 
 import gameModel.Observable;
 import gameModel.TimerCount;
-import gameView.TimerView;
-import gameView.TimerView2;
-import gameView.TurnView;
+import gameView.MainView.TimerView;
+import gameView.MainView.TimerView2;
+import gameView.MainView.TurnView;
 
 /**
  *

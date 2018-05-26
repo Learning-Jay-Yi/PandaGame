@@ -1,4 +1,4 @@
-package gameView;
+package gameView.MainView;
 
 import gameModel.Board;
 import javafx.scene.Group;

@@ -1,4 +1,4 @@
-package gameView.Option;
+package gameView.PickHeroView;
 
 import java.io.IOException;
 

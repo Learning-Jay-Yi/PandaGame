@@ -1,6 +1,8 @@
-package gameView;
+package gameView.HeroView;
 
 import gameModel.PlayerType;
+import gameView.DrawShape;
+import gameView.Drawing;
 import javafx.scene.shape.Shape;
 
 /**
@@ -10,7 +12,7 @@ import javafx.scene.shape.Shape;
  * @since 14/05/2018
  *
  */
-public class HeroShape implements DrawShape{
+public class HeroShape implements DrawShape {
 
 	private Drawing drawing;
 	private int size;

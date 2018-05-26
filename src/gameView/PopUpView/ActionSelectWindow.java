@@ -1,8 +1,10 @@
-package gameView;
+package gameView.PopUpView;
 
 import gameController.Controller.ProcessController;
 import gameModel.HeroModel.Hero;
 import gameModel.HeroModel.HeroType;
+import gameView.HeroView.HeroView;
+import gameView.MainView.TileView;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;

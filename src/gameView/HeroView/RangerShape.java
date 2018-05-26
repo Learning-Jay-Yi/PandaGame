@@ -1,6 +1,7 @@
-package gameView;
+package gameView.HeroView;
 
 import gameModel.PlayerType;
+import gameView.Drawing;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
@@ -27,7 +28,7 @@ import java.util.stream.Stream;
  * @since 14/05/2018
  *
  */
-public class RangerShape implements Drawing{
+public class RangerShape implements Drawing {
 
 	@Override
 	public Shape drawShape(int size, PlayerType p) {

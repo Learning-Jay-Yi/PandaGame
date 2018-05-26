@@ -1,4 +1,5 @@
-package gameView;
+package gameView.MainView;
+import gameView.HeroView.HeroView;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 

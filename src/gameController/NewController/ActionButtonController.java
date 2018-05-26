@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import gameController.Controller.ProcessController;
 import gameModel.HeroModel.Hero;
 
-import gameView.HeroView;
-import gameView.TileView;
+import gameView.HeroView.HeroView;
+import gameView.MainView.TileView;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 

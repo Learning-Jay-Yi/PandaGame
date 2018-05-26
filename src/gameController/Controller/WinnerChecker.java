@@ -3,8 +3,8 @@ package gameController.Controller;
 import java.util.ArrayList;
 
 import gameModel.PlayerType;
-import gameView.HeroView;
-import gameView.WinerView;
+import gameView.HeroView.HeroView;
+import gameView.PopUpView.WinerView;
 
 /**
  *

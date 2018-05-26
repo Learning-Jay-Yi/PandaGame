@@ -1,4 +1,4 @@
-package gameView;
+package gameView.MainView;
 
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;

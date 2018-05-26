@@ -1,4 +1,4 @@
-package gameView.NewView;
+package gameView.MainView;
 
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
@@ -16,7 +16,7 @@ import javafx.scene.layout.HBox;
  * 3) who's turn
  * 4) time limitation for each move
  */
-public class NewMenuView {
+public class MenuView {
 	Button undoBtn = new Button("Undo");
 	//Button saveBtn = new Button("Save");
 
@@ -26,7 +26,7 @@ public class NewMenuView {
 	HBox menuBar = new HBox();
 	HBox actionBar = new HBox();
 
-	public NewMenuView(){
+	public MenuView(){
 		menuBar.getChildren().add(undoBtn);
 		//menuBar.getChildren().add(saveBtn);
 		actionBar.getChildren().add(bAbility);

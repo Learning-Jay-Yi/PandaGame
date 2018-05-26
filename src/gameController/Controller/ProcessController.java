@@ -3,11 +3,11 @@ package gameController.Controller;
 import gameModel.*;
 import gameModel.HeroModel.Hero;
 import gameModel.HeroModel.HeroType;
-import gameView.HeroView;
-import gameView.NewView.NewMenuView;
-import gameView.TileView;
-import gameView.TimerView;
-import gameView.TimerView2;
+import gameView.HeroView.HeroView;
+import gameView.MainView.MenuView;
+import gameView.MainView.TileView;
+import gameView.MainView.TimerView;
+import gameView.MainView.TimerView2;
 
 import java.util.ArrayList;
 import java.util.Timer;
@@ -32,12 +32,12 @@ public class ProcessController {
 	boolean bBlueUndo, bRedUndo;
 	PlayerType curUndo;
 	boolean flag = false;
-	NewMenuView menu;
+	MenuView menu;
 
 
 
 
-	public ProcessController(NewMenuView menu){
+	public ProcessController(MenuView menu){
 		this.menu = menu;
 
 	}

@@ -1,14 +1,15 @@
-package gameView;
+package gameView.MainView;
 
 import gameModel.Observable;
 import gameModel.TimerCount;
+import gameView.Observer;
 import javafx.application.Platform;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 
-public class TimerView2 implements Observer{
+public class TimerView2 implements Observer {
 	private Text text = new Text("Time Remaining:\t");
 	private Label mmLabel = new Label();
 	private Label middle = new Label(" : ");

@@ -1,4 +1,4 @@
-package gameView.Option;
+package gameView.PickHeroView;
 
 import gameModel.Option.HeroPool;
 import javafx.beans.property.SimpleObjectProperty;

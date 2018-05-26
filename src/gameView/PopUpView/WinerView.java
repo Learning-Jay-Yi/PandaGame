@@ -1,4 +1,4 @@
-package gameView;
+package gameView.PopUpView;
 
 import com.sun.prism.paint.Color;
 

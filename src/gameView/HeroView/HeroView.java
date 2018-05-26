@@ -1,4 +1,4 @@
-package gameView;
+package gameView.HeroView;
 
 import gameModel.*;
 import gameModel.HeroModel.HeroType;

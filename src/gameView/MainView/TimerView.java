@@ -1,8 +1,9 @@
-package gameView;
+package gameView.MainView;
 
 import gameController.Controller.TurnChecker;
 import gameModel.Observable;
 import gameModel.TimerCount;
+import gameView.Observer;
 import javafx.application.Platform;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
@@ -15,7 +16,7 @@ import javafx.scene.layout.HBox;
  *
  */
 
-public class TimerView implements Observer{
+public class TimerView implements Observer {
 	private Label label = new Label("Time:\t");
 	private Label mmLabel = new Label();
 	private Label middle = new Label(" : ");

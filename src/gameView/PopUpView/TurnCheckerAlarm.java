@@ -1,4 +1,4 @@
-package gameView;
+package gameView.PopUpView;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;

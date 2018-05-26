@@ -4,10 +4,10 @@ import gameController.Builder.HeroBuilder;
 import gameModel.*;
 import gameModel.HeroModel.Hero;
 import gameModel.HeroModel.HeroType;
-import gameView.ActionSelectWindow;
-import gameView.HeroView;
-import gameView.TileView;
-import gameView.TurnCheckerAlarm;
+import gameView.PopUpView.ActionSelectWindow;
+import gameView.HeroView.HeroView;
+import gameView.MainView.TileView;
+import gameView.PopUpView.TurnCheckerAlarm;
 import javafx.scene.Group;
 import javafx.scene.input.MouseEvent;
 

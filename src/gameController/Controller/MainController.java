@@ -2,9 +2,10 @@ package gameController.Controller;
 
 
 import gameModel.*;
-import gameView.*;
-import gameView.NewView.NewMenuView;
-import gameView.Option.OptionWindow;
+import gameView.HeroView.HeroView;
+import gameView.MainView.*;
+import gameView.PickHeroView.OptionWindow;
+import gameView.PopUpView.ChooseBoardView;
 import javafx.scene.Group;
 
 import java.util.ArrayList;
@@ -40,7 +41,7 @@ public class MainController {
 	private HeroController heroController;
 	private ProcessController processController;
 
-	private NewMenuView menu;
+	private MenuView menu;
 	//private TimerView timer;
 	//private Observable time;
 
@@ -52,7 +53,7 @@ public class MainController {
 	public MainController(){
 		board = new Board(); //instantiate board first in order to get value of tile size, board width and board height
 
-		ChangeBoardView.display(board);
+		ChooseBoardView.display(board);
 		TILE_SIZE = board.getTileSize();
 		WIDTH = board.getWidth();
 		HEIGHT = board.getHeight();
@@ -61,7 +62,7 @@ public class MainController {
 		OptionWindow game = new OptionWindow();
 		game.displayOption();
 
-		menu = new NewMenuView();
+		menu = new MenuView();
 		//time = new Timer();
 		//TODO
 		//timer = new TimerView();

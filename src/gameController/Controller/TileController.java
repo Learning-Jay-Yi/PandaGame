@@ -1,8 +1,8 @@
 package gameController.Controller;
 
 import gameModel.*;
-import gameView.HeroView;
-import gameView.TileView;
+import gameView.HeroView.HeroView;
+import gameView.MainView.TileView;
 import javafx.scene.Group;
 
 import java.util.ArrayList;

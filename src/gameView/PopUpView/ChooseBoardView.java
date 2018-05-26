@@ -1,4 +1,4 @@
-package gameView;
+package gameView.PopUpView;
 
 import gameModel.Board;
 import javafx.scene.Scene;
@@ -12,7 +12,7 @@ import javafx.stage.Stage;
  * @author Yu Liu
  *
  */
-public class ChangeBoardView {
+public class ChooseBoardView {
 
 	public static void display(Board board){
 		Stage window = new Stage();

@@ -158,7 +158,7 @@ public class HeroPickView {
         bluecolumns.addAll(typeColumn, abilityColumn);
 
 		Button addBtn = new Button("Add");
-		Button deleteBtn = new Button("Delete");
+		Button deleteBtn = new Button("Clean");
 		deleteBtn.setVisible(false);
 		HBox btnPane = new HBox();
 		btnPane.getChildren().addAll(addBtn, deleteBtn);

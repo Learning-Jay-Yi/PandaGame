@@ -154,11 +154,12 @@ public class HeroController
 							// search the same time hero
 							if (!canReviveHero.isVisible()){
 								if (hero.getPartsBody().getPlayerType() == canReviveHero.getPlayerType()){
-									canReviveHero.setVisible(true);
-									canReviveHero.move(supportCurX,supportCurY);
-									heroView.setStatus(false);
-
-									break;
+									if(canReviveHero.getRoleType() != HeroType.SUPPORT){
+										canReviveHero.setVisible(true);
+										canReviveHero.move(supportCurX,supportCurY);
+										heroView.setStatus(false);
+										break;
+									}
 								}
 							}
 						}
@@ -174,25 +175,29 @@ public class HeroController
 								heroView.getLocX(),heroView.getLocY());
 
 					}else {
-						// other attack
-						//  work for attack
-						// if the picked hero's team is dif to the target hero
-						if(!(heroView.getPlayerType() == preHero.getPlayerType())){
-							heroView.setVisible(false);
-							preHero.setStatus(false);
-							tileArray[heroView.getLocX()][heroView.getLocY()].setHeroView(null);
+						//selected hero cannot attack itself
+						if(preHero != heroView){
+							// other attack
+							//  work for attack
+							// if the picked hero's team is dif to the target hero
+							if(!(heroView.getPlayerType() == preHero.getPlayerType())){
+								heroView.setVisible(false);
+								preHero.setStatus(false);
+								tileArray[heroView.getLocX()][heroView.getLocY()].setHeroView(null);
 
-							for(TileView[] t : tileArray){
-								for(TileView a : t){
-									a.setDefault();
+								for(TileView[] t : tileArray){
+									for(TileView a : t){
+										a.setDefault();
+									}
 								}
-							}
 
-							for(int i = 0; i < heroArray.size(); i++)
-								heroArray.get(i).setDefault();
+								for(int i = 0; i < heroArray.size(); i++)
+									heroArray.get(i).setDefault();
+							}
+							processController.createNewLog(heroView.getPlayerType(),heroView.getRoleType(), hero,
+									heroView.getLocX(),heroView.getLocY());
 						}
-						processController.createNewLog(heroView.getPlayerType(),heroView.getRoleType(), hero,
-								heroView.getLocX(),heroView.getLocY());
+
 
 					}
 

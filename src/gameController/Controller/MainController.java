@@ -10,6 +10,8 @@ import javafx.scene.Group;
 
 import java.util.ArrayList;
 
+import gameController.Option.HeroPoolController;
+
 /**
  * @author 		Dario
  * @version		1.6
@@ -59,13 +61,10 @@ public class MainController {
 		HEIGHT = board.getHeight();
 
 
-		OptionWindow game = new OptionWindow();
+		OptionWindow game = new OptionWindow(new HeroPoolController().getHeroPoolData());
 		game.displayOption();
 
 		menu = new MenuView();
-		//time = new Timer();
-		//TODO
-		//timer = new TimerView();
 
 		processController = new ProcessController(menu);
 

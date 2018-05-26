@@ -3,6 +3,8 @@ package gameView.PickHeroView;
 import java.io.IOException;
 
 import gameController.Option.GameStart;
+import gameModel.Option.HeroPool;
+import javafx.collections.ObservableList;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
@@ -21,13 +23,13 @@ import javafx.stage.Stage;
 public class OptionWindow {
 
 	private GameTypeOptionView typeOption = new GameTypeOptionView();
-	private HeroPickView heroPick = new HeroPickView();
+	private HeroPickView heroPick;
 
 	private Button startBtn = new Button("Game Start");
 	Stage window = new Stage();
 
-	public OptionWindow(){
-
+	public OptionWindow(ObservableList<HeroPool> data){
+		heroPick = new HeroPickView(data);
 	}
 
 	public void displayOption(){

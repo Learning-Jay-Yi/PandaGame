@@ -31,24 +31,11 @@ public class HeroPickView {
 	private Label label3 = new Label("Player Blue");
 
 
-	private ObservableList<HeroPool> data = FXCollections.observableArrayList(
-			new HeroPool("Warrior", 1),
-			new HeroPool("Warrior", 2),
-			new HeroPool("Warrior", 3),
-			new HeroPool("Support", 1),
-			new HeroPool("Support", 2),
-			new HeroPool("Support", 3),
-			new HeroPool("Ranger", 1),
-			new HeroPool("Ranger", 2),
-			new HeroPool("Ranger", 3)
-			);
+	private ObservableList<HeroPool> data;
 
 	private ObservableList<HeroPool> redData = FXCollections.observableArrayList();
 	private ObservableList<HeroPool> blueData = FXCollections.observableArrayList();
 
-	public HeroPickView(){
-
-	}
 	public HeroPickView(ObservableList<HeroPool> data){
 		this.data = data;
 	}
@@ -59,7 +46,7 @@ public class HeroPickView {
 		root.add(label1, 0, 0); // hero list
 		root.add(label2, 1, 0); // player red
 		root.add(label3, 2, 0); // player blue
-		//TODO
+
 		root.add(getHeroPool(), 0, 1);
 		root.add(getRedContainer(), 1, 1);
 		root.add(getBlueContainer(), 2, 1);

@@ -14,6 +14,7 @@ import javafx.scene.layout.HBox;
  * @version 1.0
  * @since 16/05/2018
  *
+ * it shows count down timer at each turn.
  */
 
 public class TimerView implements Observer {

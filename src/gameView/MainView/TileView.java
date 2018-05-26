@@ -113,13 +113,13 @@ public class TileView extends Rectangle{
 		this.effect = effect;
 
 		switch(effect){
-		case 1:
+		case 1: //effect 1 is mountain tile
 			this.setFill(Color.valueOf("#F4D03F"));
 			break;
-		case 2:
+		case 2: //effect 2 is speed tile
 			this.setFill(Color.valueOf("#5DADE2"));
 			break;
-		case 3:
+		case 3: //effect 3 is range tile
 			this.setFill(Color.valueOf("#F1948A"));
 			break;
 		}

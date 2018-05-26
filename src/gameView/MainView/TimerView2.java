@@ -1,6 +1,7 @@
 package gameView.MainView;
 
 import gameModel.Observable;
+
 import gameModel.TimerCount;
 import gameView.Observer;
 import javafx.application.Platform;
@@ -9,6 +10,14 @@ import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 
+/**
+ *
+ * @author Dario
+ * @version 1.5
+ * @since 13/05/2018
+ *
+ * it shows remaining time and change at every 30 second
+ */
 public class TimerView2 implements Observer {
 	private Text text = new Text("Time Remaining:\t");
 	private Label mmLabel = new Label();

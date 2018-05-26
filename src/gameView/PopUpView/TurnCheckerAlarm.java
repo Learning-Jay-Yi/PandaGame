@@ -15,8 +15,6 @@ import javafx.stage.Stage;
  * @version		1.1
  * @since		1.0
  *
- * Description:
- *
  *
  */
 

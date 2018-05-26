@@ -53,6 +53,9 @@ public class HeroPickView {
 		return root;
 	}
 
+	/*
+	 * the first list view to show the available hero list
+	 */
 	public VBox getHeroPool(){
 		VBox pool = new VBox();
 
@@ -93,6 +96,9 @@ public class HeroPickView {
 		return pool;
 	}
 
+	/*
+	 * the second list view shows the heros that selected by player red
+	 */
 	public VBox getRedContainer(){
 		VBox redContainer = new VBox();
 		TableView<HeroPool> redList = new TableView();
@@ -141,6 +147,10 @@ public class HeroPickView {
 		return redContainer;
 	}
 
+
+	/*
+	 * the third list view shows the heros that selected by player blue
+	 */
 	public VBox getBlueContainer(){
 		VBox blueContainer = new VBox();
 

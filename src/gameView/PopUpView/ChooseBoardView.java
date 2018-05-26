@@ -9,8 +9,11 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author Yu Liu
+ * @author Dario
+ * @version 1.2
+ * @since 10/05/2015
  *
+ * set buttons to choose different sizes for board
  */
 public class ChooseBoardView {
 

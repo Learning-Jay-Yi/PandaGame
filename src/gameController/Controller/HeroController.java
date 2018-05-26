@@ -44,20 +44,6 @@ public class HeroController
 		ArrayList<String> testData = new ArrayList<>();
 
 		testData = receiveOrder();
-//		String hero1 = "Warrior 1 RED";
-//		String hero2 = "Warrior 1 BLUE";
-//		String hero3 = "Ranger 2 RED";
-//		String hero4 = "Ranger 2 BLUE";
-//		String hero5 = "Support 3 RED";
-//		String hero6 = "Support 3 BLUE";
-//
-//
-//		testData.add(hero1);
-//		testData.add(hero2);
-//		testData.add(hero3);
-//		testData.add(hero4);
-//		testData.add(hero5);
-//		testData.add(hero6);
 
 		Group group = new Group();
 		ArrayList<Hero> heroes = new ArrayList<>();

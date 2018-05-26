@@ -83,8 +83,8 @@ public class ActionButtonController {
 	private void setAttackBtn(){
 		attackBtn.setOnAction(e->{
 
-			int[] validX = null ,validY = null ;
-			int length = 0;
+			int[] validX, validY;
+			int length;
 
 			if(useSkill){
 				if(skillNum == 1){

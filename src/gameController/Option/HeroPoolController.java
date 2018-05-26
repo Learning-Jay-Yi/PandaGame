@@ -1,6 +1,6 @@
 package gameController.Option;
 
-import gameModel.Option.HeroPool;
+import gameModel.HeroPool;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 

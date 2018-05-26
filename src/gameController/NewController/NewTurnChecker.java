@@ -53,6 +53,11 @@ public class NewTurnChecker {
 
 	public void deCount(){
 		turnNum -= 1; // used in undo function
+		TimerTask timerTask = (TimerTask)new TimerCount();
+		((TimerView) TimerView.getInstance()).setObservee((Observable) timerTask);
+		((TimerView2) TimerView2.getInstance()).setObservee((Observable) timerTask);
+		Timer timer = new Timer(false);
+		timer.scheduleAtFixedRate(timerTask, 0, 1000);
 	}
 
 	public static synchronized NewTurnChecker getInstance(){

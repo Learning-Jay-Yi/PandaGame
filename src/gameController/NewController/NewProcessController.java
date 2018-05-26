@@ -29,7 +29,8 @@ public class NewProcessController {
 
 	int bUndoNum = 0, rUndoNum = 0;
 	boolean bBlueUndo, bRedUndo;
-
+	PlayerType curUndo;
+	boolean flag = false;
 	NewMenuView menu;
 
 
@@ -49,15 +50,8 @@ public class NewProcessController {
 
 	public void updateNewLog(int newX, int newY){
 		log.setNewCoordinate(newX, newY);
-		boolean flag = true;
-		for(GameLog l: logList){
-			if(l == null){
-				l = log;
-				flag = false;
-			}
-		}
-		if(flag)
-			logList.add(log);
+		flag = false; // make sure one undo session is done
+		logList.add(log);
 		//TODO
 		TimerTask timerTask = (TimerTask)new TimerCount();
 		((TimerView) TimerView.getInstance()).setObservee((Observable) timerTask);
@@ -80,32 +74,69 @@ public class NewProcessController {
 //				PlayerType undoPlayer = ()
 
 
-				if(!bBlueUndo || !bRedUndo){
-					// if red or blue didn't do undo before
-					if(bUndoNum<=2 ||rUndoNum <=2 ){
-						// if red or blue do undo but not greater than 3
-						if (undoLog.getPlayer() == PlayerType.BLUE){
-							undoAction(i,tileArray);
-//							undoAction(i, tileArray);
-							bUndoNum++;
-						}else {
-							undoAction(i, tileArray);
-//							undoAction(i, tileArray);
-							rUndoNum++;
-						}
-						if(bUndoNum == 2)
-							bBlueUndo = true;
-						if (rUndoNum == 2)
-							bRedUndo = true;
 
-					}else{
-						System.out.println(undoLog.getPlayer().toString()+" can not do undo again. Because the undo time is "
-								+(undoLog.getPlayer() == PlayerType.BLUE ? bUndoNum : rUndoNum));
+				if(curUndo == null && !flag){   //curUndo is who press undo button, flag checks does the undo turn finished by one player
+					if(NewTurnChecker.getInstance().isTurn()){
+						curUndo = PlayerType.RED;
+						bRedUndo = true;
 					}
-				}else {
-					System.out.println(undoLog.getPlayer().toString()+" can not do undo again. Because the undo "
-							+(undoLog.getPlayer() == PlayerType.BLUE ? !bBlueUndo : !bRedUndo));
+					else{
+						curUndo = PlayerType.BLUE;
+						bBlueUndo = true;
+					}
 				}
+
+				//if player Blue start to undo, and times of undo is under max time 3
+				if(bUndoNum < 3 && curUndo == PlayerType.BLUE && !bRedUndo){  // bRedUndo is to make sure that current undo button is pressed by Blue
+					undoAction(i,tileArray);
+					System.out.println("Blue");
+					bUndoNum++;
+					flag = true; //flag true is to make sure current game is under one undo session
+				}
+
+				if(rUndoNum < 3 && curUndo == PlayerType.RED && !bBlueUndo){ //bBlueUndo is to make sure that current undo button is pressed by Red
+					undoAction(i,tileArray);
+					System.out.println("Red");
+					rUndoNum++;
+					flag = true;
+				}
+
+				if(bUndoNum == 3 && NewTurnChecker.getInstance().isTurn() && bBlueUndo){ // make sure this only trigger in blue undo session
+					curUndo = null;
+					bBlueUndo = false; // blue undo session is done
+				}
+
+				if(rUndoNum == 3 && !NewTurnChecker.getInstance().isTurn() && bRedUndo){ // make sure this only trigger in red undo session
+					curUndo = null;
+					bRedUndo = false; // red undo session is done
+				}
+
+//				if(!bBlueUndo || !bRedUndo){
+//					// if red or blue didn't do undo before
+//					if(bUndoNum<=2 ||rUndoNum <=2 ){
+//						// if red or blue do undo but not greater than 3
+//						if (undoLog.getPlayer() == PlayerType.BLUE){
+//							undoAction(i,tileArray);
+//							undoAction(i, tileArray);
+//							bUndoNum++;
+//						}else {
+//							undoAction(i, tileArray);
+//							undoAction(i, tileArray);
+//							rUndoNum++;
+//						}
+//						if(bUndoNum == 2)
+//							bBlueUndo = true;
+//						if (rUndoNum == 2)
+//							bRedUndo = true;
+//
+//					}else{
+//						System.out.println(undoLog.getPlayer().toString()+" can not do undo again. Because the undo time is "
+//								+(undoLog.getPlayer() == PlayerType.BLUE ? bUndoNum : rUndoNum));
+//					}
+//				}else {
+//					System.out.println(undoLog.getPlayer().toString()+" can not do undo again. Because the undo "
+//							+(undoLog.getPlayer() == PlayerType.BLUE ? bBlueUndo : bRedUndo));
+//				}
 
 			}
 		});

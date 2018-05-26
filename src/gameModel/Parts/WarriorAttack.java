@@ -1,7 +1,7 @@
 package gameModel.Parts;
 
+import gameModel.HeroModel.HeroType;
 import gameModel.PlayerType;
-import gameModel.RoleType;
 
 /**
  * @author Jay
@@ -15,14 +15,14 @@ public class WarriorAttack implements PartsAttack {
 
     private int boardW, boardH;
     private PlayerType playerType;
-    private RoleType roleType;
+    private HeroType heroType;
 
     @Override
-    public void activityAttack(int boardW, int boardH, PlayerType playerType, RoleType roleType) {
+    public void activityAttack(int boardW, int boardH, PlayerType playerType, HeroType heroType) {
         this.boardW = boardW;
         this.boardH = boardH;
         this.playerType = playerType;
-        this.roleType = roleType;
+        this.heroType = heroType;
     }
 
     @Override
@@ -71,8 +71,8 @@ public class WarriorAttack implements PartsAttack {
     }
 
     @Override
-    public RoleType getRoleType() {
-        return roleType;
+    public HeroType getHeroType() {
+        return heroType;
     }
 
     @Override

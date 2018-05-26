@@ -1,8 +1,9 @@
-package gameController.NewController;
+package gameController.Controller;
 
 import gameController.Builder.HeroBuilder;
 import gameModel.*;
 import gameModel.HeroModel.Hero;
+import gameModel.HeroModel.HeroType;
 import gameView.ActionSelectWindow;
 import gameView.HeroView;
 import gameView.TileView;
@@ -21,12 +22,12 @@ import java.util.ArrayList;
  * last update date: 11/04/2018
  */
 
-public class NewHeroController
+public class HeroController
 {
 	private int width, height, tileSize;
-	private NewProcessController processController;
+	private ProcessController processController;
 
-	public NewHeroController(int width, int height, int tileSize, NewProcessController process)
+	public HeroController(int width, int height, int tileSize, ProcessController process)
 	{
 		this.width = width;
 		this.height = height;
@@ -95,8 +96,8 @@ public class NewHeroController
 			int startX = hero.getPartsBody().getSpawnX();
 			int startY = hero.getPartsBody().getSpawnY();
 			PlayerType playerType = hero.getPartsBody().getPlayerType();
-			RoleType roleType = hero.getPartsBody().getRoleType();
-			HeroView heroView = new HeroView(startX, startY, playerType, roleType, tileSize);
+			HeroType heroType = hero.getPartsBody().getRoleType();
+			HeroView heroView = new HeroView(startX, startY, playerType, heroType, tileSize);
 			heroArray.add(heroView);
 
 
@@ -152,7 +153,7 @@ public class NewHeroController
 					// sth to work for revive
 					// TODO: 2018/5/23 attack can attack everyone no matter how far.
 
-					if (hero.getPartsBody().getRoleType() == RoleType.SUPPORT && heroView.getAttackStatus()){
+					if (hero.getPartsBody().getRoleType() == HeroType.SUPPORT && heroView.getAttackStatus()){
 						// support attack
 						int supportCurX = heroView.getLocX(), supportCurY = heroView.getLocY();
 						HeroView canReviveHero = null;

@@ -1,7 +1,8 @@
-package gameController.NewController;
+package gameController.Controller;
 
 import gameModel.*;
 import gameModel.HeroModel.Hero;
+import gameModel.HeroModel.HeroType;
 import gameView.HeroView;
 import gameView.NewView.NewMenuView;
 import gameView.TileView;
@@ -22,7 +23,7 @@ import java.util.TimerTask;
  * ProcessController is to manipulate GameLog: create and save new GameLog, undo
  * processController is part of Memento pattern
  */
-public class NewProcessController {
+public class ProcessController {
 
 	ArrayList<GameLog> logList = new ArrayList<>();
 	GameLog log;
@@ -36,13 +37,13 @@ public class NewProcessController {
 
 
 
-	public NewProcessController(NewMenuView menu){
+	public ProcessController(NewMenuView menu){
 		this.menu = menu;
 
 	}
 
 
-	public void createNewLog(PlayerType p, RoleType r, Hero hero, int oldX, int oldY){
+	public void createNewLog(PlayerType p, HeroType r, Hero hero, int oldX, int oldY){
 
 		log = new GameLog(p, r,hero);
 		log.setOldCoordinate(oldX, oldY);
@@ -65,7 +66,7 @@ public class NewProcessController {
 		menu.getUndoBtn().setOnAction(e ->{
 			if(logList.size() > 0){
 				// if player play move
-				RoleType startfromWho;
+				HeroType startfromWho;
 
 				int i = logList.size() - 1;
 				GameLog undoLog = logList.get(i);

@@ -1,10 +1,9 @@
 package gameView;
 
 import gameModel.*;
+import gameModel.HeroModel.HeroType;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Ellipse;
-import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Shape;
 
 /**
@@ -22,7 +21,7 @@ public class HeroView extends StackPane{
 	private boolean attackStatus = false;
 	private int size;
 	private PlayerType p;
-	private RoleType r;
+	private HeroType r;
 	/**
 	 * initial hero view with the parameters x, y, p, r, s, size
 	 * @Requires ("x == 13")
@@ -31,7 +30,7 @@ public class HeroView extends StackPane{
 	 * @Requires ("r == WARRIOR || r == RANGER || r == SUPPOER")
 	 * @Requires ("size == 50")
 	 */
-	public HeroView(int x, int y, PlayerType p, RoleType r, int size){
+	public HeroView(int x, int y, PlayerType p, HeroType r, int size){
 		relocate(x * size, y * size);
 		this.size = size;
 		this.x = x;
@@ -122,7 +121,7 @@ public class HeroView extends StackPane{
 	}
 
 
-	public RoleType getRoleType(){
+	public HeroType getRoleType(){
 		return r;
 	}
 }

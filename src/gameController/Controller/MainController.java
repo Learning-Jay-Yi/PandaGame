@@ -1,4 +1,4 @@
-package gameController.NewController;
+package gameController.Controller;
 
 
 import gameModel.*;
@@ -20,7 +20,7 @@ import java.util.ArrayList;
  */
 
 
-public class NewMainController {
+public class MainController {
 	private BoardView gameBoard;
 	private Board board;
 	private FrameView gameFrame;
@@ -37,8 +37,8 @@ public class NewMainController {
 	private int HEIGHT;
 
 	private NewTileController tileController;
-	private NewHeroController heroController;
-	private NewProcessController processController;
+	private HeroController heroController;
+	private ProcessController processController;
 
 	private NewMenuView menu;
 	//private TimerView timer;
@@ -49,7 +49,7 @@ public class NewMainController {
 	 * @Requires ("board")
 	 * @Requires ("TILE_SIZE>0", "WIDTH>0", "HIGHT>0")
 	 */
-	public NewMainController(){
+	public MainController(){
 		board = new Board(); //instantiate board first in order to get value of tile size, board width and board height
 
 		ChangeBoardView.display(board);
@@ -66,10 +66,10 @@ public class NewMainController {
 		//TODO
 		//timer = new TimerView();
 
-		processController = new NewProcessController(menu);
+		processController = new ProcessController(menu);
 
 		tileController = new NewTileController(WIDTH, HEIGHT, TILE_SIZE, processController);
-		heroController = new NewHeroController(WIDTH, HEIGHT, TILE_SIZE, processController);
+		heroController = new HeroController(WIDTH, HEIGHT, TILE_SIZE, processController);
 
 		tileArray = new TileView[WIDTH][HEIGHT];
 		heroArray = new ArrayList<>();

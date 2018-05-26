@@ -1,7 +1,7 @@
 package gameModel.Parts;
 
+import gameModel.HeroModel.HeroType;
 import gameModel.PlayerType;
-import gameModel.RoleType;
 
 /**
  * @author Jay
@@ -11,13 +11,13 @@ import gameModel.RoleType;
 public interface PartsSkills {
 //    PartsSkills addPartsSkills();
 
-    void activitySkill(int width, int height, PlayerType playerType, RoleType roleType);
+    void activitySkill(int width, int height, PlayerType playerType, HeroType heroType);
     boolean usedSkill();
     void setUsedSkill(boolean useSkill);
     // 1 == attack, 2 == move, 3 == invincible
     int getSkillType();
 
-    void skill(int curX, int curY,RoleType roleType);
+    void skill(int curX, int curY, HeroType heroType);
 
     int[] getValidX();
     int[] getValidY();

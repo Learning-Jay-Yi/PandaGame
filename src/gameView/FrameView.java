@@ -1,8 +1,6 @@
 package gameView;
 
-import gameController.NewController.NewTurnChecker;
 import javafx.scene.layout.*;
-import javafx.scene.text.Text;
 
 /**
  *

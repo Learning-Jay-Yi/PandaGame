@@ -1,7 +1,7 @@
 package gameModel.Parts;
 
+import gameModel.HeroModel.HeroType;
 import gameModel.PlayerType;
-import gameModel.RoleType;
 
 /**
  * this class use to change the default move range.
@@ -14,15 +14,15 @@ public class SkillForMove implements PartsSkills {
 
     private int boardW, boardH;
     private int[]validX,validY;
-    private RoleType roleType;
+    private HeroType heroType;
     private PlayerType playerType;
     private boolean bUsed = false;
 
     @Override
-    public void activitySkill(int boardW, int boardH, PlayerType playerType, RoleType roleType) {
+    public void activitySkill(int boardW, int boardH, PlayerType playerType, HeroType heroType) {
         this.boardW = boardW;
         this.boardH = boardH;
-        this.roleType = roleType;
+        this.heroType = heroType;
         this.playerType = playerType;
     }
 
@@ -42,10 +42,10 @@ public class SkillForMove implements PartsSkills {
     }
 
     @Override
-    public void skill(int curX, int curY,RoleType roleType) {
-        if (roleType == RoleType.WARRIOR)
+    public void skill(int curX, int curY, HeroType heroType) {
+        if (heroType == HeroType.WARRIOR)
             warriorMove(curX, curY);
-        else if(roleType == RoleType.RANGER)
+        else if(heroType == HeroType.RANGER)
             rangerMove(curX,curY);
         else
             supportMove(curX,curY);

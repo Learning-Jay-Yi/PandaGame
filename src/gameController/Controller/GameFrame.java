@@ -1,4 +1,4 @@
-package gameController.NewController;
+package gameController.Controller;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -13,12 +13,12 @@ import javafx.stage.Stage;
  * GameFrame instantiate a object of MainController and get board from the object into its scene
  */
 
-public class NewGameFrame extends Application{
+public class GameFrame extends Application{
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 
-		NewMainController con = new NewMainController();
+		MainController con = new MainController();
 
 		Scene scene = new Scene(con.getGameFrame().displayFrame());
 		primaryStage.setTitle("Panda Game");

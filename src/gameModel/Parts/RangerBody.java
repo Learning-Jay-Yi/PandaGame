@@ -1,7 +1,7 @@
 package gameModel.Parts;
 
+import gameModel.HeroModel.HeroType;
 import gameModel.PlayerType;
-import gameModel.RoleType;
 
 import java.util.Random;
 
@@ -16,7 +16,7 @@ public class RangerBody implements PartsBody {
     private int boardWidth, boardHeight;
     PlayerType playerType;
     private int spawnX,spawnY;
-    RoleType newHeroType = RoleType.RANGER;
+    HeroType heroType = HeroType.RANGER;
     private int spawnRange =2,randomSpawnY=0;
     Random randomSpawn = new Random();
 
@@ -26,7 +26,7 @@ public class RangerBody implements PartsBody {
         this.boardWidth = boardWidth;
         this.boardHeight = boardHeight;
         this.playerType= playerType;
-//        newHeroType = RoleType.RANGER;
+//        heroType = HeroType.RANGER;
         spawnX = (playerType == PlayerType.BLUE ? 0 : boardWidth-1);
         spawnY = (playerType == PlayerType.BLUE ? newSpawnY+spawnRange : boardHeight-(newSpawnY+spawnRange));
 //        randomSpawnY++;
@@ -40,7 +40,7 @@ public class RangerBody implements PartsBody {
 //        spawnX = (playerType == PlayerType.BLUE ? 0 : boardWidth-1);
 //        spawnY = (playerType == PlayerType.BLUE ? 9 : boardHeight-10);
 
-//        System.out.println("Spawn "+newHeroType+" at "+spawnX+" "+spawnY);
+//        System.out.println("Spawn "+heroType+" at "+spawnX+" "+spawnY);
     }
     @Override
     public int getSpawnX() {
@@ -55,8 +55,8 @@ public class RangerBody implements PartsBody {
         return playerType;
     }
     @Override
-    public RoleType getRoleType() {
-        return newHeroType;
+    public HeroType getRoleType() {
+        return heroType;
     }
 
 }

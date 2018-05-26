@@ -2,7 +2,6 @@ package gameModel.HeroModel;
 
 import gameModel.FactoryModel.HeroFactory;
 import gameModel.PlayerType;
-import gameModel.RoleType;
 
 /**
  * @author Jay
@@ -16,7 +15,7 @@ public class Support extends Hero {
     PlayerType playerType;
     HeroFactory heroFactory;
     int spawnY;
-    RoleType roleType = RoleType.SUPPORT;
+    HeroType heroType = HeroType.SUPPORT;
 
     public Support(HeroFactory heroFactory, PlayerType playerType, int width, int height, int spawnY) {
         this.width = width;
@@ -50,12 +49,12 @@ public class Support extends Hero {
 
     @Override
     public void activityAttack() {
-        partsAttack.activityAttack(width,height,playerType,roleType);
+        partsAttack.activityAttack(width,height,playerType, heroType);
     }
 
     @Override
     public void activitySkills() {
-        partsSkills.activitySkill(width,height,playerType,roleType);
+        partsSkills.activitySkill(width,height,playerType, heroType);
     }
 
 

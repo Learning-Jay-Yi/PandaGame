@@ -1,4 +1,4 @@
-package gameController.NewController;
+package gameController.Controller;
 
 import gameModel.*;
 import gameView.HeroView;
@@ -22,7 +22,7 @@ public class NewTileController {
 	private int boardWidth;
 	private int boardHeight;
 	private int tileSize;
-	private NewProcessController processController;
+	private ProcessController processController;
 
 	private Random random = new Random();
 	private int[] x;
@@ -34,7 +34,7 @@ public class NewTileController {
 	 * @Requires ("height == 14")
 	 * @Requires ("size == 50")
 	 */
-	public NewTileController(int width, int height, int size, NewProcessController process){
+	public NewTileController(int width, int height, int size, ProcessController process){
 		this.boardWidth = width;
 		this.boardHeight = height;
 		this.tileSize = size;

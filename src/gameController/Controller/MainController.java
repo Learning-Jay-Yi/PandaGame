@@ -66,7 +66,7 @@ public class MainController {
 
 		menu = new MenuView();
 
-		processController = new ProcessController(menu);
+		processController = new ProcessController(menu); // for undo button
 
 		tileController = new TileController(WIDTH, HEIGHT, TILE_SIZE, processController);
 		heroController = new HeroController(WIDTH, HEIGHT, TILE_SIZE, processController);

@@ -1,6 +1,5 @@
 package gameController.NewController;
 
-import gameController.TurnChecker;
 import gameModel.*;
 import gameView.HeroView;
 import gameView.TileView;
@@ -88,7 +87,7 @@ public class NewTileController {
 								heroViewArrayList.get(i).move(tileView.getLocX(), tileView.getLocY());
 
 
-								NewTurnChecker.getInstance().incount();
+								NewTurnChecker.getInstance().inCount();
 								processController.updateNewLog(tileView.getLocX(), tileView.getLocY());
 
 								tileViewsArrayList[oldX][oldY].setHeroView(null);

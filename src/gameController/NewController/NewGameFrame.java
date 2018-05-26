@@ -1,6 +1,5 @@
 package gameController.NewController;
 
-import gameController.MainController;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;

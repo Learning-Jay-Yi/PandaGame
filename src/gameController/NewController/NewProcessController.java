@@ -1,7 +1,7 @@
 package gameController.NewController;
 
 import gameModel.*;
-import gameModel.NewHero.NewHero;
+import gameModel.HeroModel.Hero;
 import gameView.HeroView;
 import gameView.NewView.NewMenuView;
 import gameView.TileView;
@@ -13,15 +13,15 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 /**
-*
-* @author Vincent
-* @version 1.0
-* @since 04/05/2018
-*
-* Description:
-* ProcessController is to manipulate GameLog: create and save new GameLog, undo
-* processController is part of Memento pattern
-*/
+ *
+ * @author Vincent
+ * @version 1.4
+ * @since 04/05/2018
+ *
+ * Description:
+ * ProcessController is to manipulate GameLog: create and save new GameLog, undo
+ * processController is part of Memento pattern
+ */
 public class NewProcessController {
 
 	ArrayList<GameLog> logList = new ArrayList<>();
@@ -41,7 +41,7 @@ public class NewProcessController {
 	}
 
 
-	public void createNewLog(PlayerType p, RoleType r, NewHero hero, int oldX, int oldY){
+	public void createNewLog(PlayerType p, RoleType r, Hero hero, int oldX, int oldY){
 
 		log = new GameLog(p, r,hero);
 		log.setOldCoordinate(oldX, oldY);
@@ -76,10 +76,6 @@ public class NewProcessController {
 				int i = logList.size() - 1;
 				GameLog undoLog = logList.get(i);
 
-				/**
-				 * 1.
-				 * 2.
-				 */
 				// the problem is every time pick a log froms tack, the player type would be changed.
 //				PlayerType undoPlayer = ()
 
@@ -108,7 +104,7 @@ public class NewProcessController {
 					}
 				}else {
 					System.out.println(undoLog.getPlayer().toString()+" can not do undo again. Because the undo "
-							+(undoLog.getPlayer() == PlayerType.BLUE ? bBlueUndo : bRedUndo));
+							+(undoLog.getPlayer() == PlayerType.BLUE ? !bBlueUndo : !bRedUndo));
 				}
 
 			}
@@ -130,6 +126,6 @@ public class NewProcessController {
 		tileArray[removeX][removeY].setHeroView(null);
 
 		logList.remove(i);
-		NewTurnChecker.getInstance().decount();
+		NewTurnChecker.getInstance().deCount();
 	}
 }

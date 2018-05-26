@@ -1,9 +1,8 @@
 package gameController.NewController;
 
-import gameController.Builder.HeroBuilding;
-import gameController.TurnChecker;
+import gameController.Builder.HeroBuilder;
 import gameModel.*;
-import gameModel.NewHero.NewHero;
+import gameModel.HeroModel.Hero;
 import gameView.ActionSelectWindow;
 import gameView.HeroView;
 import gameView.TileView;
@@ -60,7 +59,7 @@ public class NewHeroController
 //		testData.add(hero6);
 
 		Group group = new Group();
-		ArrayList<NewHero> heroes = new ArrayList<>();
+		ArrayList<Hero> heroes = new ArrayList<>();
 
 
 
@@ -72,11 +71,11 @@ public class NewHeroController
 
 
 		for (int i = 0; i < testData.size(); i++) {
-			HeroBuilding heroBuilding = new HeroBuilding();
-			NewHero hero;
+			HeroBuilder heroBuilder = new HeroBuilder();
+			Hero hero;
 //			hero.setBoardHeight(height);
 
-			hero = heroBuilding.buildHero(testData.get(i),width,height);
+			hero = heroBuilder.buildHero(testData.get(i),width,height);
 
 			hero.MakeHero();
 			heroes.add(hero);
@@ -87,16 +86,16 @@ public class NewHeroController
 		 * @Requires("r.contains(a)")
 		 * @Requires("r.contains(OLD a)")
 		 */
-		for(NewHero newHero : heroes) {
+		for(Hero hero : heroes) {
 			//spawn each hero and put it into heroView
-			newHero.SpawnBody();
-			newHero.activityMove();
-			newHero.activityAttack();
-			newHero.activitySkills();
-			int startX = newHero.getPartsBody().getSpawnX();
-			int startY = newHero.getPartsBody().getSpawnY();
-			PlayerType playerType = newHero.getPartsBody().getPlayerType();
-			RoleType roleType = newHero.getPartsBody().getRoleType();
+			hero.SpawnBody();
+			hero.activityMove();
+			hero.activityAttack();
+			hero.activitySkills();
+			int startX = hero.getPartsBody().getSpawnX();
+			int startY = hero.getPartsBody().getSpawnY();
+			PlayerType playerType = hero.getPartsBody().getPlayerType();
+			RoleType roleType = hero.getPartsBody().getRoleType();
 			HeroView heroView = new HeroView(startX, startY, playerType, roleType, tileSize);
 			heroArray.add(heroView);
 
@@ -131,11 +130,11 @@ public class NewHeroController
 				if (!selected){
 					// work for move
 					// if this hero belongs to Player red.
-					if(newHero.getPartsBody().getPlayerType() == PlayerType.RED){
+					if(hero.getPartsBody().getPlayerType() == PlayerType.RED){
 						// if this turn belongs to Player RED
 						if (NewTurnChecker.getInstance().isTurn()){
 							heroView.selecetedChanges();
-							ActionSelectWindow actionWindow = new ActionSelectWindow(newHero,heroView,heroArray,tileArray,processController);
+							ActionSelectWindow actionWindow = new ActionSelectWindow(hero,heroView,heroArray,tileArray,processController);
 							actionWindow.display();
 						}else
 							bWarning=true;
@@ -143,7 +142,7 @@ public class NewHeroController
 
 						if (!NewTurnChecker.getInstance().isTurn()){
 							heroView.selecetedChanges();
-							ActionSelectWindow actionWindow = new ActionSelectWindow(newHero,heroView,heroArray,tileArray,processController);
+							ActionSelectWindow actionWindow = new ActionSelectWindow(hero,heroView,heroArray,tileArray,processController);
 							actionWindow.display();
 						}else
 							bWarning = true;
@@ -153,7 +152,7 @@ public class NewHeroController
 					// sth to work for revive
 					// TODO: 2018/5/23 attack can attack everyone no matter how far.
 
-					if (newHero.getPartsBody().getRoleType() == RoleType.SUPPORT && heroView.getAttackStatus()){
+					if (hero.getPartsBody().getRoleType() == RoleType.SUPPORT && heroView.getAttackStatus()){
 						// support attack
 						int supportCurX = heroView.getLocX(), supportCurY = heroView.getLocY();
 						HeroView canReviveHero = null;
@@ -161,9 +160,10 @@ public class NewHeroController
 							canReviveHero = heroArray.get(i);
 							// search the same time hero
 							if (!canReviveHero.isVisible()){
-								if (newHero.getPartsBody().getPlayerType() == canReviveHero.getPlayerType()){
+								if (hero.getPartsBody().getPlayerType() == canReviveHero.getPlayerType()){
 									canReviveHero.setVisible(true);
 									canReviveHero.move(supportCurX,supportCurY);
+									heroView.setStatus(false);
 
 									break;
 								}
@@ -177,7 +177,7 @@ public class NewHeroController
 						// respawn this hero to support location
 						tileArray[supportCurX][supportCurY].setHeroView(canReviveHero);
 
-						processController.createNewLog(heroView.getPlayerType(),heroView.getRoleType(),newHero,
+						processController.createNewLog(heroView.getPlayerType(),heroView.getRoleType(), hero,
 								heroView.getLocX(),heroView.getLocY());
 
 					}else {
@@ -198,7 +198,7 @@ public class NewHeroController
 							for(int i = 0; i < heroArray.size(); i++)
 								heroArray.get(i).setDefault();
 						}
-						processController.createNewLog(heroView.getPlayerType(),heroView.getRoleType(),newHero,
+						processController.createNewLog(heroView.getPlayerType(),heroView.getRoleType(), hero,
 								heroView.getLocX(),heroView.getLocY());
 
 					}

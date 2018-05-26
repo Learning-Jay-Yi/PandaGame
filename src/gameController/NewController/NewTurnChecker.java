@@ -31,7 +31,7 @@ public class NewTurnChecker {
 	 * return the integer when called this method
 	 * @Ensrure ("turnNum >=0")
 	 */
-	public void incount(){
+	public void inCount(){
 		turnNum += 1;
 		TurnView.getInstance().updateText(isWho());
 
@@ -51,7 +51,7 @@ public class NewTurnChecker {
 		return false; // false means blue turn
 	}
 
-	public void decount(){
+	public void deCount(){
 		turnNum -= 1; // used in undo function
 	}
 

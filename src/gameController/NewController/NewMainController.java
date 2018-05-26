@@ -1,7 +1,6 @@
 package gameController.NewController;
 
 
-import gameController.ProcessController;
 import gameModel.*;
 import gameView.*;
 import gameView.NewView.NewMenuView;
@@ -24,7 +23,6 @@ import java.util.ArrayList;
 public class NewMainController {
 	private BoardView gameBoard;
 	private Board board;
-	private SystemLogView logView;
 	private FrameView gameFrame;
 
 	//groups set each nodes on board

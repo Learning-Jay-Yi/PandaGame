@@ -13,13 +13,10 @@ import gameModel.PlayerType;
  * @author Jay
  * @version 1.0
  * @since 2018/5/19
+ * Description: this class is to identify what the spacial skill need to add to hero,
+ *              also, use the Spawn Y to relocate the first Y
  */
 public class WarriorBuilder extends HeroBuilder {
-//    HeroModel hero;
-//
-//    public WarriorBuilder(String heroDetails){
-//        hero = buildHero(heroDetails);
-//    }
 
     public Hero buildHero(String heroDetails, int width, int height){
         Hero hero = null;

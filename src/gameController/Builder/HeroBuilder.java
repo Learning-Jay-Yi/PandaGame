@@ -7,9 +7,11 @@ import gameModel.HeroModel.Hero;
  * @author Jay
  * @version 1.0
  * @since 2018/5/14
+ *
+ * Description: this class use to receive the order from the player pick hero
+ *              and send it to different factories to create hero.
  */
 public class HeroBuilder {
-    Hero hero;
 
     public HeroBuilder() {
 
@@ -20,8 +22,7 @@ public class HeroBuilder {
         HeroBuilder heroBuilder;
         String[] fields = heroDetails.split(" ");
         String heroType = fields[0];
-        String factoryNumber = fields[1];
-        int spawnY = Integer.valueOf(fields[3]);
+        // send different order to the spacial factory depend on hero type.
         switch (heroType){
             case "Warrior":
                 heroBuilder = new WarriorBuilder();

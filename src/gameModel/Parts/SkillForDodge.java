@@ -1,7 +1,7 @@
 package gameModel.Parts;
 
+import gameModel.HeroModel.HeroType;
 import gameModel.PlayerType;
-import gameModel.RoleType;
 
 /**
  * @author Jay
@@ -13,7 +13,7 @@ public class SkillForDodge implements PartsSkills {
     private int skillTyp = 3;
 
     @Override
-    public void activitySkill(int width, int height, PlayerType playerType, RoleType roleType) {
+    public void activitySkill(int width, int height, PlayerType playerType, HeroType heroType) {
 
     }
 
@@ -33,7 +33,7 @@ public class SkillForDodge implements PartsSkills {
     }
 
     @Override
-    public void skill(int curX, int curY, RoleType roleType) {
+    public void skill(int curX, int curY, HeroType heroType) {
 
     }
 

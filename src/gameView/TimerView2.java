@@ -1,6 +1,5 @@
 package gameView;
 
-import gameController.NewController.NewTurnChecker;
 import gameModel.Observable;
 import gameModel.TimerCount;
 import javafx.application.Platform;

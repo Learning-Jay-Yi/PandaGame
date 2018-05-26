@@ -2,11 +2,23 @@ package gameView;
 
 import gameModel.PlayerType;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Shape;
+
+import javax.imageio.ImageIO;
+import javax.imageio.ImageReadParam;
+import javax.imageio.ImageReader;
+import javax.imageio.ImageTypeSpecifier;
+import javax.imageio.metadata.IIOMetadata;
+//import java.awt.image.BufferedImage;
+import java.awt.image.BufferedImage;
+import java.io.*;
+import java.util.Iterator;
+import java.util.stream.Stream;
 
 /**
  *
@@ -19,7 +31,8 @@ public class RangerShape implements Drawing{
 
 	@Override
 	public Shape drawShape(int size, PlayerType p) {
-
+//		File redPic = new File("redRanger.png") ;
+//		File bluePic = new File("blueRanger.png");
 
 		Image red = new Image("file:redRanger.jpg");
 		Image blue = new Image("file:BlueRanger.jpg");

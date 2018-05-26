@@ -1,8 +1,8 @@
 package gameView;
 
-import gameController.NewController.NewProcessController;
-import gameModel.NewHero.NewHero;
-import gameModel.RoleType;
+import gameController.Controller.ProcessController;
+import gameModel.HeroModel.Hero;
+import gameModel.HeroModel.HeroType;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -22,11 +22,11 @@ public class ActionSelectWindow {
 
 	private boolean bAction = false;
 	private Stage action;
-	private NewHero newHero;
+	private Hero hero;
 	private HeroView heroView;
 	private ArrayList<HeroView> heroViews;
 	private TileView[][] tileArray;
-	private NewProcessController processController;
+	private ProcessController processController;
 	boolean useSkill;
 	int skillNum;
 
@@ -35,9 +35,9 @@ public class ActionSelectWindow {
 	private Button moveBtn = new Button("Move");
 
 
-	public ActionSelectWindow(NewHero newHero, HeroView heroView, ArrayList<HeroView> heroViews, TileView[][] tileArray, NewProcessController processController){
+	public ActionSelectWindow(Hero hero, HeroView heroView, ArrayList<HeroView> heroViews, TileView[][] tileArray, ProcessController processController){
 		// try to figure out useful parameters
-		this.newHero = newHero;
+		this.hero = hero;
 		this.heroView = heroView;
 		this.heroViews = heroViews;
 		this.tileArray = tileArray;
@@ -85,7 +85,7 @@ public class ActionSelectWindow {
 	/******* at end of button, need to close ActionWindow: see TurnCheckerAlarm***********/
 	private void setAbilityBtn(){
 		abilityBtn.setOnAction(e->{
-			skillNum = newHero.getPartsSkills().getSkillType();
+			skillNum = hero.getPartsSkills().getSkillType();
 			String skillName = "";
 			switch (skillNum){
 				case 1: skillName = "Skill for attack";
@@ -94,17 +94,17 @@ public class ActionSelectWindow {
 					break;
 				case 3: skillName = "Skill for dodge";
 			}
-			useSkill = newHero.getPartsSkills().usedSkill();
+			useSkill = hero.getPartsSkills().usedSkill();
 			if(skillNum == 3){
-				System.out.println(newHero.getPartsBody().getRoleType()+" now you use "+skillName+" did't work.");
+				System.out.println(hero.getPartsBody().getRoleType()+" now you use "+skillName+" did't work.");
 
 				// invincible
 			}else {
 				if(!useSkill){
 					// if never use the skill then can use it
 					useSkill = true;
-					System.out.println(newHero.getPartsBody().getRoleType()+" now you use "+skillName);
-					newHero.getPartsSkills().setUsedSkill(useSkill);
+					System.out.println(hero.getPartsBody().getRoleType()+" now you use "+skillName);
+					hero.getPartsSkills().setUsedSkill(useSkill);
 				}
 //				else {
 //					// may be not need to use here
@@ -125,23 +125,23 @@ public class ActionSelectWindow {
 			if(useSkill){
 				if(skillNum == 1){
 					// skill for attack
-					RoleType roleType = newHero.getPartsBody().getRoleType();
-					newHero.getPartsSkills().skill(heroView.getLocX(),heroView.getLocY(),roleType);
-					validX = newHero.getPartsSkills().getValidX();
-					validY = newHero.getPartsSkills().getValidY();
+					HeroType heroType = hero.getPartsBody().getRoleType();
+					hero.getPartsSkills().skill(heroView.getLocX(),heroView.getLocY(), heroType);
+					validX = hero.getPartsSkills().getValidX();
+					validY = hero.getPartsSkills().getValidY();
 					length = validX.length;
 				}else {
 					// no use skill
-					newHero.getPartsAttack().CanAttack(heroView.getLocX(),heroView.getLocY());
-					validX = newHero.getPartsAttack().getValidX();
-					validY = newHero.getPartsAttack().getValidY();
+					hero.getPartsAttack().CanAttack(heroView.getLocX(),heroView.getLocY());
+					validX = hero.getPartsAttack().getValidX();
+					validY = hero.getPartsAttack().getValidY();
 					length = validX.length;
 				}
 			}else{
 				// not use skill
-				newHero.getPartsAttack().CanAttack(heroView.getLocX(),heroView.getLocY());
-				validX = newHero.getPartsAttack().getValidX();
-				validY = newHero.getPartsAttack().getValidY();
+				hero.getPartsAttack().CanAttack(heroView.getLocX(),heroView.getLocY());
+				validX = hero.getPartsAttack().getValidX();
+				validY = hero.getPartsAttack().getValidY();
 				length = validX.length;
 			}
 
@@ -157,7 +157,7 @@ public class ActionSelectWindow {
 				}
 			}
 
-			processController.createNewLog(heroView.getPlayerType(),heroView.getRoleType(),newHero,
+			processController.createNewLog(heroView.getPlayerType(),heroView.getRoleType(), hero,
 					heroView.getLocX(),heroView.getLocY());
 			action.close();
 //			abilityBtn.setDisable(true);
@@ -172,21 +172,21 @@ public class ActionSelectWindow {
 
 			if (useSkill){
 				if (skillNum == 2){
-					RoleType roleType = newHero.getPartsBody().getRoleType();
-					newHero.getPartsSkills().skill(heroView.getLocX(), heroView.getLocY(),roleType);
-					validX = newHero.getPartsSkills().getValidX();
-					validY = newHero.getPartsSkills().getValidY();
+					HeroType heroType = hero.getPartsBody().getRoleType();
+					hero.getPartsSkills().skill(heroView.getLocX(), heroView.getLocY(), heroType);
+					validX = hero.getPartsSkills().getValidX();
+					validY = hero.getPartsSkills().getValidY();
 					length = validX.length;
 				}else {
-					newHero.getPartsMove().CanMove(heroView.getLocX(), heroView.getLocY());
-					validX = newHero.getPartsMove().getValidX();
-					validY = newHero.getPartsMove().getValidY();
+					hero.getPartsMove().CanMove(heroView.getLocX(), heroView.getLocY());
+					validX = hero.getPartsMove().getValidX();
+					validY = hero.getPartsMove().getValidY();
 					length = validX.length;
 				}
 			}else {
-				newHero.getPartsMove().CanMove(heroView.getLocX(), heroView.getLocY());
-				validX = newHero.getPartsMove().getValidX();
-				validY = newHero.getPartsMove().getValidY();
+				hero.getPartsMove().CanMove(heroView.getLocX(), heroView.getLocY());
+				validX = hero.getPartsMove().getValidX();
+				validY = hero.getPartsMove().getValidY();
 				length = validX.length;
 			}
 
@@ -199,7 +199,7 @@ public class ActionSelectWindow {
 				tileArray[x][y].canMove();
 			}
 
-			processController.createNewLog(heroView.getPlayerType(),heroView.getRoleType(),newHero,
+			processController.createNewLog(heroView.getPlayerType(),heroView.getRoleType(), hero,
 					heroView.getLocX(),heroView.getLocY());
 
 			action.close();

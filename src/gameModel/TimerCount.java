@@ -3,10 +3,7 @@ package gameModel;
 import java.util.ArrayList;
 import java.util.TimerTask;
 
-import gameController.TurnChecker;
-import gameController.NewController.NewTurnChecker;
 import gameView.Observer;
-import gameView.TimerView;
 
 /**
  *
@@ -22,7 +19,7 @@ public class TimerCount extends TimerTask implements Observable{
 	private ArrayList<Observer> timer = new ArrayList<>();
 	private static Observable singleTimer = new TimerCount();
 
-	private int time = 90;
+	private int time = 15;
 	private int timeSpent = 0;
 	private int mm = 0;
 	private int ss = 0;

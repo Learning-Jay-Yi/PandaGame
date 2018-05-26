@@ -1,6 +1,7 @@
 package gameModel;
 
-import gameModel.NewHero.NewHero;
+import gameModel.HeroModel.Hero;
+import gameModel.HeroModel.HeroType;
 
 /**
  *
@@ -16,17 +17,17 @@ public class GameLog {
 	private static int turnID; //recording turn's number for each move.
 
 	private PlayerType player;
-	private RoleType role;
-	NewHero newHero;
+	private HeroType role;
+	Hero hero;
 	private int[] newCoordinate = new int[2];
 	private int[] oldCoordinate = new int[2];
 
 	private String action; // action player did, this data type will change later.
 
-	public GameLog(PlayerType p, RoleType r, NewHero newHero){
+	public GameLog(PlayerType p, HeroType r, Hero hero){
 		this.player = p;
 		this.role = r;
-		this.newHero = newHero;
+		this.hero = hero;
 		turnID++;
 	}
 
@@ -48,7 +49,7 @@ public class GameLog {
 		return player;
 	}
 
-	public RoleType getRole() {
+	public HeroType getRole() {
 		return role;
 	}
 

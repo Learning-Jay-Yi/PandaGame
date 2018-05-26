@@ -1,9 +1,7 @@
 package gameModel.Parts;
 
-import gameModel.NewHero.NewHeroType;
-import gameModel.Player;
+import gameModel.HeroModel.HeroType;
 import gameModel.PlayerType;
-import gameModel.RoleType;
 
 /**
  * @author Jay
@@ -16,6 +14,6 @@ public interface PartsBody {
     int getSpawnX();
     int getSpawnY();
     PlayerType getPlayerType();
-    RoleType getRoleType();
-//    void spawnBody(int width, int height, NewHeroType newHeroType, Player player);
+    HeroType getRoleType();
+//    void spawnBody(int width, int height, HeroType heroType, Player player);
 }

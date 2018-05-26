@@ -1,9 +1,7 @@
 package gameModel.Parts;
 
-import gameModel.NewHero.NewHeroType;
-import gameModel.Player;
+import gameModel.HeroModel.HeroType;
 import gameModel.PlayerType;
-import gameModel.RoleType;
 
 import java.util.Random;
 
@@ -18,7 +16,7 @@ public class WarriorBody implements PartsBody {
     private int boardWidth, boardHeight;
     PlayerType playerType;
     private int spawnX,spawnY;
-    RoleType newHeroType = RoleType.WARRIOR;
+    HeroType heroType = HeroType.WARRIOR;
     private int spawnRange =2,randomSpawnY=0;
     Random randomSpawn = new Random();
 
@@ -29,7 +27,7 @@ public class WarriorBody implements PartsBody {
         this.boardWidth = boardWidth;
         this.boardHeight = boardHeight;
         this.playerType= playerType;
-//        newHeroType = RoleType.WARRIOR;
+//        heroType = HeroType.WARRIOR;
         spawnX = (playerType == PlayerType.BLUE ? 0 : boardWidth-1);
         spawnY = (playerType == PlayerType.BLUE ? newSpawnY+spawnRange : boardHeight-(newSpawnY+spawnRange));
 //        randomSpawnY++;
@@ -56,8 +54,8 @@ public class WarriorBody implements PartsBody {
         return playerType;
     }
     @Override
-    public RoleType getRoleType() {
-        return newHeroType;
+    public HeroType getRoleType() {
+        return heroType;
     }
 
 

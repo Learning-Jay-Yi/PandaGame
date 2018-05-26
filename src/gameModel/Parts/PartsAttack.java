@@ -1,7 +1,7 @@
 package gameModel.Parts;
 
+import gameModel.HeroModel.HeroType;
 import gameModel.PlayerType;
-import gameModel.RoleType;
 
 /**
  * @author Jay
@@ -11,11 +11,11 @@ import gameModel.RoleType;
 public interface PartsAttack {
 //    activityAttack addPartAttack();
 
-    void activityAttack(int boardW, int boardH, PlayerType playerType, RoleType roleType);
+    void activityAttack(int boardW, int boardH, PlayerType playerType, HeroType heroType);
     void CanAttack(int curX, int curY);
     int[] getValidX();
     int[] getValidY();
-    RoleType getRoleType();
+    HeroType getHeroType();
     void attack();
 
 }

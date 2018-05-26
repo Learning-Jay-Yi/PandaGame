@@ -1,5 +1,7 @@
 package gameModel;
 
+import gameModel.HeroModel.HeroType;
+
 /**
  *
  * @author 		Yu Liu
@@ -12,7 +14,7 @@ package gameModel;
  */
 public abstract class Hero implements Move{
 	private PlayerType pType;
-	private RoleType rType;
+	private HeroType rType;
 	private int startX;
 	private int startY;
 
@@ -46,7 +48,7 @@ public abstract class Hero implements Move{
 	 * set the Role type
 	 * @Requires ("rType == WARRIOR || rType == RANGER || rType == SUPPOER")
 	 */
-	public void setRoleType(RoleType rType) {
+	public void setRoleType(HeroType rType) {
 		this.rType = rType;
 	}
 	/**
@@ -74,7 +76,7 @@ public abstract class Hero implements Move{
 	 * return the Role type
 	 * @Ensures ("rType == WARRIOR || rType == RANGER || rType == SUPPOER")
 	 */
-	public RoleType getRoleType(){
+	public HeroType getRoleType(){
 		return rType;
 	}
 	/**

@@ -1,7 +1,7 @@
 package gameModel.Parts;
 
+import gameModel.HeroModel.HeroType;
 import gameModel.PlayerType;
-import gameModel.RoleType;
 
 import java.util.Random;
 
@@ -18,14 +18,14 @@ public class SupportBody implements PartsBody {
     private int spawnX,spawnY;
     private int spawnRange =2,randomSpawnY=0;
     Random randomSpawn = new Random();
-    RoleType newHeroType = RoleType.SUPPORT;
+    HeroType heroType = HeroType.SUPPORT;
 
     @Override
     public void spawnBody(int boardWidth, int boardHeight, PlayerType playerType, int newSpawnY) {
         this.boardWidth = boardWidth;
         this.boardHeight = boardHeight;
         this.playerType= playerType;
-//        newHeroType = RoleType.SUPPORT;
+//        heroType = HeroType.SUPPORT;
 
         spawnX = (playerType == PlayerType.BLUE ? 0 : boardWidth-1);
         spawnY = (playerType == PlayerType.BLUE ? newSpawnY+spawnRange : boardHeight-(newSpawnY+spawnRange));
@@ -40,7 +40,7 @@ public class SupportBody implements PartsBody {
 //        spawnX = (playerType == PlayerType.BLUE ? 0 : boardWidth-1);
 //        spawnY = 3;
 
-//        System.out.println("Spawn "+newHeroType+" at "+spawnX+" "+spawnY);
+//        System.out.println("Spawn "+heroType+" at "+spawnX+" "+spawnY);
     }
     @Override
     public int getSpawnX() {
@@ -55,8 +55,8 @@ public class SupportBody implements PartsBody {
         return playerType;
     }
     @Override
-    public RoleType getRoleType() {
-        return newHeroType;
+    public HeroType getRoleType() {
+        return heroType;
     }
 
 }

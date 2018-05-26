@@ -1,10 +1,9 @@
 package gameView.NewView;
 
-import gameModel.NewHero.NewHero;
-import gameModel.NewHero.NewHeroType;
+
+
 import gameModel.PlayerType;
-import gameModel.RoleType;
-import gameView.ShapeBridge;
+import gameModel.HeroModel.HeroType;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Shape;
@@ -23,7 +22,7 @@ public class NewHeroView extends StackPane{
 	private boolean selected;
 	private int size;
 	private PlayerType p;
-	private NewHeroType r;
+	private HeroType r;
 	/**
 	 * initial hero view with the parameters x, y, p, r, s, size
 	 * @Requires ("x == 13")
@@ -32,7 +31,7 @@ public class NewHeroView extends StackPane{
 	 * @Requires ("r == WARRIOR || r == RANGER || r == SUPPOER")
 	 * @Requires ("size == 50")
 	 */
-	public NewHeroView(int x, int y, PlayerType p, NewHeroType r, int size){
+	public NewHeroView(int x, int y, PlayerType p, HeroType r, int size){
 		relocate(x * size, y * size);
 		this.size = size;
 		this.x = x;
@@ -116,7 +115,7 @@ public class NewHeroView extends StackPane{
 	}
 
 
-	public NewHeroType getRoleType(){
+	public HeroType getRoleType(){
 		return r;
 	}
 }

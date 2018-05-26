@@ -1,6 +1,6 @@
 package gameView.PickHeroView;
 
-import gameModel.Option.HeroPool;
+import gameModel.HeroPool;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;

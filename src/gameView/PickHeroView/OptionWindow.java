@@ -3,7 +3,7 @@ package gameView.PickHeroView;
 import java.io.IOException;
 
 import gameController.Option.GameStart;
-import gameModel.Option.HeroPool;
+import gameModel.HeroPool;
 import javafx.collections.ObservableList;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;

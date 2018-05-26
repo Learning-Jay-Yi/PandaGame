@@ -1,4 +1,4 @@
-package gameController.NewController;
+package gameController.Controller;
 
 import java.util.ArrayList;
 

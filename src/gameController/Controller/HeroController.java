@@ -176,7 +176,7 @@ public class HeroController
 
 					}else {
 						//selected hero cannot attack itself
-						if(preHero != heroView){
+						if(preHero != heroView && preHero.getRoleType() != HeroType.SUPPORT){
 							// other attack
 							//  work for attack
 							// if the picked hero's team is dif to the target hero

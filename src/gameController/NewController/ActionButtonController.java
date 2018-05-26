@@ -21,7 +21,7 @@ import javafx.stage.Stage;
  */
 public class ActionButtonController {
 
-	private boolean bAction = false;
+//	private boolean bAction = false;
 	private ActionSelectWindow action;
 	private Hero hero;
 	private HeroView heroView;

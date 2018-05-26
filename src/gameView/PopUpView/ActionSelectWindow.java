@@ -22,15 +22,15 @@ import java.util.ArrayList;
  */
 public class ActionSelectWindow {
 
-	private boolean bAction = false;
+//	private boolean bAction = false;
 	private Stage action;
-	private Hero hero;
-	private HeroView heroView;
-	private ArrayList<HeroView> heroViews;
-	private TileView[][] tileArray;
-	private ProcessController processController;
-	boolean useSkill;
-	int skillNum;
+//	private Hero hero;
+//	private HeroView heroView;
+//	private ArrayList<HeroView> heroViews;
+//	private TileView[][] tileArray;
+//	private ProcessController processController;
+//	boolean useSkill;
+//	int skillNum;
 
 	private Button abilityBtn = new Button("Ability");
 	private Button attackBtn = new Button("Action");

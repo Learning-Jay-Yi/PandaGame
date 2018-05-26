@@ -119,7 +119,7 @@ public class HeroController
 					// if this hero belongs to Player red.
 					if(hero.getPartsBody().getPlayerType() == PlayerType.RED){
 						// if this turn belongs to Player RED
-						if (NewTurnChecker.getInstance().isTurn()){
+						if (TurnChecker.getInstance().isTurn()){
 							heroView.selecetedChanges();
 							ActionSelectWindow actionWindow = new ActionSelectWindow(hero,heroView,heroArray,tileArray,processController);
 							actionWindow.display();
@@ -127,7 +127,7 @@ public class HeroController
 							bWarning=true;
 					}else{
 
-						if (!NewTurnChecker.getInstance().isTurn()){
+						if (!TurnChecker.getInstance().isTurn()){
 							heroView.selecetedChanges();
 							ActionSelectWindow actionWindow = new ActionSelectWindow(hero,heroView,heroArray,tileArray,processController);
 							actionWindow.display();

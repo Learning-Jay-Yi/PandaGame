@@ -77,7 +77,7 @@ public class ProcessController {
 
 
 				if(curUndo == null && !flag){   //curUndo is who press undo button, flag checks does the undo turn finished by one player
-					if(NewTurnChecker.getInstance().isTurn()){
+					if(TurnChecker.getInstance().isTurn()){
 						curUndo = PlayerType.RED;
 						bRedUndo = true;
 					}
@@ -102,12 +102,12 @@ public class ProcessController {
 					flag = true;
 				}
 
-				if(bUndoNum == 3 && NewTurnChecker.getInstance().isTurn() && bBlueUndo){ // make sure this only trigger in blue undo session
+				if(bUndoNum == 3 && TurnChecker.getInstance().isTurn() && bBlueUndo){ // make sure this only trigger in blue undo session
 					curUndo = null;
 					bBlueUndo = false; // blue undo session is done
 				}
 
-				if(rUndoNum == 3 && !NewTurnChecker.getInstance().isTurn() && bRedUndo){ // make sure this only trigger in red undo session
+				if(rUndoNum == 3 && !TurnChecker.getInstance().isTurn() && bRedUndo){ // make sure this only trigger in red undo session
 					curUndo = null;
 					bRedUndo = false; // red undo session is done
 				}
@@ -158,6 +158,6 @@ public class ProcessController {
 		tileArray[removeX][removeY].setHeroView(null);
 
 		logList.remove(i);
-		NewTurnChecker.getInstance().deCount();
+		TurnChecker.getInstance().deCount();
 	}
 }

@@ -36,7 +36,7 @@ public class MainController {
 	private int WIDTH;
 	private int HEIGHT;
 
-	private NewTileController tileController;
+	private TileController tileController;
 	private HeroController heroController;
 	private ProcessController processController;
 
@@ -68,7 +68,7 @@ public class MainController {
 
 		processController = new ProcessController(menu);
 
-		tileController = new NewTileController(WIDTH, HEIGHT, TILE_SIZE, processController);
+		tileController = new TileController(WIDTH, HEIGHT, TILE_SIZE, processController);
 		heroController = new HeroController(WIDTH, HEIGHT, TILE_SIZE, processController);
 
 		tileArray = new TileView[WIDTH][HEIGHT];

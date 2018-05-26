@@ -19,13 +19,13 @@ import gameView.TurnView;
  *	this class is designed as singleton pattern, in order to ensure there is only one instance of TurnChecker
  */
 
-public class NewTurnChecker {
+public class TurnChecker {
 
-	private static NewTurnChecker INSTANCE = null;
+	private static TurnChecker INSTANCE = null;
 	private int turnNum;
 	private String who;
 
-	public NewTurnChecker(){
+	public TurnChecker(){
 	}
 	/**
 	 * return the integer when called this method
@@ -60,9 +60,9 @@ public class NewTurnChecker {
 		timer.scheduleAtFixedRate(timerTask, 0, 1000);
 	}
 
-	public static synchronized NewTurnChecker getInstance(){
+	public static synchronized TurnChecker getInstance(){
 		if(INSTANCE == null)
-			INSTANCE = new NewTurnChecker();
+			INSTANCE = new TurnChecker();
 		return INSTANCE;
 	}
 

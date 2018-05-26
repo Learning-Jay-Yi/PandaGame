@@ -1,6 +1,6 @@
 package gameView;
 
-import gameController.Controller.NewTurnChecker;
+import gameController.Controller.TurnChecker;
 import gameModel.Observable;
 import gameModel.TimerCount;
 import javafx.application.Platform;
@@ -52,7 +52,7 @@ public class TimerView implements Observer{
 		int st = ((TimerCount) timer).getSt();
 
 		if(((TimerCount) timer).getTime() == 0){
-			NewTurnChecker.getInstance().inCount();
+			TurnChecker.getInstance().inCount();
 		}
 
 		if(mt > 0 || st > 0){

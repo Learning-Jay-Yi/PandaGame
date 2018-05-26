@@ -2,7 +2,9 @@ package gameController.NewController;
 
 import java.util.ArrayList;
 
-import gameModel.NewHero.NewHero;
+import gameController.Controller.ProcessController;
+import gameModel.HeroModel.Hero;
+
 import gameView.HeroView;
 import gameView.TileView;
 import javafx.scene.control.Button;
@@ -29,12 +31,12 @@ public class ActionButtonController {
 		this.action = action;
 	}
 
-	private void setMoveBtn(NewHero newHero, HeroView heroView, ArrayList<HeroView> heroViews, TileView[][] tileArray, NewProcessController processController) {
+	private void setMoveBtn(Hero hero, HeroView heroView, ArrayList<HeroView> heroViews, TileView[][] tileArray, ProcessController processController) {
 		moveBtn.setOnAction(e -> {
-			newHero.getPartsMove().CanMove(heroView.getLocX(), heroView.getLocY());
+			hero.getPartsMove().CanMove(heroView.getLocX(), heroView.getLocY());
 
-			int[] validX = newHero.getPartsMove().getValidX();
-			int[] validY = newHero.getPartsMove().getValidY();
+			int[] validX = hero.getPartsMove().getValidX();
+			int[] validY = hero.getPartsMove().getValidY();
 			int length = validX.length;
 
 
@@ -46,7 +48,7 @@ public class ActionButtonController {
 				tileArray[x][y].canMove();
 			}
 
-			processController.createNewLog(heroView.getPlayerType(),heroView.getRoleType(),
+			processController.createNewLog(heroView.getPlayerType(),heroView.getRoleType(),hero,
 					heroView.getLocX(),heroView.getLocY());
 
 			action.close();

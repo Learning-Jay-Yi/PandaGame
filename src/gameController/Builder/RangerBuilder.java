@@ -9,19 +9,16 @@ import gameModel.PlayerType;
  * @author Jay
  * @version 1.0
  * @since 2018/5/19
+ *
+ * Description: this class is to identify what the spacial skill need to add to hero,
+ *              also, use the Spawn Y to relocate the first Y
  */
 public class RangerBuilder extends HeroBuilder {
-//    HeroModel hero;
-//
-//    public WarriorBuilder(String heroDetails){
-//        hero = buildHero(heroDetails);
-//    }
 
     public Hero buildHero(String heroDetails, int width, int height){
         Hero hero = null;
         PlayerType playerType;
         String[] fields = heroDetails.split(" ");
-//        String heroType = fields[0];
         String factoryNumber = fields[1];
 
         String sPlayerType = fields[2];
@@ -32,6 +29,9 @@ public class RangerBuilder extends HeroBuilder {
         else
             playerType = PlayerType.BLUE;
         HeroFactory heroFactory;
+
+        // to create the spacial skill for different hero
+        // SpawnY is use to relocate the first Y.
         switch (factoryNumber){
             case "1":
                 heroFactory = new Ranger1Factory();

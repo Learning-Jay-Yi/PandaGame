@@ -1,4 +1,4 @@
-package gameModel.Factory;
+package gameModel.FactoryModel;
 
 import gameModel.Parts.*;
 

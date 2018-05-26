@@ -1,8 +1,8 @@
 package gameController.Builder;
 
 
-import gameModel.Factory.*;
-import gameModel.NewHero.*;
+import gameModel.FactoryModel.*;
+import gameModel.HeroModel.*;
 import gameModel.PlayerType;
 
 /**
@@ -10,19 +10,20 @@ import gameModel.PlayerType;
  * @version 1.0
  * @since 2018/5/19
  */
-public class SupportBuilding extends HeroBuilding{
-//    NewHero hero;
+public class RangerBuilder extends HeroBuilder {
+//    HeroModel hero;
 //
-//    public WarriorBuilding(String heroDetails){
+//    public WarriorBuilder(String heroDetails){
 //        hero = buildHero(heroDetails);
 //    }
 
-    public NewHero buildHero(String heroDetails, int width, int height){
-        NewHero hero = null;
+    public Hero buildHero(String heroDetails, int width, int height){
+        Hero hero = null;
         PlayerType playerType;
         String[] fields = heroDetails.split(" ");
 //        String heroType = fields[0];
         String factoryNumber = fields[1];
+
         String sPlayerType = fields[2];
         int spawnY = Integer.valueOf(fields[3]);
 
@@ -30,24 +31,24 @@ public class SupportBuilding extends HeroBuilding{
             playerType = PlayerType.RED;
         else
             playerType = PlayerType.BLUE;
-
-
         HeroFactory heroFactory;
         switch (factoryNumber){
             case "1":
-                heroFactory = new Support1Factory();
-                hero = new NewSupport(heroFactory,playerType,width,height,spawnY);
+                heroFactory = new Ranger1Factory();
+                hero = new Ranger(heroFactory,playerType,width,height,spawnY);
                 break;
             case "2":
-                heroFactory = new Support2Factory();
-                hero = new NewSupport(heroFactory,playerType,width,height,spawnY);
+                heroFactory = new Ranger2Factory();
+                hero = new Ranger(heroFactory,playerType,width,height,spawnY);
                 break;
             case "3":
-                heroFactory = new Support3Factory();
-                hero = new NewSupport(heroFactory,playerType,width,height,spawnY);
+                heroFactory = new Ranger3Factory();
+                hero = new Ranger(heroFactory,playerType,width,height,spawnY);
                 break;
             default:
+
         }
+
         return hero;
     }
 }

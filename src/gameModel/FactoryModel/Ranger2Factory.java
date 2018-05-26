@@ -1,4 +1,4 @@
-package gameModel.Factory;
+package gameModel.FactoryModel;
 
 import gameModel.Parts.*;
 
@@ -7,27 +7,27 @@ import gameModel.Parts.*;
  * @version 1.0
  * @since 2018/5/17
  */
-public class Support3Factory implements HeroFactory{
-    private int factoryNumber =3;
+public class Ranger2Factory implements HeroFactory{
+    private int factoryNumber =2;
 
     @Override
     public PartsBody addPartsBody() {
-        return new SupportBody();
+        return new RangerBody();
     }
 
     @Override
     public PartsAttack addPartsAttack() {
-        return new SupportAttack();
+        return new RangerAttack();
     }
 
     @Override
     public PartsMove addPartsMove() {
-        return new SupportMove();
+        return new RangerMove();
     }
 
     @Override
     public PartsSkills addPartsSkills() {
-        return new SkillForDodge();
+        return new SkillForMove();
     }
 
     public int getFactoryNumber() {

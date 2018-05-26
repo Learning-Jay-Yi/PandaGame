@@ -1,4 +1,4 @@
-package gameModel.NewHero;
+package gameModel.HeroModel;
 
 /**
  * @author Jay

@@ -1,6 +1,6 @@
-package gameModel.NewHero;
+package gameModel.HeroModel;
 
-import gameModel.Factory.HeroFactory;
+import gameModel.FactoryModel.HeroFactory;
 import gameModel.PlayerType;
 import gameModel.RoleType;
 
@@ -9,7 +9,7 @@ import gameModel.RoleType;
  * @version 1.0
  * @since 2018/5/17
  */
-public class NewRanger extends NewHero {
+public class Ranger extends Hero {
 
     private int width;
     private int height;
@@ -18,7 +18,7 @@ public class NewRanger extends NewHero {
     int spawnY;
     RoleType roleType = RoleType.RANGER;
 
-    public NewRanger(HeroFactory heroFactory, PlayerType playerType, int width, int height,int spawnY) {
+    public Ranger(HeroFactory heroFactory, PlayerType playerType, int width, int height, int spawnY) {
         this.width = width;
         this.height = height;
         this.playerType = playerType;

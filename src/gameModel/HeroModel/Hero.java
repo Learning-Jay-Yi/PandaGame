@@ -1,23 +1,20 @@
-package gameModel.NewHero;
+package gameModel.HeroModel;
 
-import gameModel.Board;
-import gameModel.Factory.HeroFactory;
 import gameModel.Parts.*;
-import gameModel.PlayerType;
 
 /**
  * @author Jay
  * @version 1.0
  * @since 2018/5/14
  */
-public abstract class NewHero{
+public abstract class Hero {
 
     PartsAttack partsAttack;
     PartsMove partsMove;
     PartsSkills partsSkills;
     PartsBody partsBody;
 
-    public NewHero() {
+    public Hero() {
 
     }
 //    protected int[] validX,validY;

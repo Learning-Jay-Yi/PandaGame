@@ -1,12 +1,12 @@
 package gameController.Builder;
 
 
-import gameModel.Factory.HeroFactory;
-import gameModel.Factory.Warrior1Factory;
-import gameModel.Factory.Warrior2Factory;
-import gameModel.Factory.Warrior3Factory;
-import gameModel.NewHero.NewHero;
-import gameModel.NewHero.NewWarrior;
+import gameModel.FactoryModel.HeroFactory;
+import gameModel.FactoryModel.Warrior1Factory;
+import gameModel.FactoryModel.Warrior2Factory;
+import gameModel.FactoryModel.Warrior3Factory;
+import gameModel.HeroModel.Hero;
+import gameModel.HeroModel.Warrior;
 import gameModel.PlayerType;
 
 /**
@@ -14,15 +14,15 @@ import gameModel.PlayerType;
  * @version 1.0
  * @since 2018/5/19
  */
-public class WarriorBuilding extends HeroBuilding{
-//    NewHero hero;
+public class WarriorBuilder extends HeroBuilder {
+//    HeroModel hero;
 //
-//    public WarriorBuilding(String heroDetails){
+//    public WarriorBuilder(String heroDetails){
 //        hero = buildHero(heroDetails);
 //    }
 
-    public NewHero buildHero(String heroDetails, int width, int height){
-        NewHero hero = null;
+    public Hero buildHero(String heroDetails, int width, int height){
+        Hero hero = null;
         PlayerType playerType;
         String[] fields = heroDetails.split(" ");
         String factoryNumber = fields[1];
@@ -38,15 +38,15 @@ public class WarriorBuilding extends HeroBuilding{
         switch (factoryNumber){
             case "1":
                 heroFactory = new Warrior1Factory();
-                hero = new NewWarrior(heroFactory,playerType,width,height,spawnY);
+                hero = new Warrior(heroFactory,playerType,width,height,spawnY);
                 break;
             case "2":
                 heroFactory = new Warrior2Factory();
-                hero = new NewWarrior(heroFactory, playerType, width, height,spawnY);
+                hero = new Warrior(heroFactory, playerType, width, height,spawnY);
                 break;
             case "3":
                 heroFactory = new Warrior3Factory();
-                hero = new NewWarrior(heroFactory, playerType, width, height,spawnY);
+                hero = new Warrior(heroFactory, playerType, width, height,spawnY);
                 break;
             default:
         }

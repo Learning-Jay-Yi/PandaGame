@@ -1,6 +1,6 @@
-package gameModel.NewHero;
+package gameModel.HeroModel;
 
-import gameModel.Factory.HeroFactory;
+import gameModel.FactoryModel.HeroFactory;
 import gameModel.PlayerType;
 import gameModel.RoleType;
 
@@ -9,16 +9,16 @@ import gameModel.RoleType;
  * @version 1.0
  * @since 2018/5/17
  */
-public class NewSupport extends NewHero {
+public class Warrior extends Hero {
 
     private int width;
     private int height;
     PlayerType playerType;
     HeroFactory heroFactory;
+    RoleType roleType = RoleType.WARRIOR;
     int spawnY;
-    RoleType roleType = RoleType.SUPPORT;
 
-    public NewSupport(HeroFactory heroFactory, PlayerType playerType, int width, int height,int spawnY) {
+    public Warrior(HeroFactory heroFactory, PlayerType playerType, int width, int height, int spawnY) {
         this.width = width;
         this.height = height;
         this.playerType = playerType;
@@ -35,7 +35,6 @@ public class NewSupport extends NewHero {
         partsMove = heroFactory.addPartsMove();
         partsAttack = heroFactory.addPartsAttack();
         partsSkills = heroFactory.addPartsSkills();
-//        fromFactoryNum = heroFactory.getFactoryNumber();
     }
 
     @Override
@@ -45,6 +44,7 @@ public class NewSupport extends NewHero {
 
     @Override
     public void activityMove() {
+        // need get the board W&H
         partsMove.activityMove(width,height);
     }
 

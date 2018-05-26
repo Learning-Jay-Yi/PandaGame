@@ -9,6 +9,7 @@ import javafx.beans.property.SimpleStringProperty;
  * @version 1.0
  * @since 16/05/2018
  *
+ * hero pool is model to show available heros
  */
 public class HeroPool {
 	 private String heroType;

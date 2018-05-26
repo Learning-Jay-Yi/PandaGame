@@ -6,6 +6,10 @@ import gameView.MainView.TileView;
 /**
  *
  * @author Dario
+ * @version 1.3
+ * @since 22/05/2018
+ *
+ * check is there a mountain block the move
  *
  */
 public class MoveBlock {
@@ -25,7 +29,7 @@ public class MoveBlock {
 	private void checkMoveEffect(){
 		int oldX = heroView.getLocX();
 		int oldY = heroView.getLocY();
-
+		//check the valid coordinate, change the valid coordinate if there is a mountain tile
 		for(int i = 0; i < validX.length; i++){
 			if(oldX == validX[i]){
 				if(oldY - validY[i] > 0){

@@ -10,7 +10,7 @@ import javafx.scene.Group;
 
 import java.util.ArrayList;
 
-import gameController.Option.HeroPoolController;
+import gameController.PreStartGame.HeroPoolController;
 
 /**
  * @author 		Dario

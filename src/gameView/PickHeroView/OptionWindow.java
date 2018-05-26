@@ -2,7 +2,7 @@ package gameView.PickHeroView;
 
 import java.io.IOException;
 
-import gameController.Option.GameStart;
+import gameController.PreStartGame.GameStart;
 import gameModel.HeroPool;
 import javafx.collections.ObservableList;
 import javafx.scene.Scene;

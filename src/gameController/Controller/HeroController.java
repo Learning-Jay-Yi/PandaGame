@@ -1,6 +1,7 @@
 package gameController.Controller;
 
 import gameController.Builder.HeroBuilder;
+import gameController.NewController.ActionButtonController;
 import gameModel.*;
 import gameModel.HeroModel.Hero;
 import gameModel.HeroModel.HeroType;
@@ -121,15 +122,20 @@ public class HeroController
 						// if this turn belongs to Player RED
 						if (TurnChecker.getInstance().isTurn()){
 							heroView.selecetedChanges();
-							ActionSelectWindow actionWindow = new ActionSelectWindow(hero,heroView,heroArray,tileArray,processController);
+							//ActionSelectWindow actionWindow = new ActionSelectWindow(hero,heroView,heroArray,tileArray,processController);
+							ActionSelectWindow actionWindow = new ActionSelectWindow();
+							ActionButtonController action = new ActionButtonController(hero,heroView,heroArray,tileArray,processController, actionWindow);
 							actionWindow.display();
+
 						}else
 							bWarning=true;
 					}else{
 
 						if (!TurnChecker.getInstance().isTurn()){
 							heroView.selecetedChanges();
-							ActionSelectWindow actionWindow = new ActionSelectWindow(hero,heroView,heroArray,tileArray,processController);
+							//ActionSelectWindow actionWindow = new ActionSelectWindow(hero,heroView,heroArray,tileArray,processController);
+							ActionSelectWindow actionWindow = new ActionSelectWindow();
+							ActionButtonController action = new ActionButtonController(hero,heroView,heroArray,tileArray,processController, actionWindow);
 							actionWindow.display();
 						}else
 							bWarning = true;

@@ -1,4 +1,4 @@
-package gameController.Option;
+package gameController.PreStartGame;
 
 import java.io.*;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package gameController.Option;
+package gameController.PreStartGame;
 
 import gameModel.HeroPool;
 import javafx.collections.FXCollections;

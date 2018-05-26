@@ -3,7 +3,7 @@ package gameController.Option;
 import java.io.*;
 import java.io.IOException;
 
-import gameModel.Option.HeroPool;
+import gameModel.HeroPool;
 import javafx.collections.ObservableList;
 
 /**

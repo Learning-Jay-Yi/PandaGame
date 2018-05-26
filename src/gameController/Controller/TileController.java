@@ -58,7 +58,7 @@ public class TileController {
 				Tile tile = new DefaultTile(tileSize);
 
 				boolean specialTile = false;
-
+				//generate special tiles
 				for(int i = 0; i < this.x.length; i++){
 					if(x == this.x[i] && y == this.y[i]){
 						tile = new SetMountainTile(new DefaultTile(tileSize));
@@ -109,16 +109,16 @@ public class TileController {
 
 
 	private void getRandomNumber(){
-		n = random.nextInt(12) + 6;
+		n = random.nextInt(12) + 6; //randomly get special mountain tiles number
 
-		x = new int[n];
-		y = new int[n];
+		x = new int[n]; //new x of coordinate array
+		y = new int[n]; //new y of coordinate array
 
 		for(int i = 0; i < x.length; i++){
 			int dx = random.nextInt(boardWidth - 2) + 2;
 			boolean flag = true;
 			for(int j = 0; j < x.length; j++){
-				if(dx == x[j]){
+				if(dx == x[j]){ //detect if the coordinate appeared
 					flag = false;
 					break;
 				}
@@ -131,7 +131,7 @@ public class TileController {
 		for(int i = 0; i < y.length; i++){
 			int dy = random.nextInt(boardHeight - 2) + 2;
 			boolean flag = true;
-			for(int j = 0; j < y.length; j++){
+			for(int j = 0; j < y.length; j++){  //detect if the coordinate appeared
 				if(dy == y[j]){
 					flag = false;
 					break;

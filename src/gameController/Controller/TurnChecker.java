@@ -29,11 +29,11 @@ public class TurnChecker {
 	private int turnNum;
 	private String who;
 
-	public TurnChecker(){
+	private TurnChecker(){
 	}
 	/**
 	 * return the integer when called this method
-	 * 
+	 *
 	 */
 	@Ensures("turnNum >= 0")
 	public void inCount(){

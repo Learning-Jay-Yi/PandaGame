@@ -1,6 +1,9 @@
 package gameModel.HeroModel;
 
 import gameModel.FactoryModel.HeroFactory;
+
+import com.google.java.contract.Invariant;
+
 import gameModel.PlayerType;
 
 /**
@@ -8,6 +11,8 @@ import gameModel.PlayerType;
  * @version 1.3
  * @since 2018/5/17
  */
+
+@Invariant("heroType == SUPPORT")
 public class Support extends Hero {
 
     private int width;

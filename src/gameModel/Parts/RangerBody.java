@@ -5,6 +5,8 @@ import gameModel.PlayerType;
 
 import java.util.Random;
 
+import com.google.java.contract.Ensures;
+
 /**
  * this class is use to make the hero body and spawn it to tile
  * @author Jay
@@ -42,18 +44,24 @@ public class RangerBody implements PartsBody {
 
 //        System.out.println("Spawn "+heroType+" at "+spawnX+" "+spawnY);
     }
+   
+    @Ensures("spawnX != null")
     @Override
     public int getSpawnX() {
         return spawnX;
     }
+    
+    @Ensures("spawnY != null")
     @Override
     public int getSpawnY() {
         return spawnY;
     }
+    @Ensures("playerType == RED || playerType == BLUE")
     @Override
     public PlayerType getPlayerType() {
         return playerType;
     }
+    @Ensures("heroType == RANGER")
     @Override
     public HeroType getRoleType() {
         return heroType;

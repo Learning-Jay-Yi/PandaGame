@@ -15,6 +15,7 @@ import java.io.*;
 import java.util.ArrayList;
 
 import com.google.java.contract.Ensures;
+import com.google.java.contract.Requires;
 
 /**
  * Purpose: split out from main controller to suit for Single responsibility principle
@@ -29,6 +30,7 @@ public class HeroController
 	private int width, height, tileSize;
 	private ProcessController processController;
 
+	@Ensures("width != null, height != null, tileSize != null, processController != null")
 	public HeroController(int width, int height, int tileSize, ProcessController process)
 	{
 		this.width = width;
@@ -41,6 +43,7 @@ public class HeroController
 	 * initial hero group
 	 */
 	@Ensures("Group hero !=null")
+	@Requires("testData.size() => 0")
 	public Group createHeros(ArrayList<HeroView> heroArray,TileView[][] tileArray){
 
 		ArrayList<String> testData = new ArrayList<>();
@@ -51,14 +54,13 @@ public class HeroController
 		ArrayList<Hero> heroes = new ArrayList<>();
 
 
-
+		
 		/**
 		 * list add new warrior that with plyaerType
-		 * @Invariant("r.length <= 9") the maximum number of heroes in the hero pool is 9
-		 * @Invariant("warrior.length && support.length && ranger.length == 2")
+		 * @Requires("r.length <= 9") the maximum number of heroes in the hero pool is 9
 		 */
 
-
+	
 		for (int i = 0; i < testData.size(); i++) {
 			HeroBuilder heroBuilder = new HeroBuilder();
 			Hero hero;

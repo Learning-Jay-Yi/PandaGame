@@ -1,5 +1,7 @@
 package gameModel;
 
+import com.google.java.contract.Ensures;
+import com.google.java.contract.Requires;
 
 /**
  *
@@ -14,15 +16,17 @@ public class DefaultTile implements Tile{
 
 	/**
 	 * initial tile with the input size
-	 * @Requires ("size == 50")
+	 * 
 	 */
+	@Requires("size == 50")
 	public DefaultTile(int size){
 		this.sideSize = size;
 	}
 	/**
 	 * return the tile size when other needs
-	 * @Ensures ("sideSize == 50")
+	 * 
 	 */
+	@Ensures("sideSize == 50")
 	public int getSideSize(){
 		return sideSize;
 	}

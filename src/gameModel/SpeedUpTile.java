@@ -1,5 +1,6 @@
 package gameModel;
 
+
 /**
  *
  * @author Vincent
@@ -16,6 +17,7 @@ public class SpeedUpTile extends TileDecorator{
 		super(tile);
 	}
 
+	
 	public int getEffect(){
 
 		return super.getEffect() + 2;

@@ -1,6 +1,9 @@
 package gameModel.Parts;
 
 import gameModel.HeroModel.HeroType;
+
+import com.google.java.contract.Ensures;
+
 import gameModel.PlayerType;
 
 /**
@@ -16,7 +19,8 @@ public class RangerAttack implements PartsAttack {
     private int boardW, boardH;
     private PlayerType playerType;
     private HeroType heroType;
-
+    
+   
     @Override
     public void activityAttack(int boardW, int boardH, PlayerType playerType, HeroType heroType) {
         this.boardW = boardW;
@@ -64,16 +68,20 @@ public class RangerAttack implements PartsAttack {
         }
     }
 
+    
+    @Ensures("validX != null")
     @Override
     public int[] getValidX() {
         return validX;
     }
-
+    
+    @Ensures("validY != null")
     @Override
     public int[] getValidY() {
         return validY;
     }
 
+    @Ensures("heroType == RANGER")
     @Override
     public HeroType getHeroType() {
         return heroType;

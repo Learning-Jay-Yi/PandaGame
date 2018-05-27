@@ -1,6 +1,9 @@
 package gameModel.Parts;
 
 import gameModel.HeroModel.HeroType;
+
+import com.google.java.contract.Ensures;
+
 import gameModel.PlayerType;
 
 /**
@@ -35,7 +38,7 @@ public class SkillForMove implements PartsSkills {
     public void setUsedSkill(boolean useSkill) {
         this.bUsed = useSkill;
     }
-
+    @Ensures("skillType == 2")
     @Override
     public int getSkillType() {
         return skillType;
@@ -117,11 +120,13 @@ public class SkillForMove implements PartsSkills {
         validY[3] = (curY - moveRange >= 0 ? curY - moveRange : curY);
     }
 
+    @Ensures("validX != null")
     @Override
     public int[] getValidX() {
         return validX;
     }
-
+    
+    @Ensures("validY != null")
     @Override
     public int[] getValidY() {
         return validY;

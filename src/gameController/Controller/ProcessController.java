@@ -13,6 +13,8 @@ import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import com.google.java.contract.Invariant;
+
 /**
  *
  * @author Vincent
@@ -23,6 +25,8 @@ import java.util.TimerTask;
  * ProcessController is to manipulate GameLog: create and save new GameLog, undo
  * processController is part of Memento pattern
  */
+
+@Invariant("bUndoNUm == 0 && rUndoNum == 0")
 public class ProcessController {
 
 	ArrayList<GameLog> logList = new ArrayList<>();
@@ -36,13 +40,13 @@ public class ProcessController {
 
 
 
-
+	
 	public ProcessController(MenuView menu){
 		this.menu = menu;
 
 	}
 
-
+	
 	public void createNewLog(PlayerType p, HeroType r, Hero hero, int oldX, int oldY){
 
 		log = new GameLog(p, r,hero);

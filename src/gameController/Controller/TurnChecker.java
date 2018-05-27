@@ -3,6 +3,9 @@ package gameController.Controller;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import com.google.java.contract.Ensures;
+import com.google.java.contract.Invariant;
+
 import gameModel.Observable;
 import gameModel.TimerCount;
 import gameView.MainView.TimerView;
@@ -19,6 +22,7 @@ import gameView.MainView.TurnView;
  *	this class is designed as singleton pattern, in order to ensure there is only one instance of TurnChecker
  */
 
+@Invariant("INSTANCE == null")
 public class TurnChecker {
 
 	private static TurnChecker INSTANCE = null;
@@ -29,8 +33,9 @@ public class TurnChecker {
 	}
 	/**
 	 * return the integer when called this method
-	 * @Ensrure ("turnNum >=0")
+	 * 
 	 */
+	@Ensures("turnNum >= 0")
 	public void inCount(){
 		turnNum += 1;
 		TurnView.getInstance().updateText(isWho());
@@ -45,12 +50,14 @@ public class TurnChecker {
 	 * return the boolean when called this method
 	 * @Ensrure ("return boolean")
 	 */
+	@Ensures("return boolean")
 	public boolean isTurn(){
 		if(turnNum % 2 == 0)
 			return true; // true means red turn
 		return false; // false means blue turn
 	}
 
+	@Ensures("turnNum <= 1")
 	public void deCount(){
 		turnNum -= 1; // used in undo function
 		TimerTask timerTask = (TimerTask)new TimerCount();

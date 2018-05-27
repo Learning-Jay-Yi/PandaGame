@@ -27,6 +27,7 @@ public class WinnerChecker {
 		return Instance;
 	}
 
+	
 	public void checkWinner(ArrayList<HeroView> heroArray){
 		boolean redWin = true;
 		boolean blueWin = true;

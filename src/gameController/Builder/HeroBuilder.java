@@ -1,5 +1,9 @@
 package gameController.Builder;
 
+import com.google.java.contract.Ensures;
+import com.google.java.contract.Invariant;
+import com.google.java.contract.Requires;
+
 import gameModel.HeroModel.Hero;
 
 
@@ -12,12 +16,15 @@ import gameModel.HeroModel.Hero;
  *              and send it to different factories to create hero.
  *              1
  */
+
 public class HeroBuilder {
 
     public HeroBuilder() {
 
     }
-
+    
+    @Ensures("heroDetails !=null && width != null && height != null")
+    @Requires("heroType == fields[0]")
     public Hero buildHero(String heroDetails, int width, int height){
         Hero hero = null;
         HeroBuilder heroBuilder;

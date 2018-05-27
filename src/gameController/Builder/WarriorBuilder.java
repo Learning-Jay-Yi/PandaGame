@@ -7,6 +7,10 @@ import gameModel.FactoryModel.Warrior2Factory;
 import gameModel.FactoryModel.Warrior3Factory;
 import gameModel.HeroModel.Hero;
 import gameModel.HeroModel.Warrior;
+
+import com.google.java.contract.Ensures;
+import com.google.java.contract.Requires;
+
 import gameModel.PlayerType;
 
 /**
@@ -19,6 +23,8 @@ import gameModel.PlayerType;
  */
 public class WarriorBuilder extends HeroBuilder {
 
+	@Ensures("heroDetails != null && width != null && height != null")
+    @Requires("factoryNumber == fields[1] && sPlayerType == fields[2]")
     public Hero buildHero(String heroDetails, int width, int height){
         Hero hero = null;
         PlayerType playerType;

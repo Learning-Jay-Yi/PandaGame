@@ -3,6 +3,10 @@ package gameController.Builder;
 
 import gameModel.FactoryModel.*;
 import gameModel.HeroModel.*;
+
+import com.google.java.contract.Ensures;
+import com.google.java.contract.Requires;
+
 import gameModel.PlayerType;
 
 /**
@@ -15,6 +19,8 @@ import gameModel.PlayerType;
  */
 public class SupportBuilder extends HeroBuilder {
 
+	@Ensures("heroDetails != null && width != null && height != null")
+    @Requires("factoryNumber == fields[1] && sPlayerType == fields[2]")
     public Hero buildHero(String heroDetails, int width, int height){
         Hero hero = null;
         PlayerType playerType;

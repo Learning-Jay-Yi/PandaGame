@@ -1,5 +1,8 @@
 package gameModel;
 
+import com.google.java.contract.Ensures;
+import com.google.java.contract.Invariant;
+
 /**
  * @author 		Dario
  * @version		1.4
@@ -8,6 +11,7 @@ package gameModel;
  * Description:
  * Board Class only store values for tile size, board width and board height;
  */
+@Invariant("tile_size != null && width != null && height != null")
 public class Board {
 	private int tile_size;
 	private int width;
@@ -18,23 +22,25 @@ public class Board {
 	public Board(){
 	}
 	/**
-	 * Return the integer of tile size
-	 * @Ensures ("tile_size == 50")
-	 */
+	 * Return the integer of tile size*/
+	@Ensures("tile_size == 50")
 	public int getTileSize(){
 		return tile_size;
 	}
 	/**
 	 * Return the integer of width
-	 * @Ensures ("width == 13")
+	 * 
 	 */
+	
+	@Ensures ("width == 13")
 	public int getWidth(){
 		return width;
 	}
 	/**
 	 * Return the integer of height
-	 * @Ensures ("height == 14")
+	 * 
 	 */
+	@Ensures ("height == 14")
 	public int getHeight(){
 		return height;
 	}

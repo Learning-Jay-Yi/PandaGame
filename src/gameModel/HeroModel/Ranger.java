@@ -1,6 +1,9 @@
 package gameModel.HeroModel;
 
 import gameModel.FactoryModel.HeroFactory;
+
+import com.google.java.contract.Invariant;
+
 import gameModel.PlayerType;
 
 /**
@@ -8,6 +11,7 @@ import gameModel.PlayerType;
  * @version 1.2
  * @since 2018/5/17
  */
+@Invariant("heroType == RANGER")
 public class Ranger extends Hero {
 
     private int width;
@@ -16,7 +20,8 @@ public class Ranger extends Hero {
     HeroFactory heroFactory;
     int spawnY;
     HeroType heroType = HeroType.RANGER;
-
+    
+  
     public Ranger(HeroFactory heroFactory, PlayerType playerType, int width, int height, int spawnY) {
         this.width = width;
         this.height = height;

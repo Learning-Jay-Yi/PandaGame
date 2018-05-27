@@ -8,6 +8,9 @@ import javafx.scene.Group;
 import java.util.ArrayList;
 import java.util.Random;
 
+import com.google.java.contract.Ensures;
+import com.google.java.contract.Requires;
+
 
 /**
  *
@@ -34,6 +37,7 @@ public class TileController {
 	 * @Requires ("height == 14")
 	 * @Requires ("size == 50")
 	 */
+	@Ensures("width != null, height != null, tileSize != null, processController != null")
 	public TileController(int width, int height, int size, ProcessController process){
 		this.boardWidth = width;
 		this.boardHeight = height;
@@ -47,6 +51,8 @@ public class TileController {
 	 * @Requires ("tileViewsArrayList != null")
 	 * @Ensure ("group !=null")
 	 */
+	@Requires("heroViewArrayList != null && tileViewsArrayList != null")
+	@Ensures("group != null")
 	public Group createTiles(ArrayList<HeroView> heroViewArrayList, TileView[][] tileViewsArrayList){
 		Group group = new Group();
 

@@ -1,6 +1,10 @@
 package gameModel.Parts;
 
 import gameModel.HeroModel.HeroType;
+
+import com.google.java.contract.Ensures;
+import com.google.java.contract.Invariant;
+
 import gameModel.PlayerType;
 
 /**
@@ -8,6 +12,7 @@ import gameModel.PlayerType;
  * @version 1.0
  * @since 2018/5/17
  */
+
 public class SkillForAttack implements PartsSkills {
     private int skillType = 1;
 //    private int attackRange = 2;
@@ -138,16 +143,19 @@ public class SkillForAttack implements PartsSkills {
         this.bUsed = useSkill;
     }
 
+    @Ensures("skillType == 1")
     @Override
     public int getSkillType() {
         return skillType;
     }
 
+    @Ensures("validX != null")
     @Override
     public int[] getValidX() {
         return validX;
     }
 
+    @Ensures("validY != null")
     @Override
     public int[] getValidY() {
         return validY;

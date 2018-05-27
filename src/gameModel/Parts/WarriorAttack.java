@@ -1,6 +1,9 @@
 package gameModel.Parts;
 
 import gameModel.HeroModel.HeroType;
+
+import com.google.java.contract.Ensures;
+
 import gameModel.PlayerType;
 
 /**
@@ -60,16 +63,19 @@ public class WarriorAttack implements PartsAttack {
         }
     }
 
+    @Ensures("validX != null")
     @Override
     public int[] getValidX() {
         return validX;
     }
 
+    @Ensures("validY != null")
     @Override
     public int[] getValidY() {
         return validY;
     }
 
+    @Ensures("heroType == WARRIOR")
     @Override
     public HeroType getHeroType() {
         return heroType;

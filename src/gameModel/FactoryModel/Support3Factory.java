@@ -1,5 +1,7 @@
 package gameModel.FactoryModel;
 
+import com.google.java.contract.Invariant;
+
 import gameModel.Parts.*;
 
 /**
@@ -7,6 +9,7 @@ import gameModel.Parts.*;
  * @version 1.2
  * @since 2018/5/17
  */
+@Invariant("factoryNumber != null")
 public class Support3Factory implements HeroFactory{
     private int factoryNumber =3;
 

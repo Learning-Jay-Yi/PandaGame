@@ -2,7 +2,7 @@ package gameController.Controller;
 
 import java.util.ArrayList;
 
-import gameController.Controller.ProcessController;
+import gameController.Controller.Caretaker;
 import gameModel.MoveBlock;
 import gameModel.HeroModel.Hero;
 import gameModel.HeroModel.HeroType;
@@ -17,7 +17,7 @@ import javafx.stage.Stage;
  * @author Yu Liu
  * @version 1.3
  * @since 20/05/208
- *	
+ *
  * set actions to action buttons 1
  *
  */
@@ -29,7 +29,7 @@ public class ActionButtonController {
 	private HeroView heroView;
 	private ArrayList<HeroView> heroViews;
 	private TileView[][] tileArray;
-	private ProcessController processController;
+	private Caretaker processController;
 	private boolean useSkill;
 	private int skillNum;
 
@@ -38,7 +38,7 @@ public class ActionButtonController {
 	private Button moveBtn;
 
 
-	public ActionButtonController(Hero hero, HeroView heroView, ArrayList<HeroView> heroViews, TileView[][] tileArray, ProcessController processController, ActionSelectWindow action){
+	public ActionButtonController(Hero hero, HeroView heroView, ArrayList<HeroView> heroViews, TileView[][] tileArray, Caretaker processController, ActionSelectWindow action){
 		this.hero = hero;
 		this.heroView = heroView;
 		this.heroViews = heroViews;
@@ -122,8 +122,6 @@ public class ActionButtonController {
 				}
 			}
 
-			processController.createNewLog(heroView.getPlayerType(),heroView.getRoleType(), hero,
-					heroView.getLocX(),heroView.getLocY());
 			action.getWindow().close();
 		});
 	}
@@ -166,7 +164,8 @@ public class ActionButtonController {
 				tileArray[x][y].canMove();
 			}
 
-			processController.createNewLog(heroView.getPlayerType(),heroView.getRoleType(), hero,
+
+			Originator.getInstance().createNewLog(heroView.getPlayerType(),heroView.getRoleType(), hero,
 					heroView.getLocX(),heroView.getLocY());
 
 			action.getWindow().close();

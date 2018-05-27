@@ -41,8 +41,8 @@ public class MainController {
 
 	private TileController tileController;
 	private HeroController heroController;
-	private ProcessController processController;
-
+	private Caretaker processController;
+	private UndoController undo;
 	private MenuView menu;
 	//private TimerView timer;
 	//private Observable time;
@@ -66,7 +66,8 @@ public class MainController {
 
 		menu = new MenuView();
 
-		processController = new ProcessController(menu); // for undo button
+		processController = new Caretaker();
+		undo = new UndoController(menu, processController); // for undo button
 
 		tileController = new TileController(WIDTH, HEIGHT, TILE_SIZE, processController);
 		heroController = new HeroController(WIDTH, HEIGHT, TILE_SIZE, processController);
@@ -81,7 +82,8 @@ public class MainController {
 
 		gameFrame = new FrameView(gameBoard.displayBoard(), menu.getMenuBar(), ((TimerView) TimerView.getInstance()).getTimer());
 
-		processController.undo(tileArray, heroArray);
+		//processController.undo(tileArray, heroArray);
+		undo.undo(tileArray, heroArray);
 
 	}
 

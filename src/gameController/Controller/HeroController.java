@@ -28,10 +28,10 @@ import com.google.java.contract.Requires;
 public class HeroController
 {
 	private int width, height, tileSize;
-	private ProcessController processController;
+	private Caretaker processController;
 
 	@Ensures("width != null, height != null, tileSize != null, processController != null")
-	public HeroController(int width, int height, int tileSize, ProcessController process)
+	public HeroController(int width, int height, int tileSize, Caretaker process)
 	{
 		this.width = width;
 		this.height = height;
@@ -54,13 +54,13 @@ public class HeroController
 		ArrayList<Hero> heroes = new ArrayList<>();
 
 
-		
+
 		/**
 		 * list add new warrior that with plyaerType
 		 * @Requires("r.length <= 9") the maximum number of heroes in the hero pool is 9
 		 */
 
-	
+
 		for (int i = 0; i < testData.size(); i++) {
 			HeroBuilder heroBuilder = new HeroBuilder();
 			Hero hero;
@@ -174,7 +174,7 @@ public class HeroController
 						// respawn this hero to support location
 						tileArray[supportCurX][supportCurY].setHeroView(canReviveHero);
 
-						processController.createNewLog(heroView.getPlayerType(),heroView.getRoleType(), hero,
+						Originator.getInstance().createNewLog(heroView.getPlayerType(),heroView.getRoleType(), hero,
 								heroView.getLocX(),heroView.getLocY());
 
 					}else {
@@ -197,7 +197,7 @@ public class HeroController
 								for(int i = 0; i < heroArray.size(); i++)
 									heroArray.get(i).setDefault();
 							}
-							processController.createNewLog(heroView.getPlayerType(),heroView.getRoleType(), hero,
+							Originator.getInstance().createNewLog(heroView.getPlayerType(),heroView.getRoleType(), hero,
 									heroView.getLocX(),heroView.getLocY());
 						}
 

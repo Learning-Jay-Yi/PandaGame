@@ -161,18 +161,18 @@ public class HeroController
 										canReviveHero.setVisible(true);
 										canReviveHero.move(supportCurX,supportCurY);
 										heroView.setStatus(false);
+										// respawn the hero
+										// make the support die
+										heroView.setVisible(false);
+										// respawn this hero to support location
+										tileArray[supportCurX][supportCurY].setHeroView(canReviveHero);
 										break;
 									}
 								}
 							}
 						}
 
-						// respawn the hero
-//						int supportCurX = heroView.getLocX(), supportCurY = heroView.getLocY();
-						// make the support die
-						heroView.setVisible(false);
-						// respawn this hero to support location
-						tileArray[supportCurX][supportCurY].setHeroView(canReviveHero);
+
 
 						Originator.getInstance().createNewLog(heroView.getPlayerType(),heroView.getRoleType(), hero,
 								heroView.getLocX(),heroView.getLocY());

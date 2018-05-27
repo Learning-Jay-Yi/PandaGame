@@ -25,7 +25,7 @@ public class TileController {
 	private int boardWidth;
 	private int boardHeight;
 	private int tileSize;
-	private ProcessController processController;
+	private Caretaker processController;
 
 	private Random random = new Random();
 	private int[] x;
@@ -38,7 +38,7 @@ public class TileController {
 	 * @Requires ("size == 50")
 	 */
 	@Ensures("width != null, height != null, tileSize != null, processController != null")
-	public TileController(int width, int height, int size, ProcessController process){
+	public TileController(int width, int height, int size, Caretaker process){
 		this.boardWidth = width;
 		this.boardHeight = height;
 		this.tileSize = size;
@@ -94,7 +94,8 @@ public class TileController {
 
 
 								TurnChecker.getInstance().inCount();
-								processController.updateNewLog(tileView.getLocX(), tileView.getLocY());
+								Originator.getInstance().updateNewLog(tileView.getLocX(), tileView.getLocY());
+								processController.addMemento(Originator.getInstance().getMemento());
 
 								tileViewsArrayList[oldX][oldY].setHeroView(null);
 								tileView.setHeroView(heroViewArrayList.get(i));

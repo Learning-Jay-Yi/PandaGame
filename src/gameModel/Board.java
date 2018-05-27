@@ -20,6 +20,9 @@ public class Board {
 	 * initial board with height =14, tileSize = 50, width = 13
 	 */
 	public Board(){
+		this.height = 14;
+		this.tile_size = 50;
+		this.width = 13;
 	}
 	/**
 	 * Return the integer of tile size*/
@@ -29,16 +32,16 @@ public class Board {
 	}
 	/**
 	 * Return the integer of width
-	 * 
+	 *
 	 */
-	
+
 	@Ensures ("width == 13")
 	public int getWidth(){
 		return width;
 	}
 	/**
 	 * Return the integer of height
-	 * 
+	 *
 	 */
 	@Ensures ("height == 14")
 	public int getHeight(){

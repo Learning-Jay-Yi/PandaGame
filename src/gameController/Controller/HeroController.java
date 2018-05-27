@@ -14,6 +14,8 @@ import javafx.scene.input.MouseEvent;
 import java.io.*;
 import java.util.ArrayList;
 
+import com.google.java.contract.Ensures;
+
 /**
  * Purpose: split out from main controller to suit for Single responsibility principle
  * @author 		Jie Yi
@@ -37,8 +39,8 @@ public class HeroController
 
 	/**
 	 * initial hero group
-	 * @Ensures ("Group hero !=null")
 	 */
+	@Ensures("Group hero !=null")
 	public Group createHeros(ArrayList<HeroView> heroArray,TileView[][] tileArray){
 
 		ArrayList<String> testData = new ArrayList<>();

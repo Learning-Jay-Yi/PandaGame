@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 
 public class GameFrame extends Application{
 
+	// start
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 

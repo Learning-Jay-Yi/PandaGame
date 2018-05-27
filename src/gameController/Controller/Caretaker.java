@@ -16,8 +16,8 @@ import java.util.TimerTask;
  * @since 04/05/2018
  *
  * Description:
- * ProcessController is to manipulate GameLog: create and save new GameLog,
- * processController is part of Memento pattern
+ * Caretaker is to manipulate GameLog: create and save new GameLog,
+ * Caretaker is part of Memento pattern
  */
 
 

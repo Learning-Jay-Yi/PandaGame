@@ -2,7 +2,7 @@ package gameModel;
 
 /**
  * @author 		Dario
- * @version		1.2
+ * @version		1.4
  * @since		1.0
  *
  * Description:

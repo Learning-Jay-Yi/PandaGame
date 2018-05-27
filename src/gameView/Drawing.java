@@ -6,7 +6,7 @@ import javafx.scene.shape.Shape;
 /**
  *
  * @author Yu Liu
- * @version 1.0
+ * @version 1.3
  * @since 14/05/2018
  *
  * Drawing interface is part of Bridge Pattern,

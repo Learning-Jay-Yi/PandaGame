@@ -6,7 +6,7 @@ import gameModel.HeroModel.HeroType;
 /**
  *
  * @author Vincent
- * @version 1.0
+ * @version 1.3
  * @since 04/05/2018
  *
  * Description:

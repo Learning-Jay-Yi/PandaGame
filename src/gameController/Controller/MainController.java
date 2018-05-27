@@ -14,7 +14,7 @@ import gameController.PreStartGame.HeroPoolController;
 
 /**
  * @author 		Dario
- * @version		1.6
+ * @version		1.7
  * @since		28/04/2018
  *
  * Description:

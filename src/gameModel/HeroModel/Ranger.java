@@ -5,7 +5,7 @@ import gameModel.PlayerType;
 
 /**
  * @author Jay
- * @version 1.0
+ * @version 1.2
  * @since 2018/5/17
  */
 public class Ranger extends Hero {

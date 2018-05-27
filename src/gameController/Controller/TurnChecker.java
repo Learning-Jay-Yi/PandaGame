@@ -12,7 +12,7 @@ import gameView.MainView.TurnView;
 /**
  *
  * @author 		Jie Yi
- * @version		1.2
+ * @version		1.4
  * @since		1.0
  *
  * Description:

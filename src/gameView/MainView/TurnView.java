@@ -6,7 +6,7 @@ import javafx.scene.text.Text;
 /**
  *
  * @author Dario
- * @version 1.2
+ * @version 1.4
  * @since 20/05/2018
  *
  * it shows the current turn belongs to who. it only shows after when first move done.

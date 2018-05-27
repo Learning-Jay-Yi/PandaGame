@@ -7,7 +7,7 @@ import javafx.scene.shape.*;
 /**
  *
  * @author Yu Liu
- * @version 1.3
+ * @version 1.4
  * @since 13/05/2018
  *
  *

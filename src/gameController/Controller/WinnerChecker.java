@@ -9,6 +9,7 @@ import gameView.PopUpView.WinerView;
 /**
  *
  * @author Dario
+ * @version 1.6
  *
  */
 public class WinnerChecker {

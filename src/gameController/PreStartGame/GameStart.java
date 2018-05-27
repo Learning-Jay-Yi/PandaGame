@@ -9,6 +9,7 @@ import javafx.collections.ObservableList;
 /**
  *
  * @author Dario
+ * @version 1.5
  *
  */
 public class GameStart {

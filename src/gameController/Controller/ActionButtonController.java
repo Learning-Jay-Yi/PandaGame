@@ -18,7 +18,7 @@ import javafx.stage.Stage;
  * @version 1.3
  * @since 20/05/208
  *	
- * set actions to action buttons
+ * set actions to action buttons 1
  *
  */
 public class ActionButtonController {

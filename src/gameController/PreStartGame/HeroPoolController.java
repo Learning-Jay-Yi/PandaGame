@@ -7,6 +7,7 @@ import javafx.collections.ObservableList;
 /**
  *
  * @author Dario
+ * @version 1.4
  *
  */
 public class HeroPoolController {

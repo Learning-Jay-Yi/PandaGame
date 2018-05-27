@@ -6,7 +6,7 @@ import javafx.beans.property.SimpleStringProperty;
 /**
  *
  * @author Yu Liu
- * @version 1.0
+ * @version 1.3
  * @since 16/05/2018
  *
  * hero pool is model to show available heros

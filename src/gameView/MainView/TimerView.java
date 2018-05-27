@@ -11,7 +11,7 @@ import javafx.scene.layout.HBox;
 /**
  *
  * @author Yu Liu
- * @version 1.0
+ * @version 1.3
  * @since 16/05/2018
  *
  * it shows count down timer at each turn.

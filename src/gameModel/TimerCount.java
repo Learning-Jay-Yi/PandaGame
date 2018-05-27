@@ -8,7 +8,7 @@ import gameView.Observer;
 /**
  *
  * @author Yu Liu
- * @version 1.1
+ * @version 1.3
  * @since 16/05/2018
  *
  * Timer is used to count down at each turn

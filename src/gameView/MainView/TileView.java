@@ -7,6 +7,8 @@ import javafx.scene.shape.Rectangle;
 /**
  *
  * @author Jie Yi
+ * @version 1.3
+ * @since 23/04/2018
  *
  */
 public class TileView extends Rectangle{

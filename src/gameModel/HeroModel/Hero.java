@@ -4,7 +4,7 @@ import gameModel.Parts.*;
 
 /**
  * @author Jay
- * @version 1.0
+ * @version 1.2
  * @since 2018/5/14
  */
 public abstract class Hero {

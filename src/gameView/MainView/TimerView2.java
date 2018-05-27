@@ -13,7 +13,7 @@ import javafx.scene.text.Text;
 /**
  *
  * @author Dario
- * @version 1.5
+ * @version 1.3
  * @since 13/05/2018
  *
  * it shows remaining time and change at every 30 second

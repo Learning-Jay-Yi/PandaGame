@@ -16,7 +16,7 @@ import java.util.TimerTask;
 /**
  *
  * @author Vincent
- * @version 1.4
+ * @version 1.5
  * @since 04/05/2018
  *
  * Description:

@@ -12,7 +12,7 @@ import java.util.Random;
 /**
  *
  * @author 		Jie Yi
- * @version		1.3
+ * @version		1.4
  * @since		1.0
  *
  * Description:

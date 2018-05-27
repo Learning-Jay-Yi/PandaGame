@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 /**
  *
  * @author Yu Liu
- * @version 1.0
+ * @version 1.3
  * @since 13/05/2018
  *
  * OptionView is a GUI to let player select game type and pick heros

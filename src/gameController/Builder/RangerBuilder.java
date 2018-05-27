@@ -12,6 +12,7 @@ import gameModel.PlayerType;
  *
  * Description: this class is to identify what the spacial skill need to add to hero,
  *              also, use the Spawn Y to relocate the first Y
+ *              1
  */
 public class RangerBuilder extends HeroBuilder {
 

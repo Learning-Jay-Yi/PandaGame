@@ -4,7 +4,7 @@ import gameModel.Parts.*;
 
 /**
  * @author Jay
- * @version 1.0
+ * @version 1.2
  * @since 2018/5/17
  */
 public class Ranger1Factory implements HeroFactory{

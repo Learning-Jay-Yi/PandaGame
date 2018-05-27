@@ -24,7 +24,7 @@ import java.util.stream.Stream;
 /**
  *
  * @author Yu Liu
- * @version 1.0
+ * @version 1.4
  * @since 14/05/2018
  *
  */

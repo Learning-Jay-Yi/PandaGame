@@ -6,7 +6,7 @@ import gameView.MainView.TileView;
 /**
  *
  * @author Dario
- * @version 1.3
+ * @version 1.4
  * @since 22/05/2018
  *
  * check is there a mountain block the move

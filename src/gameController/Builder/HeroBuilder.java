@@ -10,6 +10,7 @@ import gameModel.HeroModel.Hero;
  *
  * Description: this class use to receive the order from the player pick hero
  *              and send it to different factories to create hero.
+ *              1
  */
 public class HeroBuilder {
 

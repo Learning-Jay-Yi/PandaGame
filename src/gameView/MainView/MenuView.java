@@ -6,7 +6,7 @@ import javafx.scene.layout.HBox;
 /**
  *
  * @author Vincent
- * @version 1.0
+ * @version 1.4
  * @since 07/05/2018
  *
  * Description:

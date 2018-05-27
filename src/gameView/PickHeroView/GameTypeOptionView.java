@@ -8,7 +8,7 @@ import javafx.scene.layout.HBox;
 /**
  *
  * @author Yu Liu
- * @version 1.0
+ * @version 1.3
  * @since 12/05/2018
  *
  * GameTypeOptionView has 2 radio buttons: Normal and Obstacles Game

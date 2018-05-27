@@ -15,6 +15,7 @@ import gameModel.PlayerType;
  * @since 2018/5/19
  * Description: this class is to identify what the spacial skill need to add to hero,
  *              also, use the Spawn Y to relocate the first Y
+ *              1
  */
 public class WarriorBuilder extends HeroBuilder {
 

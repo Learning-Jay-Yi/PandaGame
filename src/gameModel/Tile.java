@@ -3,7 +3,7 @@ package gameModel;
 /**
  *
  * @author Yu Liu
- * @version 1.0
+ * @version 1.2
  * @since 12/05/2018
  *
  *

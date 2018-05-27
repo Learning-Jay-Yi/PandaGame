@@ -19,7 +19,7 @@ import javafx.util.Callback;
 /**
  *
  * @author Yu Liu
- * @version 1.0
+ * @version 1.3
  * @since 15/05/2018
  *
  * HeroPickView include all hero types, and 2 players' containers which are going to save the hero picked

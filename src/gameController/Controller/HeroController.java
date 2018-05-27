@@ -17,7 +17,7 @@ import java.util.ArrayList;
 /**
  * Purpose: split out from main controller to suit for Single responsibility principle
  * @author 		Jie Yi
- * @version 	1.2
+ * @version 	1.4
  * @since 		1.0
  * last update date: 11/04/2018
  */

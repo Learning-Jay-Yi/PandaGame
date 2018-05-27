@@ -2,6 +2,7 @@ package gameView.HeroView;
 
 import gameModel.*;
 import gameModel.HeroModel.HeroType;
+import gameView.BridgePattern.ShapeBridge;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Shape;

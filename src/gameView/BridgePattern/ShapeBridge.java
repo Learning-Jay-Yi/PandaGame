@@ -1,8 +1,8 @@
-package gameView.HeroView;
+package gameView.BridgePattern;
 
 import gameModel.HeroModel.HeroType;
 import gameModel.PlayerType;
-import javafx.scene.shape.*;
+import javafx.scene.shape.Shape;
 
 /**
  *
@@ -13,8 +13,6 @@ import javafx.scene.shape.*;
  *
  */
 public class ShapeBridge {
-
-	private Shape shape;
 	private HeroType role;
 	private PlayerType player;
 	private int size;
@@ -24,14 +22,13 @@ public class ShapeBridge {
 		this.player = p;
 	}
 
-
 	public Shape draw(){
 		if(role == HeroType.WARRIOR)
-			return new HeroShape(size, player, new WarriorShape()).draw();
+			return new WarriorShape(size, player, new DrawingWarriorAPI()).draw();
 		else if(role == HeroType.SUPPORT)
-			return new HeroShape(size, player, new SupportShape()).draw();
+			return new SupportShape(size, player, new DrawingSupportAPI()).draw();
 		else if(role == HeroType.RANGER)
-			return new HeroShape(size, player, new RangerShape()).draw();
+			return new RangerShape(size, player, new DrawingRangerAPI()).draw();
 		else
 			return null;
 	}

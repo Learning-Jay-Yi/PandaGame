@@ -1,11 +1,9 @@
-package gameView.HeroView;
+package gameView.BridgePattern;
 
 import gameModel.PlayerType;
-import gameView.Drawing;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
-import javafx.scene.shape.Arc;
 import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.Shape;
 
@@ -16,13 +14,14 @@ import javafx.scene.shape.Shape;
 * @since 14/05/2018
 *
 */
-public class SupportShape implements Drawing {
+public class DrawingWarriorAPI implements DrawingAPI {
 
 	@Override
 	public Shape drawShape(int size, PlayerType p) {
 
-		Image red = new Image("file:redSupport.jpg");
-		Image blue = new Image("file:BlueSupport.jpg");
+
+		Image red = new Image("file:redWarrior.jpg");
+		Image blue = new Image("file:BlueWarrior.jpg");
 
 		Shape shape = new Ellipse(size * 0.4, size * 0.4);
 
@@ -34,8 +33,7 @@ public class SupportShape implements Drawing {
 		shape.setTranslateX((size - size * 0.4 * 2 ) / 2);
 		shape.setTranslateY((size - size * 0.4 * 2) / 2 + size * 0.07);
 
-
-
 		return shape;
 	}
+
 }

@@ -1,4 +1,4 @@
-package gameView;
+package gameView.BridgePattern;
 
 import gameModel.PlayerType;
 import javafx.scene.shape.Shape;
@@ -9,10 +9,10 @@ import javafx.scene.shape.Shape;
  * @version 1.3
  * @since 14/05/2018
  *
- * Drawing interface is part of Bridge Pattern,
+ * DrawingAPI interface is part of Bridge Pattern,
  *
  *
  */
-public interface Drawing {
+public interface DrawingAPI {
 	public Shape drawShape(int size, PlayerType p);
 }
